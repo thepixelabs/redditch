@@ -96,7 +96,7 @@ export function Footer() {
 
               <li>
                 <ExternalLink
-                  href="https://github.com/redditch"
+                  href="https://github.com/thepixelabs/redditch"
                   className="text-[12px]"
                 >
                   Contribute on GitHub
