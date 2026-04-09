@@ -63,25 +63,40 @@ export default function HomeClient({ bikes }: HomeClientProps) {
   if (savedBike) return null
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: 'calc(100vh - 120px)', padding: '0 0 80px' }}>
-      <div style={{ width: '100%', maxWidth: '480px', padding: '0 24px' }}>
+    <div
+      className="garage-wall"
+      style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: 'calc(100vh - 120px)', padding: '0 0 80px' }}
+    >
+      {/* Edison spotlight glow from top */}
+      <div className="spotlight" aria-hidden="true" />
 
-        {/* ── Greeting ── */}
+      <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '480px', padding: '0 24px' }}>
+
+        {/* ── Hero: Neon logo + wordmark ── */}
         {step === 'platform' && (
-          <header style={{ paddingTop: '40px', paddingBottom: '32px' }}>
-            <h1 style={{ fontFamily: 'var(--font-display, serif)', fontSize: '28px', fontWeight: 700, color: '#C8962C', margin: '0 0 6px', lineHeight: 1.2 }}>
-              Welcome to Redditch
-            </h1>
-            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', margin: '0 0 20px', lineHeight: 1.5 }}>
-              Your Royal Enfield service companion
-            </p>
-            <div aria-hidden="true" style={{ width: '48px', height: '2px', backgroundColor: '#C8962C', borderRadius: '1px' }} />
+          <header style={{ paddingTop: '48px', paddingBottom: '36px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', textAlign: 'center' }}>
+            {/* RE neon sign */}
+            <img
+              src="/images/re-neon-logo.jpg"
+              alt="Royal Enfield"
+              className="neon-logo"
+              style={{ width: '140px', height: '140px', borderRadius: '50%', objectFit: 'cover', display: 'block' }}
+            />
+
+            {/* Wordmark */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+              <h1 className="wordmark-hero">REDDITCH</h1>
+              <p className="tagline">Your Royal Enfield service companion</p>
+            </div>
+
+            {/* Gold rule */}
+            <div aria-hidden="true" style={{ width: '64px', height: '2px', background: 'linear-gradient(90deg, transparent, var(--re-gold), transparent)', borderRadius: '1px' }} />
           </header>
         )}
 
         {/* ── Back button ── */}
         {step !== 'platform' && (
-          <div style={{ paddingTop: '24px', paddingBottom: '8px' }}>
+          <div style={{ paddingTop: '28px', paddingBottom: '8px' }}>
             <button
               onClick={handleBack}
               aria-label="Go back to previous step"
@@ -108,8 +123,8 @@ export default function HomeClient({ bikes }: HomeClientProps) {
 
         {/* ── Step: Model ── */}
         {step === 'model' && selectedPlatform && (
-          <section aria-label="Select your model">
-            <h2 style={{ fontFamily: 'var(--font-display, serif)', fontSize: '18px', fontWeight: 600, color: 'var(--text-primary)', margin: '0 0 16px' }}>
+          <section aria-label="Select your model" style={{ paddingTop: '8px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display, serif)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--re-gold)', margin: '0 0 16px' }}>
               Select your model
             </h2>
             <ModelCards
@@ -123,9 +138,9 @@ export default function HomeClient({ bikes }: HomeClientProps) {
 
         {/* ── Step: Odometer ── */}
         {step === 'odometer' && selectedSlug && (
-          <section aria-label="Enter your odometer reading">
-            <h2 style={{ fontFamily: 'var(--font-display, serif)', fontSize: '18px', fontWeight: 600, color: 'var(--text-primary)', margin: '0 0 8px' }}>
-              What&apos;s your odometer reading?
+          <section aria-label="Enter your odometer reading" style={{ paddingTop: '8px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display, serif)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--re-gold)', margin: '0 0 8px' }}>
+              Odometer reading
             </h2>
             <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: '0 0 24px', lineHeight: 1.5 }}>
               Enter your current mileage and we&apos;ll calculate exactly what&apos;s due.
