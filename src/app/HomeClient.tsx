@@ -80,7 +80,7 @@ export default function HomeClient({ bikes }: HomeClientProps) {
               src="/images/re-neon-logo.jpg"
               alt="Royal Enfield"
               className="neon-logo"
-              style={{ width: '140px', height: '140px', borderRadius: '50%', objectFit: 'cover', display: 'block' }}
+              style={{ width: '200px', height: '200px', display: 'block', mixBlendMode: 'screen' }}
             />
 
             {/* Wordmark */}
