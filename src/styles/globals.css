@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── RE Brand CSS Custom Properties ──────────────────────────────────────── */
+:root {
+  /* Colours */
+  --re-red:         #B5121B;
+  --re-red-deep:    #7B0D1E;
+  --re-black:       #1A1A1A;
+  --re-surface:     #242424;
+  --re-gold:        #C8962C;
+  --re-gold-muted:  #9E7F3C;
+  --re-cream:       #F5ECD7;
+  --re-cream-warm:  #EDE0C8;
+  --re-silver:      #B0B3B8;
+  --re-gunmetal:    #4A4A4A;
+
+  /* Light mode semantic tokens */
+  --bg:             var(--re-cream);
+  --bg-surface:     var(--re-cream-warm);
+  --text-primary:   var(--re-black);
+  --text-secondary: var(--re-gunmetal);
+  --text-muted:     var(--re-silver);
+  --border:         var(--re-gold-muted);
+  --accent:         var(--re-red);
+  --accent-hover:   var(--re-red-deep);
+
+  /* Urgency (light mode) */
+  --urgency-good:   #16a34a;
+  --urgency-soon:   #b45309;
+  --urgency-over:   var(--re-red);
+}
+
+.dark {
+  --bg:             var(--re-black);
+  --bg-surface:     var(--re-surface);
+  --text-primary:   #F0EDE8;
+  --text-secondary: var(--re-silver);
+  --text-muted:     var(--re-gunmetal);
+  --border:         var(--re-gunmetal);
+  --accent:         var(--re-red);
+  --accent-hover:   var(--re-red-deep);
+
+  /* Urgency (dark mode) */
+  --urgency-good:   #22c55e;
+  --urgency-soon:   #E6A817;
+  --urgency-over:   #FF4D4D;
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display), Georgia, serif;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+code, .spec-value {
+  font-family: var(--font-mono), monospace;
+}
+
+/* ─── Focus visible ───────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--re-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Skip nav ────────────────────────────────────────────────────────────── */
+.skip-nav {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--re-red);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 9999;
+  transition: top 0.1s;
+}
+.skip-nav:focus {
+  top: 0;
+}
+
+/* ─── Splash Screen ───────────────────────────────────────────────────────── */
+.splash-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--re-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  animation: splashFade 2.2s ease-in-out forwards;
+}
+
+.splash-ring {
+  stroke-dasharray: 502;
+  stroke-dashoffset: 502;
+  animation: ringExpand 1.4s ease-out 0.2s forwards;
+}
+
+@keyframes splashFade {
+  0%, 65%  { opacity: 1; pointer-events: all; }
+  100%     { opacity: 0; pointer-events: none; }
+}
+
+@keyframes ringExpand {
+  0%   { stroke-dashoffset: 502; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* ─── Gauge ───────────────────────────────────────────────────────────────── */
+.gauge-fill {
+  transition: stroke-dasharray 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gauge-needle {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Overdue pulse — draws the eye without being aggressive.
+   Pulses the opacity of the fill arc so the empty ring breathes. */
+@keyframes gaugeOverduePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+.gauge-overdue-pulse {
+  animation: gaugeOverduePulse 2.4s ease-in-out infinite;
+}
+
+/* ─── Collapsible (Radix) — smooth height transitions ─────────────────────── */
+/* Radix Collapsible exposes --radix-collapsible-content-height as a CSS var.
+   We animate from 0 → natural height on open, and reverse on close.
+   The overflow:hidden is set on the Collapsible.Content element directly.    */
+@keyframes collapsibleDown {
+  from { height: 0; opacity: 0; }
+  to   { height: var(--radix-collapsible-content-height); opacity: 1; }
+}
+@keyframes collapsibleUp {
+  from { height: var(--radix-collapsible-content-height); opacity: 1; }
+  to   { height: 0; opacity: 0; }
+}
+
+[data-state='open']  > .collapsible-inner { animation: collapsibleDown 250ms ease; }
+[data-state='closed'] > .collapsible-inner { animation: collapsibleUp   250ms ease; }
+
+/* ─── Reduced Motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .splash-container { animation: none; }
+  .splash-ring      { animation: none; stroke-dashoffset: 0; }
+  .gauge-fill       { transition: none; }
+  .gauge-needle     { transition: none; }
+  *                 { animation-duration: 0.01ms !important;
+                      transition-duration: 0.01ms !important; }
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb { background: var(--re-gunmetal); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--re-gold-muted); }
+
+/* ─── Utility: stat bar separator ───────────────────────────────────────── */
+.stat-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border);
+  display: inline-block;
+  vertical-align: middle;
+}

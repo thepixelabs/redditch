@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      /* Default: dark mode (most motorcycle apps skew dark) */
+      .bg   { fill: #1A1A1A; }
+      .ring { stroke: #C8962C; }
+      .text { fill: #C8962C; }
+
+      @media (prefers-color-scheme: light) {
+        .bg   { fill: #F5ECD7; }
+        .ring { stroke: #B5121B; }
+        .text { fill: #1A1A1A; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="50" class="bg"/>
+
+  <!-- Gold/red ring -->
+  <circle cx="50" cy="50" r="44" fill="none" class="ring" stroke-width="3"/>
+
+  <!-- RE monogram -->
+  <text
+    x="50" y="64"
+    text-anchor="middle"
+    font-family="Georgia, serif"
+    font-size="38"
+    font-weight="700"
+    letter-spacing="-2"
+    class="text"
+  >RE</text>
+</svg>

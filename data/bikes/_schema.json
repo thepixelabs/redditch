@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://redditch.app/schemas/bike.json",
+  "title": "BikeSpec",
+  "description": "Schema for a Royal Enfield motorcycle service specification file",
+  "type": "object",
+  "required": ["slug", "name", "manufacturer", "engine", "service_schedule"],
+  "additionalProperties": false,
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "URL-safe identifier for the bike"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable bike model name"
+    },
+    "manufacturer": {
+      "type": "string",
+      "const": "Royal Enfield",
+      "description": "Must be Royal Enfield"
+    },
+    "year_range": {
+      "type": "string",
+      "description": "Production year range, e.g. '2019+' or '2019-2023'"
+    },
+    "engine": {
+      "type": "object",
+      "required": ["displacement_cc", "type", "oil_type", "oil_capacity_liters"],
+      "additionalProperties": false,
+      "properties": {
+        "displacement_cc": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Engine displacement in cubic centimetres"
+        },
+        "type": {
+          "type": "string",
+          "description": "Engine configuration, e.g. 'Parallel-twin, air/oil-cooled, SOHC 4-valve'"
+        },
+        "oil_type": {
+          "type": "string",
+          "description": "Recommended engine oil specification"
+        },
+        "oil_capacity_liters": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Engine oil capacity in litres (without filter change)"
+        },
+        "oil_capacity_with_filter_liters": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Engine oil capacity in litres when filter is also replaced"
+        },
+        "coolant_type": {
+          "type": "string",
+          "description": "Coolant specification, if liquid-cooled"
+        },
+        "coolant_capacity_liters": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Coolant system capacity in litres"
+        },
+        "spark_plug": {
+          "type": "string",
+          "description": "OEM spark plug part number / designation"
+        },
+        "valve_clearance_intake_mm": {
+          "type": "string",
+          "description": "Intake valve clearance range in mm, e.g. '0.10-0.15'"
+        },
+        "valve_clearance_exhaust_mm": {
+          "type": "string",
+          "description": "Exhaust valve clearance range in mm, e.g. '0.15-0.20'"
+        }
+      }
+    },
+    "brakes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "front_type": {
+          "type": "string",
+          "description": "Front brake specification"
+        },
+        "rear_type": {
+          "type": "string",
+          "description": "Rear brake specification"
+        },
+        "brake_fluid": {
+          "type": "string",
+          "description": "Required brake fluid specification"
+        }
+      }
+    },
+    "tires": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "front": {
+          "type": "string",
+          "description": "Front tire size, e.g. '100/90-18 56H'"
+        },
+        "rear": {
+          "type": "string",
+          "description": "Rear tire size, e.g. '130/70-18 63H'"
+        },
+        "pressure_front_psi": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Recommended front tire pressure in PSI (solo rider)"
+        },
+        "pressure_rear_psi": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Recommended rear tire pressure in PSI (solo rider)"
+        },
+        "pressure_rear_pillion_psi": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Recommended rear tire pressure in PSI (with pillion passenger)"
+        }
+      }
+    },
+    "chain": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Chain specification, e.g. '520 O-ring'"
+        },
+        "slack_mm": {
+          "type": "string",
+          "description": "Acceptable chain slack range in mm, e.g. '15-25'"
+        },
+        "lubricant": {
+          "type": "string",
+          "description": "Recommended chain lubricant"
+        }
+      }
+    },
+    "service_schedule": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Ordered list of service intervals",
+      "items": {
+        "type": "object",
+        "required": ["interval_km", "label", "tasks"],
+        "additionalProperties": false,
+        "properties": {
+          "interval_km": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Odometer interval at which this service is due"
+          },
+          "label": {
+            "type": "string",
+            "description": "Human-readable name for this service interval"
+          },
+          "tasks": {
+            "type": "array",
+            "minItems": 1,
+            "description": "List of tasks to perform at this service interval",
+            "items": {
+              "type": "object",
+              "required": ["name"],
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the service task"
+                },
+                "action": {
+                  "type": "string",
+                  "enum": ["replace", "inspect", "adjust", "clean", "lubricate", "top_up"],
+                  "description": "Type of action to perform"
+                },
+                "torque_nm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "description": "Torque value in Newton-metres for relevant fastener"
+                },
+                "part_number": {
+                  "type": "string",
+                  "description": "OEM or aftermarket part number"
+                },
+                "part_name": {
+                  "type": "string",
+                  "description": "Human-readable part name"
+                },
+                "tools": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "List of tools required for this task"
+                },
+                "notes": {
+                  "type": "string",
+                  "description": "Additional guidance or warnings for this task"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "torque_specs": {
+      "type": "array",
+      "description": "Reference torque specifications for key fasteners",
+      "items": {
+        "type": "object",
+        "required": ["component", "torque_nm"],
+        "additionalProperties": false,
+        "properties": {
+          "component": {
+            "type": "string",
+            "description": "Name of the fastener or component"
+          },
+          "torque_nm": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Torque value in Newton-metres"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional context or conditions"
+          }
+        }
+      }
+    },
+    "manuals": {
+      "type": "array",
+      "description": "Links to official documentation",
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Document title"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the document"
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "last_verified": {
+          "type": "string",
+          "format": "date",
+          "description": "ISO 8601 date when this data was last verified against official sources"
+        },
+        "source": {
+          "type": "string",
+          "description": "Primary source(s) used for this data"
+        },
+        "contributors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "GitHub usernames or names of contributors"
+        }
+      }
+    }
+  }
+}
