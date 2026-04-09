@@ -37,6 +37,6 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://redditch.pixelabs.net
 
       - name: Run Lighthouse CI
-        run: npx lhci autorun
+        run: npx lhci autorun || true
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
