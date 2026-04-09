@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation'
 import type { BikeSpec } from '@/lib/types'
 import { useOdometer } from '@/hooks/useOdometer'
 import { useServiceIntervals } from '@/hooks/useServiceIntervals'
+import { usePersistedState } from '@/hooks/usePersistedState'
+import { STORAGE_KEYS } from '@/lib/constants'
 import { GaugeDashboard } from '@/components/gauge/GaugeDashboard'
 import { ServiceList } from '@/components/service/ServiceList'
 import { StatBar } from '@/components/ui/StatBar'
@@ -19,14 +21,17 @@ export function GarageClient({ bike }: GarageClientProps) {
   const { odometerKm, displayValue, unit, setDisplayValue, toggleUnit } = useOdometer()
   const serviceIntervals = useServiceIntervals(bike.service_schedule, odometerKm)
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null)
+  const [isEditingOdometer, setIsEditingOdometer] = useState(false)
+  const [, setSavedBike] = usePersistedState<string | null>(STORAGE_KEYS.BIKE, null)
 
   const handleGaugeFocus = useCallback((index: number) => {
     setFocusedIndex(index)
   }, [])
 
   const handleChangeBike = useCallback(() => {
+    setSavedBike(null)
     router.push('/')
-  }, [router])
+  }, [router, setSavedBike])
 
   // JSON-LD structured data
   const jsonLd = {
@@ -56,13 +61,54 @@ export function GarageClient({ bike }: GarageClientProps) {
         bikeName={bike.name}
         odometerKm={odometerKm}
         unit={unit}
-        onChangeBike={handleChangeBike}
+        onChangeBike={() => setIsEditingOdometer(true)}
       />
 
-      {odometerKm === 0 ? (
-        /* ── No odometer yet: prompt entry ── */
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '48px 24px 80px' }}>
+      {/* Edit odometer panel */}
+      {isEditingOdometer && (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 24px 80px' }}>
           <div style={{ width: '100%', maxWidth: '480px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display, serif)', fontSize: '22px', fontWeight: 600, color: 'var(--text-primary)', margin: '0 0 8px' }}>
+              Update odometer
+            </h2>
+            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', margin: '0 0 24px', lineHeight: 1.5 }}>
+              Enter your current mileage to recalculate what&apos;s due.
+            </p>
+            <OdometerInput
+              value={displayValue}
+              unit={unit}
+              onChange={setDisplayValue}
+              onUnitToggle={toggleUnit}
+              onSubmit={() => setIsEditingOdometer(false)}
+              isValid={displayValue > 0}
+            />
+            <button
+              type="button"
+              onClick={handleChangeBike}
+              style={{
+                marginTop: '16px',
+                width: '100%',
+                minHeight: '44px',
+                background: 'none',
+                border: '1px solid var(--border)',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontSize: '14px',
+                color: 'var(--text-secondary)',
+                fontFamily: 'var(--font-body, sans-serif)',
+              }}
+            >
+              Switch bike
+            </button>
+          </div>
+        </div>
+      )}
+
+      {!isEditingOdometer && (odometerKm === 0 ? (
+        /* ── No odometer yet: prompt entry ── */
+        <div className="garage-wall" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '48px 24px 80px', position: 'relative', minHeight: 'calc(100vh - 120px)' }}>
+          <div className="spotlight" aria-hidden="true" />
+          <div style={{ width: '100%', maxWidth: '480px', position: 'relative', zIndex: 1 }}>
             <h2 style={{ fontFamily: 'var(--font-display, serif)', fontSize: '22px', fontWeight: 600, color: 'var(--text-primary)', margin: '0 0 8px' }}>
               Enter your odometer
             </h2>
@@ -81,7 +127,7 @@ export function GarageClient({ bike }: GarageClientProps) {
         </div>
       ) : (
         /* ── Garage view ── */
-        <div>
+        <div className="garage-wall" style={{ minHeight: 'calc(100vh - 120px)' }}>
           <section aria-label="Service status overview">
             <GaugeDashboard
               services={serviceIntervals}
@@ -98,7 +144,7 @@ export function GarageClient({ bike }: GarageClientProps) {
             />
           </section>
         </div>
-      )}
+      ))}
     </>
   )
 }

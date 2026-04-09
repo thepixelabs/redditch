@@ -259,9 +259,9 @@ function TaskDetail({ task, isLast }: { task: ServiceTask; isLast: boolean }) {
             <span
               key={tool}
               className={cn(
-                'text-[12px] px-2.5 py-1 rounded-full',
-                'bg-[var(--bg)] border border-[var(--border)]',
-                'text-[var(--text-secondary)]',
+                'text-[12px] px-2.5 py-1 rounded-[3px]',
+                'bg-[var(--bg-card,#2A2A2A)] border border-[var(--border-subtle)]',
+                'text-[var(--text-muted)]',
               )}
               style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
             >
@@ -276,8 +276,9 @@ function TaskDetail({ task, isLast }: { task: ServiceTask; isLast: boolean }) {
         <div
           className="mt-2 px-3 py-2.5 rounded-r-[4px]"
           style={{
-            borderLeft:  '3px solid var(--urgency-soon)',
-            background:  'var(--bg-surface)',
+            borderLeft:  '3px solid var(--re-gold)',
+            background:  'rgba(200, 150, 44, 0.06)',
+            borderRadius: '0 4px 4px 0',
           }}
         >
           <p
@@ -306,11 +307,18 @@ export function ServiceCard({ service, defaultOpen = false, id }: ServiceCardPro
       {/* ── Card shell ───────────────────────────────────────────────────── */}
       <div
         className={cn(
-          'rounded-[8px] overflow-hidden',
-          'bg-[var(--bg-surface)]',
-          'border border-[var(--border)]',
+          'rounded-[6px] overflow-hidden',
+          'bg-[var(--bg-card,#2A2A2A)]',
+          'border border-l-[4px]',
           'transition-colors duration-150',
-          open && 'border-[var(--re-gold-muted)]',
+          // Left border urgency coding — visible whether open or closed
+          service.urgency === 'overdue' && 'border-l-[var(--re-red)]',
+          service.urgency === 'soon'    && 'border-l-[var(--re-gold)]',
+          service.urgency === 'good'    && 'border-l-[var(--urgency-good)]',
+          // Full border color when open
+          open
+            ? 'border-[var(--border-subtle,rgba(74,74,74,0.5))]'
+            : 'border-[var(--border-subtle,rgba(74,74,74,0.4))]',
         )}
       >
         {/* ── Trigger / header ─────────────────────────────────────────── */}

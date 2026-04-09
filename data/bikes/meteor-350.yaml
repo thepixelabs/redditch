@@ -1,0 +1,157 @@
+slug: meteor-350
+name: Meteor 350
+manufacturer: Royal Enfield
+year_range: "2021+"
+
+engine:
+  displacement_cc: 349
+  type: Single-cylinder, air/oil-cooled, DOHC 4-valve
+  oil_type: SAE 10W-40 API SL / JASO MA2 semi-synthetic
+  oil_capacity_liters: 1.8
+  oil_capacity_with_filter_liters: 1.9
+  spark_plug: NGK DCPR8E
+  valve_clearance_intake_mm: "0.10-0.15"
+  valve_clearance_exhaust_mm: "0.15-0.20"
+
+brakes:
+  front_type: 300mm disc, twin-piston caliper
+  rear_type: 270mm disc, single-piston caliper
+  brake_fluid: DOT 4
+
+tires:
+  front: 100/80-17 52H
+  rear: 140/70-17 66H
+  pressure_front_psi: 28
+  pressure_rear_psi: 32
+  pressure_rear_pillion_psi: 36
+
+chain:
+  type: 520 O-ring
+  slack_mm: "25-35"
+  lubricant: SAE 80/90 gear oil
+
+service_schedule:
+  - interval_km: 500
+    label: Break-in Service
+    tasks:
+      - name: Engine oil & filter
+        action: replace
+        torque_nm: 22
+        tools:
+          - 17mm socket
+          - Oil filter wrench
+          - Drain pan
+        notes: >-
+          Critical first service. Drain warm. 1.8L capacity (1.9L with filter).
+          Torque value is for drain bolt.
+      - name: Chain slack
+        action: adjust
+        notes: "Adjust to 25–35mm free play at mid-point of lower chain run."
+      - name: Nuts and bolts
+        action: inspect
+        notes: "Check all accessible fasteners for loosening after initial heat cycles."
+
+  - interval_km: 5000
+    label: Minor Service
+    tasks:
+      - name: Engine oil & filter
+        action: replace
+        torque_nm: 22
+        tools:
+          - 17mm socket
+          - Oil filter wrench
+          - Drain pan
+        notes: "Use SAE 10W-40 API SL / JASO MA2. Drain bolt torque 22 Nm."
+      - name: Air filter
+        action: inspect
+        notes: "Clean with low-pressure air. Replace if fouled or oily."
+      - name: Chain slack
+        action: adjust
+        notes: "Adjust to 25–35mm. Lubricate with SAE 80/90 gear oil after adjustment."
+      - name: Brake pads
+        action: inspect
+        notes: "Check wear indicator. Replace if at or below groove."
+      - name: Throttle cable
+        action: inspect
+        notes: "Free play 2–3mm at grip. Check for smooth operation lock-to-lock."
+      - name: Clutch cable
+        action: adjust
+        notes: "Free play 10–12mm at lever. Adjust at lever-end first."
+      - name: Tires
+        action: inspect
+        notes: "Check tread and sidewalls. Pressures: 28 psi front, 32 psi rear (solo)."
+
+  - interval_km: 10000
+    label: Major Service
+    tasks:
+      - name: Engine oil & filter
+        action: replace
+        torque_nm: 22
+        tools:
+          - 17mm socket
+          - Oil filter wrench
+          - Drain pan
+        notes: "Use SAE 10W-40 API SL / JASO MA2."
+      - name: Air filter
+        action: replace
+        notes: "Replace regardless of condition."
+      - name: Spark plug
+        action: replace
+        part_name: NGK DCPR8E
+        torque_nm: 18
+        tools:
+          - 18mm spark plug socket
+          - Torque wrench
+          - Feeler gauge
+        notes: "Gap: 0.7–0.8mm. Torque to 18 Nm. Aluminium head — do not over-torque."
+      - name: Valve clearance
+        action: inspect
+        tools:
+          - Feeler gauge
+          - Torque wrench
+        notes: >-
+          Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm. Check cold.
+          DOHC — cam removal required for shim access.
+      - name: Brake fluid
+        action: replace
+        notes: "DOT 4. Replace every 2 years or 10,000 km. Full system flush."
+      - name: Chain & sprockets
+        action: inspect
+        notes: "Check stretch over 20 links. Replace chain and sprockets together."
+
+  - interval_km: 20000
+    label: Extended Service
+    tasks:
+      - name: Fork oil
+        action: replace
+        notes: "10W fork oil. Inspect seals and dust wipers while disassembled."
+      - name: Steering head bearing
+        action: inspect
+        notes: "Check for play and notchiness. Re-grease or replace as required."
+      - name: Brake hoses
+        action: inspect
+        notes: "Inspect for cracking or swelling. Replace every 4 years."
+
+torque_specs:
+  - component: Engine oil drain bolt
+    torque_nm: 22
+  - component: Spark plug
+    torque_nm: 18
+    notes: "NGK DCPR8E — gap 0.7–0.8mm."
+  - component: Cylinder head bolts
+    torque_nm: 22
+    notes: "Cross-pattern tightening in two stages."
+  - component: Front axle nut
+    torque_nm: 65
+  - component: Rear axle nut
+    torque_nm: 85
+  - component: Rear sprocket nuts
+    torque_nm: 45
+  - component: Brake caliper mounting bolts (front)
+    torque_nm: 30
+  - component: Handlebar clamp bolts
+    torque_nm: 20
+
+meta:
+  last_verified: "2026-04-09"
+  source: "Royal Enfield Meteor 350 Owner's Manual 2021, J-platform service documentation"

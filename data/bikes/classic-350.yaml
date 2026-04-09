@@ -1,0 +1,165 @@
+slug: classic-350
+name: Classic 350
+manufacturer: Royal Enfield
+year_range: "2021+"
+
+engine:
+  displacement_cc: 349
+  type: Single-cylinder, air/oil-cooled, DOHC 4-valve
+  oil_type: SAE 10W-40 API SL / JASO MA2 semi-synthetic
+  oil_capacity_liters: 1.8
+  oil_capacity_with_filter_liters: 1.9
+  spark_plug: NGK DCPR8E
+  valve_clearance_intake_mm: "0.10-0.15"
+  valve_clearance_exhaust_mm: "0.15-0.20"
+
+brakes:
+  front_type: 300mm disc, twin-piston caliper
+  rear_type: 270mm disc, single-piston caliper (drum on some variants)
+  brake_fluid: DOT 4
+
+tires:
+  front: 90/90-19 52H
+  rear: 120/80-18 62H
+  pressure_front_psi: 28
+  pressure_rear_psi: 32
+  pressure_rear_pillion_psi: 36
+
+chain:
+  type: 520 O-ring
+  slack_mm: "25-35"
+  lubricant: SAE 80/90 gear oil
+
+service_schedule:
+  - interval_km: 500
+    label: Break-in Service
+    tasks:
+      - name: Engine oil & filter
+        action: replace
+        torque_nm: 22
+        tools:
+          - 17mm socket
+          - Oil filter wrench
+          - Drain pan
+        notes: >-
+          Critical first service. Break-in oil collects metal particles from
+          engine bedding. Drain warm. 1.8L capacity (1.9L with filter change).
+          Torque value is for drain bolt.
+      - name: Chain slack
+        action: adjust
+        notes: "Adjust to 25–35mm free play measured at the mid-point of the lower chain run."
+      - name: Nuts and bolts
+        action: inspect
+        notes: "Check all accessible fasteners for loosening after initial heat cycles."
+
+  - interval_km: 5000
+    label: Minor Service
+    tasks:
+      - name: Engine oil & filter
+        action: replace
+        torque_nm: 22
+        tools:
+          - 17mm socket
+          - Oil filter wrench
+          - Drain pan
+        notes: "Use SAE 10W-40 API SL / JASO MA2. Drain bolt torque 22 Nm."
+      - name: Air filter
+        action: inspect
+        notes: "Clean with low-pressure air if lightly soiled. Replace if heavily fouled or oily."
+      - name: Chain slack
+        action: adjust
+        notes: "Adjust to 25–35mm free play. Lubricate with SAE 80/90 gear oil after adjustment."
+      - name: Brake pads
+        action: inspect
+        notes: "Check wear via inspection port. Replace if at or below wear indicator groove."
+      - name: Throttle cable
+        action: inspect
+        notes: "Free play 2–3mm at grip. Check for fraying or binding through full handlebar sweep."
+      - name: Clutch cable
+        action: adjust
+        notes: "Free play 10–12mm at lever end. Adjust at lever-end adjuster first."
+      - name: Tires
+        action: inspect
+        notes: "Check tread depth, sidewalls for cracking, and pressures: 28 psi front, 32 psi rear (solo)."
+
+  - interval_km: 10000
+    label: Major Service
+    tasks:
+      - name: Engine oil & filter
+        action: replace
+        torque_nm: 22
+        tools:
+          - 17mm socket
+          - Oil filter wrench
+          - Drain pan
+        notes: "Use SAE 10W-40 API SL / JASO MA2. Drain bolt torque 22 Nm."
+      - name: Air filter
+        action: replace
+        notes: "Replace regardless of condition at this interval."
+      - name: Spark plug
+        action: replace
+        part_name: NGK DCPR8E
+        torque_nm: 18
+        tools:
+          - 18mm spark plug socket
+          - Torque wrench
+          - Feeler gauge
+        notes: "Gap: 0.7–0.8mm. Torque to 18 Nm into aluminium head — do not over-torque."
+      - name: Valve clearance
+        action: inspect
+        tools:
+          - Feeler gauge
+          - Torque wrench
+        notes: >-
+          Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm. Check cold (engine at room
+          temperature). DOHC design — cam removal required to access shims.
+          Dealer-recommended for first inspection.
+      - name: Brake fluid
+        action: replace
+        notes: "Use DOT 4. Replace every 2 years or 10,000 km. Flush entire system."
+      - name: Chain & sprockets
+        action: inspect
+        notes: >-
+          Measure chain stretch over 20 links. Check sprocket teeth for hooking
+          or asymmetric wear. Replace chain and both sprockets together.
+
+  - interval_km: 20000
+    label: Extended Service
+    tasks:
+      - name: Fork oil
+        action: replace
+        notes: >-
+          Use 10W fork oil. Inspect fork seals and dust wipers for leaks while
+          disassembled.
+      - name: Steering head bearing
+        action: inspect
+        notes: >-
+          Check for play with wheel off ground by pushing forks side to side.
+          Check for notchiness through full steering sweep. Re-grease or replace.
+      - name: Brake hoses
+        action: inspect
+        notes: "Inspect for cracking, swelling, or chafing. Replace every 4 years regardless."
+
+torque_specs:
+  - component: Engine oil drain bolt
+    torque_nm: 22
+  - component: Spark plug
+    torque_nm: 18
+    notes: "NGK DCPR8E — gap 0.7–0.8mm. Aluminium head, do not over-torque."
+  - component: Cylinder head bolts
+    torque_nm: 22
+    notes: "Tighten in cross pattern in two stages."
+  - component: Front axle nut
+    torque_nm: 65
+  - component: Rear axle nut
+    torque_nm: 85
+  - component: Rear sprocket nuts
+    torque_nm: 45
+  - component: Brake caliper mounting bolts (front)
+    torque_nm: 30
+  - component: Handlebar clamp bolts
+    torque_nm: 20
+
+meta:
+  last_verified: "2026-04-09"
+  source: "Royal Enfield Classic 350 Owner's Manual 2021, RE service schedule documentation"

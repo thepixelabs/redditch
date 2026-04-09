@@ -1,0 +1,108 @@
+slug: himalayan-450
+name: Himalayan 450
+manufacturer: Royal Enfield
+year_range: "2024+"
+
+engine:
+  displacement_cc: 452
+  type: Single-cylinder, liquid-cooled, DOHC 4-valve
+  oil_type: SAE 10W-40 API SL / JASO MA2 fully synthetic
+  oil_capacity_liters: 2.4
+  oil_capacity_with_filter_liters: 2.5
+  coolant_type: 50/50 ethylene glycol pre-mix (OAT)
+  coolant_capacity_liters: 1.1
+  spark_plug: NGK CPR9EA-9
+  valve_clearance_intake_mm: "0.10-0.15"
+  valve_clearance_exhaust_mm: "0.15-0.20"
+
+brakes:
+  front_type: 320mm disc, twin-piston caliper
+  rear_type: 270mm disc, single-piston caliper
+  brake_fluid: DOT 4
+
+tires:
+  front: 90/90-21 54R
+  rear: 120/80-18 62R
+  pressure_front_psi: 26
+  pressure_rear_psi: 30
+  pressure_rear_pillion_psi: 33
+
+chain:
+  type: 525 O-ring
+  slack_mm: "25-35"
+  lubricant: Chain wax spray (wet lube for off-road use)
+
+service_schedule:
+  - interval_km: 500
+    label: Break-in Service
+    tasks:
+      - name: Engine oil & filter
+        action: replace
+        torque_nm: 20
+        notes: "Break-in oil change. Drain warm. 2.4L capacity (2.5L with filter)."
+      - name: Chain slack
+        action: adjust
+        notes: "Adjust to 25–35mm. Liquid-cooled engine runs hotter — check more frequently off-road."
+      - name: Coolant level
+        action: inspect
+        notes: "Check coolant reservoir level. Do not open radiator cap cold."
+
+  - interval_km: 5000
+    label: Minor Service
+    tasks:
+      - name: Engine oil & filter
+        action: replace
+        torque_nm: 20
+        notes: "SAE 10W-40 API SL / JASO MA2 fully synthetic. 2.4L capacity."
+      - name: Air filter
+        action: inspect
+        notes: "Clean or replace. More frequent inspection required for off-road use."
+      - name: Chain slack
+        action: adjust
+        notes: "Adjust to 25–35mm. Lubricate after adjustment."
+      - name: Coolant level
+        action: inspect
+        notes: "Check reservoir. Top up with pre-mixed OAT coolant if low."
+      - name: Tires
+        action: inspect
+        notes: "Pressures: 26 psi front, 30 psi rear (solo). Check for off-road damage."
+
+  - interval_km: 10000
+    label: Major Service
+    tasks:
+      - name: Engine oil & filter
+        action: replace
+        torque_nm: 20
+        notes: "SAE 10W-40 API SL / JASO MA2 fully synthetic."
+      - name: Air filter
+        action: replace
+        notes: "Replace at this interval. Earlier if used heavily off-road."
+      - name: Spark plug
+        action: replace
+        part_name: NGK CPR9EA-9
+        torque_nm: 15
+        notes: "Gap: 0.8–0.9mm. Liquid-cooled head — torque carefully."
+      - name: Valve clearance
+        action: inspect
+        notes: "Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm. Check cold."
+      - name: Brake fluid
+        action: replace
+        notes: "DOT 4. Full flush every 2 years or 10,000 km."
+      - name: Coolant
+        action: inspect
+        notes: "Check condition and concentration. Full flush at 40,000 km or 4 years."
+
+torque_specs:
+  - component: Engine oil drain bolt
+    torque_nm: 20
+  - component: Spark plug
+    torque_nm: 15
+    notes: "NGK CPR9EA-9 — gap 0.8–0.9mm."
+  - component: Rear axle nut
+    torque_nm: 90
+  - component: Brake caliper mounting bolts (front)
+    torque_nm: 35
+
+meta:
+  last_verified: "2026-04-09"
+  source: "Royal Enfield Himalayan 450 Owner's Manual 2024"

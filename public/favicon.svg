@@ -1,33 +1,217 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <style>
-      /* Default: dark mode (most motorcycle apps skew dark) */
-      .bg   { fill: #1A1A1A; }
-      .ring { stroke: #C8962C; }
-      .text { fill: #C8962C; }
+    <!-- Outer ring gradient: gold highlight top, darker gold bottom -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </radialGradient>
 
-      @media (prefers-color-scheme: light) {
-        .bg   { fill: #F5ECD7; }
-        .ring { stroke: #B5121B; }
-        .text { fill: #1A1A1A; }
-      }
-    </style>
+    <!-- Gold gradient for raised/embossed feel -->
+    <linearGradient id="goldHigh" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#E8B84B"/>
+      <stop offset="45%"  stop-color="#C8962C"/>
+      <stop offset="100%" stop-color="#8B6010"/>
+    </linearGradient>
+
+    <!-- Red gradient: embossed red band -->
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#D4151F"/>
+      <stop offset="50%"  stop-color="#B5121B"/>
+      <stop offset="100%" stop-color="#7A0C12"/>
+    </linearGradient>
+
+    <!-- Inner field gradient -->
+    <radialGradient id="fieldGrad" cx="50%" cy="35%" r="65%">
+      <stop offset="0%"   stop-color="#2e2e2e"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </radialGradient>
+
+    <!-- Wrench cream gradient -->
+    <linearGradient id="wrenchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FFFFFF"/>
+      <stop offset="30%"  stop-color="#F5ECD7"/>
+      <stop offset="70%"  stop-color="#D4C4A0"/>
+      <stop offset="100%" stop-color="#A89060"/>
+    </linearGradient>
+
+    <!-- Drop shadow filter -->
+    <filter id="innerShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Emboss filter for wrench -->
+    <filter id="emboss" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Clip to circle -->
+    <clipPath id="circleClip">
+      <circle cx="256" cy="256" r="248"/>
+    </clipPath>
   </defs>
 
-  <!-- Background circle -->
-  <circle cx="50" cy="50" r="50" class="bg"/>
+  <!-- ═══════════════════════════════════════════
+       LAYER 1: Base disc — deep charcoal
+  ═══════════════════════════════════════════ -->
+  <circle cx="256" cy="256" r="256" fill="#0D0D0D"/>
 
-  <!-- Gold/red ring -->
-  <circle cx="50" cy="50" r="44" fill="none" class="ring" stroke-width="3"/>
+  <!-- ═══════════════════════════════════════════
+       LAYER 2: Outermost gold ring (thin border)
+  ═══════════════════════════════════════════ -->
+  <circle cx="256" cy="256" r="250" fill="none" stroke="url(#goldHigh)" stroke-width="6"/>
 
-  <!-- RE monogram -->
-  <text
-    x="50" y="64"
-    text-anchor="middle"
-    font-family="Georgia, serif"
-    font-size="38"
-    font-weight="700"
-    letter-spacing="-2"
-    class="text"
-  >RE</text>
+  <!-- ═══════════════════════════════════════════
+       LAYER 3: Outer gold tyre band (thick outer rim)
+  ═══════════════════════════════════════════ -->
+  <circle cx="256" cy="256" r="242" fill="none" stroke="url(#goldHigh)" stroke-width="18"/>
+  <!-- Tyre texture: darker inner edge of band -->
+  <circle cx="256" cy="256" r="232" fill="none" stroke="#7A5C10" stroke-width="2" stroke-opacity="0.6"/>
+  <circle cx="256" cy="256" r="252" fill="none" stroke="#7A5C10" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 4: Red ring band (tyre wall / brand stripe)
+  ═══════════════════════════════════════════ -->
+  <circle cx="256" cy="256" r="223" fill="none" stroke="url(#redGrad)" stroke-width="20"/>
+  <!-- Red band edge lines -->
+  <circle cx="256" cy="256" r="212" fill="none" stroke="#7A0C12" stroke-width="1.5" stroke-opacity="0.8"/>
+  <circle cx="256" cy="256" r="233" fill="none" stroke="#D4151F" stroke-width="1" stroke-opacity="0.5"/>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 5: Inner gold ring (hub ring / bezel)
+  ═══════════════════════════════════════════ -->
+  <circle cx="256" cy="256" r="204" fill="none" stroke="url(#goldHigh)" stroke-width="10"/>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 6: Inner field (dark background for icon)
+  ═══════════════════════════════════════════ -->
+  <circle cx="256" cy="256" r="196" fill="url(#fieldGrad)"/>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 7: SPOKED WHEEL — the outer ring IS the wheel
+       16 spokes radiating from hub ring out to inner gold bezel
+  ═══════════════════════════════════════════ -->
+  <g stroke="url(#goldHigh)" stroke-width="3.5" stroke-linecap="round" opacity="0.9">
+    <!-- Spoke 1:  0° -->
+    <line x1="256" y1="60"  x2="256" y2="194"/>
+    <!-- Spoke 2:  22.5° -->
+    <line x1="332.4" y1="79.6"  x2="285.3" y2="188.4"/>
+    <!-- Spoke 3:  45° -->
+    <line x1="394.0" y1="118.0" x2="311.0" y2="201.0"/>
+    <!-- Spoke 4:  67.5° -->
+    <line x1="432.4" y1="179.6" x2="327.3" y2="224.2"/>
+    <!-- Spoke 5:  90° -->
+    <line x1="452"   y1="256"   x2="318"   y2="256"/>
+    <!-- Spoke 6:  112.5° -->
+    <line x1="432.4" y1="332.4" x2="327.3" y2="287.8"/>
+    <!-- Spoke 7:  135° -->
+    <line x1="394.0" y1="394.0" x2="311.0" y2="311.0"/>
+    <!-- Spoke 8:  157.5° -->
+    <line x1="332.4" y1="432.4" x2="285.3" y2="323.6"/>
+    <!-- Spoke 9:  180° -->
+    <line x1="256"   y1="452"   x2="256"   y2="318"/>
+    <!-- Spoke 10: 202.5° -->
+    <line x1="179.6" y1="432.4" x2="226.7" y2="323.6"/>
+    <!-- Spoke 11: 225° -->
+    <line x1="118.0" y1="394.0" x2="201.0" y2="311.0"/>
+    <!-- Spoke 12: 247.5° -->
+    <line x1="79.6"  y1="332.4" x2="184.7" y2="287.8"/>
+    <!-- Spoke 13: 270° -->
+    <line x1="60"    y1="256"   x2="194"   y2="256"/>
+    <!-- Spoke 14: 292.5° -->
+    <line x1="79.6"  y1="179.6" x2="184.7" y2="224.2"/>
+    <!-- Spoke 15: 315° -->
+    <line x1="118.0" y1="118.0" x2="201.0" y2="201.0"/>
+    <!-- Spoke 16: 337.5° -->
+    <line x1="179.6" y1="79.6"  x2="226.7" y2="188.4"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 8: HUB CAP — small central hub ring
+  ═══════════════════════════════════════════ -->
+  <circle cx="256" cy="256" r="38" fill="#1A1A1A" stroke="url(#goldHigh)" stroke-width="4" filter="url(#innerShadow)"/>
+  <circle cx="256" cy="256" r="28" fill="url(#fieldGrad)" stroke="url(#goldHigh)" stroke-width="2.5"/>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 9: CROSSED SPANNERS (crossed wrenches)
+       Two open-end spanners crossing at 45°
+       Each spanner: hex head both ends, shaft
+  ═══════════════════════════════════════════ -->
+
+  <!-- ── SPANNER A: rotated -45° (top-left to bottom-right) ── -->
+  <g transform="rotate(-45, 256, 256)" filter="url(#emboss)">
+    <!-- Shaft -->
+    <rect x="246" y="140" width="20" height="232" rx="4" fill="url(#wrenchGrad)"/>
+    <!-- Top head (open-end wrench mouth) -->
+    <!-- Outer hex block -->
+    <rect x="234" y="130" width="44" height="38" rx="6" fill="url(#wrenchGrad)"/>
+    <!-- Mouth cutout (open end) — top slot -->
+    <rect x="246" y="118" width="20" height="28" rx="3" fill="#1A1A1A"/>
+    <!-- Mouth opening lines -->
+    <line x1="246" y1="118" x2="240" y2="108" stroke="#1A1A1A" stroke-width="4"/>
+    <line x1="266" y1="118" x2="272" y2="108" stroke="#1A1A1A" stroke-width="4"/>
+    <!-- Bottom head -->
+    <rect x="234" y="344" width="44" height="38" rx="6" fill="url(#wrenchGrad)"/>
+    <!-- Bottom mouth cutout -->
+    <rect x="246" y="366" width="20" height="28" rx="3" fill="#1A1A1A"/>
+    <line x1="246" y1="394" x2="240" y2="404" stroke="#1A1A1A" stroke-width="4"/>
+    <line x1="266" y1="394" x2="272" y2="404" stroke="#1A1A1A" stroke-width="4"/>
+    <!-- Shaft highlight -->
+    <rect x="251" y="168" width="5" height="176" rx="2" fill="#FFFFFF" opacity="0.18"/>
+  </g>
+
+  <!-- ── SPANNER B: rotated +45° (top-right to bottom-left) ── -->
+  <g transform="rotate(45, 256, 256)" filter="url(#emboss)">
+    <!-- Shaft -->
+    <rect x="246" y="140" width="20" height="232" rx="4" fill="url(#wrenchGrad)"/>
+    <!-- Top head -->
+    <rect x="234" y="130" width="44" height="38" rx="6" fill="url(#wrenchGrad)"/>
+    <!-- Mouth cutout top -->
+    <rect x="246" y="118" width="20" height="28" rx="3" fill="#1A1A1A"/>
+    <line x1="246" y1="118" x2="240" y2="108" stroke="#1A1A1A" stroke-width="4"/>
+    <line x1="266" y1="118" x2="272" y2="108" stroke="#1A1A1A" stroke-width="4"/>
+    <!-- Bottom head -->
+    <rect x="234" y="344" width="44" height="38" rx="6" fill="url(#wrenchGrad)"/>
+    <!-- Bottom mouth cutout -->
+    <rect x="246" y="366" width="20" height="28" rx="3" fill="#1A1A1A"/>
+    <line x1="246" y1="394" x2="240" y2="404" stroke="#1A1A1A" stroke-width="4"/>
+    <line x1="266" y1="394" x2="272" y2="404" stroke="#1A1A1A" stroke-width="4"/>
+    <!-- Shaft highlight -->
+    <rect x="251" y="168" width="5" height="176" rx="2" fill="#FFFFFF" opacity="0.18"/>
+  </g>
+
+  <!-- ── Centre bolt / hub cap cover (over the cross) ── -->
+  <circle cx="256" cy="256" r="22" fill="url(#redGrad)" stroke="url(#goldHigh)" stroke-width="3" filter="url(#innerShadow)"/>
+  <!-- Centre hex nut -->
+  <polygon
+    points="256,238 269,247 269,265 256,274 243,265 243,247"
+    fill="#1A1A1A" stroke="url(#goldHigh)" stroke-width="2"
+  />
+  <!-- Centre nut highlight -->
+  <circle cx="256" cy="256" r="5" fill="url(#goldHigh)" opacity="0.7"/>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 10: Rivet dots on red band (12 studs)
+       — adds that stamped-metal / period hardware feel
+  ═══════════════════════════════════════════ -->
+  <g fill="url(#goldHigh)" opacity="0.85">
+    <circle cx="256"   cy="35"    r="4.5"/>
+    <circle cx="332"   cy="56.5"  r="4.5"/>
+    <circle cx="388"   cy="113"   r="4.5"/>
+    <circle cx="410"   cy="188"   r="4.5"/>
+    <circle cx="410"   cy="324"   r="4.5"/>
+    <circle cx="388"   cy="399"   r="4.5"/>
+    <circle cx="332"   cy="455.5" r="4.5"/>
+    <circle cx="256"   cy="477"   r="4.5"/>
+    <circle cx="180"   cy="455.5" r="4.5"/>
+    <circle cx="124"   cy="399"   r="4.5"/>
+    <circle cx="102"   cy="324"   r="4.5"/>
+    <circle cx="102"   cy="188"   r="4.5"/>
+    <circle cx="124"   cy="113"   r="4.5"/>
+    <circle cx="180"   cy="56.5"  r="4.5"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 11: Final outermost hairline gold ring
+  ═══════════════════════════════════════════ -->
+  <circle cx="256" cy="256" r="254" fill="none" stroke="#E8B84B" stroke-width="1.5" opacity="0.4"/>
 </svg>

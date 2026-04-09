@@ -79,17 +79,17 @@ export function GaugeDashboard({
       aria-label="Service status instrument cluster"
       className={cn(
         'relative w-full',
-        'bg-[var(--bg-surface)]',
-        'border-b border-[var(--re-gold-muted)]',
-        // Subtle inner shadow to give the panel a recessed, machined feel
-        'shadow-[inset_0_-1px_0_rgba(200,150,44,0.12)]',
+        'gauge-panel',
+        'border-t-[3px] border-t-[var(--re-red)]',
+        'border-b border-b-[rgba(200,150,44,0.25)]',
+        'shadow-[0_4px_24px_rgba(0,0,0,0.5)]',
         className,
       )}
     >
       {/* ── Panel header ──────────────────────────────────────────────────── */}
       <div className="flex items-center justify-between px-4 pt-4 pb-0 md:px-6">
         <span
-          className="text-[10px] font-mono tracking-[0.2em] uppercase font-medium"
+          className="text-[10px] font-mono tracking-[0.28em] uppercase font-semibold"
           style={{ color: 'var(--re-gold)' }}
           aria-hidden="true"
         >
@@ -116,7 +116,7 @@ export function GaugeDashboard({
               >
                 <span
                   className="inline-block w-2 h-2 rounded-full"
-                  style={{ backgroundColor: color }}
+                  style={{ backgroundColor: color, boxShadow: `0 0 6px ${color}` }}
                 />
                 {label}
               </span>
@@ -258,7 +258,7 @@ export function GaugeDashboard({
       {/* ── Decorative gold rule at the very bottom of the panel ──────────── */}
       <div
         className="absolute bottom-0 left-0 right-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, var(--re-gold), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent 10%, var(--re-gold) 50%, transparent 90%)', opacity: 0.6 }}
         aria-hidden="true"
       />
     </section>
