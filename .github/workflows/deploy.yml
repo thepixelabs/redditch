@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 # Grant only the minimum permissions required:
 # - pages + id-token to deploy to GitHub Pages
