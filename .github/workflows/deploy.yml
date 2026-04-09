@@ -60,17 +60,3 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # Purge Cloudflare cache only when both secrets are present.
-      # Uses purge_everything=true — acceptable for a static site; no partial
-      # invalidation needed since the entire out/ directory is rebuilt on every deploy.
-      - name: Purge Cloudflare cache
-        if: env.CF_ZONE_ID != '' && env.CF_API_TOKEN != ''
-        run: |
-          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/purge_cache" \
-            -H "Authorization: Bearer $CF_API_TOKEN" \
-            -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}' \
-            | jq .
-        env:
-          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
