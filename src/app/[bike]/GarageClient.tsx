@@ -11,6 +11,7 @@ import { GaugeDashboard } from '@/components/gauge/GaugeDashboard'
 import { ServiceList } from '@/components/service/ServiceList'
 import { StatBar } from '@/components/ui/StatBar'
 import { OdometerInput } from '@/components/bike-selector/OdometerInput'
+import { BikeReferencePanel } from '@/components/garage/BikeReferencePanel'
 
 interface GarageClientProps {
   bike: BikeSpec
@@ -128,21 +129,33 @@ export function GarageClient({ bike }: GarageClientProps) {
       ) : (
         /* ── Garage view ── */
         <div className="garage-wall" style={{ minHeight: 'calc(100vh - 120px)' }}>
-          <section aria-label="Service status overview">
-            <GaugeDashboard
-              services={serviceIntervals}
-              onServiceFocus={handleGaugeFocus}
-              lastVerified={bike.meta?.last_verified}
-            />
-          </section>
+          <div className="garage-content">
+            {/* Two-column grid: gauges left (sticky), service list right */}
+            <div className="garage-grid">
+              {/* Left column — instrument cluster */}
+              <div className="garage-gauge-col">
+                <section aria-label="Service status overview">
+                  <GaugeDashboard
+                    services={serviceIntervals}
+                    onServiceFocus={handleGaugeFocus}
+                    lastVerified={bike.meta?.last_verified}
+                  />
+                </section>
+              </div>
 
-          <section aria-label="Service schedule details" style={{ paddingBottom: '80px' }}>
-            <ServiceList
-              services={serviceIntervals}
-              focusedIndex={focusedIndex ?? undefined}
-              meta={{ lastVerified: bike.meta?.last_verified }}
-            />
-          </section>
+              {/* Right column — service schedule */}
+              <section aria-label="Service schedule details">
+                <ServiceList
+                  services={serviceIntervals}
+                  focusedIndex={focusedIndex ?? undefined}
+                  meta={{ lastVerified: bike.meta?.last_verified }}
+                />
+              </section>
+            </div>
+
+            {/* Full-width reference panel — surfaces all hidden spec data */}
+            <BikeReferencePanel bike={bike} />
+          </div>
         </div>
       ))}
     </>

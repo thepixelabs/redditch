@@ -327,8 +327,8 @@ export function ServiceCard({ service, defaultOpen = false, id }: ServiceCardPro
             type="button"
             className={cn(
               // Layout
-              'w-full flex flex-col gap-1 px-4 py-3',
-              'min-h-[60px] text-left',
+              'w-full flex flex-col gap-1 px-4 md:px-5 py-3 md:py-4',
+              'min-h-[60px] md:min-h-[72px] text-left',
               // Interaction
               'cursor-pointer select-none',
               'transition-colors duration-150',
@@ -344,7 +344,7 @@ export function ServiceCard({ service, defaultOpen = false, id }: ServiceCardPro
               <ActionIcon action={service.tasks[0]?.action} />
 
               <span
-                className="flex-1 text-[17px] font-bold text-[var(--text-primary)] leading-snug"
+                className="flex-1 text-[17px] md:text-[19px] font-bold text-[var(--text-primary)] leading-snug"
                 style={{ fontFamily: 'var(--font-display), Georgia, serif' }}
               >
                 {service.label}
@@ -360,7 +360,7 @@ export function ServiceCard({ service, defaultOpen = false, id }: ServiceCardPro
 
             {/* Second row: repeat interval */}
             <p
-              className="pl-[32px] text-[12px] text-[var(--text-secondary)] leading-none"
+              className="pl-[32px] text-[12px] md:text-[13px] text-[var(--text-secondary)] leading-none"
               style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
             >
               Every {service.intervalKm.toLocaleString()} km

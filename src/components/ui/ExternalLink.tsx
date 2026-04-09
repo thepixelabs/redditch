@@ -5,6 +5,7 @@ interface ExternalLinkProps {
   href: string
   children: ReactNode
   className?: string
+  style?: React.CSSProperties
 }
 
 /**
@@ -14,12 +15,13 @@ interface ExternalLinkProps {
  * announce "(opens in new tab)" without repeating it in the visible text.
  * rel="noopener noreferrer" is non-negotiable for any cross-origin link.
  */
-export function ExternalLink({ href, children, className }: ExternalLinkProps) {
+export function ExternalLink({ href, children, className, style }: ExternalLinkProps) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      style={style}
       className={cn(
         'inline-flex items-center gap-1',
         'underline underline-offset-2 decoration-1',

@@ -14,8 +14,7 @@ interface StatBarProps {
 function WrenchIcon() {
   return (
     <svg
-      width="14"
-      height="14"
+      className="w-[14px] h-[14px] md:w-[18px] md:h-[18px] lg:w-[20px] lg:h-[20px]"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -33,8 +32,7 @@ function WrenchIcon() {
 function EditIcon() {
   return (
     <svg
-      width="13"
-      height="13"
+      className="w-[16px] h-[16px] md:w-[20px] md:h-[20px] lg:w-[22px] lg:h-[22px]"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -76,9 +74,9 @@ export function StatBar({
       aria-label={`Change bike or odometer: currently ${bikeName}, ${displayOdo} ${unit}`}
       className={cn(
         // Layout
-        'group w-full flex items-center justify-between gap-3 px-4',
-        // Height — 44px is the minimum WCAG 2.5.5 touch target
-        'min-h-[44px]',
+        'group w-full flex items-center justify-between gap-3 px-4 md:px-6 lg:px-8',
+        // Height scales with screen size
+        'min-h-[44px] md:min-h-[56px] lg:min-h-[64px]',
         // Surface
         'bg-[var(--bg-surface)] border-b border-[var(--border)]',
         // Reset button defaults
@@ -99,10 +97,10 @@ export function StatBar({
       </span>
 
       {/* Center — identity */}
-      <span className="flex-1 flex items-center justify-center gap-2 min-w-0">
+      <span className="flex-1 flex items-center justify-center gap-2 md:gap-3 min-w-0">
         {/* Bike name */}
         <span
-          className="font-display text-[13px] text-[var(--text-primary)] truncate"
+          className="font-display text-[13px] md:text-[16px] lg:text-[18px] font-semibold text-[var(--text-primary)] truncate"
           style={{ fontFamily: 'var(--font-display), Georgia, serif' }}
         >
           {bikeName}
@@ -113,7 +111,7 @@ export function StatBar({
 
         {/* Odometer — monospaced so digits don't jitter */}
         <span
-          className="font-mono text-[14px] font-semibold text-[var(--text-secondary)] tabular-nums flex-shrink-0"
+          className="font-mono text-[14px] md:text-[16px] lg:text-[18px] font-semibold text-[var(--text-secondary)] tabular-nums flex-shrink-0"
           style={{ fontFamily: 'var(--font-mono), monospace' }}
         >
           {displayOdo}&nbsp;{unit}
@@ -123,7 +121,7 @@ export function StatBar({
         <span
           className={cn(
             'hidden md:inline-block',
-            'text-[11px] text-[var(--text-muted)]',
+            'text-[11px] md:text-[13px] text-[var(--text-muted)]',
             'opacity-0 group-hover:opacity-100 transition-opacity duration-200',
             'pointer-events-none select-none',
           )}

@@ -1,33 +1,77 @@
 # Dependencies
 node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
 
 # Next.js build output
 .next/
 out/
+.swc/
 
 # Production build (generic)
 build/
+dist/
 
 # Environment variables — never commit these
 .env
-.env.local
-.env.production.local
-.env.staging.local
+.env.*
+!.env.example
+!.env.sample
+
+# Secrets, credentials, keys — never commit these
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+secrets/
+credentials.json
+service-account*.json
+gcp-key*.json
+aws-credentials
+.netrc
 
 # Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
 
 # OS metadata
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
 # IDE / editor
 .vscode/
+!.vscode/extensions.json
 .idea/
 *.swp
 *.swo
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+
+# Local Claude / AI assistant settings (may contain personal paths/tokens)
+.claude/
+.cursor/
+.aider*
+
+# Backup and temp files
+*.bak
+*.backup
+*.tmp
+*.orig
+*~
 
 # TypeScript incremental build info
 *.tsbuildinfo
@@ -35,6 +79,7 @@ next-env.d.ts
 
 # Test coverage output
 coverage/
+.nyc_output/
 
 # Serwist / Workbox service worker build artefacts
 # These are generated at build time from src/sw.ts — do not commit the compiled output.

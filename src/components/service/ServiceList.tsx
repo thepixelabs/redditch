@@ -73,7 +73,7 @@ export function ServiceList({ services, focusedIndex, meta }: ServiceListProps) 
       <p
         id="service-schedule-heading"
         className={cn(
-          'mb-4 text-[11px] uppercase tracking-[0.18em]',
+          'mb-4 text-[11px] md:text-[13px] uppercase tracking-[0.18em]',
           'text-[var(--text-muted)]',
           'font-semibold',
         )}

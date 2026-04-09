@@ -87,9 +87,9 @@ export function GaugeDashboard({
       )}
     >
       {/* ── Panel header ──────────────────────────────────────────────────── */}
-      <div className="flex items-center justify-between px-4 pt-4 pb-0 md:px-6">
+      <div className="flex items-center justify-between px-4 pt-4 pb-0 md:px-6 lg:px-8 lg:pt-6">
         <span
-          className="text-[10px] font-mono tracking-[0.28em] uppercase font-semibold"
+          className="text-[10px] md:text-[11px] lg:text-[13px] font-mono tracking-[0.28em] uppercase font-semibold"
           style={{ color: 'var(--re-gold)' }}
           aria-hidden="true"
         >
@@ -128,7 +128,7 @@ export function GaugeDashboard({
       {/* ── Gauge layout ──────────────────────────────────────────────────── */}
       <div
         className={cn(
-          'flex flex-col items-center gap-4 px-4 py-4 md:py-6 md:px-6',
+          'flex flex-col items-center gap-4 px-4 py-4 md:py-6 md:px-6 lg:px-8 lg:py-8',
           !isEmpty && satellites.length > 0 && 'md:flex-row md:items-center md:justify-center',
         )}
       >
@@ -142,8 +142,8 @@ export function GaugeDashboard({
                 'flex-shrink-0',
                 // Mobile: full-width up to 280px, centred
                 'w-full max-w-[280px]',
-                // Desktop: fixed at 320px when satellites are alongside
-                satellites.length > 0 && 'md:w-[320px] md:max-w-none',
+                // Desktop: fixed at 320px when satellites are alongside; larger at xl+
+                satellites.length > 0 && 'md:w-[320px] md:max-w-none xl:w-[380px]',
               )}
               aria-label={`Primary gauge: ${primary.label}`}
             >
@@ -192,7 +192,7 @@ export function GaugeDashboard({
                       >
                         {/* Satellite gauge itself */}
                         <div
-                          className="w-[80px] md:w-[100px]"
+                          className="w-[80px] md:w-[100px] xl:w-[130px]"
                           aria-label={`Satellite gauge: ${svc.label}`}
                         >
                           <GaugeSVG
@@ -213,9 +213,9 @@ export function GaugeDashboard({
                         <span
                           className={cn(
                             'text-center leading-tight',
-                            'text-[9px] md:text-[10px]',
+                            'text-[9px] md:text-[10px] xl:text-[12px]',
                             'font-display tracking-wide uppercase',
-                            'max-w-[80px] md:max-w-[100px]',
+                            'max-w-[80px] md:max-w-[100px] xl:max-w-[130px]',
                             'line-clamp-2',
                           )}
                           style={{ color: 'var(--text-secondary)' }}

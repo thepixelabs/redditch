@@ -91,7 +91,7 @@ export function PlatformGrid({ selectedPlatform, onSelect, availableSlugs }: Pla
       <div
         role="radiogroup"
         aria-label="Select motorcycle platform"
-        className="grid grid-cols-2 md:grid-cols-3 gap-3"
+        className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4"
         onKeyDown={(e) => handleRadioKeyDown(e, [...PLATFORMS], selectedPlatform, onSelect, availablePlatformIds)}
       >
         {PLATFORMS.map((platform) => {
@@ -117,7 +117,7 @@ export function PlatformGrid({ selectedPlatform, onSelect, availableSlugs }: Pla
                 if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); onSelect(platform.id) }
               }}
               className={cn(
-                'relative flex flex-col justify-between gap-2 min-h-[80px] p-3 rounded-[6px]',
+                'relative flex flex-col justify-between gap-2 min-h-[80px] md:min-h-[96px] p-3 md:p-4 rounded-[6px]',
                 'garage-card-metal transition-all duration-150',
                 isSelected && 'border border-[var(--re-red)] bg-[rgba(181,18,27,0.06)]',
                 !isSelected && isAvailable && [
@@ -135,7 +135,7 @@ export function PlatformGrid({ selectedPlatform, onSelect, availableSlugs }: Pla
                 <span className={cn('flex-shrink-0 transition-colors duration-150', isSelected ? 'text-[var(--re-red)]' : 'text-[var(--re-gold)]')}>
                   {isTwin ? <TwinIcon /> : <SingleIcon />}
                 </span>
-                <span className="text-[15px] font-bold leading-tight text-[var(--text-primary)]"
+                <span className="text-[15px] md:text-[17px] font-bold leading-tight text-[var(--text-primary)]"
                   style={{ fontFamily: 'var(--font-display), Georgia, serif', letterSpacing: '0.01em' }}>
                   {platform.label}
                 </span>
