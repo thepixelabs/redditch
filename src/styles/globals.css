@@ -94,9 +94,16 @@ body {
   transition: background-color 200ms ease, color 200ms ease;
 }
 
+/* Fluid root font — everything in rem scales with this.
+   At ≥1280px the base grows from 16px → 20px over the viewport width,
+   keeping all UI proportional on 1440p / 4K monitors. */
+@media (min-width: 1280px) {
+  html { font-size: clamp(16px, 1.1vw, 20px); }
+}
+
 body {
   font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -303,23 +310,56 @@ code, .spec-value {
 }
 
 /* ─── Neon logo pulse ─────────────────────────────────────────────────────── */
+
+/*
+  neonPulse — warm red tube breath
+  The filter is applied via the SVG <filter> element inside NeonSign.tsx;
+  this class-level animation handles only the opacity/global-shadow layer
+  that sits on top of the SVG filter stack.
+*/
 @keyframes neonPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 10px var(--re-red)) drop-shadow(0 0 24px var(--re-red-glow));
     opacity: 1;
   }
   45% {
-    filter: drop-shadow(0 0 5px var(--re-red)) drop-shadow(0 0 14px var(--re-red-glow));
-    opacity: 0.88;
+    opacity: 0.82;
   }
   50% {
-    filter: drop-shadow(0 0 10px var(--re-red)) drop-shadow(0 0 24px var(--re-red-glow));
     opacity: 1;
   }
 }
 
+/*
+  neonPulseGold — amber tube breath
+  Offset phase-shifted by 0.6s so red and gold don't dim in lockstep —
+  real neon tubes never pulse in unison.
+*/
+@keyframes neonPulseGold {
+  0%, 100% {
+    opacity: 1;
+  }
+  38% {
+    opacity: 0.75;
+  }
+  42% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0.88;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+/* Applied to red neon elements inside the SVG */
 .neon-logo {
   animation: neonPulse 4s ease-in-out infinite;
+}
+
+/* Applied to gold/amber neon elements inside the SVG */
+.neon-logo-gold {
+  animation: neonPulseGold 4s ease-in-out 0.6s infinite;
 }
 
 /* ─── Wordmark hero ───────────────────────────────────────────────────────── */
@@ -366,6 +406,7 @@ code, .spec-value {
   .gauge-fill       { transition: none; }
   .gauge-needle     { transition: none; }
   .neon-logo        { animation: none; }
+  .neon-logo-gold   { animation: none; }
   .garage-card      { transition: none; }
   *                 { animation-duration: 0.01ms !important;
                       transition-duration: 0.01ms !important; }
@@ -384,4 +425,126 @@ code, .spec-value {
   background: var(--border);
   display: inline-block;
   vertical-align: middle;
+}
+
+/* ─── Garage dashboard layout ────────────────────────────────────────────── */
+
+/* Outer content wrapper — constrains width, provides fluid padding */
+.garage-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: clamp(12px, 2.5vw, 48px);
+  padding-bottom: 80px;
+}
+
+/* Two-column grid: full-width on mobile, side-by-side on lg+ */
+.garage-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 2vw, 32px);
+}
+
+@media (min-width: 1024px) {
+  .garage-grid {
+    grid-template-columns: minmax(380px, 5fr) 7fr;
+    align-items: start;
+  }
+
+  /* Gauge column sticks while the service list scrolls past */
+  .garage-gauge-col {
+    position: sticky;
+    top: 80px;
+  }
+}
+
+/* Reference panel: spec cards on a fluid grid */
+.garage-reference-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: clamp(10px, 1.5vw, 20px);
+  margin-top: clamp(12px, 2vw, 32px);
+}
+
+/* Spec card shared base */
+.spec-card {
+  background: var(--bg-card, #2A2A2A);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: clamp(14px, 1.5vw, 24px);
+}
+
+.spec-card-title {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: clamp(0.6rem, 0.75vw, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--re-gold);
+  margin-bottom: 0.75rem;
+}
+
+.spec-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: clamp(0.75rem, 0.85vw, 0.9rem);
+}
+
+.spec-row:last-child {
+  border-bottom: none;
+}
+
+.spec-row-label {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.spec-row-value {
+  color: var(--text-primary);
+  font-family: var(--font-mono), monospace;
+  text-align: right;
+  word-break: break-word;
+}
+
+/* Torque table */
+.torque-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(0.72rem, 0.82vw, 0.85rem);
+}
+
+.torque-table th {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: clamp(0.6rem, 0.7vw, 0.7rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 0 8px 6px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.torque-table td {
+  padding: 5px 8px 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  vertical-align: top;
+  font-family: var(--font-body), system-ui, sans-serif;
+  color: var(--text-secondary);
+}
+
+.torque-table td:last-child {
+  font-family: var(--font-mono), monospace;
+  color: var(--re-gold);
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 0;
+}
+
+.torque-table tr:last-child td {
+  border-bottom: none;
 }

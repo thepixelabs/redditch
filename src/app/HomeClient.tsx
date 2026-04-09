@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import NeonSign from '@/components/ui/NeonSign'
 import { PlatformGrid } from '@/components/bike-selector/PlatformGrid'
 import { ModelCards } from '@/components/bike-selector/ModelCards'
 import { OdometerInput } from '@/components/bike-selector/OdometerInput'
@@ -70,18 +71,13 @@ export default function HomeClient({ bikes }: HomeClientProps) {
       {/* Edison spotlight glow from top */}
       <div className="spotlight" aria-hidden="true" />
 
-      <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '480px', padding: '0 24px' }}>
+      <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: 'min(720px, calc(100vw - 32px))', padding: '0 clamp(16px, 3vw, 40px)' }}>
 
         {/* ── Hero: Neon logo + wordmark ── */}
         {step === 'platform' && (
           <header style={{ paddingTop: '48px', paddingBottom: '36px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', textAlign: 'center' }}>
-            {/* RE neon sign */}
-            <img
-              src="/images/re-neon-logo.jpg"
-              alt="Royal Enfield"
-              className="neon-logo"
-              style={{ width: '200px', height: '200px', display: 'block', mixBlendMode: 'screen' }}
-            />
+            {/* RE neon sign — inline SVG, no background rectangle */}
+            <NeonSign />
 
             {/* Wordmark */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
