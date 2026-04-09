@@ -312,52 +312,60 @@ code, .spec-value {
 /* ─── Neon logo pulse ─────────────────────────────────────────────────────── */
 
 /*
-  neonPulse — warm red tube breath
-  The filter is applied via the SVG <filter> element inside NeonSign.tsx;
-  this class-level animation handles only the opacity/global-shadow layer
-  that sits on top of the SVG filter stack.
+  neonPulse — breathing neon glow on the RE wordmark.
+  Animates both opacity AND the drop-shadow filter so the glow itself
+  dims and brightens like a real neon gas tube, not just the overall image.
+
+  4-layer shadow stack:
+    1. White-hot core   — tight 3px, near-white
+    2. Red mid-halo     — 8px warm red
+    3. Amber outer      — 20px diffuse red-amber
+    4. Far bleed        — 50px very faint warm wash
 */
 @keyframes neonPulse {
   0%, 100% {
     opacity: 1;
+    filter:
+      drop-shadow(0 0 3px #fff8f0)
+      drop-shadow(0 0 8px #FF3030)
+      drop-shadow(0 0 20px rgba(255, 60, 20, 0.7))
+      drop-shadow(0 0 50px rgba(255, 100, 0, 0.35));
   }
   45% {
-    opacity: 0.82;
+    opacity: 0.88;
+    filter:
+      drop-shadow(0 0 2px #fff0e0)
+      drop-shadow(0 0 5px #CC2020)
+      drop-shadow(0 0 12px rgba(220, 40, 10, 0.5))
+      drop-shadow(0 0 30px rgba(200, 80, 0, 0.2));
   }
   50% {
     opacity: 1;
+    filter:
+      drop-shadow(0 0 3px #fff8f0)
+      drop-shadow(0 0 8px #FF3030)
+      drop-shadow(0 0 20px rgba(255, 60, 20, 0.7))
+      drop-shadow(0 0 50px rgba(255, 100, 0, 0.35));
   }
 }
 
-/*
-  neonPulseGold — amber tube breath
-  Offset phase-shifted by 0.6s so red and gold don't dim in lockstep —
-  real neon tubes never pulse in unison.
-*/
 @keyframes neonPulseGold {
-  0%, 100% {
-    opacity: 1;
-  }
-  38% {
-    opacity: 0.75;
-  }
-  42% {
-    opacity: 1;
-  }
-  55% {
-    opacity: 0.88;
-  }
-  60% {
-    opacity: 1;
-  }
+  0%, 100% { opacity: 1; }
+  38%       { opacity: 0.75; }
+  42%       { opacity: 1; }
+  55%       { opacity: 0.88; }
+  60%       { opacity: 1; }
 }
 
-/* Applied to red neon elements inside the SVG */
 .neon-logo {
+  filter:
+    drop-shadow(0 0 3px #fff8f0)
+    drop-shadow(0 0 8px #FF3030)
+    drop-shadow(0 0 20px rgba(255, 60, 20, 0.7))
+    drop-shadow(0 0 50px rgba(255, 100, 0, 0.35));
   animation: neonPulse 4s ease-in-out infinite;
 }
 
-/* Applied to gold/amber neon elements inside the SVG */
 .neon-logo-gold {
   animation: neonPulseGold 4s ease-in-out 0.6s infinite;
 }
