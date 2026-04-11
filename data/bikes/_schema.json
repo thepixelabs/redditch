@@ -249,6 +249,16 @@
         }
       }
     },
+    "colors": {
+      "type": "array",
+      "description": "Available color variants for this model",
+      "items": { "type": "string" }
+    },
+    "accessories": {
+      "type": "array",
+      "description": "Official Royal Enfield accessories available for this model",
+      "items": { "type": "string" }
+    },
     "meta": {
       "type": "object",
       "additionalProperties": false,

@@ -90,6 +90,21 @@ torque_specs:
   - component: Rear axle nut
     torque_nm: 90
 
+colors:
+  - Gravel Grey
+  - Granite Black
+  - Pine Green
+  - Mirage Silver
+
+accessories:
+  - Touring Windscreen
+  - Engine Guard with Sliders
+  - Pannier Mounting Kit
+  - Top Box Mounting Plate
+  - Knuckle Guards
+  - Auxiliary LED Lights
+  - Centre Stand
+
 meta:
   last_verified: "2026-04-09"
   source: "Royal Enfield Himalayan Owner's Manual, RE service documentation"

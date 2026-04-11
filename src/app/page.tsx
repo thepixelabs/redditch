@@ -1,14 +1,16 @@
 import { getAllBikes } from '@/lib/bikes'
+import { getBulletinPreview } from '@/lib/bulletin'
 import HomeClient from './HomeClient'
 
 /**
  * Home page — server component.
  *
- * getAllBikes() is called at build time (static export). The resulting data
- * is serialised into the page bundle and passed as a prop to the client
- * component, which handles the interactive onboarding flow.
+ * Bike data and the bulletin board preview are both read at build time
+ * (static export). Both are serialised into the page bundle and passed
+ * to the client component. Zero runtime cost.
  */
 export default function HomePage() {
   const bikes = getAllBikes()
-  return <HomeClient bikes={bikes} />
+  const bulletin = getBulletinPreview(4)
+  return <HomeClient bikes={bikes} bulletin={bulletin} />
 }

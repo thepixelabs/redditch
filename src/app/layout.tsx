@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Zilla_Slab, Inter, JetBrains_Mono } from 'next/font/google'
+import { Zilla_Slab, Inter, JetBrains_Mono, Caveat } from 'next/font/google'
 import '@/styles/globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -24,6 +24,13 @@ const fontBody = Inter({
 const fontMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
+  display: 'swap',
+})
+
+const fontHandwritten = Caveat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-handwritten',
   display: 'swap',
 })
 
@@ -115,7 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
 
       <body
-        className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable} antialiased`}
+        className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable} ${fontHandwritten.variable} antialiased`}
         style={{ backgroundColor: 'var(--bg)', color: 'var(--text-primary)' }}
       >
         {/* Skip nav — visible on focus for keyboard / screen reader users */}

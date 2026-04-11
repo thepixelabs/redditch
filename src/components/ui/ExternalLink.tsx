@@ -6,6 +6,8 @@ interface ExternalLinkProps {
   children: ReactNode
   className?: string
   style?: React.CSSProperties
+  /** Skip the default gold/underline styling — use when a parent class takes over */
+  unstyled?: boolean
 }
 
 /**
@@ -14,8 +16,16 @@ interface ExternalLinkProps {
  * The external-arrow icon carries an accessible label so screen readers
  * announce "(opens in new tab)" without repeating it in the visible text.
  * rel="noopener noreferrer" is non-negotiable for any cross-origin link.
+ *
+ * Pass `unstyled` when a parent className (e.g. `.enamel-link`) owns the visual.
  */
-export function ExternalLink({ href, children, className, style }: ExternalLinkProps) {
+export function ExternalLink({
+  href,
+  children,
+  className,
+  style,
+  unstyled = false,
+}: ExternalLinkProps) {
   return (
     <a
       href={href}
@@ -23,10 +33,12 @@ export function ExternalLink({ href, children, className, style }: ExternalLinkP
       rel="noopener noreferrer"
       style={style}
       className={cn(
-        'inline-flex items-center gap-1',
-        'underline underline-offset-2 decoration-1',
-        'text-[var(--re-gold)] hover:text-[var(--re-red)]',
-        'transition-colors duration-150',
+        !unstyled && [
+          'inline-flex items-center gap-1',
+          'underline underline-offset-2 decoration-1',
+          'text-[var(--re-gold)] hover:text-[var(--re-red)]',
+          'transition-colors duration-150',
+        ],
         className
       )}
     >

@@ -81,8 +81,10 @@ export function GaugeDashboard({
         'relative w-full',
         'gauge-panel',
         'border-t-[3px] border-t-[var(--re-red)]',
-        'border-b border-b-[rgba(200,150,44,0.25)]',
-        'shadow-[0_4px_24px_rgba(0,0,0,0.5)]',
+        'border-x border-x-[rgba(200,150,44,0.18)]',
+        'border-b border-b-[rgba(200,150,44,0.28)]',
+        'rounded-sm',
+        'shadow-[0_6px_32px_rgba(0,0,0,0.55),inset_0_0_0_1px_rgba(0,0,0,0.4)]',
         className,
       )}
     >
@@ -241,18 +243,16 @@ export function GaugeDashboard({
         )}
       </div>
 
-      {/* ── Footer: last verified notice ──────────────────────────────────── */}
+      {/* ── Footer: last verified notice — stamped ──────────────────────── */}
       {verifiedOn && (
-        <p
-          className={cn(
-            'text-center pb-3 px-4',
-            'text-[9px] font-mono tracking-wider',
-            'opacity-60',
-          )}
-          style={{ color: 'var(--text-secondary)' }}
+        <div
+          className="flex justify-center pb-4 px-4"
+          aria-label={`Data verified ${verifiedOn}`}
         >
-          Data verified {verifiedOn}
-        </p>
+          <span className="stamp stamp-muted">
+            DATA VERIFIED · {verifiedOn.toUpperCase()}
+          </span>
+        </div>
       )}
 
       {/* ── Decorative gold rule at the very bottom of the panel ──────────── */}

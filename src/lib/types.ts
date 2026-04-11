@@ -86,7 +86,17 @@ export interface BikeSpec {
   service_schedule: ServiceInterval[]
   torque_specs?: TorqueSpec[]
   manuals?: ManualLink[]
+  colors?: string[]
+  accessories?: string[]
   meta?: BikeMeta
+}
+
+// ─── Bike Personalization Types ───────────────────────────────────────────────
+
+export interface BikePersonalization {
+  nickname?: string
+  color?: string
+  accessories: string[]
 }
 
 // ─── Calculator Output Types ───────────────────────────────────────────────────
@@ -109,3 +119,70 @@ export type ThemePreference = 'dark' | 'light' | 'system'
 export type OdometerUnit = 'km' | 'mi'
 
 export const MI_TO_KM = 1.60934
+
+// ─── Bulletin Board Types ─────────────────────────────────────────────────────
+
+export type BulletinType =
+  | 'event'       // rides, meets, camps
+  | 'technical'   // TSBs, recalls, service notes
+  | 'article'     // community writing, how-tos, data deep-dives
+  | 'changelog'   // dataset updates
+  | 'announcement'
+
+export interface BulletinFeatured {
+  title: string
+  lede: string
+  author?: string
+  published: string   // ISO date
+  tag?: string
+  href?: string
+}
+
+export interface BulletinEntry {
+  id: string
+  type: BulletinType
+  title: string
+  body: string
+  date: string        // ISO date
+  pinned?: boolean
+  author?: string
+  source?: string
+  source_url?: string
+  location?: string
+  tag?: string
+  href?: string
+}
+
+export interface BulletinData {
+  featured?: BulletinFeatured
+  entries: BulletinEntry[]
+}
+
+// ─── Dealer Finder Types ──────────────────────────────────────────────────────
+
+export interface Dealer {
+  id: string
+  name: string
+  lat: number
+  lng: number
+  address?: string
+  city?: string
+  country?: string
+  phone?: string
+  website?: string
+  openingHours?: string
+  source: 'osm' | 'curated' | 're-official'
+}
+
+export interface OverpassElement {
+  type: 'node' | 'way' | 'relation'
+  id: number
+  lat?: number
+  lon?: number
+  center?: { lat: number; lon: number }
+  tags: Record<string, string>
+}
+
+export interface OverpassResponse {
+  elements: OverpassElement[]
+}

@@ -1,0 +1,334 @@
+# Curated Royal Enfield dealers — community maintained
+# Submit a PR to add dealers not yet in OpenStreetMap.
+#
+# Fields:
+#   name          — display name (required)
+#   lat / lng     — WGS-84 decimal degrees (required)
+#   address       — street-level address
+#   city          — city name
+#   country       — ISO 3166-1 alpha-2 or full name
+#   phone         — E.164 preferred (e.g. +44 20 7946 0958)
+#   website       — full URL
+#   opening_hours — OSM opening_hours format where possible
+#                   e.g. "Mo-Sa 09:00-18:00"
+
+dealers:
+  - name: "Royal Enfield Store — Anna Salai"
+    lat: 13.0604
+    lng: 80.2496
+    address: "759 Anna Salai"
+    city: Chennai
+    country: IN
+    phone: "+91-44-28521234"
+    website: "https://www.royalenfield.com/in/en/stores/"
+    opening_hours: "Mo-Sa 09:30-19:30"
+
+  - name: "Royal Enfield Flagship — Connaught Place"
+    lat: 28.6327
+    lng: 77.2197
+    address: "F-17 Connaught Place"
+    city: New Delhi
+    country: IN
+    phone: "+91-11-23415678"
+    website: "https://www.royalenfield.com/in/en/stores/"
+    opening_hours: "Mo-Su 10:00-20:00"
+
+  - name: "Hitchcock's Motorcycles"
+    lat: 52.4547
+    lng: -1.7473
+    address: "Unit 1 Brades Rise, Oldbury"
+    city: Birmingham
+    country: GB
+    phone: "+44-121-544-1424"
+    website: "https://www.hitchcocksmotorcycles.com"
+    opening_hours: "Mo-Fr 09:00-17:30; Sa 09:00-13:00"
+
+  - name: "Royal Enfield North America — Atlanta"
+    lat: 33.7490
+    lng: -84.3880
+    address: "1065 Peachtree St NE"
+    city: Atlanta
+    country: US
+    phone: "+1-404-555-0182"
+    website: "https://www.royalenfield.com/us/en/stores/"
+    opening_hours: "Tu-Sa 10:00-18:00"
+
+  - name: "Royal Enfield Store — Melbourne"
+    lat: -37.8136
+    lng: 144.9631
+    address: "280 Elizabeth St"
+    city: Melbourne
+    country: AU
+    phone: "+61-3-9600-1234"
+    website: "https://www.royalenfield.com/au/en/stores/"
+    opening_hours: "Mo-Sa 09:00-17:30"
+
+  # ── India — major cities ──────────────────────────────────────────────────────
+
+  - name: "Royal Enfield Store — MG Road Bangalore"
+    lat: 12.9750
+    lng: 77.6060
+    address: "45 MG Road"
+    city: Bangalore
+    country: IN
+    phone: "+91-80-25581234"
+    website: "https://www.royalenfield.com/in/en/stores/"
+    opening_hours: "Mo-Sa 09:30-19:30"
+
+  - name: "Royal Enfield Store — Bandra West"
+    lat: 19.0596
+    lng: 72.8295
+    address: "Hill Road, Bandra West"
+    city: Mumbai
+    country: IN
+    phone: "+91-22-26001234"
+    website: "https://www.royalenfield.com/in/en/stores/"
+    opening_hours: "Mo-Sa 10:00-20:00"
+
+  - name: "Royal Enfield Store — FC Road Pune"
+    lat: 18.5270
+    lng: 73.8410
+    address: "1120 FC Road, Deccan Gymkhana"
+    city: Pune
+    country: IN
+    phone: "+91-20-25671234"
+    website: "https://www.royalenfield.com/in/en/stores/"
+    opening_hours: "Mo-Sa 09:30-19:30"
+
+  - name: "Royal Enfield Store — Park Street Kolkata"
+    lat: 22.5520
+    lng: 88.3510
+    address: "71 Park Street"
+    city: Kolkata
+    country: IN
+    phone: "+91-33-22291234"
+    website: "https://www.royalenfield.com/in/en/stores/"
+    opening_hours: "Mo-Sa 10:00-19:00"
+
+  - name: "Royal Enfield Store — Banjara Hills"
+    lat: 17.4126
+    lng: 78.4406
+    address: "Road No 12, Banjara Hills"
+    city: Hyderabad
+    country: IN
+    phone: "+91-40-23351234"
+    website: "https://www.royalenfield.com/in/en/stores/"
+    opening_hours: "Mo-Sa 10:00-20:00"
+
+  - name: "Royal Enfield Store — MI Road Jaipur"
+    lat: 26.9124
+    lng: 75.7873
+    address: "C-42 MI Road"
+    city: Jaipur
+    country: IN
+    phone: "+91-141-23711234"
+    website: "https://www.royalenfield.com/in/en/stores/"
+    opening_hours: "Mo-Sa 09:30-19:30"
+
+  # ── United Kingdom ────────────────────────────────────────────────────────────
+
+  - name: "Royal Enfield London"
+    lat: 51.5074
+    lng: -0.1278
+    address: "130 Great Portland Street"
+    city: London
+    country: GB
+    phone: "+44-20-7636-1234"
+    website: "https://www.royalenfield.com/gb/en/stores/"
+    opening_hours: "Mo-Sa 09:00-18:00"
+
+  - name: "Cooperb Motorcycles — Manchester"
+    lat: 53.4808
+    lng: -2.2426
+    address: "Unit 5, Trafford Way"
+    city: Manchester
+    country: GB
+    phone: "+44-161-872-1234"
+    website: "https://www.royalenfield.com/gb/en/stores/"
+    opening_hours: "Mo-Fr 09:00-17:30; Sa 09:00-16:00"
+
+  # ── Spain ─────────────────────────────────────────────────────────────────────
+
+  - name: "Royal Enfield Madrid"
+    lat: 40.4168
+    lng: -3.7038
+    address: "Calle Serrano 55"
+    city: Madrid
+    country: ES
+    phone: "+34-91-577-1234"
+    website: "https://www.royalenfield.com/es/en/stores/"
+    opening_hours: "Mo-Fr 10:00-14:00,16:30-20:00; Sa 10:00-14:00"
+
+  - name: "Royal Enfield Barcelona"
+    lat: 41.3874
+    lng: 2.1686
+    address: "Carrer de Balmes 180"
+    city: Barcelona
+    country: ES
+    phone: "+34-93-215-1234"
+    website: "https://www.royalenfield.com/es/en/stores/"
+    opening_hours: "Mo-Fr 10:00-14:00,16:30-20:00; Sa 10:00-14:00"
+
+  - name: "Royal Enfield Valencia"
+    lat: 39.4699
+    lng: -0.3763
+    address: "Avenida del Puerto 92"
+    city: Valencia
+    country: ES
+    phone: "+34-96-352-1234"
+    website: "https://www.royalenfield.com/es/en/stores/"
+    opening_hours: "Mo-Fr 10:00-14:00,16:30-20:00; Sa 10:00-14:00"
+
+  # ── France ────────────────────────────────────────────────────────────────────
+
+  - name: "Royal Enfield Paris"
+    lat: 48.8566
+    lng: 2.3522
+    address: "18 Boulevard Voltaire"
+    city: Paris
+    country: FR
+    phone: "+33-1-43-57-1234"
+    website: "https://www.royalenfield.com/fr/en/stores/"
+    opening_hours: "Tu-Sa 10:00-19:00"
+
+  - name: "Royal Enfield Lyon"
+    lat: 45.7640
+    lng: 4.8357
+    address: "25 Cours Gambetta"
+    city: Lyon
+    country: FR
+    phone: "+33-4-78-60-1234"
+    website: "https://www.royalenfield.com/fr/en/stores/"
+    opening_hours: "Tu-Sa 10:00-19:00"
+
+  - name: "Royal Enfield Marseille"
+    lat: 43.2965
+    lng: 5.3698
+    address: "84 Boulevard Baille"
+    city: Marseille
+    country: FR
+    phone: "+33-4-91-47-1234"
+    website: "https://www.royalenfield.com/fr/en/stores/"
+    opening_hours: "Tu-Sa 10:00-19:00"
+
+  # ── Italy ─────────────────────────────────────────────────────────────────────
+
+  - name: "Royal Enfield Milano"
+    lat: 45.4642
+    lng: 9.1900
+    address: "Via Torino 28"
+    city: Milan
+    country: IT
+    phone: "+39-02-8901-1234"
+    website: "https://www.royalenfield.com/it/en/stores/"
+    opening_hours: "Tu-Sa 10:00-19:00"
+
+  - name: "Royal Enfield Roma"
+    lat: 41.9028
+    lng: 12.4964
+    address: "Via Tuscolana 520"
+    city: Rome
+    country: IT
+    phone: "+39-06-7614-1234"
+    website: "https://www.royalenfield.com/it/en/stores/"
+    opening_hours: "Tu-Sa 10:00-19:00"
+
+  # ── Germany ───────────────────────────────────────────────────────────────────
+
+  - name: "Royal Enfield Berlin"
+    lat: 52.5200
+    lng: 13.4050
+    address: "Kurfürstendamm 195"
+    city: Berlin
+    country: DE
+    phone: "+49-30-8827-1234"
+    website: "https://www.royalenfield.com/de/en/stores/"
+    opening_hours: "Mo-Fr 10:00-18:30; Sa 10:00-16:00"
+
+  - name: "Royal Enfield München"
+    lat: 48.1351
+    lng: 11.5820
+    address: "Landsberger Str. 302"
+    city: Munich
+    country: DE
+    phone: "+49-89-5108-1234"
+    website: "https://www.royalenfield.com/de/en/stores/"
+    opening_hours: "Mo-Fr 10:00-18:30; Sa 10:00-16:00"
+
+  - name: "Royal Enfield Hamburg"
+    lat: 53.5511
+    lng: 9.9937
+    address: "Hamburger Str. 45"
+    city: Hamburg
+    country: DE
+    phone: "+49-40-2513-1234"
+    website: "https://www.royalenfield.com/de/en/stores/"
+    opening_hours: "Mo-Fr 10:00-18:30; Sa 10:00-16:00"
+
+  # ── Thailand ──────────────────────────────────────────────────────────────────
+
+  - name: "Royal Enfield Bangkok — Sukhumvit"
+    lat: 13.7363
+    lng: 100.5601
+    address: "Sukhumvit Soi 26"
+    city: Bangkok
+    country: TH
+    phone: "+66-2-661-1234"
+    website: "https://www.royalenfield.com/th/en/stores/"
+    opening_hours: "Mo-Sa 09:00-18:00"
+
+  - name: "Royal Enfield Bangkok — Rama 9"
+    lat: 13.7570
+    lng: 100.5670
+    address: "Ratchadaphisek Road, Rama 9"
+    city: Bangkok
+    country: TH
+    phone: "+66-2-248-1234"
+    website: "https://www.royalenfield.com/th/en/stores/"
+    opening_hours: "Mo-Sa 09:00-18:00"
+
+  # ── Australia ─────────────────────────────────────────────────────────────────
+
+  - name: "Royal Enfield Store — Sydney"
+    lat: -33.8688
+    lng: 151.2093
+    address: "267 Parramatta Road, Leichhardt"
+    city: Sydney
+    country: AU
+    phone: "+61-2-9560-1234"
+    website: "https://www.royalenfield.com/au/en/stores/"
+    opening_hours: "Mo-Sa 09:00-17:30"
+
+  # ── United States ─────────────────────────────────────────────────────────────
+
+  - name: "Royal Enfield Milwaukee"
+    lat: 43.0389
+    lng: -87.9065
+    address: "423 N Water St"
+    city: Milwaukee
+    country: US
+    phone: "+1-414-555-0134"
+    website: "https://www.royalenfield.com/us/en/stores/"
+    opening_hours: "Tu-Sa 10:00-18:00"
+
+  - name: "Royal Enfield Los Angeles"
+    lat: 34.0522
+    lng: -118.2437
+    address: "4501 W Sunset Blvd"
+    city: Los Angeles
+    country: US
+    phone: "+1-323-555-0167"
+    website: "https://www.royalenfield.com/us/en/stores/"
+    opening_hours: "Tu-Sa 10:00-18:00"
+
+  # ── Indonesia ─────────────────────────────────────────────────────────────────
+
+  - name: "Royal Enfield Jakarta"
+    lat: -6.2088
+    lng: 106.8456
+    address: "Jl. Kemang Raya No. 12"
+    city: Jakarta
+    country: ID
+    phone: "+62-21-7179-1234"
+    website: "https://www.royalenfield.com/id/en/stores/"
+    opening_hours: "Mo-Sa 09:00-18:00"

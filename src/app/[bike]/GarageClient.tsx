@@ -12,6 +12,9 @@ import { ServiceList } from '@/components/service/ServiceList'
 import { StatBar } from '@/components/ui/StatBar'
 import { OdometerInput } from '@/components/bike-selector/OdometerInput'
 import { BikeReferencePanel } from '@/components/garage/BikeReferencePanel'
+import { PersonalizationPanel } from '@/components/garage/PersonalizationPanel'
+import { FindRidersLink } from '@/components/garage/FindRidersLink'
+import { usePersonalization } from '@/hooks/usePersonalization'
 
 interface GarageClientProps {
   bike: BikeSpec
@@ -24,6 +27,7 @@ export function GarageClient({ bike }: GarageClientProps) {
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null)
   const [isEditingOdometer, setIsEditingOdometer] = useState(false)
   const [, setSavedBike] = usePersistedState<string | null>(STORAGE_KEYS.BIKE, null)
+  const { personalization, setNickname, setColor, toggleAccessory } = usePersonalization()
 
   const handleGaugeFocus = useCallback((index: number) => {
     setFocusedIndex(index)
@@ -59,7 +63,7 @@ export function GarageClient({ bike }: GarageClientProps) {
 
       {/* Persistent stat bar */}
       <StatBar
-        bikeName={bike.name}
+        bikeName={personalization.nickname || bike.name}
         odometerKm={odometerKm}
         unit={unit}
         onChangeBike={() => setIsEditingOdometer(true)}
@@ -152,6 +156,20 @@ export function GarageClient({ bike }: GarageClientProps) {
                 />
               </section>
             </div>
+
+            {/* Personalization — nickname, color, accessories */}
+            <PersonalizationPanel
+              bikeName={bike.name}
+              availableColors={bike.colors ?? []}
+              availableAccessories={bike.accessories ?? []}
+              personalization={personalization}
+              onSetNickname={setNickname}
+              onSetColor={setColor}
+              onToggleAccessory={toggleAccessory}
+            />
+
+            {/* Rider community — find local groups */}
+            <FindRidersLink bikeName={bike.name} />
 
             {/* Full-width reference panel — surfaces all hidden spec data */}
             <BikeReferencePanel bike={bike} />

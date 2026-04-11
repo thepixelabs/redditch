@@ -1,0 +1,131 @@
+# ─── Redditch Bulletin Board ──────────────────────────────────────────────
+#
+# Workshop corkboard — community notices, technical bulletins, upcoming
+# events. Every entry MUST have a date, a type, and a source_url (the
+# clickable origin for the notice). The body becomes a teaser — the card
+# itself is the link to the full article, event page, or bulletin source.
+#
+# Contribute via pull request. See /data/bikes/_schema.json for the schema
+# conventions used across all YAML in this repo.
+
+featured:
+  title: "The quiet hero of the 650 platform: oil filter 888464"
+  lede: >
+    Three bikes, one filter. Interceptor, Continental GT, and Super Meteor
+    all share the same OEM oil filter part number. Buy a box of five and
+    you service the entire 650 twin lineup for a year.
+  author: Community
+  published: "2026-04-10"
+  tag: DATA DEEP-DIVE
+  href: "https://github.com/thepixelabs/redditch/blob/main/data/bikes/interceptor-650.yaml"
+
+entries:
+  - id: "one-ride-2026"
+    type: event
+    pinned: true
+    title: "One Ride — Sunday 3 May 2026"
+    body: >
+      The global Royal Enfield community ride happens the first Sunday of May.
+      Every city, every bike, every Bulleteer — on the road at dawn. Official
+      registration opens mid-April.
+    date: "2026-05-03"
+    location: Global
+    source: "Royal Enfield"
+    source_url: "https://www.royalenfield.com/us/en/motorcycles/community/one-ride/"
+
+  - id: "himalayan-450-coolant-bulletin"
+    type: technical
+    title: "TSB-2026-03 — Himalayan 450 coolant inspection"
+    body: >
+      First-year Himalayan 450 owners: inspect the coolant reservoir level
+      and the lower hose clamp at 10,000 km. Top up with 50/50 OAT-compatible
+      coolant (1.1L capacity). Do not substitute silicate-based coolants.
+    date: "2026-03-22"
+    source: "Royal Enfield Service Bulletin"
+    source_url: "https://www.royalenfield.com/in/en/owners/service/"
+    tag: "Technical bulletin"
+
+  - id: "data-update-guerrilla"
+    type: changelog
+    title: "New data: Guerrilla 450 service intervals added"
+    body: >
+      Complete service schedule and torque specs for the Guerrilla 450 are
+      now in the dataset. Verified against the owner's manual, 2025 edition.
+    date: "2026-04-08"
+    source: "@pixelabs"
+    source_url: "https://github.com/thepixelabs/redditch/commits/main/data/bikes"
+    tag: "Data"
+
+  - id: "continental-gt-sussex-meet"
+    type: event
+    title: "Continental GT Sussex Coast Run"
+    body: >
+      Second Sunday of every month, 10am kickoff from the Brighton Palace Pier.
+      Open to all café-style Royal Enfields and guests. Rain or shine, since
+      1901.
+    date: "2026-05-10"
+    location: Brighton, UK
+    source: "Sussex Bulleteers"
+    source_url: "https://www.facebook.com/groups/ukbulleteers/"
+
+  - id: "re-pune-service-camp"
+    type: event
+    title: "Pune Free Service Camp — Classic 350"
+    body: >
+      Authorised service partners across Pune are offering free minor-service
+      inspections for Classic 350 owners throughout the weekend. Bring your
+      logbook.
+    date: "2026-04-18"
+    location: Pune, IN
+    source: "RE Pune Owners Community"
+    source_url: "https://www.royalenfield.com/in/en/owners/service-and-care/service-network/"
+
+  - id: "valve-clearance-note"
+    type: article
+    title: "Every RE single and twin uses the same valve clearances"
+    body: >
+      0.10–0.15 mm intake, 0.15–0.20 mm exhaust. One feeler gauge set
+      covers the entire lineup — from the Hunter 350 to the Super Meteor 650.
+      Here is how to check them without removing the tank.
+    date: "2026-04-02"
+    author: "Community"
+    source: "Redditch how-to"
+    source_url: "https://github.com/thepixelabs/redditch/blob/main/PLAN.md#valve-clearance"
+    tag: "How-to"
+
+  - id: "torque-atlas-preview"
+    type: article
+    title: "The Torque Atlas — every bolt, every bike, at a glance"
+    body: >
+      66 torque specs across ten bikes. The tightest: the 650 rear axle
+      at 100 Nm. The loosest: the oil filter cover on the Hunter at 10 Nm.
+      Full cross-reference grid coming in Phase 2.
+    date: "2026-03-28"
+    author: "Data"
+    source: "Redditch dataset"
+    source_url: "https://github.com/thepixelabs/redditch/tree/main/data/bikes"
+    tag: "Reference"
+
+  - id: "royal-enfield-rider-mania-2026"
+    type: event
+    title: "Rider Mania 2026 — the annual RE pilgrimage"
+    body: >
+      Three days of riding, music, and fellowship at the official Royal
+      Enfield festival. Over 8,000 bikes expected. Registration opens in
+      August.
+    date: "2026-11-21"
+    location: Vagator, Goa, IN
+    source: "Royal Enfield Rider Mania"
+    source_url: "https://www.royalenfield.com/in/en/motorcycles/community/rider-mania/"
+
+  - id: "himalayan-brotherhood-run"
+    type: event
+    title: "Himalayan Brotherhood Run — Spiti Valley"
+    body: >
+      Eight days across the Spiti Valley on Himalayans old and new. Altitudes
+      from 2,000 m to 4,500 m. Guided by the RE adventure team. Limited to
+      30 riders.
+    date: "2026-06-14"
+    location: Manali → Kaza → Manali
+    source: "Royal Enfield Tours"
+    source_url: "https://royalenfieldtours.com/"

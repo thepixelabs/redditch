@@ -77,8 +77,10 @@ export function StatBar({
         'group w-full flex items-center justify-between gap-3 px-4 md:px-6 lg:px-8',
         // Height scales with screen size
         'min-h-[44px] md:min-h-[56px] lg:min-h-[64px]',
-        // Surface
-        'bg-[var(--bg-surface)] border-b border-[var(--border)]',
+        // Surface — instrument panel fascia
+        'bg-[var(--bg-surface)]',
+        'border-b border-[var(--border)]',
+        'shadow-[inset_2px_0_0_rgba(200,150,44,0.35),inset_0_1px_0_rgba(200,150,44,0.1)]',
         // Reset button defaults
         'text-left cursor-pointer',
         // Subtle press feedback

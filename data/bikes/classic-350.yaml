@@ -160,6 +160,21 @@ torque_specs:
   - component: Handlebar clamp bolts
     torque_nm: 20
 
+colors:
+  - Halcyon Black
+  - Halcyon Green
+  - Halcyon Grey
+  - Signals — Marsh Grey
+  - Dark — Stealth Black
+
+accessories:
+  - Touring Windscreen
+  - Engine Guard
+  - Classic Touring Seat
+  - Rear Carrier
+  - Machined Oil Filler Cap
+  - Bar-End Mirrors
+
 meta:
   last_verified: "2026-04-09"
   source: "Royal Enfield Classic 350 Owner's Manual 2021, RE service schedule documentation"

@@ -3,30 +3,45 @@
 @tailwind utilities;
 
 /* ─── RE Brand CSS Custom Properties ──────────────────────────────────────── */
+/*
+ * Covenant (2026-04-10):
+ *   1. Surface hierarchy — body > cards > panels > footer. Footer is the FLOOR.
+ *   2. Gold annotates, red warns. Never invert these roles.
+ *   3. Texture before decoration. Every major region carries a material texture.
+ *   4. Mobile is first-class; 44px touch targets; 4.5:1 contrast minimum.
+ */
 :root {
-  /* Colours */
+  /* ── Core brand colours (unchanged) ─────────────────────────────────── */
   --re-red:         #B5121B;
   --re-red-deep:    #7B0D1E;
-  --re-black:       #1A1A1A;
-  --re-surface:     #242424;
+  --re-black:       #111111;   /* was #1A1A1A — darker floor, warm near-black */
+  --re-surface:     #161616;
   --re-gold:        #C8962C;
   --re-gold-muted:  #9E7F3C;
-  --re-cream:       #F5ECD7;
+  --re-cream:       #F0E6D0;   /* warm off-white — used for text on dark */
   --re-cream-warm:  #EDE0C8;
-  --re-silver:      #B0B3B8;
+  --re-silver:      #B8B4AE;   /* was #B0B3B8 — warmer, more chromed */
   --re-gunmetal:    #4A4A4A;
 
-  /* Garage-spec surface tokens */
-  --re-gunmetal-dark:   #2A2A2A;
-  --re-gunmetal-mid:    #3A3A3A;
-  --re-gunmetal-light:  #4A4A4A;
+  /* ── New workshop-tone palette (2026-04-10) ─────────────────────────── */
+  --re-workshop-floor:  #0D0D0D;   /* footer/deep background — darker than body */
+  --re-concrete:        #C8BC9E;   /* light-mode deep surface — aged concrete */
+  --re-cork:            #C4975A;   /* bulletin board pin-board, leather mid-tone */
+  --re-chalk:           #EEE9DF;   /* off-white surface, note/label backgrounds */
+  --re-rust:            #8B4513;   /* patina/oxide accent — sparingly */
+  --re-leather:         #6B3A2A;   /* seat leather / grip tone */
 
-  /* Glow colours */
+  /* ── Garage-spec surface tokens ─────────────────────────────────────── */
+  --re-gunmetal-dark:   #222222;
+  --re-gunmetal-mid:    #2C2C2C;
+  --re-gunmetal-light:  #3A3A3A;
+
+  /* ── Glow colours ───────────────────────────────────────────────────── */
   --re-red-glow:        rgba(181, 18, 27, 0.35);
   --re-red-glow-strong: rgba(181, 18, 27, 0.55);
   --re-gold-glow:       rgba(200, 150, 44, 0.20);
 
-  /* Typography scale */
+  /* ── Typography scale ───────────────────────────────────────────────── */
   --type-hero:   clamp(2.5rem, 6vw, 4.5rem);
   --type-h1:     clamp(1.75rem, 4vw, 2.5rem);
   --type-label:  0.6875rem;
@@ -35,40 +50,50 @@
   --ls-label:    0.16em;
   --ls-mono:     0.08em;
 
-  /* Easing */
+  /* ── Easing ─────────────────────────────────────────────────────────── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Light mode semantic tokens */
-  --bg:             var(--re-cream);
-  --bg-surface:     var(--re-cream-warm);
-  --bg-card:        #E8DFC8;
-  --bg-panel:       var(--re-cream-warm);
-  --text-primary:   var(--re-black);
-  --text-secondary: var(--re-gunmetal);
-  --text-muted:     var(--re-silver);
-  --border:         var(--re-gold-muted);
-  --border-subtle:  rgba(158, 127, 60, 0.4);
-  --border-gold-faint: rgba(200, 150, 44, 0.15);
+  /* ── Light mode semantic tokens ─────────────────────────────────────── */
+  /* Aged concrete, not cream pastry. */
+  --bg:             #E8E0CC;               /* workshop floor */
+  --bg-surface:     #D8CEB8;               /* card base */
+  --bg-card:        #CFC4AC;               /* raised card */
+  --bg-panel:       #D8CEB8;
+  --bg-footer:      var(--re-concrete);    /* darker than body — floor level */
+
+  --text-primary:   #1A1410;
+  --text-secondary: #4A4238;
+  --text-muted:     #7A7060;
+  --border:         rgba(100, 80, 40, 0.28);
+  --border-subtle:  rgba(100, 80, 40, 0.14);
+  --border-gold-faint: rgba(200, 150, 44, 0.20);
   --accent:         var(--re-red);
   --accent-hover:   var(--re-red-deep);
 
   /* Urgency (light mode) */
-  --urgency-good:   #16a34a;
-  --urgency-soon:   #b45309;
+  --urgency-good:   #166534;
+  --urgency-soon:   #92400e;
   --urgency-over:   var(--re-red);
 }
 
 .dark {
-  --bg:             var(--re-black);
-  --bg-surface:     var(--re-surface);
-  --bg-card:        var(--re-gunmetal-dark);
-  --bg-panel:       var(--re-gunmetal-mid);
-  --text-primary:   #F5ECD7;
-  --text-secondary: var(--re-silver);
-  --text-muted:     #7A7A7A;
-  --border:         var(--re-gunmetal);
-  --border-subtle:  rgba(74, 74, 74, 0.5);
-  --border-gold-faint: rgba(200, 150, 44, 0.15);
+  /* Surface hierarchy — darkest at floor, lifting as you rise to the card. */
+  --bg:             var(--re-black);          /* #111 — page body */
+  --bg-surface:     #161616;                  /* subtle rise from body */
+  --bg-card:        #1F1F1F;                  /* clearly above surface */
+  --bg-panel:       #1A1A1A;                  /* gauge panel, between body & card */
+  --bg-footer:      var(--re-workshop-floor); /* #0D0D0D — below everything */
+
+  /* Text — warm, never stark white. */
+  --text-primary:   #F0E6D0;
+  --text-secondary: #9A8F80;
+  --text-muted:     #5A5248;
+
+  /* Borders are gold-tinted, not anonymous gunmetal. */
+  --border:         rgba(200, 150, 44, 0.18);
+  --border-subtle:  rgba(200, 150, 44, 0.09);
+  --border-gold-faint: rgba(200, 150, 44, 0.14);
+
   --accent:         var(--re-red);
   --accent-hover:   var(--re-red-deep);
 
@@ -209,7 +234,7 @@ code, .spec-value {
 
 /* ─── Garage wall texture ─────────────────────────────────────────────────── */
 .garage-wall {
-  background-color: #1A1A1A;
+  background-color: var(--re-black);
   background-image:
     /* Subtle vertical panel lines — 40px pitch */
     repeating-linear-gradient(
@@ -237,7 +262,7 @@ code, .spec-value {
 
 /* ─── Instrument cluster panel ────────────────────────────────────────────── */
 .gauge-panel {
-  background-color: #222222;
+  background-color: var(--bg-panel);
   background-image:
     /* Fine horizontal scan lines — machined fascia */
     repeating-linear-gradient(
@@ -355,6 +380,31 @@ code, .spec-value {
   42%       { opacity: 1; }
   55%       { opacity: 0.88; }
   60%       { opacity: 1; }
+}
+
+/*
+ * Throttle sweep — header nav buttons ride in from the right like gauge
+ * needles sweeping to position on engine start. Used on every route change.
+ */
+@keyframes header-nav-sweep {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.header-nav-btn:hover {
+  color: var(--re-cream) !important;
+  border-color: var(--border) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.header-nav-ghost:hover {
+  color: var(--text-secondary) !important;
 }
 
 .neon-logo {
@@ -555,4 +605,1258 @@ code, .spec-value {
 
 .torque-table tr:last-child td {
   border-bottom: none;
+}
+
+/* ─── Workshop Floor — the footer substrate ──────────────────────────────── */
+/*
+ * The "workshop-floor" treatment is applied to the <footer> element. It
+ * establishes the footer as the lowest plane in the visual hierarchy —
+ * darker than the page body, with a coarse texture and a riveted top edge.
+ */
+.workshop-floor {
+  position: relative;
+  background-color: var(--bg-footer);
+  background-image:
+    /* Large vertical panel seams — 160px pitch */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 158px,
+      rgba(255, 255, 255, 0.015) 158px,
+      rgba(255, 255, 255, 0.015) 160px
+    ),
+    /* Diagonal brushed grain */
+    repeating-linear-gradient(
+      155deg,
+      transparent 0px,
+      transparent 5px,
+      rgba(255, 255, 255, 0.008) 5px,
+      rgba(255, 255, 255, 0.008) 6px
+    ),
+    /* Top-edge warm Edison bleed */
+    radial-gradient(
+      ellipse 110% 40% at 50% 0%,
+      rgba(200, 150, 44, 0.05) 0%,
+      transparent 60%
+    );
+}
+
+/* Riveted top rule — 4 bolts spaced across the width */
+.workshop-floor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(200, 150, 44, 0) 0%,
+      rgba(200, 150, 44, 0.35) 10%,
+      rgba(200, 150, 44, 0.35) 90%,
+      rgba(200, 150, 44, 0) 100%
+    ),
+    /* 4 rivet heads at 12.5% / 37.5% / 62.5% / 87.5% */
+    radial-gradient(circle at 12.5% 1.5px, var(--re-gold) 2px, transparent 2.5px),
+    radial-gradient(circle at 37.5% 1.5px, var(--re-gold) 2px, transparent 2.5px),
+    radial-gradient(circle at 62.5% 1.5px, var(--re-gold) 2px, transparent 2.5px),
+    radial-gradient(circle at 87.5% 1.5px, var(--re-gold) 2px, transparent 2.5px);
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.75;
+}
+
+/* Faint RE wordmark watermark behind footer content */
+.workshop-floor::after {
+  content: 'REDDITCH';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(80px, 14vw, 180px);
+  letter-spacing: 0.4em;
+  color: var(--re-gold);
+  opacity: 0.028;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Enamelled-sign link style — used in Footer nav */
+.enamel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: color 180ms ease, border-color 180ms ease, padding-left 180ms ease;
+}
+
+.enamel-link::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--re-gold);
+  opacity: 0.4;
+  border-radius: 50%;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.enamel-link:hover {
+  color: var(--re-gold);
+  border-bottom-color: rgba(200, 150, 44, 0.4);
+  padding-left: 4px;
+}
+
+.enamel-link:hover::before {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.enamel-link:focus-visible {
+  outline: 2px solid var(--re-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Stamp — used for "DATA VERIFIED" / copyright / bulletin board dates */
+.stamp {
+  display: inline-block;
+  padding: 4px 10px;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--re-gold);
+  border: 1px solid rgba(200, 150, 44, 0.28);
+  border-radius: 2px;
+  background: rgba(200, 150, 44, 0.04);
+  white-space: nowrap;
+}
+
+.stamp-muted {
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+  background: transparent;
+}
+
+/* ─── Bulletin Board ─────────────────────────────────────────────────────── */
+/*
+ * Workshop corkboard — pinned notices, enamel signs, chalk notes.
+ * Applied to the section <section> that hosts the bulletin board widget.
+ */
+.bulletin-board {
+  position: relative;
+  background-color: #1a1511;
+  background-image:
+    /* Fine cork grain — two layers of radial dots */
+    radial-gradient(circle at 20% 30%, rgba(196, 151, 90, 0.04) 0.5px, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(196, 151, 90, 0.03) 0.5px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(196, 151, 90, 0.02) 0.5px, transparent 1px),
+    /* Warm wash */
+    radial-gradient(
+      ellipse 120% 80% at 50% 0%,
+      rgba(139, 69, 19, 0.12) 0%,
+      transparent 60%
+    ),
+    /* Diagonal weave grain */
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(196, 151, 90, 0.025) 3px,
+      rgba(196, 151, 90, 0.025) 4px
+    );
+  background-size: 8px 8px, 6px 6px, 10px 10px, 100% 100%, 100% 100%;
+  border-top: 1px solid rgba(196, 151, 90, 0.25);
+  border-bottom: 1px solid rgba(196, 151, 90, 0.15);
+}
+
+/* Individual pinned notice — paper on cork */
+.bulletin-card {
+  position: relative;
+  background: #f4ecd4;
+  color: #1a1410;
+  border-radius: 1px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 6px 14px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(100, 80, 40, 0.06);
+  transform: rotate(var(--paper-rotate, -0.4deg));
+  transition: transform 220ms var(--ease-out-expo), box-shadow 220ms var(--ease-out-expo);
+}
+
+/* Content wrapper — consistent padding for all card variants */
+.bulletin-card-content {
+  padding: clamp(16px, 2vw, 22px) clamp(20px, 2.2vw, 28px) clamp(20px, 2vw, 26px);
+}
+
+/* Type badge — compact bar at top of card with icon + label */
+.bulletin-card-type-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px clamp(20px, 2.2vw, 28px);
+  border-bottom: 1px solid rgba(100, 80, 40, 0.12);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.bulletin-card-type-icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.bulletin-card-type-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a6a3a;
+}
+
+/* Badge on chalk variant */
+.bulletin-card-chalk .bulletin-card-type-badge {
+  border-bottom-color: rgba(200, 150, 44, 0.15);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.bulletin-card-chalk .bulletin-card-type-label {
+  color: #c4975a;
+}
+
+/* Badge on enamel variant */
+.bulletin-card-enamel .bulletin-card-type-badge {
+  border-bottom-color: rgba(200, 150, 44, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.bulletin-card-enamel .bulletin-card-type-label {
+  color: rgba(200, 150, 44, 0.85);
+}
+
+.bulletin-card:hover {
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow:
+    0 2px 3px rgba(0, 0, 0, 0.5),
+    0 12px 24px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(100, 80, 40, 0.08);
+}
+
+/* Linked card — the whole card is clickable, needs focus ring + cursor hint */
+.bulletin-card-link {
+  cursor: pointer;
+}
+
+.bulletin-card-link:focus-visible {
+  outline: 2px solid var(--re-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.bulletin-card-link .bulletin-card-title {
+  transition: color 150ms ease;
+}
+
+.bulletin-card-link:hover .bulletin-card-title {
+  color: #ffffff;
+}
+
+/* Featured block — hover treatment when linked */
+.featured-block-link:hover {
+  border-color: rgba(200, 150, 44, 0.45) !important;
+  background: linear-gradient(180deg, rgba(196, 151, 90, 0.12) 0%, rgba(200, 150, 44, 0.02) 100%) !important;
+}
+
+.featured-block-link:hover h3 {
+  color: var(--re-gold) !important;
+}
+
+.featured-block-link:focus-visible {
+  outline: 2px solid var(--re-gold);
+  outline-offset: 3px;
+}
+
+/* Thumbtack — red default */
+.bulletin-card::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff6a5e 0%, #b5121b 60%, #7b0d1e 100%);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* Gold thumbtack for chalk cards */
+.bulletin-card-chalk::before {
+  background: radial-gradient(circle at 35% 35%, #ffd48a 0%, #c8962c 60%, #8a6a1c 100%);
+}
+
+/* Brass thumbtack for enamel cards */
+.bulletin-card-enamel::before {
+  background: radial-gradient(circle at 35% 35%, #e8d090 0%, #c8962c 60%, #6a5010 100%);
+}
+
+/* Paper corner fold effect — triangle in lower right */
+.bulletin-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, transparent 50%, rgba(100, 80, 40, 0.35) 50%);
+  pointer-events: none;
+}
+
+.bulletin-card-title {
+  font-family: var(--font-handwritten), 'Caveat', cursive;
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  color: #1a1410;
+}
+
+.bulletin-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6b5a3e;
+  margin-bottom: 12px;
+}
+
+.bulletin-card-meta .dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.bulletin-card-body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #3a2f1f;
+  margin: 0;
+}
+
+/* Event card variant — dark chalkboard */
+.bulletin-card-chalk {
+  background:
+    radial-gradient(ellipse at top, #2a3026 0%, #1e221c 70%),
+    #1e221c;
+  color: #e8e3d0;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.6),
+    0 8px 18px rgba(0, 0, 0, 0.55),
+    inset 0 0 20px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(232, 227, 208, 0.06);
+}
+
+.bulletin-card-chalk .bulletin-card-title {
+  color: #f4efd8;
+}
+
+.bulletin-card-chalk .bulletin-card-meta {
+  color: #c4975a;
+}
+
+.bulletin-card-chalk .bulletin-card-body {
+  color: #c8c2a8;
+}
+
+.bulletin-card-chalk::after {
+  display: none;
+}
+
+/* Enamel sign variant — for announcements/recalls */
+.bulletin-card-enamel {
+  background:
+    linear-gradient(180deg, #0f2a2e 0%, #0a1c1f 100%);
+  color: #e8e3d0;
+  border: 2px solid var(--re-gold);
+  border-radius: 3px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 6px 14px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 2px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 3px rgba(200, 150, 44, 0.6);
+  padding: 0;
+}
+
+.bulletin-card-enamel::after {
+  display: none;
+}
+
+.bulletin-card-enamel .bulletin-card-meta {
+  color: rgba(232, 227, 208, 0.75);
+}
+
+.bulletin-card-enamel .bulletin-card-title {
+  font-family: var(--font-handwritten), 'Caveat', cursive;
+  font-size: clamp(20px, 2vw, 26px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--re-gold);
+}
+
+.bulletin-card-enamel .bulletin-card-body {
+  color: #d4cfb8;
+}
+
+/* Article variant — warm parchment with sepia tones */
+.bulletin-card-parchment {
+  background:
+    linear-gradient(180deg, #2a2218 0%, #1e1a12 100%);
+  color: #e0d8c4;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 6px 14px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(196, 151, 90, 0.08);
+  border-left: 3px solid rgba(139, 90, 26, 0.5);
+}
+
+.bulletin-card-parchment .bulletin-card-title {
+  color: #f4ecd4;
+}
+
+.bulletin-card-parchment .bulletin-card-meta {
+  color: #a08a60;
+}
+
+.bulletin-card-parchment .bulletin-card-body {
+  color: #b8ae96;
+}
+
+.bulletin-card-parchment .bulletin-card-type-badge {
+  border-bottom-color: rgba(139, 90, 26, 0.15);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.bulletin-card-parchment .bulletin-card-type-label {
+  color: #a08a60;
+}
+
+.bulletin-card-parchment::after {
+  display: none;
+}
+
+/* Changelog/data variant — dark ledger with subtle blue-grey */
+.bulletin-card-ledger {
+  background:
+    linear-gradient(180deg, #1a2028 0%, #141820 100%);
+  color: #d8d4c8;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 6px 14px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(100, 120, 150, 0.08);
+  border-left: 3px solid rgba(80, 110, 150, 0.4);
+}
+
+.bulletin-card-ledger .bulletin-card-title {
+  color: #e4e0d4;
+}
+
+.bulletin-card-ledger .bulletin-card-meta {
+  color: #8a98a8;
+}
+
+.bulletin-card-ledger .bulletin-card-body {
+  color: #a8a498;
+}
+
+.bulletin-card-ledger .bulletin-card-type-badge {
+  border-bottom-color: rgba(80, 110, 150, 0.15);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.bulletin-card-ledger .bulletin-card-type-label {
+  color: #8a98a8;
+}
+
+.bulletin-card-ledger::after {
+  display: none;
+}
+
+/* ─── Bike Reference Panel — spec card refresh ───────────────────────────── */
+/* Cards get real lift via shadow + subtle gold outline */
+.spec-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: clamp(14px, 1.5vw, 24px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(200, 150, 44, 0.05);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.spec-card:hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(200, 150, 44, 0.15);
+}
+
+/* Fact callout — the hero number on the homepage "wow-fact" strip */
+.fact-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(12px, 1.5vw, 24px);
+  padding: clamp(20px, 3vw, 36px) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 clamp(8px, 1vw, 16px);
+  border-left: 1px solid var(--border-subtle);
+}
+
+.fact:first-child {
+  border-left: none;
+}
+
+.fact-value {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--re-gold);
+}
+
+.fact-label {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.fact-source {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* Gold section rule with label — used by BulletinBoard + home fact strip */
+.section-label-rule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: clamp(16px, 2vw, 28px);
+}
+
+.section-label-rule::before,
+.section-label-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--re-gold), transparent);
+  opacity: 0.35;
+}
+
+.section-label-rule span {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--re-gold);
+  padding: 2px 10px;
+  border: 1px solid rgba(200, 150, 44, 0.28);
+  border-radius: 2px;
+  background: rgba(26, 21, 17, 0.6);
+  white-space: nowrap;
+}
+
+/* ─── My Bike — book UI ───────────────────────────────────────────────────── */
+/*
+ * The reading table: dark walnut with subtle wood grain.
+ * The open book sits centred on the table like a real service manual.
+ * Design covenant: warm aged paper, leather spine, no digital chrome.
+ */
+
+/* Walnut reading table */
+.book-table {
+  position: relative;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 6vw, 64px) clamp(40px, 5vw, 72px);
+  background-color: #0E0600;
+  background-image:
+    /* Fine wood grain — diagonal lines at two pitches */
+    repeating-linear-gradient(
+      83deg,
+      transparent 0px, transparent 12px,
+      rgba(60, 30, 0, 0.28) 12px, rgba(60, 30, 0, 0.28) 13px,
+      transparent 13px, transparent 21px,
+      rgba(40, 20, 0, 0.15) 21px, rgba(40, 20, 0, 0.15) 22px
+    ),
+    /* Radial warm vignette */
+    radial-gradient(
+      ellipse 130% 90% at 50% 40%,
+      #2A1500 0%, #180C00 45%, #0A0500 100%
+    );
+  user-select: none;
+}
+
+/* Shadow pool under the book */
+.book-table::after {
+  content: '';
+  position: absolute;
+  bottom: clamp(30px, 5vw, 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(88%, 880px);
+  height: 48px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* The open book */
+.book-open {
+  cursor: grab;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(94vw, 960px);
+  min-height: clamp(460px, 68vh, 700px);
+  box-shadow:
+    0 32px 80px rgba(0,0,0,0.75),
+    0 12px 32px rgba(0,0,0,0.5),
+    0 3px 10px rgba(0,0,0,0.4);
+  transform-origin: center center;
+}
+.book-open:active {
+  cursor: grabbing;
+}
+
+/* Page-turn animation — forward (next page) */
+.book-open--forward {
+  animation: bookFlipForward 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.book-open--backward {
+  animation: bookFlipBackward 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes bookFlipForward {
+  from {
+    opacity: 0;
+    transform: perspective(1600px) rotateY(-6deg) translateX(28px) scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1600px) rotateY(0deg) translateX(0) scale(1);
+  }
+}
+
+@keyframes bookFlipBackward {
+  from {
+    opacity: 0;
+    transform: perspective(1600px) rotateY(6deg) translateX(-28px) scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1600px) rotateY(0deg) translateX(0) scale(1);
+  }
+}
+
+/* Page slot wrappers — full flex children */
+.book-page-slot {
+  flex: 1;
+  display: flex;
+  min-height: clamp(460px, 68vh, 700px);
+}
+
+.book-page-slot--left  { border-radius: 2px 0 0 2px; overflow: hidden; }
+.book-page-slot--right { border-radius: 0 6px 6px 0; overflow: hidden; }
+
+/* ─── Book page — aged paper ─────────────────────────────────────────────── */
+.book-page {
+  flex: 1;
+  min-height: clamp(460px, 68vh, 700px);
+  padding: clamp(18px, 3.2vw, 44px) clamp(14px, 2.8vw, 38px) clamp(28px, 4vw, 52px);
+  overflow: hidden;
+  position: relative;
+
+  background-color: #F2E8CC;
+  background-image:
+    /* Subtle horizontal paper lines */
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 23px,
+      rgba(140,100,40,0.04) 23px, rgba(140,100,40,0.04) 24px
+    ),
+    /* Warm aging gradient — edges slightly darker */
+    radial-gradient(
+      ellipse 130% 130% at 50% 50%,
+      #F6EED6 0%, #EEE4BE 55%, #E2D6A8 100%
+    );
+}
+
+/* Left page — inner shadow on the right (spine) edge */
+.book-page--left {
+  box-shadow:
+    inset -8px 0 24px rgba(80,40,0,0.14),
+    inset  2px 0  6px rgba(80,40,0,0.04);
+}
+
+/* Right page — inner shadow on the left (spine) edge */
+.book-page--right {
+  box-shadow:
+    inset  8px 0 24px rgba(80,40,0,0.14),
+    inset -2px 0  6px rgba(80,40,0,0.04);
+}
+
+/* Leather cover variant — left page of the cover spread */
+.book-page--leather {
+  background-color: #3C1A00;
+  background-image:
+    repeating-linear-gradient(
+      74deg,
+      transparent 0px, transparent 3px,
+      rgba(255,200,100,0.03) 3px, rgba(255,200,100,0.03) 4px
+    ),
+    repeating-linear-gradient(
+      166deg,
+      transparent 0px, transparent 5px,
+      rgba(0,0,0,0.07) 5px, rgba(0,0,0,0.07) 6px
+    ),
+    radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      #4E2400 0%, #3C1A00 50%, #2A1000 100%
+    );
+  box-shadow:
+    inset -6px 0 20px rgba(0,0,0,0.5);
+}
+
+/* Printed-area margin line */
+.book-margin {
+  position: absolute;
+  inset: clamp(10px, 2vw, 24px);
+  border: 0.5px solid rgba(140,100,40,0.16);
+  pointer-events: none;
+  border-radius: 1px;
+}
+
+/* ─── Spine ──────────────────────────────────────────────────────────────── */
+.book-spine {
+  width: 18px;
+  flex-shrink: 0;
+  min-height: clamp(460px, 68vh, 700px);
+  position: relative;
+  background: linear-gradient(
+    to right,
+    #180800 0%,
+    #381800 20%,
+    #4A2200 42%,
+    #5C2E00 50%,
+    #4A2200 58%,
+    #381800 80%,
+    #180800 100%
+  );
+  box-shadow:
+     3px 0 12px rgba(0,0,0,0.5),
+    -3px 0 12px rgba(0,0,0,0.5);
+}
+
+.book-spine-highlight {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 16px,
+    rgba(255,200,80,0.05) 16px, rgba(255,200,80,0.05) 17px
+  );
+}
+
+/* ─── Navigation arrows ───────────────────────────────────────────────────── */
+.book-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 80px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(230,210,170,0.45);
+  transition: color 200ms ease, transform 200ms ease, opacity 200ms ease;
+  z-index: 10;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.book-nav:hover:not(:disabled) {
+  color: rgba(230,210,170,0.9);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.book-nav:focus-visible {
+  outline: 2px solid rgba(200,150,44,0.7);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.book-nav:disabled {
+  opacity: 0.15;
+  cursor: default;
+}
+
+.book-nav svg {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
+}
+
+.book-nav--prev { left: clamp(-46px, -4.2vw, -28px); }
+.book-nav--next { right: clamp(-46px, -4.2vw, -28px); }
+
+/* ─── Page counter ───────────────────────────────────────────────────────── */
+.book-counter {
+  margin-top: 14px;
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(230,210,170,0.28);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Cover page internals ───────────────────────────────────────────────── */
+.book-cover-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+}
+
+.book-cover-label {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(9px, 1.1vw, 13px);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(200,150,44,0.65);
+  text-align: center;
+}
+
+.book-cover-sub {
+  font-family: Georgia, serif;
+  font-size: clamp(7px, 0.8vw, 9px);
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(200,150,44,0.38);
+  text-align: center;
+}
+
+/* ─── Title page ─────────────────────────────────────────────────────────── */
+.book-titlepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  gap: 0;
+  padding: 0 clamp(6px, 1.5vw, 20px);
+}
+
+.book-rule-h {
+  width: 100%;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, rgba(140,100,40,0.55), transparent);
+  margin: clamp(6px, 1vw, 10px) 0;
+  flex-shrink: 0;
+}
+
+.book-titlepage-mfr {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(7px, 0.8vw, 9px);
+  font-weight: 600;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #8B4513;
+  margin-bottom: 6px;
+}
+
+.book-titlepage-model {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(22px, 3.8vw, 44px);
+  font-weight: 400;
+  color: #2C1200;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+}
+
+.book-titlepage-years {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(10px, 1.1vw, 13px);
+  color: #7A5030;
+  margin-top: 4px;
+}
+
+.book-titlepage-descriptor {
+  font-family: Georgia, serif;
+  font-size: clamp(9px, 1vw, 12px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5C3010;
+}
+
+.book-titlepage-intro {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(9px, 0.95vw, 11.5px);
+  color: #7A5030;
+  line-height: 1.75;
+  max-width: 240px;
+}
+
+.book-titlepage-footer {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(7px, 0.68vw, 8.5px);
+  letter-spacing: 0.14em;
+  color: rgba(92,48,16,0.5);
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+/* ─── Chapter / section heads ────────────────────────────────────────────── */
+.book-chapter-label {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(6px, 0.68vw, 8px);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #8B4513;
+  margin-bottom: 3px;
+}
+
+.book-chapter-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 400;
+  color: #2C1200;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.book-section-head {
+  font-family: Georgia, serif;
+  font-size: clamp(10px, 1.05vw, 13px);
+  font-weight: 700;
+  color: #4A2200;
+  margin-top: clamp(8px, 1.2vw, 14px);
+  margin-bottom: clamp(2px, 0.5vw, 4px);
+}
+
+.book-continued {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(8px, 0.82vw, 10px);
+  color: #8B6040;
+  margin-bottom: clamp(8px, 1.2vw, 14px);
+}
+
+/* ─── Spec rows ──────────────────────────────────────────────────────────── */
+.book-spec-table {
+  width: 100%;
+}
+
+.book-spec-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 0;
+  border-bottom: 0.5px solid rgba(140,100,40,0.14);
+  font-size: clamp(9px, 0.95vw, 12px);
+  line-height: 1.4;
+}
+
+.book-spec-row:last-child { border-bottom: none; }
+
+.book-spec-label {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #5C3010;
+  flex-shrink: 0;
+  max-width: 50%;
+}
+
+.book-spec-value {
+  font-family: var(--font-mono), monospace;
+  color: #1A0E00;
+  text-align: right;
+  word-break: break-word;
+  font-size: 0.88em;
+}
+
+.book-spec-note {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(8px, 0.8vw, 9.5px);
+  color: #7A5030;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+/* ─── Service interval ───────────────────────────────────────────────────── */
+.book-interval-header {
+  margin-bottom: clamp(4px, 0.7vw, 8px);
+}
+
+.book-interval-km {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(6.5px, 0.68vw, 8px);
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #8B4513;
+  margin-bottom: 2px;
+}
+
+.book-interval-label {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(14px, 1.7vw, 20px);
+  font-weight: 400;
+  color: #2C1200;
+  line-height: 1.2;
+}
+
+/* ─── Service tasks ──────────────────────────────────────────────────────── */
+.book-task-item {
+  padding: clamp(4px, 0.6vw, 7px) 0;
+  border-bottom: 0.5px solid rgba(140,100,40,0.1);
+}
+
+.book-task-item:last-child { border-bottom: none; }
+
+.book-task-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.book-task-index {
+  font-family: Georgia, serif;
+  font-size: clamp(7px, 0.7vw, 8.5px);
+  color: rgba(139,69,19,0.45);
+  flex-shrink: 0;
+}
+
+.book-task-name {
+  font-family: Georgia, serif;
+  font-size: clamp(9.5px, 1vw, 12.5px);
+  font-weight: 700;
+  color: #2C1200;
+  line-height: 1.3;
+}
+
+.book-task-action {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(6px, 0.65vw, 7.5px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8B4513;
+  border: 0.5px solid rgba(139,69,19,0.55);
+  padding: 1px 4px;
+  border-radius: 1px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.book-task-meta {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(7.5px, 0.75vw, 9px);
+  color: #7A5030;
+  margin: 2px 0;
+  letter-spacing: 0.04em;
+}
+
+.book-task-notes {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(8px, 0.82vw, 10px);
+  color: #5C3010;
+  line-height: 1.55;
+  margin-top: 1px;
+}
+
+/* ─── Torque table ───────────────────────────────────────────────────────── */
+.book-torque-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.book-torque-table th {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(6.5px, 0.68vw, 8px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8B4513;
+  text-align: left;
+  padding: 0 6px clamp(4px,0.6vw,6px) 0;
+  border-bottom: 0.5px solid rgba(140,100,40,0.5);
+}
+
+.book-torque-table th:last-child {
+  text-align: right;
+  padding-right: 0;
+}
+
+.book-torque-table td {
+  padding: clamp(3px,0.4vw,5px) 6px clamp(3px,0.4vw,5px) 0;
+  border-bottom: 0.5px solid rgba(140,100,40,0.1);
+  font-family: Georgia, serif;
+  font-size: clamp(9px, 0.9vw, 11px);
+  color: #3A1E00;
+  vertical-align: top;
+  line-height: 1.35;
+}
+
+.book-torque-table td:last-child {
+  font-family: var(--font-mono), monospace;
+  color: #8B4513;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  padding-right: 0;
+}
+
+.book-torque-table tr:last-child td { border-bottom: none; }
+
+.book-torque-note {
+  display: block;
+  font-size: 0.85em;
+  color: #7A5030;
+  font-style: italic;
+  margin-top: 1px;
+}
+
+/* ─── Page number ────────────────────────────────────────────────────────── */
+.book-page-number {
+  position: absolute;
+  bottom: clamp(10px, 1.6vw, 18px);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(8px, 0.8vw, 10px);
+  color: rgba(92,48,16,0.45);
+  letter-spacing: 0.06em;
+}
+
+.book-page-number--left  { left:  clamp(14px, 2.8vw, 38px); }
+.book-page-number--right { right: clamp(14px, 2.8vw, 38px); }
+
+/* ─── Closing note ───────────────────────────────────────────────────────── */
+.book-closing-note {
+  margin-top: clamp(12px, 2vw, 20px);
+  padding-top: clamp(8px, 1.2vw, 12px);
+  border-top: 0.5px solid rgba(140,100,40,0.2);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(8px, 0.8vw, 9.5px);
+  color: rgba(92,48,16,0.5);
+  line-height: 1.6;
+}
+
+/* ─── Mobile: single page at a time ──────────────────────────────────────── */
+@media (max-width: 639px) {
+  .book-table {
+    padding: clamp(16px, 5vh, 32px) 6px clamp(20px, 4vh, 36px);
+    min-height: calc(100vh - 56px);
+    justify-content: center;
+  }
+
+  .book-open {
+    width: 96vw;
+    min-height: clamp(480px, 72vh, 680px);
+    box-shadow:
+      0 20px 50px rgba(0,0,0,0.7),
+      0 6px 18px rgba(0,0,0,0.5);
+    border-radius: 4px;
+  }
+
+  /* Hide left page and spine by default — show right page */
+  .book-page-slot--left,
+  .book-spine {
+    display: none;
+  }
+
+  /* When showing the left page on mobile */
+  .book-open[data-mobile-side="left"] .book-page-slot--left {
+    display: flex;
+  }
+  .book-open[data-mobile-side="left"] .book-page-slot--right {
+    display: none;
+  }
+
+  /* Full rounded corners for single page */
+  .book-page-slot--left  { border-radius: 4px; }
+  .book-page-slot--right { border-radius: 4px; }
+
+  /* Arrows sit just at the book edge — transparent so content shows through */
+  .book-nav--prev { left: 2px; }
+  .book-nav--next { right: 2px; }
+
+  .book-nav svg { width: 22px; height: 22px; }
+  .book-nav { width: 36px; height: 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-open--forward,
+  .book-open--backward {
+    animation: none;
+  }
 }

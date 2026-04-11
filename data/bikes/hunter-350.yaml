@@ -87,6 +87,19 @@ torque_specs:
   - component: Rear axle nut
     torque_nm: 85
 
+colors:
+  - Rebel Red
+  - Rebel Blue
+  - Dapper Ash
+  - Dapper White
+
+accessories:
+  - Flyscreen
+  - Engine Guard
+  - Rear Carrier
+  - Bar-End Mirrors
+  - Sump Guard
+
 meta:
   last_verified: "2026-04-09"
   source: "Royal Enfield Hunter 350 Owner's Manual 2022, J-platform service documentation"

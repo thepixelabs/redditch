@@ -260,7 +260,7 @@ function TaskDetail({ task, isLast }: { task: ServiceTask; isLast: boolean }) {
               key={tool}
               className={cn(
                 'text-[12px] px-2.5 py-1 rounded-[3px]',
-                'bg-[var(--bg-card,#2A2A2A)] border border-[var(--border-subtle)]',
+                'bg-[var(--bg-card)] border border-[var(--border-subtle)]',
                 'text-[var(--text-muted)]',
               )}
               style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
@@ -308,8 +308,9 @@ export function ServiceCard({ service, defaultOpen = false, id }: ServiceCardPro
       <div
         className={cn(
           'rounded-[6px] overflow-hidden',
-          'bg-[var(--bg-card,#2A2A2A)]',
+          'bg-[var(--bg-card)]',
           'border border-l-[4px]',
+          'shadow-[0_1px_2px_rgba(0,0,0,0.35),0_0_0_1px_rgba(200,150,44,0.04)]',
           'transition-colors duration-150',
           // Left border urgency coding — visible whether open or closed
           service.urgency === 'overdue' && 'border-l-[var(--re-red)]',
@@ -317,8 +318,8 @@ export function ServiceCard({ service, defaultOpen = false, id }: ServiceCardPro
           service.urgency === 'good'    && 'border-l-[var(--urgency-good)]',
           // Full border color when open
           open
-            ? 'border-[var(--border-subtle,rgba(74,74,74,0.5))]'
-            : 'border-[var(--border-subtle,rgba(74,74,74,0.4))]',
+            ? 'border-[var(--border)]'
+            : 'border-[var(--border-subtle)]',
         )}
       >
         {/* ── Trigger / header ─────────────────────────────────────────── */}

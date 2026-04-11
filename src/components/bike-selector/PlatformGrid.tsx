@@ -119,18 +119,38 @@ export function PlatformGrid({ selectedPlatform, onSelect, availableSlugs }: Pla
               className={cn(
                 'relative flex flex-col justify-between gap-2 min-h-[80px] md:min-h-[96px] p-3 md:p-4 rounded-[6px]',
                 'garage-card-metal transition-all duration-150',
-                isSelected && 'border border-[var(--re-red)] bg-[rgba(181,18,27,0.06)]',
+                isSelected && [
+                  'border border-[var(--re-red)] bg-[rgba(181,18,27,0.14)]',
+                  'shadow-[inset_0_0_0_1px_rgba(181,18,27,0.5)]',
+                ],
                 !isSelected && isAvailable && [
-                  'border border-[rgba(74,74,74,0.5)] bg-[#2A2A2A]',
+                  'border border-[var(--border-subtle)] bg-[var(--bg-card)]',
                   'cursor-pointer garage-card',
                   'hover:border-[rgba(200,150,44,0.4)]',
+                  'hover:bg-[rgba(200,150,44,0.04)]',
                   'active:brightness-90',
                 ],
-                !isAvailable && 'border border-[rgba(74,74,74,0.3)] bg-[rgba(42,42,42,0.5)] opacity-40 cursor-not-allowed select-none',
+                !isAvailable && 'border border-[var(--border-subtle)] bg-[rgba(22,22,22,0.5)] opacity-40 cursor-not-allowed select-none',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--re-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]',
               )}
               style={isSelected ? { borderLeftWidth: '5px', borderLeftColor: 'var(--re-red)' } : undefined}
             >
+              {/* Selected indicator pip */}
+              {isSelected && (
+                <span
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    top: '8px',
+                    right: '8px',
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
+                    background: 'var(--re-red)',
+                    boxShadow: '0 0 6px rgba(181,18,27,0.6)',
+                  }}
+                />
+              )}
               <div className="flex items-center gap-2">
                 <span className={cn('flex-shrink-0 transition-colors duration-150', isSelected ? 'text-[var(--re-red)]' : 'text-[var(--re-gold)]')}>
                   {isTwin ? <TwinIcon /> : <SingleIcon />}

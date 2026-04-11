@@ -2,6 +2,7 @@
 
 import type { BikeSpec } from '@/lib/types'
 import { ExternalLink } from '@/components/ui/ExternalLink'
+import { ReferencePanelDivider } from '@/components/art/ReferencePanelDivider'
 
 interface BikeReferencePanelProps {
   bike: BikeSpec
@@ -250,7 +251,10 @@ export function BikeReferencePanel({ bike }: BikeReferencePanelProps) {
       aria-labelledby="bike-reference-heading"
       style={{ marginTop: 'clamp(24px, 3vw, 48px)' }}
     >
-      {/* Divider + heading */}
+      {/* Cinematic divider strip — engine bay illustration with stamp */}
+      <ReferencePanelDivider />
+
+      {/* Heading rule below the strip */}
       <div
         style={{
           display: 'flex',

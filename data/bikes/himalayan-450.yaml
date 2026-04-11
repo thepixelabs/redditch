@@ -103,6 +103,22 @@ torque_specs:
   - component: Brake caliper mounting bolts (front)
     torque_nm: 35
 
+colors:
+  - Kaza Brown
+  - Slate Himalayan Salt
+  - Kamet White
+  - Hanle Black
+
+accessories:
+  - Touring Windscreen
+  - Engine Guard with Sliders
+  - Pannier Mounting Kit
+  - Top Box Mounting Plate
+  - Knuckle Guards
+  - Auxiliary LED Lights
+  - Centre Stand
+  - Radiator Guard
+
 meta:
   last_verified: "2026-04-09"
   source: "Royal Enfield Himalayan 450 Owner's Manual 2024"

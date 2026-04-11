@@ -152,6 +152,20 @@ torque_specs:
   - component: Handlebar clamp bolts
     torque_nm: 20
 
+colors:
+  - Fireball Yellow
+  - Fireball Red
+  - Stellar Black
+  - Supernova Brown
+
+accessories:
+  - Touring Windscreen
+  - Engine Guard
+  - Touring Backrest with Carrier
+  - Panniers
+  - Machined Oil Filler Cap
+  - Bar-End Mirrors
+
 meta:
   last_verified: "2026-04-09"
   source: "Royal Enfield Meteor 350 Owner's Manual 2021, J-platform service documentation"

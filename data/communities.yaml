@@ -1,0 +1,74 @@
+# ─── Curated Royal Enfield Communities ─────────────────────────────────────────
+# Known active communities for RE riders worldwide.
+# Entries are manually curated — pull requests welcome.
+
+communities:
+  - name: "Royal Enfield Riders"
+    platform: facebook
+    url: "https://www.facebook.com/groups/royalenfieldriders"
+    members: "100K+"
+    scope: global
+    description: "Largest global RE Facebook group"
+
+  - name: "Royal Enfield Owners"
+    platform: facebook
+    url: "https://www.facebook.com/groups/RoyalEnfieldOwners"
+    members: "80K+"
+    scope: global
+    description: "General ownership group — all models"
+
+  - name: "Royal Enfield Interceptor 650 / Continental GT 650"
+    platform: facebook
+    url: "https://www.facebook.com/groups/650twins"
+    members: "50K+"
+    scope: global
+    description: "Dedicated 650 Twins community"
+
+  - name: "Royal Enfield Himalayan"
+    platform: facebook
+    url: "https://www.facebook.com/groups/royalenfieldHimalayan"
+    members: "40K+"
+    scope: global
+    description: "Himalayan-specific group — all generations"
+
+  - name: "Royal Enfield Super Meteor 650"
+    platform: facebook
+    url: "https://www.facebook.com/groups/supermeteor650"
+    members: "15K+"
+    scope: global
+    description: "Super Meteor owner community"
+
+  - name: "r/RoyalEnfield"
+    platform: reddit
+    url: "https://www.reddit.com/r/RoyalEnfield/"
+    members: "30K+"
+    scope: global
+    description: "Main RE subreddit — news, builds, questions"
+
+  - name: "Royal Enfield UK Riders"
+    platform: facebook
+    url: "https://www.facebook.com/groups/royalenfielduk"
+    members: "20K+"
+    scope: "UK"
+    description: "UK-focused RE riding group"
+
+  - name: "Royal Enfield Europe"
+    platform: facebook
+    url: "https://www.facebook.com/groups/royalenfieldeurope"
+    members: "15K+"
+    scope: "Europe"
+    description: "European RE community"
+
+  - name: "Royal Enfield North America"
+    platform: facebook
+    url: "https://www.facebook.com/groups/RoyalEnfieldNorthAmerica"
+    members: "10K+"
+    scope: "North America"
+    description: "US and Canada RE riders"
+
+  - name: "Royal Enfield Australia"
+    platform: facebook
+    url: "https://www.facebook.com/groups/royalenfieldaustralia"
+    members: "8K+"
+    scope: "Australia"
+    description: "Australian RE owners group"

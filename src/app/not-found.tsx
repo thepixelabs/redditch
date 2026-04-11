@@ -1,7 +1,5 @@
-'use client'
 import Link from 'next/link'
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
+import { EmptyRoadBackground } from '@/components/art/EmptyRoadBackground'
 
 export const metadata = {
   title: '404 — Road Not Found',
@@ -9,23 +7,25 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="not-found-shell" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Header />
+    <div
+      style={{
+        position: 'relative',
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '48px 24px',
+        textAlign: 'center',
+        backgroundColor: 'var(--bg)',
+        overflow: 'hidden',
+        minHeight: 'calc(100vh - 160px)',
+      }}
+    >
+      <EmptyRoadBackground />
 
-      <main
-        role="main"
-        aria-labelledby="not-found-heading"
-        style={{
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '48px 24px',
-          textAlign: 'center',
-          backgroundColor: 'var(--bg)',
-        }}
-      >
+      <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
         {/* Motorcycle silhouette */}
         <svg
           aria-hidden="true"
@@ -178,18 +178,10 @@ export default function NotFound() {
             borderRadius: '4px',
             transition: 'background-color 0.15s ease',
           }}
-          onMouseOver={e => {
-            ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#8F0E15'
-          }}
-          onMouseOut={e => {
-            ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#B5121B'
-          }}
         >
           Back to Garage
         </Link>
-      </main>
-
-      <Footer />
+      </div>
     </div>
   )
 }

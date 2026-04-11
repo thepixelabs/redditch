@@ -6,18 +6,29 @@ import NeonSign from '@/components/ui/NeonSign'
 import { PlatformGrid } from '@/components/bike-selector/PlatformGrid'
 import { ModelCards } from '@/components/bike-selector/ModelCards'
 import { OdometerInput } from '@/components/bike-selector/OdometerInput'
+import { BulletinBoard } from '@/components/bulletin/BulletinBoard'
+import { WorkshopWall } from '@/components/art/WorkshopWall'
 import { usePersistedState } from '@/hooks/usePersistedState'
 import { useOdometer } from '@/hooks/useOdometer'
 import { STORAGE_KEYS } from '@/lib/constants'
-import type { BikeSpec } from '@/lib/types'
+import type { BikeSpec, BulletinData } from '@/lib/types'
 
 type Step = 'platform' | 'model' | 'odometer'
 
 interface HomeClientProps {
   bikes: BikeSpec[]
+  bulletin: BulletinData
 }
 
-export default function HomeClient({ bikes }: HomeClientProps) {
+// Data-engineer facts — surfaced on the home page "fact strip"
+const FACTS = [
+  { value: '100 Nm',         label: 'Tightest bolt in the fleet',       source: '650 rear axle' },
+  { value: '888464',         label: 'One filter fits three',            source: 'All 650 twins' },
+  { value: '0.15 mm',        label: 'Same intake clearance on every RE', source: 'Hunter → Super Meteor' },
+  { value: '66',             label: 'Torque specs in the dataset',       source: 'Verified 2026-04' },
+] as const
+
+export default function HomeClient({ bikes, bulletin }: HomeClientProps) {
   const router = useRouter()
   const [step, setStep] = useState<Step>('platform')
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null)
@@ -25,12 +36,27 @@ export default function HomeClient({ bikes }: HomeClientProps) {
   const [savedBike, setSavedBike] = usePersistedState<string | null>(STORAGE_KEYS.BIKE, null)
   const { displayValue, unit, setDisplayValue, toggleUnit } = useOdometer()
 
-  // On mount: if a bike is already saved, redirect immediately
+  // On first visit of the session: if a bike is saved, redirect to garage.
+  // On subsequent navigations to "/" within the same session (e.g. clicking
+  // "Home" from the garage header), show the home page so users can browse
+  // without losing their saved bike.
+  const [redirecting, setRedirecting] = useState(false)
+
   useEffect(() => {
     if (savedBike) {
-      router.replace(`/${savedBike}`)
+      try {
+        const sessionActive = sessionStorage.getItem('redditch:session-active')
+        if (!sessionActive) {
+          sessionStorage.setItem('redditch:session-active', '1')
+          setRedirecting(true)
+          router.replace(`/${savedBike}`)
+          return
+        }
+      } catch {
+        // sessionStorage unavailable — show home page normally
+      }
     }
-  }, [savedBike, router])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const availableSlugs = bikes.map(b => b.slug)
 
@@ -61,97 +87,207 @@ export default function HomeClient({ bikes }: HomeClientProps) {
   }
 
   // While redirecting, render nothing to avoid flicker
-  if (savedBike) return null
+  if (redirecting) return null
+
+  const showBulletinPreview = step === 'platform'
 
   return (
-    <div
-      className="garage-wall"
-      style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: 'calc(100vh - 120px)', padding: '0 0 80px' }}
-    >
-      {/* Edison spotlight glow from top */}
-      <div className="spotlight" aria-hidden="true" />
+    <>
+      <div
+        className="garage-wall"
+        style={{
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          minHeight: showBulletinPreview ? 'auto' : 'calc(100vh - 120px)',
+          padding: showBulletinPreview ? '0 0 24px' : '0 0 80px',
+        }}
+      >
+        {/* Workshop wall texture — atmospheric SVG behind everything */}
+        <WorkshopWall />
 
-      <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: 'min(720px, calc(100vw - 32px))', padding: '0 clamp(16px, 3vw, 40px)' }}>
+        {/* Edison spotlight glow from top */}
+        <div className="spotlight" aria-hidden="true" />
 
-        {/* ── Hero: Neon logo + wordmark ── */}
-        {step === 'platform' && (
-          <header style={{ paddingTop: '48px', paddingBottom: '36px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', textAlign: 'center' }}>
-            {/* RE neon sign — inline SVG, no background rectangle */}
-            <NeonSign />
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            width: '100%',
+            maxWidth: 'min(720px, calc(100vw - 32px))',
+            padding: '0 clamp(16px, 3vw, 40px)',
+          }}
+        >
+          {/* ── Hero: Neon logo + wordmark ── */}
+          {step === 'platform' && (
+            <header
+              style={{
+                paddingTop: '48px',
+                paddingBottom: '36px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '20px',
+                textAlign: 'center',
+              }}
+            >
+              {/* RE neon sign — inline SVG, no background rectangle */}
+              <NeonSign />
 
-            {/* Wordmark */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
-              <h1 className="wordmark-hero">REDDITCH</h1>
-              <p className="tagline">Your Royal Enfield service companion</p>
+              {/* Wordmark */}
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                <h1 className="wordmark-hero">REDDITCH</h1>
+                <p className="tagline">Your Royal Enfield service companion</p>
+              </div>
+
+              {/* Gold rule */}
+              <div
+                aria-hidden="true"
+                style={{
+                  width: '64px',
+                  height: '2px',
+                  background: 'linear-gradient(90deg, transparent, var(--re-gold), transparent)',
+                  borderRadius: '1px',
+                }}
+              />
+            </header>
+          )}
+
+          {/* ── Back button ── */}
+          {step !== 'platform' && (
+            <div style={{ paddingTop: '28px', paddingBottom: '8px' }}>
+              <button
+                onClick={handleBack}
+                aria-label="Go back to previous step"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '13px',
+                  color: 'var(--text-secondary)',
+                  padding: '8px 0',
+                  fontFamily: 'var(--font-body, sans-serif)',
+                }}
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Back
+              </button>
+            </div>
+          )}
+
+          {/* ── Step: Platform ── */}
+          {step === 'platform' && (
+            <section aria-label="Select your platform">
+              <PlatformGrid
+                onSelect={handlePlatformSelect}
+                selectedPlatform={selectedPlatform}
+                availableSlugs={availableSlugs}
+              />
+            </section>
+          )}
+
+          {/* ── Step: Model ── */}
+          {step === 'model' && selectedPlatform && (
+            <section aria-label="Select your model" style={{ paddingTop: '8px' }}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-display, serif)',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                  color: 'var(--re-gold)',
+                  margin: '0 0 16px',
+                }}
+              >
+                Select your model
+              </h2>
+              <ModelCards
+                platformId={selectedPlatform}
+                bikes={bikes}
+                selectedSlug={selectedSlug}
+                onSelect={handleModelSelect}
+              />
+            </section>
+          )}
+
+          {/* ── Step: Odometer ── */}
+          {step === 'odometer' && selectedSlug && (
+            <section aria-label="Enter your odometer reading" style={{ paddingTop: '8px' }}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-display, serif)',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                  color: 'var(--re-gold)',
+                  margin: '0 0 8px',
+                }}
+              >
+                Odometer reading
+              </h2>
+              <p
+                style={{
+                  fontSize: '13px',
+                  color: 'var(--text-secondary)',
+                  margin: '0 0 24px',
+                  lineHeight: 1.5,
+                }}
+              >
+                Enter your current mileage and we&apos;ll calculate exactly what&apos;s due.
+              </p>
+              <OdometerInput
+                value={displayValue}
+                unit={unit}
+                onChange={setDisplayValue}
+                onUnitToggle={toggleUnit}
+                onSubmit={handleOdometerSubmit}
+                isValid={displayValue > 0}
+              />
+            </section>
+          )}
+        </div>
+
+        {/* ── Fact strip — data-engineer "wow facts" ── */}
+        {showBulletinPreview && (
+          <div
+            style={{
+              position: 'relative',
+              zIndex: 1,
+              width: '100%',
+              maxWidth: '1280px',
+              margin: '48px auto 0',
+              padding: '0 clamp(20px, 3vw, 40px)',
+            }}
+          >
+            <div className="section-label-rule">
+              <span>From the dataset</span>
             </div>
 
-            {/* Gold rule */}
-            <div aria-hidden="true" style={{ width: '64px', height: '2px', background: 'linear-gradient(90deg, transparent, var(--re-gold), transparent)', borderRadius: '1px' }} />
-          </header>
-        )}
-
-        {/* ── Back button ── */}
-        {step !== 'platform' && (
-          <div style={{ paddingTop: '28px', paddingBottom: '8px' }}>
-            <button
-              onClick={handleBack}
-              aria-label="Go back to previous step"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'none', border: 'none', cursor: 'pointer', fontSize: '13px', color: 'var(--text-secondary)', padding: '8px 0', fontFamily: 'var(--font-body, sans-serif)' }}
-            >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Back
-            </button>
+            <div className="fact-strip" style={{ border: 'none', paddingTop: 0 }}>
+              {FACTS.map((fact) => (
+                <div key={fact.label} className="fact">
+                  <span className="fact-value">{fact.value}</span>
+                  <span className="fact-label">{fact.label}</span>
+                  <span className="fact-source">{fact.source}</span>
+                </div>
+              ))}
+            </div>
           </div>
         )}
-
-        {/* ── Step: Platform ── */}
-        {step === 'platform' && (
-          <section aria-label="Select your platform">
-            <PlatformGrid
-              onSelect={handlePlatformSelect}
-              selectedPlatform={selectedPlatform}
-              availableSlugs={availableSlugs}
-            />
-          </section>
-        )}
-
-        {/* ── Step: Model ── */}
-        {step === 'model' && selectedPlatform && (
-          <section aria-label="Select your model" style={{ paddingTop: '8px' }}>
-            <h2 style={{ fontFamily: 'var(--font-display, serif)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--re-gold)', margin: '0 0 16px' }}>
-              Select your model
-            </h2>
-            <ModelCards
-              platformId={selectedPlatform}
-              bikes={bikes}
-              selectedSlug={selectedSlug}
-              onSelect={handleModelSelect}
-            />
-          </section>
-        )}
-
-        {/* ── Step: Odometer ── */}
-        {step === 'odometer' && selectedSlug && (
-          <section aria-label="Enter your odometer reading" style={{ paddingTop: '8px' }}>
-            <h2 style={{ fontFamily: 'var(--font-display, serif)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--re-gold)', margin: '0 0 8px' }}>
-              Odometer reading
-            </h2>
-            <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: '0 0 24px', lineHeight: 1.5 }}>
-              Enter your current mileage and we&apos;ll calculate exactly what&apos;s due.
-            </p>
-            <OdometerInput
-              value={displayValue}
-              unit={unit}
-              onChange={setDisplayValue}
-              onUnitToggle={toggleUnit}
-              onSubmit={handleOdometerSubmit}
-              isValid={displayValue > 0}
-            />
-          </section>
-        )}
       </div>
-    </div>
+
+      {/* ── Bulletin board preview — only on the platform-select step ── */}
+      {showBulletinPreview && (
+        <BulletinBoard data={bulletin} mode="preview" heading="From the Bulletin Board" />
+      )}
+    </>
   )
 }

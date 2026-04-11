@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/constants'
 import { GarageClient } from './GarageClient'
 
 interface Props {
-  params: { bike: string }
+  params: Promise<{ bike: string }>
 }
 
 // ─── Static generation ────────────────────────────────────────────────────────
@@ -17,7 +17,8 @@ export function generateStaticParams() {
 // ─── Per-bike metadata ────────────────────────────────────────────────────────
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const bike = getBikeBySlug(params.bike)
+  const { bike: slug } = await params
+  const bike = getBikeBySlug(slug)
   if (!bike) return {}
 
   return {
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `Service intervals, torque specs, and part numbers for the Royal Enfield ${bike.name}.`,
       images: [
         {
-          url: `${SITE_URL}/${params.bike}/opengraph-image`,
+          url: `${SITE_URL}/${slug}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: `Royal Enfield ${bike.name} service schedule`,
@@ -40,8 +41,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function BikePage({ params }: Props) {
-  const bike = getBikeBySlug(params.bike)
+export default async function BikePage({ params }: Props) {
+  const { bike: slug } = await params
+  const bike = getBikeBySlug(slug)
   if (!bike) notFound()
   return <GarageClient bike={bike} />
 }

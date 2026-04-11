@@ -92,6 +92,20 @@ torque_specs:
   - component: Rear axle nut
     torque_nm: 90
 
+colors:
+  - Blazing Black
+  - Graphite Blue
+  - Silver Spirit
+  - Skyline Blue
+
+accessories:
+  - Flyscreen
+  - Engine Guard with Sliders
+  - Pannier Mounting Kit
+  - Knuckle Guards
+  - Auxiliary LED Lights
+  - Sump Guard
+
 meta:
   last_verified: "2026-04-09"
   source: "Royal Enfield Scram 411 Owner's Manual 2022, Himalayan 411 service documentation"

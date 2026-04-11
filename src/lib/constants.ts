@@ -4,6 +4,7 @@ export const STORAGE_KEYS = {
   UNIT:    'redditch:unit',
   THEME:   'redditch:theme',
   SPLASH:  'redditch:splash-seen',  // sessionStorage
+  PERSONALIZATION: 'redditch:personalization',
 } as const
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://redditch.pixelabs.net'

@@ -7,27 +7,36 @@ import type { UrgencyLevel } from '@/lib/types'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const PRIMARY_VIEWBOX   = 200
-const PRIMARY_CENTER    = 100
-const PRIMARY_RADIUS    = 80
-const PRIMARY_STROKE    = 10
+const PRIMARY_VIEWBOX = 220
+const PRIMARY_CENTER  = 110
+const PRIMARY_RADIUS  = 84
+const PRIMARY_STROKE  = 14
 
-const SAT_VIEWBOX       = 120
-const SAT_CENTER        = 60
-const SAT_RADIUS        = 50
-const SAT_STROKE        = 8
+const SAT_VIEWBOX     = 140
+const SAT_CENTER      = 70
+const SAT_RADIUS      = 54
+const SAT_STROKE      = 10
 
-// A 270° arc. The full circumference of the circle is 2π·r; the dasharray
-// uses the *full* circumference as the period so the gap swallows the unused
-// 90° segment and nothing bleeds around the back.
-const PRIMARY_CIRC      = 2 * Math.PI * PRIMARY_RADIUS  // ≈ 502.65
-const PRIMARY_ARC       = (270 / 360) * PRIMARY_CIRC    // ≈ 376.99  → 377
+// A 270° arc sweeping clockwise from 7:30 (225°) through 12 to 4:30 (135°).
+const ARC_START_DEG = 225
+const ARC_SWEEP_DEG = 270
 
-const SAT_CIRC          = 2 * Math.PI * SAT_RADIUS      // ≈ 314.16
-const SAT_ARC           = (270 / 360) * SAT_CIRC        // ≈ 235.62  → 236
+// Color band thresholds along the *elapsed* axis — these match
+// URGENCY_THRESHOLDS in constants.ts (remaining ≤ 40% = soon, ≤ 0 = overdue).
+// Expressed as the fraction of the arc sweep from the left start.
+const GREEN_END_PCT  = 0.60   // 0–60% elapsed → green zone
+const YELLOW_END_PCT = 0.85   // 60–85% elapsed → yellow zone
+// 85–100% → red zone (redline)
 
 // Tick positions: 0%, 25%, 50%, 75%, 100% along the 270° sweep
 const TICK_PERCENTS = [0, 0.25, 0.5, 0.75, 1]
+
+// Explicit colors — SVG stroke attributes can't reliably read CSS custom
+// properties in every browser, so we resolve to the token hex values that
+// globals.css defines for the urgency bands.
+const BAND_GREEN  = '#22c55e'
+const BAND_YELLOW = '#E6A817'
+const BAND_RED    = '#FF4D4D'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -44,20 +53,6 @@ interface GaugeSVGProps {
   /** Called when the user taps the gauge — used to scroll to the task card */
   onClick?: () => void
   className?: string
-}
-
-// ─── Urgency colour map ───────────────────────────────────────────────────────
-// We can't read CSS custom properties at render time in RSC-safe code, so we
-// supply explicit colour values and let the CSS variable override via a wrapper
-// class on the SVG element.  The inline fill/stroke on the arc always wins in
-// SVG, so we resolve directly to the token hex values that globals.css defines.
-
-function urgencyColor(urgency: UrgencyLevel, dark = false): string {
-  switch (urgency) {
-    case 'good':    return dark ? '#22c55e' : '#16a34a'
-    case 'soon':    return dark ? '#E6A817' : '#b45309'
-    case 'overdue': return dark ? '#FF4D4D' : '#B5121B'
-  }
 }
 
 // ─── Geometry helpers ─────────────────────────────────────────────────────────
@@ -87,6 +82,23 @@ function arcPath(
   return `M ${start.x} ${start.y} A ${r} ${r} 0 ${large} 1 ${end.x} ${end.y}`
 }
 
+/** Arc path between two fractional positions (0–1) along the gauge sweep. */
+function bandPath(
+  cx: number,
+  cy: number,
+  r: number,
+  startPct: number,
+  endPct: number,
+): string {
+  return arcPath(
+    cx,
+    cy,
+    r,
+    ARC_START_DEG + startPct * ARC_SWEEP_DEG,
+    ARC_START_DEG + endPct * ARC_SWEEP_DEG,
+  )
+}
+
 // ─── Tick mark component ──────────────────────────────────────────────────────
 
 function TickMarks({
@@ -94,23 +106,19 @@ function TickMarks({
   cy,
   r,
   strokeWidth,
-  startDeg,
-  sweepDeg,
 }: {
   cx: number
   cy: number
   r: number
   strokeWidth: number
-  startDeg: number
-  sweepDeg: number
 }) {
-  const outerR = r + strokeWidth * 0.5
-  const innerR = outerR - strokeWidth * 1.1   // tick extends inward from arc edge
+  const outerR = r + strokeWidth * 0.65
+  const innerR = r - strokeWidth * 0.65
 
   return (
     <g aria-hidden="true">
       {TICK_PERCENTS.map((pct) => {
-        const angleDeg = startDeg + pct * sweepDeg
+        const angleDeg = ARC_START_DEG + pct * ARC_SWEEP_DEG
         const outer = polar(cx, cy, outerR, angleDeg)
         const inner = polar(cx, cy, innerR, angleDeg)
         return (
@@ -120,8 +128,8 @@ function TickMarks({
             y1={outer.y}
             x2={inner.x}
             y2={inner.y}
-            stroke="var(--re-gunmetal)"
-            strokeWidth={pct === 0 || pct === 1 ? 1.5 : 1}
+            stroke="rgba(0,0,0,0.55)"
+            strokeWidth={pct === 0 || pct === 1 ? 2 : 1.25}
             strokeLinecap="round"
           />
         )
@@ -148,56 +156,31 @@ export function GaugeSVG({
     return () => clearTimeout(timer)
   }, [])
 
-  const isPrimary  = size === 'primary'
-  const vb         = isPrimary ? PRIMARY_VIEWBOX : SAT_VIEWBOX
-  const cx         = isPrimary ? PRIMARY_CENTER  : SAT_CENTER
-  const cy         = isPrimary ? PRIMARY_CENTER  : SAT_CENTER
-  const r          = isPrimary ? PRIMARY_RADIUS  : SAT_RADIUS
-  const sw         = isPrimary ? PRIMARY_STROKE  : SAT_STROKE
-  const circ       = isPrimary ? PRIMARY_CIRC    : SAT_CIRC
-  const arcLen     = isPrimary ? PRIMARY_ARC     : SAT_ARC
+  const isPrimary = size === 'primary'
+  const vb  = isPrimary ? PRIMARY_VIEWBOX : SAT_VIEWBOX
+  const cx  = isPrimary ? PRIMARY_CENTER  : SAT_CENTER
+  const cy  = isPrimary ? PRIMARY_CENTER  : SAT_CENTER
+  const r   = isPrimary ? PRIMARY_RADIUS  : SAT_RADIUS
+  const sw  = isPrimary ? PRIMARY_STROKE  : SAT_STROKE
 
-  // The 270° arc starts at the 225° position (bottom-left at 7 o'clock) and
-  // ends at the 135° position (bottom-right at 5 o'clock), sweeping clockwise.
-  // In "clockwise from 12 o'clock" convention: start = 225, end = 225+270 = 495 = 135.
-  const ARC_START_DEG = 225
-  const ARC_SWEEP_DEG = 270
+  // Elapsed fraction of the service interval (0 = fresh, 1 = due/overdue).
+  // The needle sweeps *clockwise from the left* as km accumulate — so with
+  // 4440 km left on a 5000 km interval, elapsed = 0.112 → needle sits near
+  // the left (7:30) start.
+  const isOverdue   = kmRemaining < 0
+  const rawElapsed  = 1 - kmRemaining / intervalKm
+  const elapsedPct  = isOverdue ? 1 : Math.max(0, Math.min(1, rawElapsed))
 
-  // Percent filled: clamp 0–1, 0 when overdue or at the service boundary.
-  const percentFilled = animated
-    ? Math.max(0, Math.min(1, kmRemaining / intervalKm))
-    : 0
+  // Animate needle from start position → actual position on mount.
+  const renderedPct = animated ? elapsedPct : 0
+  const needleAngle = ARC_START_DEG + renderedPct * ARC_SWEEP_DEG
 
-  const fillLength    = percentFilled * arcLen
-
-  // Needle angle: -135° (empty, 7 o'clock) → +135° (full, 5 o'clock), centred at 0° (top)
-  const needleAngle   = -135 + percentFilled * 270
-
-  // Colour resolved from urgency — we emit both dark and light variants and
-  // rely on CSS class toggling from the theme wrapper.  SVG has no native
-  // media-query colour switching on fills, so we use a CSS custom property
-  // defined via an inline style on the SVG element itself.
-  const fillColor     = `var(--urgency-${urgency === 'overdue' ? 'over' : urgency})`
-
-  // ── Arc paths ──────────────────────────────────────────────────────────────
-  const trackPath = arcPath(cx, cy, r, ARC_START_DEG, ARC_START_DEG + ARC_SWEEP_DEG)
-
-  // For the animated fill arc we use stroke-dasharray on a full-circle <circle>
-  // rotated so its "start" aligns with our arc origin — cleaner than
-  // reconstructing partial path data on every render.
-  //
-  // stroke-dasharray: fillLength, circ  → fills fillLength px of the arc,
-  //                                       gap swallows the rest.
-  // The circle is rotated 135° (225° from top = 90° + 135°) so the dash
-  // starts at the bottom-left.
-
-  const isOverdue       = kmRemaining < 0
-  const displayKm       = Math.abs(kmRemaining)
-  const formattedKm     = formatKm(displayKm)
-  const ariaValueText   = isOverdue
+  const displayKm    = Math.abs(kmRemaining)
+  const formattedKm  = formatKm(displayKm)
+  const ariaValueText = isOverdue
     ? `${label} is overdue by ${formattedKm} km`
     : `${formattedKm} km remaining until ${label}`
-  const titleText       = isOverdue
+  const titleText = isOverdue
     ? `${label} overdue by ${formattedKm} km`
     : `${formattedKm} km to ${label}`
 
@@ -216,10 +199,12 @@ export function GaugeSVG({
       }
     : { className: cn('inline-block', className) }
 
-  // ── Overdue pulse animation class ─────────────────────────────────────────
-  // Defined in globals.css via @keyframes — we only attach the class; the
-  // CSS media query for prefers-reduced-motion is handled there.
   const pulseClass = isOverdue ? 'gauge-overdue-pulse' : ''
+
+  // Needle length in user-units
+  const needleLen = r - sw * 0.5 - (isPrimary ? 6 : 4)
+  const needleTail = isPrimary ? 12 : 8
+  const needleWidth = isPrimary ? 3 : 2.25
 
   return (
     <Wrapper {...(wrapperProps as React.HTMLAttributes<HTMLElement>)}>
@@ -238,209 +223,195 @@ export function GaugeSVG({
       >
         <title>{titleText}</title>
 
-        {/* ── Background disc ────────────────────────────────────────────────── */}
+        {/* ── Background disc ──────────────────────────────────────────────── */}
         <circle
           cx={cx}
           cy={cy}
-          r={r + sw}
+          r={r + sw * 0.9}
           fill="var(--bg-surface)"
           stroke="var(--re-gunmetal)"
-          strokeWidth={0.5}
+          strokeWidth={0.75}
           aria-hidden="true"
         />
 
-        {/* ── Track arc ──────────────────────────────────────────────────────── */}
+        {/* ── Dim base track (fills the 90° gap visual too) ────────────────── */}
         <path
-          d={trackPath}
+          d={bandPath(cx, cy, r, 0, 1)}
           fill="none"
-          stroke="var(--re-gunmetal)"
-          strokeWidth={sw}
-          strokeLinecap="round"
-          opacity={0.4}
+          stroke="rgba(0,0,0,0.55)"
+          strokeWidth={sw + 2}
+          strokeLinecap="butt"
           aria-hidden="true"
         />
 
-        {/* ── Filled arc (animated via stroke-dasharray) ─────────────────────── */}
-        {/*
-          We rotate the circle element 135° around its centre so that angle 0
-          (rightward, 3 o'clock) maps to our 225° start (7 o'clock):
-          SVG 0° is 3 o'clock, we need 7 o'clock = 225°, rotate by 135°.
-          stroke-dasharray draws dashLength then gap; the gap covers the rest
-          of the circumference including the hidden 90° bottom segment.
-        */}
+        {/* ── Color bands: green / yellow / red ────────────────────────────── */}
+        <g className={cn('gauge-bands', pulseClass)} aria-hidden="true">
+          <path
+            d={bandPath(cx, cy, r, 0, GREEN_END_PCT)}
+            fill="none"
+            stroke={BAND_GREEN}
+            strokeWidth={sw}
+            strokeLinecap="butt"
+            opacity={0.92}
+          />
+          <path
+            d={bandPath(cx, cy, r, GREEN_END_PCT, YELLOW_END_PCT)}
+            fill="none"
+            stroke={BAND_YELLOW}
+            strokeWidth={sw}
+            strokeLinecap="butt"
+            opacity={0.92}
+          />
+          <path
+            d={bandPath(cx, cy, r, YELLOW_END_PCT, 1)}
+            fill="none"
+            stroke={BAND_RED}
+            strokeWidth={sw}
+            strokeLinecap="butt"
+            opacity={0.92}
+          />
+        </g>
+
+        {/* ── Tick marks ───────────────────────────────────────────────────── */}
+        <TickMarks cx={cx} cy={cy} r={r} strokeWidth={sw} />
+
+        {/* ── Needle — rotated via native SVG transform (rock solid) ───────── */}
+        <g
+          transform={`rotate(${needleAngle} ${cx} ${cy})`}
+          style={{
+            transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
+          }}
+          aria-hidden="true"
+        >
+          {/* Shadow */}
+          <line
+            x1={cx}
+            y1={cy + needleTail + 1}
+            x2={cx}
+            y2={cy - needleLen + 1}
+            stroke="rgba(0,0,0,0.45)"
+            strokeWidth={needleWidth + 1}
+            strokeLinecap="round"
+          />
+          {/* Needle body */}
+          <line
+            x1={cx}
+            y1={cy + needleTail}
+            x2={cx}
+            y2={cy - needleLen}
+            stroke="var(--re-gold)"
+            strokeWidth={needleWidth}
+            strokeLinecap="round"
+          />
+          {/* Needle tip accent */}
+          <line
+            x1={cx}
+            y1={cy - needleLen + (isPrimary ? 10 : 7)}
+            x2={cx}
+            y2={cy - needleLen}
+            stroke={
+              urgency === 'good'
+                ? BAND_GREEN
+                : urgency === 'soon'
+                  ? BAND_YELLOW
+                  : BAND_RED
+            }
+            strokeWidth={needleWidth + 0.5}
+            strokeLinecap="round"
+          />
+        </g>
+
+        {/* ── Centre pivot hub ─────────────────────────────────────────────── */}
         <circle
           cx={cx}
           cy={cy}
-          r={r}
-          fill="none"
-          stroke={fillColor}
-          strokeWidth={sw}
-          strokeLinecap="round"
-          strokeDasharray={`${animated ? fillLength : 0} ${circ}`}
-          transform={`rotate(135 ${cx} ${cy})`}
-          className={cn('gauge-fill', pulseClass)}
+          r={isPrimary ? 6 : 4.5}
+          fill="var(--re-gold)"
+          stroke="var(--bg-surface)"
+          strokeWidth={1.5}
+          aria-hidden="true"
+        />
+        <circle
+          cx={cx}
+          cy={cy}
+          r={isPrimary ? 2.5 : 1.75}
+          fill="var(--re-gunmetal)"
           aria-hidden="true"
         />
 
-        {/* ── Tick marks ────────────────────────────────────────────────────── */}
-        <TickMarks
-          cx={cx}
-          cy={cy}
-          r={r}
-          strokeWidth={sw}
-          startDeg={ARC_START_DEG}
-          sweepDeg={ARC_SWEEP_DEG}
-        />
-
-        {/* ── Needle (primary only) ──────────────────────────────────────────── */}
+        {/* ── Centre text: primary ─────────────────────────────────────────── */}
         {isPrimary && (
           <g aria-hidden="true">
-            {/* Needle shadow for depth */}
-            <line
-              x1={cx}
-              y1={cy + 6}
-              x2={cx}
-              y2={cy - r + 16}
-              stroke="rgba(0,0,0,0.25)"
-              strokeWidth={3}
-              strokeLinecap="round"
-              style={{
-                transformOrigin: `${cx}px ${cy}px`,
-                transform: `rotate(${needleAngle}deg) translateX(1px)`,
-                transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
-              }}
-            />
-            {/* Needle body */}
-            <line
-              x1={cx}
-              y1={cy + 6}
-              x2={cx}
-              y2={cy - r + 14}
-              stroke="var(--re-gold)"
-              strokeWidth={2.5}
-              strokeLinecap="round"
-              className="gauge-needle"
-              style={{
-                transformOrigin: `${cx}px ${cy}px`,
-                transform: `rotate(${needleAngle}deg)`,
-                transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
-              }}
-            />
-            {/* Needle tip accent */}
-            <line
-              x1={cx}
-              y1={cy - r + 14}
-              x2={cx}
-              y2={cy - r + 4}
-              stroke={fillColor}
-              strokeWidth={2}
-              strokeLinecap="round"
-              style={{
-                transformOrigin: `${cx}px ${cy}px`,
-                transform: `rotate(${needleAngle}deg)`,
-                transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
-              }}
-            />
-            {/* Centre pivot dot */}
-            <circle
-              cx={cx}
-              cy={cy}
-              r={5}
-              fill="var(--re-gold)"
-              stroke="var(--bg-surface)"
-              strokeWidth={1.5}
-            />
-            <circle
-              cx={cx}
-              cy={cy}
-              r={2}
-              fill="var(--re-gunmetal)"
-            />
-          </g>
-        )}
-
-        {/* ── Centre pivot dot (satellite — no needle) ───────────────────────── */}
-        {!isPrimary && (
-          <circle
-            cx={cx}
-            cy={cy}
-            r={3.5}
-            fill="var(--re-gold)"
-            aria-hidden="true"
-          />
-        )}
-
-        {/* ── Centre text: primary ───────────────────────────────────────────── */}
-        {isPrimary && (
-          <g aria-hidden="true">
-            {/* km value */}
+            {/* km value — lifted toward the needle hub */}
             <text
               x={cx}
-              y={isOverdue ? cy - 8 : cy - 4}
+              y={cy - 28}
               textAnchor="middle"
               dominantBaseline="middle"
-              fontSize={isOverdue ? 22 : 26}
+              fontSize={isOverdue ? 24 : 28}
               fontFamily="var(--font-mono), monospace"
-              fill={isOverdue ? fillColor : 'var(--text-primary)'}
-              fontWeight="600"
+              fill={isOverdue ? BAND_RED : 'var(--text-primary)'}
+              fontWeight="700"
               letterSpacing="-0.5"
             >
               {isOverdue ? '−' : ''}{formattedKm}
             </text>
-            {/* "km" unit */}
+            {/* "km" unit — directly under value */}
             <text
               x={cx}
-              y={isOverdue ? cy + 12 : cy + 14}
+              y={cy - 12}
               textAnchor="middle"
               dominantBaseline="middle"
               fontSize={10}
               fontFamily="var(--font-mono), monospace"
-              fill={isOverdue ? fillColor : 'var(--text-secondary)'}
-              letterSpacing="1.5"
+              fill={isOverdue ? BAND_RED : 'var(--text-secondary)'}
+              letterSpacing="1.8"
+              fontWeight="600"
             >
               {isOverdue ? 'OVERDUE' : 'KM LEFT'}
             </text>
-            {/* Label */}
+            {/* Service label — pushed below the hub so it sits at the foot */}
             <text
               x={cx}
-              y={cy + 28}
+              y={cy + 32}
               textAnchor="middle"
               dominantBaseline="middle"
-              fontSize={9}
+              fontSize={10}
               fontFamily="var(--font-display), Georgia, serif"
               fill="var(--text-secondary)"
-              letterSpacing="1"
-              opacity={0.8}
+              letterSpacing="1.2"
+              opacity={0.9}
             >
               {label.toUpperCase()}
             </text>
           </g>
         )}
 
-        {/* ── Centre text: satellite ─────────────────────────────────────────── */}
+        {/* ── Centre text: satellite ───────────────────────────────────────── */}
         {!isPrimary && (
           <g aria-hidden="true">
             <text
               x={cx}
-              y={cy - 4}
+              y={cy - 18}
               textAnchor="middle"
               dominantBaseline="middle"
-              fontSize={isOverdue ? 11 : 13}
+              fontSize={isOverdue ? 12 : 14}
               fontFamily="var(--font-mono), monospace"
-              fill={isOverdue ? fillColor : 'var(--text-primary)'}
-              fontWeight="600"
+              fill={isOverdue ? BAND_RED : 'var(--text-primary)'}
+              fontWeight="700"
             >
               {isOverdue ? '−' : ''}{formattedKm}
             </text>
             <text
               x={cx}
-              y={cy + 9}
+              y={cy - 6}
               textAnchor="middle"
               dominantBaseline="middle"
               fontSize={7}
               fontFamily="var(--font-mono), monospace"
               fill="var(--text-secondary)"
               letterSpacing="0.8"
+              fontWeight="600"
             >
               KM
             </text>

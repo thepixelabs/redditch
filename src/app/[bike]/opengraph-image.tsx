@@ -12,8 +12,9 @@ export function generateStaticParams() {
 
 // ─── OG Image ─────────────────────────────────────────────────────────────────
 
-export default function OgImage({ params }: { params: { bike: string } }) {
-  const bike = getBikeBySlug(params.bike)
+export default async function OgImage({ params }: { params: Promise<{ bike: string }> }) {
+  const { bike: slug } = await params
+  const bike = getBikeBySlug(slug)
 
   return new ImageResponse(
     (

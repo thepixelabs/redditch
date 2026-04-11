@@ -153,6 +153,18 @@ torque_specs:
   - component: Handlebar clamp bolts
     torque_nm: 20
 
+colors:
+  - Bullet Black
+  - Bullet Silver
+  - Military Olive
+
+accessories:
+  - Touring Windscreen
+  - Engine Guard
+  - Rear Carrier
+  - Classic Touring Seat
+  - Machined Oil Filler Cap
+
 meta:
   last_verified: "2026-04-09"
   source: "Royal Enfield Bullet 350 Owner's Manual 2023, J-platform service documentation"
