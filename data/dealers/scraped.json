@@ -1,13 +1,13 @@
 {
-  "scraped_at": "2026-04-20T08:00:21.881Z",
-  "total": 3097,
+  "scraped_at": "2026-04-27T08:14:42.096Z",
+  "total": 3098,
   "sources": {
     "re_roe": 568,
     "re_india": 4117,
-    "osm": 313
+    "osm": 314
   },
   "countries": {
-    "IN": 2415,
+    "IN": 2416,
     "Unknown": 130,
     "FR": 124,
     "IT": 111,
@@ -11387,10 +11387,10 @@
     {
       "id": "re-in-678",
       "name": "Lamba Enterprises Pvt Ltd (Sales)",
-      "lat": 28.6225665,
-      "lng": 77.1205609,
+      "lat": 28.6350348,
+      "lng": 77.0914506,
       "phone": "082914 87414",
-      "address": "Royal Enfield Showroom, C-49, Phase-2, Mayapuri Industrial Area, New Delhi - 110064",
+      "address": "Wz-1, Ugf Nirankari Tower, Ganesh Nagar, Main Najafgarh Road Opp Metro Pillor No 535",
       "city": "New Delhi",
       "country": "IN",
       "openingHours": "Mo-Sa 10:00-20:00",
@@ -11619,6 +11619,18 @@
       "lng": 77.18073111,
       "phone": "082914 66109",
       "address": "No A/84 Industrial Area, Gt Karnal Road",
+      "city": "New Delhi",
+      "country": "IN",
+      "openingHours": "Mo-Sa 8:00-20:00",
+      "source": "re-official"
+    },
+    {
+      "id": "re-in-699",
+      "name": "Lamba Enterprises Pvt Ltd (Service)",
+      "lat": 28.6222051,
+      "lng": 77.1204671,
+      "phone": "082914 87414",
+      "address": "Royal Enfield Service Center, C-49,  Mayapuri Industrial Area,  Delhi - 110064",
       "city": "New Delhi",
       "country": "IN",
       "openingHours": "Mo-Sa 8:00-20:00",
@@ -12271,11 +12283,11 @@
     },
     {
       "id": "re-in-780",
-      "name": "New Chandra Motorcycle House (Sales)",
+      "name": "New Chandra Motor Cycle Agency (Sales)",
       "lat": 22.47799111,
       "lng": 70.1112111,
       "phone": "096192 04079",
-      "address": "New Chandra Motorcycle Agency Jamnagar Rajkot Highway Near Nexa Showroom",
+      "address": "New Chandra Motorcycle Agency, Jamnagar Rajkot Highway,  Near Nexa Showroom.",
       "city": "Jamnagar",
       "country": "IN",
       "openingHours": "Mo-Sa 9:00-19:30",
@@ -23394,7 +23406,7 @@
       "name": "The Agents & Distributors (Sales)",
       "lat": 22.23512111,
       "lng": 84.83784111,
-      "phone": "7682860056",
+      "phone": "9167654256",
       "address": "M/60, Ground Floor, Basanti Colony",
       "city": "Rourkela",
       "country": "IN",
