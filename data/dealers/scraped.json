@@ -1,13 +1,13 @@
 {
-  "scraped_at": "2026-04-27T08:14:42.096Z",
-  "total": 3098,
+  "scraped_at": "2026-05-04T08:26:41.407Z",
+  "total": 3100,
   "sources": {
     "re_roe": 568,
-    "re_india": 4117,
-    "osm": 314
+    "re_india": 4121,
+    "osm": 315
   },
   "countries": {
-    "IN": 2416,
+    "IN": 2418,
     "Unknown": 130,
     "FR": 124,
     "IT": 111,
@@ -6725,6 +6725,7 @@
       "address": "12-4-127/2, Revenue Ward No 14 , Opp Visakha Dairy, Anakapalle, Andhra Pradesh- 531001, Revenue Ward No 14",
       "city": "Anakapalle",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-20:00",
       "source": "re-official"
     },
     {
@@ -7468,6 +7469,7 @@
       "address": "Royal Enfield Showroom, 14-4-1, Bank Colony, Peda Boddepalle,Narsipatnam, Dist: Anakapalli, Andhra Pradesh  - 531116",
       "city": "Narsipatnam",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-20:30",
       "source": "re-official"
     },
     {
@@ -8559,6 +8561,7 @@
       "address": "Gs Road, Suruj Nagar, Near Suruj Nagar Bus Stop, Opposite Gajendranath Talukdar Chinmaya Vidyalaya, Six Mile, Guwahati, Kamrup Metro, Assam  781022",
       "city": "Guwahati",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:30",
       "source": "re-official"
     },
     {
@@ -8833,6 +8836,7 @@
       "address": "Royal Enfield Showroom, 1 Pubergoan, Nec Road, Mankachar, Dist: South Salmara Mankachar, Assam -783131",
       "city": "Mankachar",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:00",
       "source": "re-official"
     },
     {
@@ -8868,6 +8872,7 @@
       "address": "Royal Enfield Showroom, Ward No 4, Moirabari,Morigaon, Assam - 782126",
       "city": "Morigaon",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:00",
       "source": "re-official"
     },
     {
@@ -8891,6 +8896,7 @@
       "address": "Royal Enfield Showroom, Dag No. 1149, Patta No. 631, Assam Trunk Road,Dimaruguri, Nagaon, Assam - 782003",
       "city": "Nagaon",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:00",
       "source": "re-official"
     },
     {
@@ -9058,6 +9064,7 @@
       "address": "Royal Enfield Showroom, Dewrigaon, Tezpur, Dist: Sonitpur, Assam - 784001",
       "city": "Tezpur",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-18:00",
       "source": "re-official"
     },
     {
@@ -12160,6 +12167,7 @@
       "address": "Shop No.21/22/23, Swami Arcade, Simaliya, Near Hotel Barsana, Bodeli, Gujarat - 391165",
       "city": "Bodeli",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:00-18:00",
       "source": "re-official"
     },
     {
@@ -12219,6 +12227,7 @@
       "address": "Royal Enfield Showroom, Sr No 213 Paiki, Plot No 20 & 21,Deesa-palanpur Highway, At Rajpur Deesa, Deesa, Dist: Banaskantha, Gujarat - 385535",
       "city": "Deesa",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
@@ -12696,6 +12705,7 @@
       "address": "Ground Floor Shop No 1-2 Jafrabad Road Rajula Bus Stand Rajula - Amreli  - 365560",
       "city": "Rajula",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:30",
       "source": "re-official"
     },
     {
@@ -13127,6 +13137,7 @@
       "address": "Royal Enfield Showroom ,Bhiwani-tosham Road, Near Bajaj Showroom,Tosham, Haryana-127040",
       "city": "Bhiwani",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
@@ -13708,6 +13719,7 @@
       "address": "Basement & First Floor, Khewat No., Rect No 15, Killa No. 23,  Mojja Baselva, Neharpar, Faridabad, Haryana - 121008, Mojja Baselva, Faridabad, Faridabad, Haryana",
       "city": "New Faridabad",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
@@ -15431,6 +15443,7 @@
       "address": "Royal Enfield Showroom, Ground Floor,Nh39, Kandari More, Main Road Kandari, Mandar, Ranchi, Jharkhand - 835214",
       "city": "Ranchi",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
@@ -16216,6 +16229,7 @@
       "address": "Royal Enfield Showroom, 6-4-653-407, Ward 6, New Bridge Road, Siddharudha Nagar, Bhadravathi, Karnataka - 577301",
       "city": "Bhadravathi",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
@@ -17127,6 +17141,7 @@
       "address": "Bengaluru-honnavar Road Near Mdf College Of Education, Lohiya Nagar, Sagar, Karnataka - 577401, Lohiya Nagar, Sagar, Karnataka",
       "city": "Sagara",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
@@ -17174,6 +17189,7 @@
       "address": "Royal Enfield Showroom, Ward No-22, Opposite To Cmc Building, Court Road, Sirsi, Karnataka - 581401",
       "city": "Sirsi",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
@@ -17221,6 +17237,7 @@
       "address": "Royal Enfield Showroom, Pid No-84717, Sira Road,Tumakuru, Dist: Tumakuru, Karnataka - 572101",
       "city": "Tumkur",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:00-18:30",
       "source": "re-official"
     },
     {
@@ -18958,6 +18975,7 @@
       "address": "Royal Enfield Showroom, Survey No 8/1, Near Deep Hotel, Indore Khandwa Road, Common Service Centre, Barwah, Madhya Pradesh - 451115",
       "city": "Barwah",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:30",
       "source": "re-official"
     },
     {
@@ -19161,6 +19179,7 @@
       "address": "Royal Enfield Showroom, Ward No 45, Khasra No 150/1/1, Parasia Road, Lonia Karbal, Chhindwara, Madhya Pradesh - 480001",
       "city": "Chhindwara",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-20:00",
       "source": "re-official"
     },
     {
@@ -19220,6 +19239,7 @@
       "address": "Royal Enfield Showroom, Khasar No. 92, Double Chawki, Dewas,Dist: Dewas, Madhya Pradesh - 455001",
       "city": "Dewas",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:00",
       "source": "re-official"
     },
     {
@@ -19939,6 +19959,7 @@
       "address": "Royal Enfield Dealership,Near New Holland Tractor Showroom,Lugharwara,Seoni, Madhya Pradesh - 480661",
       "city": "Seoni",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:00",
       "source": "re-official"
     },
     {
@@ -20321,6 +20342,7 @@
       "address": "Gut No-140, Plot No-2,  Deolai Chowk, Beed Bypass, Near Reliance Digital , Aurangabad, Maharashtra - 431001",
       "city": "Aurangabad",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:30",
       "source": "re-official"
     },
     {
@@ -20948,10 +20970,10 @@
     {
       "id": "re-in-2019",
       "name": "Ishna Wheels (Service)",
-      "lat": 19.15762111,
-      "lng": 72.82999111,
+      "lat": 19.155698756376758,
+      "lng": 72.84269732583628,
       "phone": "096195 54921",
-      "address": "Building No 01, Gulshan Compound New Link Road, Goregaon West Opposite Shastri Nagar,Goregaon West",
+      "address": "Royal Enfield Service Center, Ground Floor, Gala 3-4, Bori Compound, Somani Gram, Bhori Compound, Goregaon West,Mumbai, Mumbai Suburban, Maharashtra- 400104",
       "city": "Mumbai",
       "country": "IN",
       "openingHours": "Mo-Sa 10:00-20:00",
@@ -21132,6 +21154,7 @@
       "address": "Royal Enfield Showroom, 935/a, Ground Mezzanine Basement,Chandan Nagar, Opp Axis Bank, Medical Square, Nagpur, Maharashtra - 440009",
       "city": "Nagpur",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:30",
       "source": "re-official"
     },
     {
@@ -21250,6 +21273,7 @@
       "address": "Zagade Compound, Shirdi Road, Sinnar",
       "city": "Nashik",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:00",
       "source": "re-official"
     },
     {
@@ -21655,6 +21679,7 @@
       "address": "Royal Enfield Showroom , Hridaan Motors, Alandi Pune Road , Near Dehu Phata , State Reddy Yalam Institute, , Alandi Devachi, Tal-khed Dist Pune-412105",
       "city": "Pune",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:30",
       "source": "re-official"
     },
     {
@@ -21795,6 +21820,7 @@
       "address": "Royal Enfield Showroom, Shrirampur Road,Opposite To Ghule Hospital, Pusad, Dist: Yavatmal, Maharashtra - 445204",
       "city": "Pusad",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:30",
       "source": "re-official"
     },
     {
@@ -21998,6 +22024,7 @@
       "address": "Royal Enfield Showroom, Gat No: 472/2/b/1, Shop No 1 & 2., Akluj Chouk,Tembhurni Midc, Temburni,Maharashtra-413211",
       "city": "Solapur",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:30",
       "source": "re-official"
     },
     {
@@ -22093,6 +22120,7 @@
       "address": "Royal Enfield Showroom, Shop No. 3 & 4, Shete Complex, Shahpur - Kasara Road,Cherapoli, Atgaon Industrial Complex, Thane, Maharashtra - 421601",
       "city": "Thane",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-20:00",
       "source": "re-official"
     },
     {
@@ -22416,6 +22444,7 @@
       "address": "Royal Enfield Showroom, Pakapadaptana,Narasinghpur, Dist: Cuttack, Odisha - 754032",
       "city": "Badamba",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
@@ -23339,6 +23368,7 @@
       "address": "Plot No. 1680, Khata No. 752/1438, Main Road, Siriapur, Odisha - 752014",
       "city": "Pipili",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
@@ -24514,6 +24544,7 @@
       "address": "Royal Enfield Showroom, B-15/377, 378, Chabhal-tarn Taran Road, Deep Cement Store, Mohinder Avenue,  Dist: Tarn Taran, Punjab - 143401",
       "city": "Tarn Taran",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:00",
       "source": "re-official"
     },
     {
@@ -24609,6 +24640,7 @@
       "address": "Royal Enfield Showroom, Shop No. 17-18, Khasra No. 702, Ganesh Vihar, Ghegha, Bagru, Jaipur, Rajasthan - 3020070",
       "city": "Bagru",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:00",
       "source": "re-official"
     },
     {
@@ -24908,6 +24940,7 @@
       "address": "Royal Enfield Showroom, Nagar Road, Near Hanuman Ji Ki Bagichi, Deeg, Rajasthan - 321203",
       "city": "Deeg",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:00",
       "source": "re-official"
     },
     {
@@ -25339,6 +25372,7 @@
       "address": "Shop No. 34,35, Krishi Mandi Road, Merta City, Riico Industrial Area, Merta City, Nagaur, Rajasthan-341510",
       "city": "Merta",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:00",
       "source": "re-official"
     },
     {
@@ -25722,6 +25756,7 @@
       "address": "Royal Enfield Showroom, 224/18, Ksr Illam,Pudukottai Road, Dist: Pudukottai, Aranthangi, Tamil Nadu - 614616",
       "city": "Aranthangi",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:00-20:00",
       "source": "re-official"
     },
     {
@@ -25949,6 +25984,7 @@
       "address": "Royal Enfield Showroom, Plot No.3/4,  Gandhi Road , Virugambakkam, Alwarthirunagar, Chennai,  Tamil Nadu - 600087",
       "city": "Chennai",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:00-21:00",
       "source": "re-official"
     },
     {
@@ -27290,6 +27326,7 @@
       "address": "Royal Enfield Showroom, Ground Floor, 9/b, Vimal Shopping Complex,Mbt Road, Navalpur, Ranipet, Tamil Nadu - 632401",
       "city": "Ranipet",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:00-20:00",
       "source": "re-official"
     },
     {
@@ -27432,6 +27469,7 @@
       "address": "Sf No. 349/1a2a And 3491b2a, Tenkasi Road Alangulam, Tenkasi, Tamil Nadu - 627851, Tenkasi Road Alangulam",
       "city": "Tenkasi",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:00-19:00",
       "source": "re-official"
     },
     {
@@ -28275,6 +28313,17 @@
     },
     {
       "id": "re-in-3070",
+      "name": "Arya Dynamics India Private Limited (Sales)",
+      "lat": 18.194893353299115,
+      "lng": 79.95382699,
+      "phone": "8879131726",
+      "address": "Royal Enfield Showroom, House No.7-107/10/1,Mulugu To Eturnagarm Road, Mulugu, Telangana  - 506343",
+      "city": "Bhupalpally",
+      "country": "IN",
+      "source": "re-official"
+    },
+    {
+      "id": "re-in-3072",
       "name": "Svg Motors (Sales)",
       "lat": 17.44665,
       "lng": 78.6757,
@@ -28286,7 +28335,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3072",
+      "id": "re-in-3074",
       "name": "Svr Motors (Service)",
       "lat": 17.47615,
       "lng": 78.36298,
@@ -28298,7 +28347,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3073",
+      "id": "re-in-3075",
       "name": "Jayasree Automotives (Sales)",
       "lat": 17.40020870095057,
       "lng": 78.48703088508618,
@@ -28310,7 +28359,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3074",
+      "id": "re-in-3076",
       "name": "Orange International (Sales)",
       "lat": 17.48159111,
       "lng": 78.536959999,
@@ -28322,7 +28371,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3075",
+      "id": "re-in-3077",
       "name": "Svr Motors & Engineering (Sales)",
       "lat": 17.51702111,
       "lng": 78.48054111,
@@ -28334,7 +28383,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3076",
+      "id": "re-in-3078",
       "name": "Taurus Motors (Sales)",
       "lat": 17.3386111,
       "lng": 78.566869999,
@@ -28346,7 +28395,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3077",
+      "id": "re-in-3079",
       "name": "Vvc Automobiles (Sales)",
       "lat": 17.42556111,
       "lng": 78.438199999,
@@ -28358,7 +28407,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3078",
+      "id": "re-in-3080",
       "name": "Headway Motors (Sales)",
       "lat": 17.48364274040755,
       "lng": 78.41259785905508,
@@ -28370,7 +28419,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3079",
+      "id": "re-in-3081",
       "name": "Dark Matter Motorcycles (Sales)",
       "lat": 17.36961111,
       "lng": 78.515159999,
@@ -28382,7 +28431,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3080",
+      "id": "re-in-3082",
       "name": "Headway Motors Mgd (Sales)",
       "lat": 17.49553111,
       "lng": 78.34492111,
@@ -28394,7 +28443,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3081",
+      "id": "re-in-3083",
       "name": "Taurus Motors (Sales)",
       "lat": 17.3396634,
       "lng": 78.5004948,
@@ -28406,7 +28455,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3082",
+      "id": "re-in-3084",
       "name": "Jayashree Motors (Sales)",
       "lat": 17.42372111,
       "lng": 78.46028111,
@@ -28418,7 +28467,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3083",
+      "id": "re-in-3085",
       "name": "Orange International (Sales)",
       "lat": 17.48104111,
       "lng": 78.59196111,
@@ -28430,7 +28479,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3085",
+      "id": "re-in-3087",
       "name": "Bolt Motorcycles Llp (Sales)",
       "lat": 17.4401006,
       "lng": 78.3621334,
@@ -28442,7 +28491,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3086",
+      "id": "re-in-3088",
       "name": "Rk Royal Engineers Pvt. Ltd. (Sales)",
       "lat": 17.393924,
       "lng": 78.559399,
@@ -28454,7 +28503,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3087",
+      "id": "re-in-3089",
       "name": "Vvc Automobiles (Sales)",
       "lat": 17.38144111,
       "lng": 78.42759111,
@@ -28466,7 +28515,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3088",
+      "id": "re-in-3090",
       "name": "Vvc Automobiles (Sales)",
       "lat": 17.411119911,
       "lng": 78.3968389,
@@ -28478,7 +28527,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3089",
+      "id": "re-in-3091",
       "name": "Hariom Automobiles (Sales)",
       "lat": 17.5054915,
       "lng": 78.3055996,
@@ -28490,7 +28539,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3090",
+      "id": "re-in-3092",
       "name": "Company Store Hyderabad (Sales)",
       "lat": 17.45347111,
       "lng": 78.432779999,
@@ -28502,7 +28551,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3091",
+      "id": "re-in-3093",
       "name": "Svr Motors & Engineering (Sales)",
       "lat": 17.637383111,
       "lng": 78.485428111,
@@ -28514,7 +28563,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3092",
+      "id": "re-in-3094",
       "name": "Orange International (Sales)",
       "lat": 17.44280903,
       "lng": 78.53288224,
@@ -28526,7 +28575,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3093",
+      "id": "re-in-3095",
       "name": "Dark Matter Motorcycles (Sales)",
       "lat": 17.4178,
       "lng": 78.36909,
@@ -28538,7 +28587,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3094",
+      "id": "re-in-3096",
       "name": "Svr Motors (Sales)",
       "lat": 17.49041111,
       "lng": 78.45079111,
@@ -28550,7 +28599,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3095",
+      "id": "re-in-3097",
       "name": "Orange International (Sales)",
       "lat": 17.426888911,
       "lng": 78.5498354,
@@ -28562,7 +28611,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3096",
+      "id": "re-in-3098",
       "name": "Cosmos Motors (Sales)",
       "lat": 17.45568524,
       "lng": 78.1341883,
@@ -28574,7 +28623,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3097",
+      "id": "re-in-3099",
       "name": "Headway Motors (Sales)",
       "lat": 17.540440577913973,
       "lng": 78.3678638393871,
@@ -28586,7 +28635,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3098",
+      "id": "re-in-3100",
       "name": "Bolt Motorcycles Llp (Sales)",
       "lat": 17.45187546,
       "lng": 78.30948547,
@@ -28594,10 +28643,11 @@
       "address": "Royal Enfield Showroom, 1-10/29/4, Gopanpally Road, Mataji Glass Center,Gopanpally, Dist: Rangareddy, Telangana - 500019",
       "city": "Hyderabad",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-20:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3102",
+      "id": "re-in-3104",
       "name": "Vvc Automobiles (Service)",
       "lat": 17.43226111,
       "lng": 78.39766111,
@@ -28609,7 +28659,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3103",
+      "id": "re-in-3105",
       "name": "Headway Motors (Service)",
       "lat": 17.48946111,
       "lng": 78.41108111,
@@ -28621,7 +28671,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3104",
+      "id": "re-in-3106",
       "name": "Dark Matter Motorcycles (Service)",
       "lat": 17.37671,
       "lng": 78.514629,
@@ -28633,7 +28683,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3106",
+      "id": "re-in-3108",
       "name": "Taurus Motors (Service)",
       "lat": 17.34031111,
       "lng": 78.51872111,
@@ -28645,7 +28695,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3107",
+      "id": "re-in-3109",
       "name": "Jayashree Motors (Service)",
       "lat": 17.4116967,
       "lng": 78.4579886,
@@ -28657,7 +28707,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3108",
+      "id": "re-in-3110",
       "name": "Svr Motors (Service)",
       "lat": 17.471013,
       "lng": 78.50655,
@@ -28669,7 +28719,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3109",
+      "id": "re-in-3111",
       "name": "Vvc Automobiles (Service)",
       "lat": 17.35807111,
       "lng": 78.4541111,
@@ -28681,7 +28731,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3110",
+      "id": "re-in-3112",
       "name": "Bolt Motorcycles Llp (Service)",
       "lat": 17.45393111,
       "lng": 78.38258111,
@@ -28693,7 +28743,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3111",
+      "id": "re-in-3113",
       "name": "Cosmos Motors (Service)",
       "lat": 17.25966644,
       "lng": 78.38372803,
@@ -28705,7 +28755,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3112",
+      "id": "re-in-3114",
       "name": "Bolt Motorcycles Llp (Service)",
       "lat": 17.43760258251492,
       "lng": 78.36856531755659,
@@ -28717,7 +28767,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3113",
+      "id": "re-in-3115",
       "name": "Vvc Automobiles (Service)",
       "lat": 17.364558,
       "lng": 78.427696,
@@ -28729,7 +28779,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3115",
+      "id": "re-in-3117",
       "name": "Hariom Automobiles (Service)",
       "lat": 17.51157342004259,
       "lng": 78.29273312197975,
@@ -28741,7 +28791,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3116",
+      "id": "re-in-3118",
       "name": "Company Service Center (Service)",
       "lat": 17.45824111,
       "lng": 78.44632111,
@@ -28753,7 +28803,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3121",
+      "id": "re-in-3123",
       "name": "Headway Motors (Service)",
       "lat": 17.548649,
       "lng": 78.385598,
@@ -28765,7 +28815,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3123",
+      "id": "re-in-3125",
       "name": "Cyber Automobiles Pvt Ltd (Spares)",
       "lat": 17.5406799,
       "lng": 78.39120505,
@@ -28777,7 +28827,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3124",
+      "id": "re-in-3126",
       "name": "Rotex Petrochem Private Limited (Spares)",
       "lat": 17.39772523,
       "lng": 78.422665,
@@ -28789,7 +28839,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3125",
+      "id": "re-in-3127",
       "name": "Quality Motors (Sales)",
       "lat": 18.770778111,
       "lng": 78.91275111,
@@ -28801,7 +28851,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3127",
+      "id": "re-in-3129",
       "name": "Quality Automobiles Pvt Ltd (Sales)",
       "lat": 17.71741111,
       "lng": 79.15954,
@@ -28813,7 +28863,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3129",
+      "id": "re-in-3131",
       "name": "Quality Motors (Sales)",
       "lat": 18.414715411,
       "lng": 79.142638199,
@@ -28825,7 +28875,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3130",
+      "id": "re-in-3132",
       "name": "Sri Rajarajeshwara Automotives (Sales)",
       "lat": 18.46711713988312,
       "lng": 79.11118360992016,
@@ -28837,7 +28887,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3131",
+      "id": "re-in-3133",
       "name": "Sv Motors (Sales)",
       "lat": 18.20251111,
       "lng": 79.40025111,
@@ -28849,7 +28899,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3136",
+      "id": "re-in-3138",
       "name": "Jabisetty Motors (Sales)",
       "lat": 17.2413332,
       "lng": 80.1600886,
@@ -28861,7 +28911,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3137",
+      "id": "re-in-3139",
       "name": "R V Automotives (Sales)",
       "lat": 17.928883111,
       "lng": 80.824176411,
@@ -28873,7 +28923,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3142",
+      "id": "re-in-3144",
       "name": "R V Automotives (Sales)",
       "lat": 17.567549111,
       "lng": 80.626912311,
@@ -28885,7 +28935,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3145",
+      "id": "re-in-3147",
       "name": "Prasanna Vaarahi Automotives (Sales)",
       "lat": 17.601761778323922,
       "lng": 80.00992935,
@@ -28897,7 +28947,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3147",
+      "id": "re-in-3149",
       "name": "Harshithh Automotives (Sales)",
       "lat": 16.75835111,
       "lng": 78.04168111,
@@ -28909,7 +28959,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3148",
+      "id": "re-in-3150",
       "name": "Balaji Automotives (Sales)",
       "lat": 16.76174,
       "lng": 78.05921,
@@ -28921,7 +28971,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3149",
+      "id": "re-in-3151",
       "name": "Harshithh Automotives (Sales)",
       "lat": 17.048121711,
       "lng": 78.202390211,
@@ -28933,7 +28983,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3150",
+      "id": "re-in-3152",
       "name": "Harshith Automotivesngkl (Sales)",
       "lat": 16.219154811,
       "lng": 77.818526899,
@@ -28945,7 +28995,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3151",
+      "id": "re-in-3153",
       "name": "Harshith Automotivesngkl (Sales)",
       "lat": 16.366716111,
       "lng": 78.056095211,
@@ -28957,7 +29007,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3152",
+      "id": "re-in-3154",
       "name": "Harshithh Automotives (Sales)",
       "lat": 16.841272711,
       "lng": 78.5310706,
@@ -28969,7 +29019,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3153",
+      "id": "re-in-3155",
       "name": "Harshithh Automotives (Sales)",
       "lat": 16.743450611,
       "lng": 77.492092311,
@@ -28981,7 +29031,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3159",
+      "id": "re-in-3161",
       "name": "Harshithh Automotives (Service)",
       "lat": 16.734123,
       "lng": 77.51646,
@@ -28993,7 +29043,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3160",
+      "id": "re-in-3162",
       "name": "Jv Aryan Motors (Sales)",
       "lat": 18.891355,
       "lng": 79.44052,
@@ -29005,7 +29055,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3162",
+      "id": "re-in-3164",
       "name": "Vanil Automotives Pvt Ltd (Sales)",
       "lat": 18.043555691,
       "lng": 78.256982421,
@@ -29017,7 +29067,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3165",
+      "id": "re-in-3167",
       "name": "Sri Rajarajeshwara Automotives (Sales)",
       "lat": 18.849322,
       "lng": 78.613488,
@@ -29029,7 +29079,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3167",
+      "id": "re-in-3169",
       "name": "Pro Riders (Sales)",
       "lat": 16.8598842,
       "lng": 79.5593613,
@@ -29041,7 +29091,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3169",
+      "id": "re-in-3171",
       "name": "Balaji Automotives (Sales)",
       "lat": 16.49795111,
       "lng": 78.29145111,
@@ -29053,7 +29103,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3171",
+      "id": "re-in-3173",
       "name": "R D Automotives (Sales)",
       "lat": 16.695001111,
       "lng": 78.910768111,
@@ -29065,7 +29115,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3172",
+      "id": "re-in-3174",
       "name": "Sri Venkataramana Motors (Sales)",
       "lat": 17.0673058,
       "lng": 79.264617,
@@ -29077,7 +29127,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3175",
+      "id": "re-in-3177",
       "name": "Vvc Automobiles (Service)",
       "lat": 17.389532711,
       "lng": 78.351981499,
@@ -29089,7 +29139,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3176",
+      "id": "re-in-3178",
       "name": "Vanil Automotives Pvt Ltd (Sales)",
       "lat": 18.70379708,
       "lng": 78.12634947,
@@ -29101,7 +29151,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3177",
+      "id": "re-in-3179",
       "name": "Devi Automobiles (Sales)",
       "lat": 18.6624813,
       "lng": 78.1120945,
@@ -29113,7 +29163,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3178",
+      "id": "re-in-3180",
       "name": "Anil Motors (Sales)",
       "lat": 18.316611111,
       "lng": 78.335694111,
@@ -29125,7 +29175,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3180",
+      "id": "re-in-3182",
       "name": "Devi Automobiles (Service)",
       "lat": 18.66797,
       "lng": 78.1189,
@@ -29136,7 +29186,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3182",
+      "id": "re-in-3184",
       "name": "Hariom Automobiles (Service)",
       "lat": 17.58682,
       "lng": 78.088279,
@@ -29148,7 +29198,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3183",
+      "id": "re-in-3185",
       "name": "Jv Aryan Motors (Sales)",
       "lat": 18.751128,
       "lng": 79.505922,
@@ -29160,7 +29210,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3185",
+      "id": "re-in-3187",
       "name": "Taurus Motors (Sales)",
       "lat": 17.2774937,
       "lng": 78.5879027,
@@ -29172,7 +29222,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3187",
+      "id": "re-in-3189",
       "name": "Bolt Motorcycles Llp (Sales)",
       "lat": 17.478252111,
       "lng": 78.323438111,
@@ -29184,7 +29234,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3188",
+      "id": "re-in-3190",
       "name": "Rk Royal Engineers Pvt. Ltd. (Sales)",
       "lat": 17.410955111,
       "lng": 78.606087111,
@@ -29196,7 +29246,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3192",
+      "id": "re-in-3194",
       "name": "Jabisetty Motors (Sales)",
       "lat": 17.209769111,
       "lng": 80.830506111,
@@ -29208,7 +29258,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3194",
+      "id": "re-in-3196",
       "name": "Svr Motors (Sales)",
       "lat": 17.38714,
       "lng": 78.491684,
@@ -29220,7 +29270,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3195",
+      "id": "re-in-3197",
       "name": "Sv Automotives (Sales)",
       "lat": 17.43274,
       "lng": 78.48827,
@@ -29232,7 +29282,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3196",
+      "id": "re-in-3198",
       "name": "Svr Motors & Engineering (Service)",
       "lat": 17.479563,
       "lng": 78.475425,
@@ -29244,7 +29294,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3197",
+      "id": "re-in-3199",
       "name": "Orange International (Service)",
       "lat": 17.4771992,
       "lng": 78.585802,
@@ -29256,7 +29306,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3200",
+      "id": "re-in-3202",
       "name": "Anil Motors (Sales)",
       "lat": 18.06972778755204,
       "lng": 78.86228418886677,
@@ -29268,7 +29318,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3202",
+      "id": "re-in-3204",
       "name": "Anil Motors (Sales)",
       "lat": 18.402735311,
       "lng": 78.818559311,
@@ -29280,7 +29330,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3204",
+      "id": "re-in-3206",
       "name": "Sri Venkataramana Motors (Sales)",
       "lat": 17.147306,
       "lng": 79.6278101,
@@ -29292,7 +29342,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3205",
+      "id": "re-in-3207",
       "name": "Sri Venkataramana Motors (Service)",
       "lat": 17.1314,
       "lng": 79.6336,
@@ -29304,7 +29354,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3206",
+      "id": "re-in-3208",
       "name": "Harshithh Automotives (Sales)",
       "lat": 17.262663111,
       "lng": 77.597607111,
@@ -29316,7 +29366,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3207",
+      "id": "re-in-3209",
       "name": "Vvc Automobiles (Sales)",
       "lat": 17.329938,
       "lng": 77.91979,
@@ -29328,7 +29378,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3210",
+      "id": "re-in-3212",
       "name": "Quality Automobiles (Sales)",
       "lat": 17.98909111,
       "lng": 79.53019111,
@@ -29340,7 +29390,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3211",
+      "id": "re-in-3213",
       "name": "Sv Motors (Sales)",
       "lat": 18.00262,
       "lng": 79.581471,
@@ -29352,7 +29402,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3212",
+      "id": "re-in-3214",
       "name": "Sv Motors (Sales)",
       "lat": 18.02671138090894,
       "lng": 79.54523781570008,
@@ -29364,7 +29414,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3213",
+      "id": "re-in-3215",
       "name": "Quality Automobiles (Service)",
       "lat": 17.99137111,
       "lng": 79.53634111,
@@ -29376,7 +29426,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3215",
+      "id": "re-in-3217",
       "name": "Svg Motors (Sales)",
       "lat": 17.50696,
       "lng": 78.87748,
@@ -29388,7 +29438,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3217",
+      "id": "re-in-3219",
       "name": "Pnr Automobiles Pvt Ltd (Sales)",
       "lat": 23.8323659,
       "lng": 91.286897,
@@ -29400,7 +29450,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3218",
+      "id": "re-in-3220",
       "name": "Kian Enterprise (Sales)",
       "lat": 23.8291841,
       "lng": 91.2777883,
@@ -29408,10 +29458,11 @@
       "address": "Royal Enfield Showroom, 1614, Airport Road, Natunnagar, Near Dainik Sambad Office, Agartala, Tripura -799009",
       "city": "Agartala",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:00",
       "source": "re-official"
     },
     {
-      "id": "re-in-3219",
+      "id": "re-in-3221",
       "name": "Pnr Automobiles Pvt Ltd (Service)",
       "lat": 23.845609,
       "lng": 91.348951,
@@ -29423,7 +29474,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3220",
+      "id": "re-in-3222",
       "name": "Pnr Automobile Pvt.ltd (Sales)",
       "lat": 24.38055111,
       "lng": 92.1709981,
@@ -29435,7 +29486,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3222",
+      "id": "re-in-3224",
       "name": "Shambhavi Automotive Engineers (Sales)",
       "lat": 27.16846,
       "lng": 78.01455,
@@ -29447,7 +29498,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3223",
+      "id": "re-in-3225",
       "name": "Agra Royals (Sales)",
       "lat": 27.210158,
       "lng": 77.965473,
@@ -29459,7 +29510,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3224",
+      "id": "re-in-3226",
       "name": "Mangal Motors Pvt Ltd (Sales)",
       "lat": 27.20619111,
       "lng": 78.05131111,
@@ -29471,7 +29522,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3225",
+      "id": "re-in-3227",
       "name": "Agra Royals (Sales)",
       "lat": 26.942111,
       "lng": 77.82607111,
@@ -29483,7 +29534,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3226",
+      "id": "re-in-3228",
       "name": "Mangal Motors Pvt. Ltd. (Sales)",
       "lat": 27.293254811,
       "lng": 78.034252111,
@@ -29495,7 +29546,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3227",
+      "id": "re-in-3229",
       "name": "Shambhavi Automotive Engineers (Sales)",
       "lat": 27.034865911,
       "lng": 78.284474311,
@@ -29507,7 +29558,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3228",
+      "id": "re-in-3230",
       "name": "Maindola Royal Enfield (Sales)",
       "lat": 27.703678111,
       "lng": 77.936324311,
@@ -29519,7 +29570,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3229",
+      "id": "re-in-3231",
       "name": "Agra Royals Unit Ii St (Sales)",
       "lat": 27.139782611,
       "lng": 77.7907521,
@@ -29531,7 +29582,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3230",
+      "id": "re-in-3232",
       "name": "Shambhavi Automotive Engineers (Sales)",
       "lat": 27.026282611,
       "lng": 78.119141111,
@@ -29543,7 +29594,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3231",
+      "id": "re-in-3233",
       "name": "Mangal Motors Pvt Ltd (Sales)",
       "lat": 27.232888911,
       "lng": 78.197863211,
@@ -29555,7 +29606,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3241",
+      "id": "re-in-3243",
       "name": "Kamala Motors (Sales)",
       "lat": 26.380042911,
       "lng": 79.973935999,
@@ -29567,7 +29618,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3242",
+      "id": "re-in-3244",
       "name": "Maindola Royal Enfield (Sales)",
       "lat": 27.89449111,
       "lng": 78.05682111,
@@ -29579,7 +29630,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3243",
+      "id": "re-in-3245",
       "name": "Kodia Auto Sales (Sales)",
       "lat": 27.89671111,
       "lng": 78.09172111,
@@ -29591,7 +29642,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3244",
+      "id": "re-in-3246",
       "name": "Maindola Royal Enfield (Sales)",
       "lat": 27.944507311,
       "lng": 77.816722311,
@@ -29603,7 +29654,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3245",
+      "id": "re-in-3247",
       "name": "Kodia Auto Sales (Sales)",
       "lat": 28.032095111,
       "lng": 78.275139111,
@@ -29615,7 +29666,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3250",
+      "id": "re-in-3252",
       "name": "Arya Motors Unit 2 (Sales)",
       "lat": 25.486499611,
       "lng": 81.663902311,
@@ -29627,7 +29678,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3251",
+      "id": "re-in-3253",
       "name": "Jay Pee Motors (Sales)",
       "lat": 25.537534811,
       "lng": 82.061042099,
@@ -29639,7 +29690,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3254",
+      "id": "re-in-3256",
       "name": "Saurabh Automobiles (Sales)",
       "lat": 26.43455111,
       "lng": 82.52437111,
@@ -29651,7 +29702,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3255",
+      "id": "re-in-3257",
       "name": "Saurabh Automobiles (Sales)",
       "lat": 26.453571611,
       "lng": 82.781551411,
@@ -29663,7 +29714,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3256",
+      "id": "re-in-3258",
       "name": "Saurabh Automobiles (Sales)",
       "lat": 26.308527811,
       "lng": 82.715363211,
@@ -29675,7 +29726,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3260",
+      "id": "re-in-3262",
       "name": "Sun Automobile (Sales)",
       "lat": 26.369607,
       "lng": 81.813586,
@@ -29687,7 +29738,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3261",
+      "id": "re-in-3263",
       "name": "Sun Automobile (Sales)",
       "lat": 26.1542829,
       "lng": 81.8129181,
@@ -29699,7 +29750,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3264",
+      "id": "re-in-3266",
       "name": "Advika Automobiles (Sales)",
       "lat": 28.877716,
       "lng": 78.4696575,
@@ -29711,7 +29762,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3266",
+      "id": "re-in-3268",
       "name": "Akshaya Riding Motors (Sales)",
       "lat": 26.4598718,
       "lng": 79.5122037,
@@ -29723,7 +29774,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3267",
+      "id": "re-in-3269",
       "name": "Akshaya Riding Motors (Service)",
       "lat": 26.460259311,
       "lng": 79.495323311,
@@ -29735,7 +29786,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3268",
+      "id": "re-in-3270",
       "name": "Ayodhya Motor (Sales)",
       "lat": 26.764862,
       "lng": 82.09249,
@@ -29747,7 +29798,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3270",
+      "id": "re-in-3272",
       "name": "S.b.s. Automobiles (Sales)",
       "lat": 26.090148,
       "lng": 83.168684,
@@ -29759,7 +29810,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3271",
+      "id": "re-in-3273",
       "name": "Bhrigu Auto (Sales)",
       "lat": 26.0477644,
       "lng": 83.1706459,
@@ -29771,7 +29822,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3272",
+      "id": "re-in-3274",
       "name": "Sbs Automobiles (Sales)",
       "lat": 25.774727111,
       "lng": 82.9928076,
@@ -29783,7 +29834,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3273",
+      "id": "re-in-3275",
       "name": "Sbs Automobiles (Sales)",
       "lat": 26.352083311,
       "lng": 82.913863199,
@@ -29795,7 +29846,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3274",
+      "id": "re-in-3276",
       "name": "Sbs Automobiles (Sales)",
       "lat": 26.1643402,
       "lng": 83.3361771,
@@ -29807,7 +29858,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3278",
+      "id": "re-in-3280",
       "name": "Sbs Automobiles (Service)",
       "lat": 26.154527811,
       "lng": 83.332029899,
@@ -29819,7 +29870,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3280",
+      "id": "re-in-3282",
       "name": "Dc Automobiles (Service)",
       "lat": 29.9624197,
       "lng": 77.5461856,
@@ -29831,7 +29882,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3281",
+      "id": "re-in-3283",
       "name": "Pitambra Automobiles (Sales)",
       "lat": 28.953186311,
       "lng": 77.217409399,
@@ -29843,7 +29894,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3283",
+      "id": "re-in-3285",
       "name": "Suri Sales Pvt Ltd (Sales)",
       "lat": 28.783632991,
       "lng": 79.496235581,
@@ -29855,7 +29906,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3285",
+      "id": "re-in-3287",
       "name": "Radhey Autosales Llp (Sales)",
       "lat": 27.2617433,
       "lng": 81.5471574,
@@ -29867,7 +29918,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3286",
+      "id": "re-in-3288",
       "name": "Rajat Motors (Sales)",
       "lat": 27.55495,
       "lng": 81.58211,
@@ -29879,7 +29930,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3287",
+      "id": "re-in-3289",
       "name": "Radhey Autosales (Sales)",
       "lat": 27.400433,
       "lng": 81.789604,
@@ -29891,7 +29942,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3288",
+      "id": "re-in-3290",
       "name": "Rajat Motors (Sales)",
       "lat": 27.84678,
       "lng": 81.51429,
@@ -29903,7 +29954,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3289",
+      "id": "re-in-3291",
       "name": "Radhey Autosales Llp (Service)",
       "lat": 27.44214,
       "lng": 81.532558,
@@ -29915,7 +29966,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3293",
+      "id": "re-in-3295",
       "name": "Parmarth Automobiles (Sales)",
       "lat": 26.118111111,
       "lng": 83.8491132,
@@ -29927,7 +29978,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3294",
+      "id": "re-in-3296",
       "name": "Parmarth Automobiles (Sales)",
       "lat": 25.768055611,
       "lng": 84.4848632,
@@ -29939,7 +29990,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3295",
+      "id": "re-in-3297",
       "name": "Parmarth Automobiles (Service)",
       "lat": 25.74657111,
       "lng": 84.12314,
@@ -29950,7 +30001,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3298",
+      "id": "re-in-3300",
       "name": "Titu Automobiles (Sales)",
       "lat": 27.43319111,
       "lng": 82.176689999,
@@ -29962,7 +30013,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3299",
+      "id": "re-in-3301",
       "name": "Titu Automobiles (Sales)",
       "lat": 27.316512511,
       "lng": 82.4078867,
@@ -29974,7 +30025,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3302",
+      "id": "re-in-3304",
       "name": "Chandan Motors (Sales)",
       "lat": 25.48604,
       "lng": 80.35171,
@@ -29986,7 +30037,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3303",
+      "id": "re-in-3305",
       "name": "Shri Ram Motor Works (Sales)",
       "lat": 25.269944411,
       "lng": 81.366918799,
@@ -29998,7 +30049,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3305",
+      "id": "re-in-3307",
       "name": "G R & Company (Sales)",
       "lat": 26.92084111,
       "lng": 81.16367111,
@@ -30010,7 +30061,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3306",
+      "id": "re-in-3308",
       "name": "Nnema Endeavour Private Limited (Sales)",
       "lat": 26.810048111,
       "lng": 81.519754,
@@ -30022,7 +30073,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3307",
+      "id": "re-in-3309",
       "name": "Gr And Company (Sales)",
       "lat": 26.601695,
       "lng": 81.371967,
@@ -30034,7 +30085,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3308",
+      "id": "re-in-3310",
       "name": "Nnema Endeavour Private Limited (Sales)",
       "lat": 27.082666711,
       "lng": 81.3935854,
@@ -30046,7 +30097,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3309",
+      "id": "re-in-3311",
       "name": "Nnema Endeavour Private Limited (Sales)",
       "lat": 27.17575111,
       "lng": 81.214724311,
@@ -30058,7 +30109,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3315",
+      "id": "re-in-3317",
       "name": "Pitambra Automobiles (Sales)",
       "lat": 29.086647,
       "lng": 77.2549501,
@@ -30070,7 +30121,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3317",
+      "id": "re-in-3319",
       "name": "Royal Enfield Showroom - Suri Sales Pvt Ltd (Sales)",
       "lat": 28.37544111,
       "lng": 79.41894,
@@ -30082,7 +30133,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3318",
+      "id": "re-in-3320",
       "name": "Ajs Riders Pvt Ltd (Sales)",
       "lat": 28.37657111,
       "lng": 79.45441111,
@@ -30094,7 +30145,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3319",
+      "id": "re-in-3321",
       "name": "Suri Sales Private Limited (Sales)",
       "lat": 28.37819,
       "lng": 79.389283,
@@ -30106,7 +30157,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3323",
+      "id": "re-in-3325",
       "name": "Ashutosh Motors (Sales)",
       "lat": 26.799333311,
       "lng": 82.7157243,
@@ -30118,7 +30169,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3324",
+      "id": "re-in-3326",
       "name": "Ashutosh Motors (Sales)",
       "lat": 25.727761611,
       "lng": 81.442552911,
@@ -30130,7 +30181,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3325",
+      "id": "re-in-3327",
       "name": "Ashutosh Motors (Sales)",
       "lat": 26.792555611,
       "lng": 82.473113211,
@@ -30142,7 +30193,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3326",
+      "id": "re-in-3328",
       "name": "Ashutosh Motors (Sales)",
       "lat": 27.0375111,
       "lng": 82.658835411,
@@ -30154,7 +30205,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3328",
+      "id": "re-in-3330",
       "name": "Shri Shyam Automobiles (Service)",
       "lat": 26.80775844,
       "lng": 82.76144907,
@@ -30165,7 +30216,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3332",
+      "id": "re-in-3334",
       "name": "Bhadohi Wheels (Sales)",
       "lat": 25.39989111,
       "lng": 82.55136111,
@@ -30177,7 +30228,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3334",
+      "id": "re-in-3336",
       "name": "Radhey Autosales Llp (Sales)",
       "lat": 27.70205,
       "lng": 81.92028,
@@ -30189,7 +30240,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3336",
+      "id": "re-in-3338",
       "name": "Agarwal Tractors & Parts (Sales)",
       "lat": 29.6043111,
       "lng": 78.344401311,
@@ -30201,7 +30252,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3337",
+      "id": "re-in-3339",
       "name": "Chaudhary Motors (Sales)",
       "lat": 29.38021111,
       "lng": 78.144189999,
@@ -30213,7 +30264,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3338",
+      "id": "re-in-3340",
       "name": "Chaudhary Motors (Sales)",
       "lat": 29.133319611,
       "lng": 78.280585111,
@@ -30225,7 +30276,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3339",
+      "id": "re-in-3341",
       "name": "Chaudhary Motors (Sales)",
       "lat": 29.441355111,
       "lng": 78.422852,
@@ -30237,7 +30288,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3341",
+      "id": "re-in-3343",
       "name": "Ram Auto Sales (Service)",
       "lat": 29.307207811,
       "lng": 78.447376611,
@@ -30249,7 +30300,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3344",
+      "id": "re-in-3346",
       "name": "Prisha Autoworld Private Limited (Sales)",
       "lat": 28.883483,
       "lng": 79.253168,
@@ -30257,10 +30308,11 @@
       "address": "Royal Enfield Showroom, Mahesh Garden, Nainital Road, Bilaspur, Dist - Rampur, Uttar Pradesh - 244921",
       "city": "Bilaspur",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:00",
       "source": "re-official"
     },
     {
-      "id": "re-in-3346",
+      "id": "re-in-3348",
       "name": "Omkar Motors (Sales)",
       "lat": 28.00489111,
       "lng": 79.1536111,
@@ -30272,7 +30324,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3347",
+      "id": "re-in-3349",
       "name": "Rr Vehicles (Sales)",
       "lat": 28.03776,
       "lng": 79.13783,
@@ -30284,7 +30336,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3348",
+      "id": "re-in-3350",
       "name": "Royal Enfield Showroom - Omkar Motors (Sales)",
       "lat": 28.066645711,
       "lng": 78.759924411,
@@ -30296,7 +30348,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3349",
+      "id": "re-in-3351",
       "name": "Omkar Motors (Sales)",
       "lat": 28.304426411,
       "lng": 78.941463511,
@@ -30308,7 +30360,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3354",
+      "id": "re-in-3356",
       "name": "Harivansh Auto Agency (Sales)",
       "lat": 29.28613,
       "lng": 77.46763,
@@ -30319,7 +30371,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3356",
+      "id": "re-in-3358",
       "name": "Santosh Enterprises (Sales)",
       "lat": 28.40271111,
       "lng": 77.82914111,
@@ -30331,7 +30383,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3357",
+      "id": "re-in-3359",
       "name": "Wonder Automobiles (Sales)",
       "lat": 28.556972511,
       "lng": 77.549783411,
@@ -30343,7 +30395,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3358",
+      "id": "re-in-3360",
       "name": "Country Wheels (Sales)",
       "lat": 28.408384311,
       "lng": 77.846472311,
@@ -30355,7 +30407,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3359",
+      "id": "re-in-3361",
       "name": "Santosh Enterprises (Sales)",
       "lat": 28.632385111,
       "lng": 78.065299911,
@@ -30367,7 +30419,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3361",
+      "id": "re-in-3363",
       "name": "Sd Enterprises (Sales)",
       "lat": 29.922072611,
       "lng": 77.3189195,
@@ -30379,7 +30431,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3363",
+      "id": "re-in-3365",
       "name": "Santosh Motorcycles (Sales)",
       "lat": 28.288471111,
       "lng": 77.697418111,
@@ -30391,7 +30443,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3371",
+      "id": "re-in-3373",
       "name": "Shri Sai Automobiles (Sales)",
       "lat": 25.036198,
       "lng": 83.215416,
@@ -30403,7 +30455,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3373",
+      "id": "re-in-3375",
       "name": "Shri Sai Automobiles (Sales)",
       "lat": 25.418925611,
       "lng": 83.216163711,
@@ -30415,7 +30467,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3375",
+      "id": "re-in-3377",
       "name": "Vindhya Auto Sales (Sales)",
       "lat": 25.116258,
       "lng": 82.87342,
@@ -30427,7 +30479,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3377",
+      "id": "re-in-3379",
       "name": "Rr Vehicles (Sales)",
       "lat": 28.033499,
       "lng": 79.405731,
@@ -30439,7 +30491,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3379",
+      "id": "re-in-3381",
       "name": "Supreem Motors (Sales)",
       "lat": 26.46465111,
       "lng": 83.79083111,
@@ -30451,7 +30503,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3380",
+      "id": "re-in-3382",
       "name": "Supreem Motors (Sales)",
       "lat": 26.446615911,
       "lng": 83.626918811,
@@ -30463,7 +30515,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3381",
+      "id": "re-in-3383",
       "name": "Supreem Motors (Sales)",
       "lat": 26.601862311,
       "lng": 83.663807611,
@@ -30475,7 +30527,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3383",
+      "id": "re-in-3385",
       "name": "Supreem Motors (Service)",
       "lat": 26.314699211,
       "lng": 84.028613211,
@@ -30487,7 +30539,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3386",
+      "id": "re-in-3388",
       "name": "Ram Auto Sales (Sales)",
       "lat": 29.30582778,
       "lng": 78.5062,
@@ -30499,7 +30551,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3387",
+      "id": "re-in-3389",
       "name": "K S Royals (Sales)",
       "lat": 27.57756111,
       "lng": 78.633039999,
@@ -30511,7 +30563,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3388",
+      "id": "re-in-3390",
       "name": "Ks Royals (Sales)",
       "lat": 27.49909111,
       "lng": 79.179157111,
@@ -30523,7 +30575,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3391",
+      "id": "re-in-3393",
       "name": "V P Motors (Sales)",
       "lat": 26.77073111,
       "lng": 79.02757111,
@@ -30535,7 +30587,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3393",
+      "id": "re-in-3395",
       "name": "Chawla Riders Pvt Ltd (Sales)",
       "lat": 26.77107111,
       "lng": 82.15906111,
@@ -30547,7 +30599,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3394",
+      "id": "re-in-3396",
       "name": "Chawla Riders Pvt Ltd (Sales)",
       "lat": 26.746078111,
       "lng": 82.140224111,
@@ -30559,7 +30611,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3395",
+      "id": "re-in-3397",
       "name": "Chawla Riders Pvt Ltd (Sales)",
       "lat": 26.773634911,
       "lng": 81.750844099,
@@ -30571,7 +30623,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3396",
+      "id": "re-in-3398",
       "name": "Ayodhya Motor (Sales)",
       "lat": 26.62924,
       "lng": 81.9457,
@@ -30583,7 +30635,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3401",
+      "id": "re-in-3403",
       "name": "Ankur Auto Agencies (Sales)",
       "lat": 27.383112711,
       "lng": 79.592251311,
@@ -30595,7 +30647,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3403",
+      "id": "re-in-3405",
       "name": "K S Auto Sales (Sales)",
       "lat": 25.93132111,
       "lng": 80.79806,
@@ -30607,7 +30659,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3404",
+      "id": "re-in-3406",
       "name": "K.s Auto Sales Fatehpur (Sales)",
       "lat": 25.776421511,
       "lng": 81.097502111,
@@ -30619,7 +30671,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3407",
+      "id": "re-in-3409",
       "name": "Emerald Automobiles (Sales)",
       "lat": 27.16919111,
       "lng": 78.372559999,
@@ -30631,7 +30683,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3408",
+      "id": "re-in-3410",
       "name": "Emerald Automobiles (Sales)",
       "lat": 27.114771811,
       "lng": 78.606667111,
@@ -30643,7 +30695,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3409",
+      "id": "re-in-3411",
       "name": "Emerald Automobiles (Sales)",
       "lat": 27.22354111,
       "lng": 78.247375411,
@@ -30655,7 +30707,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3410",
+      "id": "re-in-3412",
       "name": "Emerald Automobiles (Sales)",
       "lat": 27.05783,
       "lng": 78.689638,
@@ -30667,7 +30719,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3415",
+      "id": "re-in-3417",
       "name": "Advika Automobiles (Sales)",
       "lat": 28.837468811,
       "lng": 78.275327111,
@@ -30679,7 +30731,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3417",
+      "id": "re-in-3419",
       "name": "Sushma Motors (Sales)",
       "lat": 26.20906222,
       "lng": 81.67475217,
@@ -30691,7 +30743,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3419",
+      "id": "re-in-3421",
       "name": "Rk Motors (Sales)",
       "lat": 27.436639711,
       "lng": 83.424163611,
@@ -30703,7 +30755,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3420",
+      "id": "re-in-3422",
       "name": "Rawal Automobiles Pvt Ltd (Sales)",
       "lat": 28.654910911,
       "lng": 77.445753511,
@@ -30715,7 +30767,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3421",
+      "id": "re-in-3423",
       "name": "Shiva Riders (Sales)",
       "lat": 28.675006111,
       "lng": 77.417886111,
@@ -30727,7 +30779,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3422",
+      "id": "re-in-3424",
       "name": "Shiva Riders (Sales)",
       "lat": 28.868553211,
       "lng": 77.601013711,
@@ -30739,7 +30791,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3423",
+      "id": "re-in-3425",
       "name": "Asa Riders Llp (Sales)",
       "lat": 28.644166,
       "lng": 77.422098,
@@ -30751,7 +30803,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3424",
+      "id": "re-in-3426",
       "name": "Power And Torque (Sales)",
       "lat": 28.763082111,
       "lng": 77.283531999,
@@ -30763,7 +30815,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3425",
+      "id": "re-in-3427",
       "name": "Power And Torque Motors Pvt. Ltd (Sales)",
       "lat": 28.660472,
       "lng": 77.369138,
@@ -30775,7 +30827,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3426",
+      "id": "re-in-3428",
       "name": "Asa Riders Llp (Sales)",
       "lat": 28.699417,
       "lng": 77.423412,
@@ -30783,10 +30835,11 @@
       "address": "Kh No. - 871, Noor Nagar, Raj Nagar Ext, Near God'S Valley Farm House",
       "city": "Ghaziabad",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:00-20:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3428",
+      "id": "re-in-3430",
       "name": "Shiva Riders (Service)",
       "lat": 28.6842586,
       "lng": 77.4290705,
@@ -30798,7 +30851,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3431",
+      "id": "re-in-3433",
       "name": "Power And Torque Motors Pvt. Ltd (Service)",
       "lat": 28.659524,
       "lng": 77.354757,
@@ -30809,7 +30862,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3433",
+      "id": "re-in-3435",
       "name": "Shiva Riders (Service)",
       "lat": 28.7717954,
       "lng": 77.507459,
@@ -30821,7 +30874,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3434",
+      "id": "re-in-3436",
       "name": "Indian Automobiles (Spares)",
       "lat": 28.6719417,
       "lng": 77.4313467,
@@ -30833,7 +30886,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3435",
+      "id": "re-in-3437",
       "name": "Shri Sai Chandra Automobiles (Sales)",
       "lat": 25.57792111,
       "lng": 83.55709111,
@@ -30845,7 +30898,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3436",
+      "id": "re-in-3438",
       "name": "Sri Sai Chandra Automobiles (Sales)",
       "lat": 25.629301611,
       "lng": 83.7185536,
@@ -30857,7 +30910,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3437",
+      "id": "re-in-3439",
       "name": "Sri Sai Chandra Automobiles (Sales)",
       "lat": 25.547480111,
       "lng": 83.224886911,
@@ -30869,7 +30922,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3438",
+      "id": "re-in-3440",
       "name": "Sri Sai Chandra Automobiles (Sales)",
       "lat": 25.433904,
       "lng": 83.671383,
@@ -30881,7 +30934,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3439",
+      "id": "re-in-3441",
       "name": "Sri Sai Chandra Automobiles (Sales)",
       "lat": 25.77779,
       "lng": 83.668458,
@@ -30893,7 +30946,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3445",
+      "id": "re-in-3447",
       "name": "Manglam Royal (Sales)",
       "lat": 27.56562111,
       "lng": 78.05271111,
@@ -30905,7 +30958,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3446",
+      "id": "re-in-3448",
       "name": "Style N Passion (Sales)",
       "lat": 27.16419111,
       "lng": 81.95356111,
@@ -30917,7 +30970,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3447",
+      "id": "re-in-3449",
       "name": "Pawpl Ventures Ltd (Sales)",
       "lat": 27.1320227,
       "lng": 81.9255427,
@@ -30929,7 +30982,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3448",
+      "id": "re-in-3450",
       "name": "Pawpl Ventures Pvt Ltd (Sales)",
       "lat": 27.1306345,
       "lng": 81.6969033,
@@ -30941,7 +30994,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3450",
+      "id": "re-in-3452",
       "name": "Pawpl Ventures Ltd (Service)",
       "lat": 27.131849,
       "lng": 81.951874,
@@ -30953,7 +31006,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3452",
+      "id": "re-in-3454",
       "name": "Royal Enfield Showroom - Shiv Motors (Sales)",
       "lat": 26.72063111,
       "lng": 83.38968111,
@@ -30965,7 +31018,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3453",
+      "id": "re-in-3455",
       "name": "Mak Bikes Llp (Sales)",
       "lat": 26.80506111,
       "lng": 83.39319111,
@@ -30977,7 +31030,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3454",
+      "id": "re-in-3456",
       "name": "M Wheels (Sales)",
       "lat": 26.739042111,
       "lng": 83.424935111,
@@ -30989,7 +31042,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3455",
+      "id": "re-in-3457",
       "name": "Royal Enfield Showroom - Shiv Motors (Sales)",
       "lat": 26.297532611,
       "lng": 83.501446511,
@@ -31001,7 +31054,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3456",
+      "id": "re-in-3458",
       "name": "M Wheels (Sales)",
       "lat": 26.368694411,
       "lng": 83.354641111,
@@ -31013,7 +31066,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3457",
+      "id": "re-in-3459",
       "name": "M Wheels (Sales)",
       "lat": 26.929555611,
       "lng": 83.295807611,
@@ -31025,7 +31078,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3458",
+      "id": "re-in-3460",
       "name": "M Wheels (Sales)",
       "lat": 26.64938,
       "lng": 83.57003,
@@ -31033,10 +31086,11 @@
       "address": "731ka, Tappa Kavtali, Deoria Road, Dumari Khurd, Chauri Chaura, Gorakhpur, Uttar Pradesh - 273201",
       "city": "Gorakhpur",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3466",
+      "id": "re-in-3468",
       "name": "Shree Ji Automobiles (Sales)",
       "lat": 28.45081111,
       "lng": 77.53162111,
@@ -31048,7 +31102,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3468",
+      "id": "re-in-3470",
       "name": "Santosh Motorcycles Llp (Sales)",
       "lat": 28.572315111,
       "lng": 77.792854,
@@ -31060,7 +31114,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3470",
+      "id": "re-in-3472",
       "name": "Vindhya Auto Sales (Sales)",
       "lat": 25.200888911,
       "lng": 83.021363211,
@@ -31072,7 +31126,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3471",
+      "id": "re-in-3473",
       "name": "Anmol Automobiles (Sales)",
       "lat": 28.72664111,
       "lng": 77.75494111,
@@ -31084,7 +31138,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3472",
+      "id": "re-in-3474",
       "name": "Anmol Automobiles (Sales)",
       "lat": 28.7903621,
       "lng": 78.0776123,
@@ -31096,7 +31150,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3473",
+      "id": "re-in-3475",
       "name": "Anmol Automobiles (Service)",
       "lat": 28.3416477,
       "lng": 78.2620913,
@@ -31108,7 +31162,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3474",
+      "id": "re-in-3476",
       "name": "Anmol Automobiles (Service)",
       "lat": 28.735516,
       "lng": 77.766571,
@@ -31120,7 +31174,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3475",
+      "id": "re-in-3477",
       "name": "Raj Royals (Sales)",
       "lat": 27.389078111,
       "lng": 80.133666111,
@@ -31132,7 +31186,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3476",
+      "id": "re-in-3478",
       "name": "Raj Royals (Sales)",
       "lat": 27.059549911,
       "lng": 80.514349411,
@@ -31144,7 +31198,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3479",
+      "id": "re-in-3481",
       "name": "Manglam Royal (Sales)",
       "lat": 27.444782511,
       "lng": 78.039196511,
@@ -31156,7 +31210,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3480",
+      "id": "re-in-3482",
       "name": "Manglam Royal (Sales)",
       "lat": 27.694708,
       "lng": 78.369439,
@@ -31168,7 +31222,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3481",
+      "id": "re-in-3483",
       "name": "Manglam Royal (Sales)",
       "lat": 27.690194411,
       "lng": 78.074335411,
@@ -31180,7 +31234,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3486",
+      "id": "re-in-3488",
       "name": "Sun Automobile (Sales)",
       "lat": 26.50832178,
       "lng": 81.52462873,
@@ -31192,7 +31246,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3488",
+      "id": "re-in-3490",
       "name": "Shree Narayan Auto (Sales)",
       "lat": 25.741916027733414,
       "lng": 82.67645449321942,
@@ -31204,7 +31258,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3489",
+      "id": "re-in-3491",
       "name": "Aditya Motors (Sales)",
       "lat": 25.75038111,
       "lng": 82.70086,
@@ -31216,7 +31270,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3490",
+      "id": "re-in-3492",
       "name": "Aditya Motors (Sales)",
       "lat": 25.590694411,
       "lng": 82.599418811,
@@ -31228,7 +31282,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3491",
+      "id": "re-in-3493",
       "name": "Aditya Motors (Sales)",
       "lat": 25.688527811,
       "lng": 82.419418811,
@@ -31240,7 +31294,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3492",
+      "id": "re-in-3494",
       "name": "Shree Narayan Auto (Sales)",
       "lat": 26.06018,
       "lng": 82.67353,
@@ -31248,10 +31302,11 @@
       "address": "Plot No. 201,199, Bhadi Dehati Anguli, Sultanpur Road, Shahganj, Jaunpur, Uttar Pradesh - 223101",
       "city": "Jaunpur",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3494",
+      "id": "re-in-3496",
       "name": "Aditya Motors (Service)",
       "lat": 25.75926,
       "lng": 82.71022,
@@ -31262,7 +31317,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3498",
+      "id": "re-in-3500",
       "name": "Triveni Enterprises (Sales)",
       "lat": 25.4553261,
       "lng": 78.5375604,
@@ -31274,7 +31329,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3499",
+      "id": "re-in-3501",
       "name": "Kanal Automobiles Pvt Ltd (Sales)",
       "lat": 25.44874,
       "lng": 78.56851,
@@ -31286,7 +31341,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3502",
+      "id": "re-in-3504",
       "name": "Miglani Automobiles (Sales)",
       "lat": 29.055912111,
       "lng": 78.622649999,
@@ -31298,7 +31353,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3504",
+      "id": "re-in-3506",
       "name": "Aj Automobiles (Sales)",
       "lat": 29.393969,
       "lng": 77.2003041,
@@ -31310,7 +31365,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3506",
+      "id": "re-in-3508",
       "name": "Sampurna Automobiles (Sales)",
       "lat": 27.0291111,
       "lng": 79.91622111,
@@ -31322,7 +31377,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3507",
+      "id": "re-in-3509",
       "name": "Sampuranta Automobiles (Sales)",
       "lat": 27.140477111,
       "lng": 79.505224299,
@@ -31334,7 +31389,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3509",
+      "id": "re-in-3511",
       "name": "Sareen Motors (Sales)",
       "lat": 26.489054111,
       "lng": 80.326787111,
@@ -31346,7 +31401,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3510",
+      "id": "re-in-3512",
       "name": "Sareen Motors (Sales)",
       "lat": 26.47273111,
       "lng": 80.329449999,
@@ -31358,7 +31413,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3511",
+      "id": "re-in-3513",
       "name": "Pratap Auto Wheels (Sales)",
       "lat": 26.4216515,
       "lng": 80.3740242,
@@ -31370,7 +31425,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3512",
+      "id": "re-in-3514",
       "name": "Cawnpore Wheels (Sales)",
       "lat": 26.4315082,
       "lng": 80.3093904,
@@ -31382,7 +31437,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3516",
+      "id": "re-in-3518",
       "name": "Cawnpore Wheels (Service)",
       "lat": 26.4421171,
       "lng": 80.3091883,
@@ -31393,7 +31448,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3517",
+      "id": "re-in-3519",
       "name": "Beekay Parts Bazaar Private Ltd (Spares)",
       "lat": 26.52609444,
       "lng": 80.22925029,
@@ -31405,7 +31460,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3518",
+      "id": "re-in-3520",
       "name": "Kamla Motors (Sales)",
       "lat": 26.232222211,
       "lng": 79.845752111,
@@ -31417,7 +31472,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3521",
+      "id": "re-in-3523",
       "name": "Speed Rover (Sales)",
       "lat": 26.511419161,
       "lng": 80.24606676,
@@ -31429,7 +31484,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3522",
+      "id": "re-in-3524",
       "name": "Speed Rover (Service)",
       "lat": 26.517269081,
       "lng": 80.242400811,
@@ -31441,7 +31496,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3523",
+      "id": "re-in-3525",
       "name": "Shri Ram Motor Works (Sales)",
       "lat": 25.2157626,
       "lng": 80.9212185,
@@ -31453,7 +31508,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3525",
+      "id": "re-in-3527",
       "name": "Rr Riders (Sales)",
       "lat": 27.825659311,
       "lng": 78.665086811,
@@ -31465,7 +31520,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3526",
+      "id": "re-in-3528",
       "name": "Rr Riders (Sales)",
       "lat": 27.728138911,
       "lng": 78.9396688,
@@ -31477,7 +31532,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3529",
+      "id": "re-in-3531",
       "name": "Arya Motors Pvt Ltd (Sales)",
       "lat": 25.520729348,
       "lng": 81.379699338,
@@ -31489,7 +31544,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3530",
+      "id": "re-in-3532",
       "name": "Arya Motors (Sales)",
       "lat": 25.658310611,
       "lng": 81.322077811,
@@ -31501,7 +31556,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3531",
+      "id": "re-in-3533",
       "name": "Arya Motors (Sales)",
       "lat": 25.372888911,
       "lng": 81.5065021,
@@ -31513,7 +31568,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3535",
+      "id": "re-in-3537",
       "name": "Hora Motors Private Limited (Sales)",
       "lat": 26.78225,
       "lng": 83.05678,
@@ -31525,7 +31580,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3536",
+      "id": "re-in-3538",
       "name": "Hora Motors Private Limited (Service)",
       "lat": 26.7672,
       "lng": 83.08306,
@@ -31536,7 +31591,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3537",
+      "id": "re-in-3539",
       "name": "Dc Automobiles (Sales)",
       "lat": 28.865711,
       "lng": 77.255084,
@@ -31548,7 +31603,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3538",
+      "id": "re-in-3540",
       "name": "Sd Enterprises (Sales)",
       "lat": 28.237918,
       "lng": 77.8639743,
@@ -31560,7 +31615,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3539",
+      "id": "re-in-3541",
       "name": "Sd Enterprises (Service)",
       "lat": 28.2238716,
       "lng": 77.8711383,
@@ -31572,7 +31627,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3540",
+      "id": "re-in-3542",
       "name": "Manish Automotive (Sales)",
       "lat": 26.737324111,
       "lng": 83.719031111,
@@ -31584,7 +31639,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3542",
+      "id": "re-in-3544",
       "name": "Manish Automotive (Sales)",
       "lat": 26.92636629,
       "lng": 83.7342367,
@@ -31596,7 +31651,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3543",
+      "id": "re-in-3545",
       "name": "Manish Automotive (Sales)",
       "lat": 26.738707961,
       "lng": 83.929680561,
@@ -31608,7 +31663,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3545",
+      "id": "re-in-3547",
       "name": "Cantech Automobiles (Service)",
       "lat": 26.883076611,
       "lng": 83.971399511,
@@ -31620,7 +31675,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3547",
+      "id": "re-in-3549",
       "name": "Shree Vinayak Motors (Sales)",
       "lat": 27.93978111,
       "lng": 80.78708111,
@@ -31632,7 +31687,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3548",
+      "id": "re-in-3550",
       "name": "Shree Vinayak Motors (Sales)",
       "lat": 28.237944411,
       "lng": 80.854113211,
@@ -31644,7 +31699,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3551",
+      "id": "re-in-3553",
       "name": "Chandel Motors (Sales)",
       "lat": 24.675103111,
       "lng": 78.437638,
@@ -31656,7 +31711,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3552",
+      "id": "re-in-3554",
       "name": "Chandel Motors (Sales)",
       "lat": 25.0443111,
       "lng": 78.430963199,
@@ -31668,7 +31723,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3555",
+      "id": "re-in-3557",
       "name": "Shreya Auto World Pvt Ltd (Sales)",
       "lat": 26.82069111,
       "lng": 80.90969111,
@@ -31680,7 +31735,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3556",
+      "id": "re-in-3558",
       "name": "Royal Motor Works (Sales)",
       "lat": 26.9114111,
       "lng": 80.94588111,
@@ -31692,7 +31747,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3557",
+      "id": "re-in-3559",
       "name": "Lucknow Diesels And Electricals (Sales)",
       "lat": 26.8728248,
       "lng": 80.8890303,
@@ -31704,7 +31759,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3558",
+      "id": "re-in-3560",
       "name": "Shreya Auto World Pvt Ltd (Sales)",
       "lat": 26.76101111,
       "lng": 80.94758111,
@@ -31716,7 +31771,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3559",
+      "id": "re-in-3561",
       "name": "Mgs Sales Private Limited (Sales)",
       "lat": 26.76871909,
       "lng": 80.87662601,
@@ -31728,7 +31783,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3560",
+      "id": "re-in-3562",
       "name": "Pr Riders Private Limited (Sales)",
       "lat": 26.853333311,
       "lng": 80.947641111,
@@ -31740,7 +31795,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3561",
+      "id": "re-in-3563",
       "name": "Pr Motocorp (Sales)",
       "lat": 26.878933,
       "lng": 81.034865,
@@ -31752,7 +31807,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3562",
+      "id": "re-in-3564",
       "name": "Company Store Lucknow (Sales)",
       "lat": 26.87105111,
       "lng": 80.961659999,
@@ -31764,7 +31819,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3563",
+      "id": "re-in-3565",
       "name": "Chawla Riders Pvt Ltd Unit2 (Sales)",
       "lat": 26.560527811,
       "lng": 82.385529899,
@@ -31776,7 +31831,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3564",
+      "id": "re-in-3566",
       "name": "Mgs Sales Pvt Ltd (Sales)",
       "lat": 26.696919,
       "lng": 80.831044,
@@ -31788,7 +31843,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3565",
+      "id": "re-in-3567",
       "name": "Royal Motor Works (Sales)",
       "lat": 26.97737,
       "lng": 80.92346,
@@ -31800,7 +31855,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3566",
+      "id": "re-in-3568",
       "name": "Amafh Bullet Center (Service)",
       "lat": 26.87024111,
       "lng": 80.97071111,
@@ -31812,7 +31867,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3572",
+      "id": "re-in-3574",
       "name": "Pr Riders Pvt Ltd (Service)",
       "lat": 26.8523111,
       "lng": 80.955463211,
@@ -31824,7 +31879,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3577",
+      "id": "re-in-3579",
       "name": "Moped House Pvt Ltd (Spares)",
       "lat": 26.7907701,
       "lng": 80.9062685,
@@ -31836,7 +31891,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3578",
+      "id": "re-in-3580",
       "name": "R K Motors (Sales)",
       "lat": 27.14199111,
       "lng": 83.53285111,
@@ -31848,7 +31903,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3579",
+      "id": "re-in-3581",
       "name": "R K Motors (Sales)",
       "lat": 27.11833,
       "lng": 83.59296,
@@ -31856,10 +31911,11 @@
       "address": "Plot No. 60, Gorakhpur Road, Gaunariya Babu, Maharajganj, Maharajganj, Uttar Pradesh - 273303",
       "city": "Maharajganj",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3583",
+      "id": "re-in-3585",
       "name": "Deeshan Automobiles (Sales)",
       "lat": 25.296074111,
       "lng": 79.8819111,
@@ -31871,7 +31927,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3585",
+      "id": "re-in-3587",
       "name": "Ganesh Motors (Sales)",
       "lat": 27.218837711,
       "lng": 79.034668911,
@@ -31883,7 +31939,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3586",
+      "id": "re-in-3588",
       "name": "Ganesh Motors (Sales)",
       "lat": 27.375833311,
       "lng": 78.991474299,
@@ -31895,7 +31951,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3590",
+      "id": "re-in-3592",
       "name": "Aryaman Enterprises (Sales)",
       "lat": 27.47265111,
       "lng": 77.6589111,
@@ -31907,7 +31963,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3591",
+      "id": "re-in-3593",
       "name": "Aryaman Enterprises (Sales)",
       "lat": 27.797899911,
       "lng": 77.429351411,
@@ -31919,7 +31975,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3592",
+      "id": "re-in-3594",
       "name": "Aryaman Enterprises (Sales)",
       "lat": 27.318047911,
       "lng": 77.765294111,
@@ -31931,7 +31987,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3593",
+      "id": "re-in-3595",
       "name": "Aryaman Enterprises (Sales)",
       "lat": 27.548510911,
       "lng": 77.782128211,
@@ -31943,7 +31999,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3594",
+      "id": "re-in-3596",
       "name": "Aryaman Enterprises Mathura (Sales)",
       "lat": 27.414597111,
       "lng": 77.828743111,
@@ -31955,7 +32011,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3595",
+      "id": "re-in-3597",
       "name": "Aryaman Enterprises (Sales)",
       "lat": 27.56052,
       "lng": 77.68181,
@@ -31967,7 +32023,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3596",
+      "id": "re-in-3598",
       "name": "M/s Aryaman Enterprises (Service)",
       "lat": 27.45767,
       "lng": 77.62209,
@@ -31979,7 +32035,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3599",
+      "id": "re-in-3601",
       "name": "Aryaman Enterprises (Service)",
       "lat": 27.564333311,
       "lng": 77.660252099,
@@ -31991,7 +32047,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3600",
+      "id": "re-in-3602",
       "name": "Chandra Motors (Sales)",
       "lat": 25.90556111,
       "lng": 83.56269111,
@@ -32003,7 +32059,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3601",
+      "id": "re-in-3603",
       "name": "Chandra Motors (Sales)",
       "lat": 25.879416711,
       "lng": 83.336279899,
@@ -32015,7 +32071,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3602",
+      "id": "re-in-3604",
       "name": "Chandra Motors (Sales)",
       "lat": 26.167722211,
       "lng": 83.683863211,
@@ -32027,7 +32083,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3606",
+      "id": "re-in-3608",
       "name": "Triveni Enterprises (Sales)",
       "lat": 25.1927259,
       "lng": 79.2570546,
@@ -32038,7 +32094,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3608",
+      "id": "re-in-3610",
       "name": "Moto Riders (Sales)",
       "lat": 28.9600086,
       "lng": 77.7457437,
@@ -32050,7 +32106,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3609",
+      "id": "re-in-3611",
       "name": "Nutech Motors Llp (Sales)",
       "lat": 28.93714111,
       "lng": 77.66504111,
@@ -32062,7 +32118,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3610",
+      "id": "re-in-3612",
       "name": "Augharnath Motors Llp (Sales)",
       "lat": 29.060166911,
       "lng": 77.7065785,
@@ -32074,7 +32130,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3611",
+      "id": "re-in-3613",
       "name": "Shaifali Motor (Sales)",
       "lat": 28.861475111,
       "lng": 77.93394,
@@ -32086,7 +32142,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3612",
+      "id": "re-in-3614",
       "name": "Moto Riders (Sales)",
       "lat": 29.099741731,
       "lng": 77.908749371,
@@ -32098,7 +32154,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3613",
+      "id": "re-in-3615",
       "name": "Shiafali Motor (Sales)",
       "lat": 28.97819111,
       "lng": 77.923149111,
@@ -32110,7 +32166,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3614",
+      "id": "re-in-3616",
       "name": "Shiafali Motor (Sales)",
       "lat": 28.840828111,
       "lng": 77.742874111,
@@ -32122,7 +32178,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3618",
+      "id": "re-in-3620",
       "name": "Shaifali Motor (Service)",
       "lat": 28.861475111,
       "lng": 77.939941111,
@@ -32134,7 +32190,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3622",
+      "id": "re-in-3624",
       "name": "Vindhya Auto Sales (Sales)",
       "lat": 25.13383111,
       "lng": 82.58884111,
@@ -32146,7 +32202,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3626",
+      "id": "re-in-3628",
       "name": "Akanksha Autozone Pvt Ltd (Sales)",
       "lat": 28.82405111,
       "lng": 78.70466111,
@@ -32158,7 +32214,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3627",
+      "id": "re-in-3629",
       "name": "Miglani Automobiles (Sales)",
       "lat": 28.846505111,
       "lng": 78.763628611,
@@ -32170,7 +32226,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3628",
+      "id": "re-in-3630",
       "name": "Shivani Enterprises (Sales)",
       "lat": 28.5971662,
       "lng": 78.5910439,
@@ -32182,7 +32238,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3629",
+      "id": "re-in-3631",
       "name": "Shivani Enterprises. (Sales)",
       "lat": 28.466161311,
       "lng": 78.774446299,
@@ -32194,7 +32250,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3630",
+      "id": "re-in-3632",
       "name": "Akanksha Autozone Pvt Ltd (Sales)",
       "lat": 29.16924111,
       "lng": 78.87092111,
@@ -32206,7 +32262,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3631",
+      "id": "re-in-3633",
       "name": "Akanksha Autozone Pvt Ltd (Sales)",
       "lat": 28.822475111,
       "lng": 78.875595111,
@@ -32218,7 +32274,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3634",
+      "id": "re-in-3636",
       "name": "Shivani Enterprises (Service)",
       "lat": 28.660077811,
       "lng": 78.6586333,
@@ -32230,7 +32286,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3638",
+      "id": "re-in-3640",
       "name": "S.b.s. Automobiles (Sales)",
       "lat": 26.06509,
       "lng": 83.286619,
@@ -32242,7 +32298,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3640",
+      "id": "re-in-3642",
       "name": "Sri Sai Automobiles (Sales)",
       "lat": 25.27686111,
       "lng": 83.13296111,
@@ -32254,7 +32310,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3643",
+      "id": "re-in-3645",
       "name": "Shiva Riders (Service)",
       "lat": 28.7660641,
       "lng": 77.5073263,
@@ -32265,7 +32321,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3644",
+      "id": "re-in-3646",
       "name": "Harivansh Auto Agency (Sales)",
       "lat": 29.50489,
       "lng": 77.6998,
@@ -32277,7 +32333,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3645",
+      "id": "re-in-3647",
       "name": "Friendz Autotech Pvt Ltd (Sales)",
       "lat": 29.450037111,
       "lng": 77.727211511,
@@ -32289,7 +32345,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3646",
+      "id": "re-in-3648",
       "name": "Rd Riders (Sales)",
       "lat": 29.286194511,
       "lng": 77.7311834,
@@ -32301,7 +32357,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3647",
+      "id": "re-in-3649",
       "name": "Aj Automobiles (Sales)",
       "lat": 29.598819111,
       "lng": 77.4240438,
@@ -32313,7 +32369,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3648",
+      "id": "re-in-3650",
       "name": "Harivansh Auto Agency (Sales)",
       "lat": 29.547539111,
       "lng": 77.598068111,
@@ -32325,7 +32381,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3655",
+      "id": "re-in-3657",
       "name": "Shiva Motors (Sales)",
       "lat": 27.2862111,
       "lng": 83.0835111,
@@ -32337,7 +32393,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3657",
+      "id": "re-in-3659",
       "name": "Shree Mahadev Agency (Sales)",
       "lat": 28.59234111,
       "lng": 77.33047,
@@ -32349,10 +32405,10 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3658",
+      "id": "re-in-3660",
       "name": "Uma Riders Pvt Ltd (Sales)",
-      "lat": 28.629166795624236,
-      "lng": 77.37591152917062,
+      "lat": 28.628996338963166,
+      "lng": 77.37567076730099,
       "phone": "8291201496",
       "address": "H 1a, Plot No-9, Sector 63 Noida",
       "city": "Noida",
@@ -32361,7 +32417,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3659",
+      "id": "re-in-3661",
       "name": "Shreeji Automobiles (Sales)",
       "lat": 28.124937211,
       "lng": 77.568659211,
@@ -32373,7 +32429,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3660",
+      "id": "re-in-3662",
       "name": "Uma Riders Private Limited (Sales)",
       "lat": 28.552618,
       "lng": 77.376319,
@@ -32381,10 +32437,11 @@
       "address": "Khasra No.587, Sector- 101,Hanuman Mandir Road, Village Salarpur Khadar,Noida , Uttar Pradesh - 201301, Near Nexis Hospital",
       "city": "Noida",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:30-20:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3661",
+      "id": "re-in-3663",
       "name": "Wonder Automobiles (Sales)",
       "lat": 28.512565,
       "lng": 77.471106,
@@ -32396,7 +32453,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3665",
+      "id": "re-in-3667",
       "name": "Uma Riders Private Limited (Service)",
       "lat": 28.556804,
       "lng": 77.380781,
@@ -32407,7 +32464,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3667",
+      "id": "re-in-3669",
       "name": "Ess Aay Automotive (Spares)",
       "lat": 28.537388,
       "lng": 77.4014911,
@@ -32419,7 +32476,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3668",
+      "id": "re-in-3670",
       "name": "Ram Auto Sales (Sales)",
       "lat": 29.140583,
       "lng": 78.399155,
@@ -32430,7 +32487,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3670",
+      "id": "re-in-3672",
       "name": "Dhruv Tara Automovers Pvt. Ltd (Sales)",
       "lat": 25.9739,
       "lng": 79.45206,
@@ -32442,7 +32499,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3672",
+      "id": "re-in-3674",
       "name": "Cantech Automobile (Sales)",
       "lat": 26.898,
       "lng": 83.976799,
@@ -32454,7 +32511,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3675",
+      "id": "re-in-3677",
       "name": "Rk Motors (Sales)",
       "lat": 27.111729111,
       "lng": 83.281553111,
@@ -32466,7 +32523,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3677",
+      "id": "re-in-3679",
       "name": "Shankhdhar Automobiles (Sales)",
       "lat": 28.60445111,
       "lng": 79.80382111,
@@ -32478,7 +32535,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3678",
+      "id": "re-in-3680",
       "name": "Shankhdhar Automobiles (Sales)",
       "lat": 28.507206211,
       "lng": 80.145286411,
@@ -32490,7 +32547,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3679",
+      "id": "re-in-3681",
       "name": "Shankhdhar Automobiles (Sales)",
       "lat": 28.302376111,
       "lng": 79.798198111,
@@ -32502,7 +32559,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3683",
+      "id": "re-in-3685",
       "name": "One Place Automobiles Pvt. Ltd (Sales)",
       "lat": 25.4921065,
       "lng": 82.8258536,
@@ -32514,7 +32571,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3684",
+      "id": "re-in-3686",
       "name": "Shaurya Enterprises (Sales)",
       "lat": 25.896638,
       "lng": 81.963792,
@@ -32526,7 +32583,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3685",
+      "id": "re-in-3687",
       "name": "Arun Motors (Sales)",
       "lat": 25.9377888,
       "lng": 82.004394,
@@ -32538,7 +32595,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3686",
+      "id": "re-in-3688",
       "name": "Shaurya Enterprises (Sales)",
       "lat": 25.726785611,
       "lng": 81.494176999,
@@ -32550,7 +32607,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3687",
+      "id": "re-in-3689",
       "name": "Shaurya Enterprises (Sales)",
       "lat": 25.931272211,
       "lng": 81.712016811,
@@ -32562,7 +32619,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3692",
+      "id": "re-in-3694",
       "name": "Jaypee Motors (Sales)",
       "lat": 25.4594841,
       "lng": 81.864094,
@@ -32574,7 +32631,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3693",
+      "id": "re-in-3695",
       "name": "Vrindavan Automotive (Sales)",
       "lat": 25.43731111,
       "lng": 81.85131111,
@@ -32586,7 +32643,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3694",
+      "id": "re-in-3696",
       "name": "The Hind Riders (Sales)",
       "lat": 25.461111,
       "lng": 81.828999999,
@@ -32598,7 +32655,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3695",
+      "id": "re-in-3697",
       "name": "Jaypee Motors (Sales)",
       "lat": 25.3941669,
       "lng": 81.8611156,
@@ -32610,7 +32667,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3696",
+      "id": "re-in-3698",
       "name": "Akshara Autotech Llp (Sales)",
       "lat": 25.4351686,
       "lng": 81.9421016,
@@ -32622,7 +32679,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3697",
+      "id": "re-in-3699",
       "name": "Jaypee Motors Unit Ii (Sales)",
       "lat": 25.142611111,
       "lng": 81.983335411,
@@ -32634,7 +32691,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3698",
+      "id": "re-in-3700",
       "name": "The Hind Riders (Sales)",
       "lat": 25.66612111,
       "lng": 81.887247111,
@@ -32646,7 +32703,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3699",
+      "id": "re-in-3701",
       "name": "Vrindavan Automotive (Sales)",
       "lat": 25.3638469,
       "lng": 82.1794718,
@@ -32658,7 +32715,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3700",
+      "id": "re-in-3702",
       "name": "Jaypee Motors (Sales)",
       "lat": 25.309504811,
       "lng": 81.816946511,
@@ -32670,7 +32727,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3702",
+      "id": "re-in-3704",
       "name": "Vrindavan Automotive (Service)",
       "lat": 25.431384,
       "lng": 81.850746,
@@ -32682,7 +32739,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3703",
+      "id": "re-in-3705",
       "name": "The Hind Riders (Service)",
       "lat": 25.46268501,
       "lng": 81.8379206,
@@ -32694,7 +32751,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3704",
+      "id": "re-in-3706",
       "name": "Jaypee Motors Unit Ii (Service)",
       "lat": 25.40683,
       "lng": 81.86759,
@@ -32706,7 +32763,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3708",
+      "id": "re-in-3710",
       "name": "Vrindavan Automotive (Service)",
       "lat": 28.9774111,
       "lng": 77.69991111,
@@ -32718,7 +32775,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3710",
+      "id": "re-in-3712",
       "name": "Sushma Motors (Sales)",
       "lat": 26.21147111,
       "lng": 81.25118,
@@ -32730,7 +32787,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3711",
+      "id": "re-in-3713",
       "name": "Sushma Motors (Sales)",
       "lat": 26.165782611,
       "lng": 80.964113211,
@@ -32742,7 +32799,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3712",
+      "id": "re-in-3714",
       "name": "Sushma Motors (Sales)",
       "lat": 26.03209,
       "lng": 81.4436516,
@@ -32750,10 +32807,11 @@
       "address": "Royal Enfield Showroom, Kachhi Masjid, Near Nehal Hospital,Salon, Dist: Raebareli, Uttar Pradesh -229127",
       "city": "Raebareli",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3716",
+      "id": "re-in-3718",
       "name": "Prisha Autoworld Private Limited (Sales)",
       "lat": 28.792167,
       "lng": 79.034556,
@@ -32765,7 +32823,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3718",
+      "id": "re-in-3720",
       "name": "Vishwanath Enterprises (Sales)",
       "lat": 24.228130411,
       "lng": 83.045332511,
@@ -32777,7 +32835,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3720",
+      "id": "re-in-3722",
       "name": "Vishwanath Enterprises (Sales)",
       "lat": 24.65841111,
       "lng": 83.05964111,
@@ -32789,7 +32847,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3722",
+      "id": "re-in-3724",
       "name": "Rk Autozone (Sales)",
       "lat": 27.713895,
       "lng": 79.651983,
@@ -32801,7 +32859,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3724",
+      "id": "re-in-3726",
       "name": "Sachdeva Enterprises (Sales)",
       "lat": 27.99219111,
       "lng": 77.56356111,
@@ -32813,7 +32871,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3725",
+      "id": "re-in-3727",
       "name": "Rn Riders (Sales)",
       "lat": 29.9258607,
       "lng": 77.5270059,
@@ -32825,7 +32883,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3726",
+      "id": "re-in-3728",
       "name": "Sachdeva Automobile (Sales)",
       "lat": 29.962098911,
       "lng": 77.556752111,
@@ -32837,7 +32895,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3727",
+      "id": "re-in-3729",
       "name": "Sachdeva Enterprises (Sales)",
       "lat": 29.697368111,
       "lng": 77.684487311,
@@ -32849,7 +32907,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3729",
+      "id": "re-in-3731",
       "name": "Rn Riders (Service)",
       "lat": 29.9672386,
       "lng": 77.5510314,
@@ -32861,7 +32919,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3732",
+      "id": "re-in-3734",
       "name": "Bhadohi Wheels (Sales)",
       "lat": 25.281782611,
       "lng": 82.4453076,
@@ -32873,7 +32931,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3734",
+      "id": "re-in-3736",
       "name": "Bhrigu Auto (Sales)",
       "lat": 26.019096,
       "lng": 82.932329,
@@ -32885,7 +32943,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3736",
+      "id": "re-in-3738",
       "name": "Rk Autozone (Sales)",
       "lat": 27.857700811,
       "lng": 79.877705811,
@@ -32897,7 +32955,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3737",
+      "id": "re-in-3739",
       "name": "Rk Autozone (Sales)",
       "lat": 28.070246111,
       "lng": 80.096603111,
@@ -32909,7 +32967,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3738",
+      "id": "re-in-3740",
       "name": "Rk Autozone (Sales)",
       "lat": 27.874518,
       "lng": 79.91075,
@@ -32921,7 +32979,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3743",
+      "id": "re-in-3745",
       "name": "Aj Automobiles (Sales)",
       "lat": 29.43563111,
       "lng": 77.28676111,
@@ -32933,7 +32991,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3745",
+      "id": "re-in-3747",
       "name": "Shiva Motors (Sales)",
       "lat": 27.224088111,
       "lng": 82.651918811,
@@ -32945,7 +33003,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3747",
+      "id": "re-in-3749",
       "name": "Santosh Motorcycles Llp (Sales)",
       "lat": 28.447409,
       "lng": 77.7004676,
@@ -32957,7 +33015,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3749",
+      "id": "re-in-3751",
       "name": "Raj Automobile (Sales)",
       "lat": 27.53814111,
       "lng": 80.72544,
@@ -32969,7 +33027,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3750",
+      "id": "re-in-3752",
       "name": "Raj Automobile (Sales)",
       "lat": 27.298124111,
       "lng": 81.112629799,
@@ -32981,7 +33039,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3751",
+      "id": "re-in-3753",
       "name": "Raj Automobile Laharpur (Sales)",
       "lat": 27.724588111,
       "lng": 80.888307611,
@@ -32993,7 +33051,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3752",
+      "id": "re-in-3754",
       "name": "Raj Automobile (Sales)",
       "lat": 27.273833311,
       "lng": 80.838974311,
@@ -33005,7 +33063,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3757",
+      "id": "re-in-3759",
       "name": "Vishwanath Enterprises (Sales)",
       "lat": 24.2068804001,
       "lng": 82.7675574155,
@@ -33017,7 +33075,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3759",
+      "id": "re-in-3761",
       "name": "Asia Royals Motors (Sales)",
       "lat": 26.28143111,
       "lng": 82.07747,
@@ -33029,7 +33087,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3760",
+      "id": "re-in-3762",
       "name": "Vk Motor Works Pvt Ltd (Sales)",
       "lat": 26.257185,
       "lng": 82.032961,
@@ -33041,7 +33099,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3761",
+      "id": "re-in-3763",
       "name": "Vk Motor Works Pvt. Ltd. (Sales)",
       "lat": 26.284871111,
       "lng": 82.243511111,
@@ -33053,7 +33111,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3762",
+      "id": "re-in-3764",
       "name": "Vk Motor Works Pvt. Ltd. (Sales)",
       "lat": 26.502511111,
       "lng": 81.873391111,
@@ -33065,7 +33123,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3767",
+      "id": "re-in-3769",
       "name": "Shree Asa Motors (Sales)",
       "lat": 26.52995526,
       "lng": 80.45911097,
@@ -33077,7 +33135,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3769",
+      "id": "re-in-3771",
       "name": "Khurana Automobiles (Sales)",
       "lat": 25.325509711,
       "lng": 82.994877211,
@@ -33089,7 +33147,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3770",
+      "id": "re-in-3772",
       "name": "One Place Automobiles Pltd (Sales)",
       "lat": 25.34487111,
       "lng": 82.98609111,
@@ -33101,7 +33159,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3771",
+      "id": "re-in-3773",
       "name": "Varushka Automobiles (Sales)",
       "lat": 25.30667111,
       "lng": 82.96782111,
@@ -33113,7 +33171,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3772",
+      "id": "re-in-3774",
       "name": "Avantika Automotors Llp (Sales)",
       "lat": 25.3734469,
       "lng": 82.9193106,
@@ -33125,7 +33183,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3773",
+      "id": "re-in-3775",
       "name": "Varushka Automobiles (Sales)",
       "lat": 25.309717,
       "lng": 82.988439,
@@ -33137,7 +33195,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3774",
+      "id": "re-in-3776",
       "name": "Varuksha Automobiles (Sales)",
       "lat": 25.272602711,
       "lng": 82.861203611,
@@ -33149,7 +33207,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3775",
+      "id": "re-in-3777",
       "name": "One Place Automobiles Pvt.ltd (Sales)",
       "lat": 25.152978041,
       "lng": 83.121535641,
@@ -33161,7 +33219,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3776",
+      "id": "re-in-3778",
       "name": "Khuranaautomobiles (Sales)",
       "lat": 25.322194411,
       "lng": 82.840446511,
@@ -33173,7 +33231,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3777",
+      "id": "re-in-3779",
       "name": "Varushka Automobiles (Sales)",
       "lat": 25.253361111,
       "lng": 82.957724311,
@@ -33185,7 +33243,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3778",
+      "id": "re-in-3780",
       "name": "Avantika Automotors Llp (Sales)",
       "lat": 25.28181724,
       "lng": 83.03082101,
@@ -33197,7 +33255,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3779",
+      "id": "re-in-3781",
       "name": "One Place Automobiles Private Limited (Sales)",
       "lat": 25.36421735310033,
       "lng": 83.03464589,
@@ -33208,7 +33266,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3780",
+      "id": "re-in-3782",
       "name": "Khurana Automobiles (Service)",
       "lat": 25.30694111,
       "lng": 82.959059999,
@@ -33220,7 +33278,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3791",
+      "id": "re-in-3793",
       "name": "Beekay Parts Bazaar Private Ltd (Spares)",
       "lat": 25.26924,
       "lng": 82.84637,
@@ -33232,7 +33290,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3792",
+      "id": "re-in-3794",
       "name": "Kumaon Motors (Sales)",
       "lat": 29.60755111,
       "lng": 79.661869999,
@@ -33244,7 +33302,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3793",
+      "id": "re-in-3795",
       "name": "Kumaon Motors (Sales)",
       "lat": 29.6435915,
       "lng": 79.4327949,
@@ -33256,7 +33314,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3796",
+      "id": "re-in-3798",
       "name": "Kumaon Motors Bageshwar (Sales)",
       "lat": 29.835455911,
       "lng": 79.7823151,
@@ -33268,7 +33326,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3798",
+      "id": "re-in-3800",
       "name": "Brar Motors (Sales)",
       "lat": 29.170315911,
       "lng": 79.165634611,
@@ -33280,7 +33338,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3800",
+      "id": "re-in-3802",
       "name": "Chaudhary Automobiles (Sales)",
       "lat": 29.343286,
       "lng": 80.097113,
@@ -33292,7 +33350,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3801",
+      "id": "re-in-3803",
       "name": "Chaudhary Automobiles (Service)",
       "lat": 29.312316111,
       "lng": 80.074707111,
@@ -33304,7 +33362,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3802",
+      "id": "re-in-3804",
       "name": "Ahuja Enterprises (Sales)",
       "lat": 30.333834111,
       "lng": 78.013274499,
@@ -33316,7 +33374,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3803",
+      "id": "re-in-3805",
       "name": "Allied Auto Agencies (Sales)",
       "lat": 30.31215111,
       "lng": 78.0226111,
@@ -33328,7 +33386,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3804",
+      "id": "re-in-3806",
       "name": "Allied Auto Agencies (Sales)",
       "lat": 30.36455111,
       "lng": 78.08427111,
@@ -33340,7 +33398,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3805",
+      "id": "re-in-3807",
       "name": "Ranjeet Motor Cycle (Sales)",
       "lat": 30.17895111,
       "lng": 78.11784111,
@@ -33352,7 +33410,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3806",
+      "id": "re-in-3808",
       "name": "Ahuja Enterprises (Sales)",
       "lat": 30.325716111,
       "lng": 78.052956211,
@@ -33364,7 +33422,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3807",
+      "id": "re-in-3809",
       "name": "Ahuja Enterprises (Sales)",
       "lat": 30.464211111,
       "lng": 77.764198111,
@@ -33376,7 +33434,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3808",
+      "id": "re-in-3810",
       "name": "Ahuja Enterprises (Sales)",
       "lat": 30.11745111,
       "lng": 78.29801111,
@@ -33388,7 +33446,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3809",
+      "id": "re-in-3811",
       "name": "Allied Auto Agencies (Sales)",
       "lat": 30.077461111,
       "lng": 78.19503111,
@@ -33400,7 +33458,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3818",
+      "id": "re-in-3820",
       "name": "Anamika Enterprises (Spares)",
       "lat": 30.309975,
       "lng": 78.038031,
@@ -33412,7 +33470,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3819",
+      "id": "re-in-3821",
       "name": "Royal Enfield Showroom - Suri Sales Pvt Ltd (Sales)",
       "lat": 29.284392,
       "lng": 79.546652,
@@ -33424,7 +33482,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3820",
+      "id": "re-in-3822",
       "name": "Royal Enfield Showroom - Suri Sales Pvt Ltd (Sales)",
       "lat": 29.196111,
       "lng": 79.511111,
@@ -33436,7 +33494,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3821",
+      "id": "re-in-3823",
       "name": "Mr Auto Sales (Sales)",
       "lat": 29.102831111,
       "lng": 79.518317999,
@@ -33448,7 +33506,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3822",
+      "id": "re-in-3824",
       "name": "Royal Enfield Service Center - Suri Sales Pvt Ltd (Service)",
       "lat": 29.328692311,
       "lng": 79.4939501,
@@ -33460,7 +33518,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3825",
+      "id": "re-in-3827",
       "name": "Prem Auto Enterprises (Sales)",
       "lat": 29.9273521,
       "lng": 78.1176552,
@@ -33472,7 +33530,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3826",
+      "id": "re-in-3828",
       "name": "Goswami Automobiles (Sales)",
       "lat": 29.963087111,
       "lng": 77.789304111,
@@ -33484,7 +33542,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3827",
+      "id": "re-in-3829",
       "name": "Maa Gauri Enterprises (Sales)",
       "lat": 29.842194411,
       "lng": 78.112363211,
@@ -33496,7 +33554,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3828",
+      "id": "re-in-3830",
       "name": "Maa Gauri Enterprises (Sales)",
       "lat": 29.803464511,
       "lng": 77.935641899,
@@ -33508,7 +33566,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3829",
+      "id": "re-in-3831",
       "name": "Prem Auto Enterprises (Service)",
       "lat": 29.947735311,
       "lng": 78.156408211,
@@ -33520,7 +33578,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3833",
+      "id": "re-in-3835",
       "name": "Dilbag Auto Gallery (Sales)",
       "lat": 30.262596111,
       "lng": 79.218506111,
@@ -33532,7 +33590,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3835",
+      "id": "re-in-3837",
       "name": "Batra Enterprises (Sales)",
       "lat": 29.22472111,
       "lng": 78.96896111,
@@ -33544,7 +33602,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3837",
+      "id": "re-in-3839",
       "name": "Chaudhary Automobiles (Sales)",
       "lat": 28.92421111,
       "lng": 79.96008111,
@@ -33556,7 +33614,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3838",
+      "id": "re-in-3840",
       "name": "Chaudhary Automobiles (Service)",
       "lat": 28.92559111,
       "lng": 79.95274,
@@ -33568,7 +33626,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3839",
+      "id": "re-in-3841",
       "name": "Sidhbali Autozone (Sales)",
       "lat": 29.7483128018,
       "lng": 78.490163096,
@@ -33580,7 +33638,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3841",
+      "id": "re-in-3843",
       "name": "Maa Gauri Enterprises (Sales)",
       "lat": 29.745898111,
       "lng": 78.01648111,
@@ -33592,7 +33650,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3843",
+      "id": "re-in-3845",
       "name": "Mr Auto Sales (Sales)",
       "lat": 29.381799911,
       "lng": 79.11711861,
@@ -33604,7 +33662,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3844",
+      "id": "re-in-3846",
       "name": "Mr Auto Sales (Sales)",
       "lat": 29.287275111,
       "lng": 79.344978111,
@@ -33616,7 +33674,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3847",
+      "id": "re-in-3849",
       "name": "Sai Automobiles (Sales)",
       "lat": 29.58194111,
       "lng": 80.22749111,
@@ -33628,7 +33686,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3849",
+      "id": "re-in-3851",
       "name": "Ranjeet Motorcycles (Sales)",
       "lat": 30.090398111,
       "lng": 78.273013,
@@ -33640,7 +33698,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3851",
+      "id": "re-in-3853",
       "name": "Goswami Automobiles (Sales)",
       "lat": 29.87602111,
       "lng": 77.897319999,
@@ -33652,7 +33710,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3853",
+      "id": "re-in-3855",
       "name": "Brar Motors (Sales)",
       "lat": 28.96007111,
       "lng": 79.38656111,
@@ -33664,7 +33722,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3855",
+      "id": "re-in-3857",
       "name": "Chaudhary Automobiles (Sales)",
       "lat": 28.93214111,
       "lng": 79.70452111,
@@ -33676,7 +33734,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3857",
+      "id": "re-in-3859",
       "name": "Chaudhary Automobiles (Sales)",
       "lat": 30.218111,
       "lng": 78.802111,
@@ -33688,7 +33746,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3859",
+      "id": "re-in-3861",
       "name": "Allied Auto Agencies (Sales)",
       "lat": 30.340817611,
       "lng": 78.396682111,
@@ -33700,7 +33758,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3861",
+      "id": "re-in-3863",
       "name": "Batra Enterprises (Sales)",
       "lat": 29.261473111,
       "lng": 78.815883111,
@@ -33712,7 +33770,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3862",
+      "id": "re-in-3864",
       "name": "Brar Motors (Sales)",
       "lat": 28.902014511,
       "lng": 79.505099111,
@@ -33724,7 +33782,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3865",
+      "id": "re-in-3867",
       "name": "Diya Motors Pvt Ltd (Sales)",
       "lat": 26.491048,
       "lng": 89.526542,
@@ -33736,7 +33794,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3867",
+      "id": "re-in-3869",
       "name": "Eureka Bikes (Sales)",
       "lat": 22.57249,
       "lng": 88.015892,
@@ -33748,7 +33806,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3869",
+      "id": "re-in-3871",
       "name": "S.g. Automobiles (Sales)",
       "lat": 23.69204111,
       "lng": 86.95695,
@@ -33760,7 +33818,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3871",
+      "id": "re-in-3873",
       "name": "Eureka Bikes (Service)",
       "lat": 22.468774,
       "lng": 87.975349,
@@ -33772,7 +33830,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3872",
+      "id": "re-in-3874",
       "name": "Kalyani Solvex Pvt Ltd (Sales)",
       "lat": 25.231690911,
       "lng": 88.787933411,
@@ -33784,7 +33842,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3874",
+      "id": "re-in-3876",
       "name": "Rd Automobiles (Sales)",
       "lat": 23.22694111,
       "lng": 87.081819999,
@@ -33796,7 +33854,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3876",
+      "id": "re-in-3878",
       "name": "The Country Motors (Service)",
       "lat": 22.7379479,
       "lng": 88.4826928,
@@ -33808,7 +33866,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3877",
+      "id": "re-in-3879",
       "name": "Sri Ram Automobiles (Sales)",
       "lat": 23.226418811,
       "lng": 87.847044299,
@@ -33820,7 +33878,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3878",
+      "id": "re-in-3880",
       "name": "Sri Ram Automobiles (Sales)",
       "lat": 23.262183911,
       "lng": 87.836201399,
@@ -33832,7 +33890,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3879",
+      "id": "re-in-3881",
       "name": "Sri Ram Automobiles (Sales)",
       "lat": 23.205220111,
       "lng": 88.359127099,
@@ -33844,7 +33902,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3880",
+      "id": "re-in-3882",
       "name": "Sri Ram Automobiles (Sales)",
       "lat": 23.177562111,
       "lng": 88.089932111,
@@ -33856,7 +33914,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3882",
+      "id": "re-in-3884",
       "name": "R.h Automobiles Pvt. Ltd (Service)",
       "lat": 23.53344,
       "lng": 87.32193,
@@ -33868,7 +33926,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3885",
+      "id": "re-in-3887",
       "name": "Austin Distributors Pvt Ltd (Sales)",
       "lat": 22.3779111,
       "lng": 88.420959999,
@@ -33880,7 +33938,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3886",
+      "id": "re-in-3888",
       "name": "The Country Motors (Sales)",
       "lat": 22.67569111,
       "lng": 88.84206111,
@@ -33892,7 +33950,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3888",
+      "id": "re-in-3890",
       "name": "Maxwheel Motors (Sales)",
       "lat": 24.08982111,
       "lng": 88.268559999,
@@ -33903,7 +33961,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3890",
+      "id": "re-in-3892",
       "name": "Legendry Motors Private Limited (Sales)",
       "lat": 26.490919,
       "lng": 88.237442,
@@ -33915,7 +33973,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3892",
+      "id": "re-in-3894",
       "name": "Trailbrazer Automotive (Sales)",
       "lat": 23.06226156,
       "lng": 87.30545769,
@@ -33923,10 +33981,11 @@
       "address": "Royal Enfield Showroom, Municipal Ward No. 16,15, Station Road,  Bishnupur, West Bengal - 722122",
       "city": "Bishnupur",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3893",
+      "id": "re-in-3895",
       "name": "Rh Automobiles Pvt Ltd (Sales)",
       "lat": 23.662368,
       "lng": 87.683398,
@@ -33938,7 +33997,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3894",
+      "id": "re-in-3896",
       "name": "Rh Automobiles Pvt Ltd (Service)",
       "lat": 23.671620211,
       "lng": 87.653178299,
@@ -33950,7 +34009,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3895",
+      "id": "re-in-3897",
       "name": "Sri Sai Automart (Sales)",
       "lat": 22.722726,
       "lng": 87.339085,
@@ -33962,7 +34021,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3897",
+      "id": "re-in-3899",
       "name": "Bivan Motors (Sales)",
       "lat": 22.31542837469737,
       "lng": 88.65218086,
@@ -33970,10 +34029,11 @@
       "address": "Royal Enfield Showroom, Dag No 3008, Helicopter, More, Matla, Dist: South 24 Parganas, West Bengal  - 743329",
       "city": "Canning",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:00",
       "source": "re-official"
     },
     {
-      "id": "re-in-3899",
+      "id": "re-in-3901",
       "name": "Ashok Motors (Sales)",
       "lat": 24.272344,
       "lng": 87.836647,
@@ -33985,7 +34045,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3901",
+      "id": "re-in-3903",
       "name": "Unique Riders (Sales)",
       "lat": 22.3444992,
       "lng": 87.3070592,
@@ -33997,7 +34057,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3903",
+      "id": "re-in-3905",
       "name": "Alo Automobile (Sales)",
       "lat": 23.533422,
       "lng": 88.547556,
@@ -34009,7 +34069,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3905",
+      "id": "re-in-3907",
       "name": "Shivani Automobiles (Sales)",
       "lat": 21.78381111,
       "lng": 87.728939999,
@@ -34021,7 +34081,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3907",
+      "id": "re-in-3909",
       "name": "Suchitro Auto Wheels (Sales)",
       "lat": 26.3266432,
       "lng": 89.4519657,
@@ -34033,7 +34093,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3908",
+      "id": "re-in-3910",
       "name": "Suchitro Auto Wheels (Sales)",
       "lat": 27.58291,
       "lng": 81.63168,
@@ -34045,7 +34105,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3909",
+      "id": "re-in-3911",
       "name": "Suchitro Auto Wheels (Service)",
       "lat": 26.3246758,
       "lng": 89.4778775,
@@ -34057,7 +34117,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3911",
+      "id": "re-in-3913",
       "name": "Kalyani Solvex (Sales)",
       "lat": 25.4044097,
       "lng": 88.5332816,
@@ -34069,7 +34129,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3913",
+      "id": "re-in-3915",
       "name": "Universal Traders (Sales)",
       "lat": 22.67188111,
       "lng": 88.27986111,
@@ -34081,7 +34141,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3915",
+      "id": "re-in-3917",
       "name": "Riders Corner (Sales)",
       "lat": 26.708886111,
       "lng": 88.364281,
@@ -34093,7 +34153,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3916",
+      "id": "re-in-3918",
       "name": "Sona Wheels Pvt Ltd (Sales)",
       "lat": 27.031316111,
       "lng": 88.257451111,
@@ -34105,7 +34165,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3917",
+      "id": "re-in-3919",
       "name": "Sona Wheels Pvt Ltd (Sales)",
       "lat": 27.06381111,
       "lng": 88.458475,
@@ -34117,7 +34177,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3920",
+      "id": "re-in-3922",
       "name": "Shree Naurang Motors (Sales)",
       "lat": 24.660898,
       "lng": 87.94091,
@@ -34129,7 +34189,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3922",
+      "id": "re-in-3924",
       "name": "Durga Motors (Sales)",
       "lat": 26.58166,
       "lng": 89.02145,
@@ -34137,10 +34197,11 @@
       "address": "Ward No.11, Sanghati Nagar, Near Bairatiguri High School, Dhupguri, West Bengal - 735210, Sanghati Nagar",
       "city": "Dhupguri",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:00",
       "source": "re-official"
     },
     {
-      "id": "re-in-3924",
+      "id": "re-in-3926",
       "name": "Harshit Tie Up Pvt. Ltd. (Sales)",
       "lat": 22.211479411,
       "lng": 88.185980711,
@@ -34152,7 +34213,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3926",
+      "id": "re-in-3928",
       "name": "Dip Motors (Sales)",
       "lat": 24.119172574170637,
       "lng": 88.56160744202056,
@@ -34164,7 +34225,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3928",
+      "id": "re-in-3930",
       "name": "R.h Automobiles Pvt Ltd (Sales)",
       "lat": 23.545632,
       "lng": 87.277972,
@@ -34176,7 +34237,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3929",
+      "id": "re-in-3931",
       "name": "Shivani Automobiles (Sales)",
       "lat": 21.907215811,
       "lng": 87.529430411,
@@ -34188,7 +34249,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3931",
+      "id": "re-in-3933",
       "name": "Riders Hub (Service)",
       "lat": 23.6743242,
       "lng": 86.9724099,
@@ -34200,7 +34261,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3932",
+      "id": "re-in-3934",
       "name": "Riders Hub (Sales)",
       "lat": 23.748064,
       "lng": 87.947623,
@@ -34212,7 +34273,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3933",
+      "id": "re-in-3935",
       "name": "Rk Wheels (Sales)",
       "lat": 25.207952,
       "lng": 88.190622,
@@ -34220,10 +34281,11 @@
       "address": "Royal Enfield Showroom, Plot No 328, Netaji Pally, Malda Balurghat, Nh 512,Near Sbi Bank, Gajol, Rangabhita, West Bengal - 732124",
       "city": "Gazole",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3935",
+      "id": "re-in-3937",
       "name": "Radhe Radhe Moto Dealers (Sales)",
       "lat": 22.629602,
       "lng": 87.730891,
@@ -34235,7 +34297,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3937",
+      "id": "re-in-3939",
       "name": "S B Automobiles (Sales)",
       "lat": 22.86004,
       "lng": 88.673633,
@@ -34247,7 +34309,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3938",
+      "id": "re-in-3940",
       "name": "Unique Riders (Sales)",
       "lat": 22.098166711,
       "lng": 88.048474311,
@@ -34259,7 +34321,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3940",
+      "id": "re-in-3942",
       "name": "Dip Motors (Sales)",
       "lat": 24.0393141027932,
       "lng": 88.42998643296366,
@@ -34271,7 +34333,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3942",
+      "id": "re-in-3944",
       "name": "Alam Auto Gallery (Sales)",
       "lat": 22.545966,
       "lng": 88.530503,
@@ -34283,7 +34345,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3944",
+      "id": "re-in-3946",
       "name": "Universal Traders Chinsurah (Sales)",
       "lat": 22.898726511,
       "lng": 88.3537689,
@@ -34295,7 +34357,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3945",
+      "id": "re-in-3947",
       "name": "Kgn Automobiles (Sales)",
       "lat": 22.754214611,
       "lng": 88.328061611,
@@ -34307,7 +34369,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3946",
+      "id": "re-in-3948",
       "name": "Asmit Automobiles (Sales)",
       "lat": 22.6792227,
       "lng": 88.3528803,
@@ -34315,10 +34377,23 @@
       "address": "Royal Enfield Showroom, 49, B.g.t Road, Uttarpara Kotrung,Bhadrakali, Dist: Hooghly, West Bengal - 712232",
       "city": "Hooghly",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-19:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-3947",
+      "id": "re-in-3949",
+      "name": "Kgn Automobiles (Sales)",
+      "lat": 22.872336111,
+      "lng": 87.802841111,
+      "phone": "091671 46631",
+      "address": "Premises No 875/b/1, Parul, Arambagh",
+      "city": "Hooghly",
+      "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
+      "source": "re-official"
+    },
+    {
+      "id": "re-in-3950",
       "name": "Kgn Automobiles (Sales)",
       "lat": 22.868778111,
       "lng": 88.006871111,
@@ -34330,7 +34405,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3951",
+      "id": "re-in-3955",
       "name": "Apollon Motors Llp (Sales)",
       "lat": 22.580727111,
       "lng": 88.206609711,
@@ -34342,7 +34417,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3952",
+      "id": "re-in-3956",
       "name": "Om Motors (Sales)",
       "lat": 22.601388911,
       "lng": 88.296366911,
@@ -34354,7 +34429,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3954",
+      "id": "re-in-3958",
       "name": "Victory Auto (Sales)",
       "lat": 22.562927,
       "lng": 88.325586,
@@ -34366,7 +34441,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3955",
+      "id": "re-in-3959",
       "name": "Royal Enfield Showroom - Om Motors (Sales)",
       "lat": 22.475947461,
       "lng": 88.089709991,
@@ -34378,7 +34453,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3960",
+      "id": "re-in-3964",
       "name": "Kalyani Solvex Pvt Ltd (Sales)",
       "lat": 26.27238,
       "lng": 88.205322,
@@ -34390,7 +34465,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3961",
+      "id": "re-in-3965",
       "name": "Dip Motors (Sales)",
       "lat": 24.1508825,
       "lng": 88.4742586,
@@ -34402,7 +34477,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3962",
+      "id": "re-in-3966",
       "name": "Kalyani Solvex Pvt Ltd (Sales)",
       "lat": 26.358754,
       "lng": 88.307488,
@@ -34414,7 +34489,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3966",
+      "id": "re-in-3970",
       "name": "Durga Motors (Sales)",
       "lat": 26.578616111,
       "lng": 88.736636611,
@@ -34426,7 +34501,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3967",
+      "id": "re-in-3971",
       "name": "Durga Motors (Sales)",
       "lat": 26.706805111,
       "lng": 89.147486111,
@@ -34438,7 +34513,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3968",
+      "id": "re-in-3972",
       "name": "Durga Motors (Sales)",
       "lat": 26.877576111,
       "lng": 88.747262,
@@ -34450,7 +34525,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3969",
+      "id": "re-in-3973",
       "name": "Durga Motors (Service)",
       "lat": 26.55063,
       "lng": 88.722254,
@@ -34462,7 +34537,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3972",
+      "id": "re-in-3976",
       "name": "Sri Sai Automart (Sales)",
       "lat": 22.472202411,
       "lng": 86.993111911,
@@ -34474,7 +34549,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3973",
+      "id": "re-in-3977",
       "name": "Kalyani Solvex Pvt Ltd (Sales)",
       "lat": 25.639694411,
       "lng": 88.323141,
@@ -34486,7 +34561,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3975",
+      "id": "re-in-3979",
       "name": "Rahi Motors (Sales)",
       "lat": 22.97223,
       "lng": 88.43281,
@@ -34498,7 +34573,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3976",
+      "id": "re-in-3980",
       "name": "Rahi Motors (Sales)",
       "lat": 22.885971,
       "lng": 88.432378,
@@ -34510,7 +34585,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3978",
+      "id": "re-in-3982",
       "name": "Rider'S Hub (Sales)",
       "lat": 23.630807,
       "lng": 88.126279,
@@ -34522,7 +34597,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3980",
+      "id": "re-in-3984",
       "name": "Sri Sai Auto Mart (Sales)",
       "lat": 22.3625556,
       "lng": 87.3387222,
@@ -34534,7 +34609,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3982",
+      "id": "re-in-3986",
       "name": "Austin Distributors Pvt Ltd (Sales)",
       "lat": 22.55539111,
       "lng": 88.34831111,
@@ -34546,7 +34621,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3983",
+      "id": "re-in-3987",
       "name": "East India Agro Indus. Pvt Ltd (Sales)",
       "lat": 22.54419111,
       "lng": 88.35956111,
@@ -34558,7 +34633,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3984",
+      "id": "re-in-3988",
       "name": "Kolkata Bike Zone (Sales)",
       "lat": 22.62214111,
       "lng": 88.446119999,
@@ -34570,7 +34645,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3985",
+      "id": "re-in-3989",
       "name": "The Country Motors (Sales)",
       "lat": 22.72275111,
       "lng": 88.47935111,
@@ -34582,7 +34657,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3986",
+      "id": "re-in-3990",
       "name": "Shah Distributors (Sales)",
       "lat": 22.53731111,
       "lng": 88.35227111,
@@ -34594,7 +34669,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3987",
+      "id": "re-in-3991",
       "name": "Bishnu Oil Company (Sales)",
       "lat": 22.67205,
       "lng": 88.37596,
@@ -34606,7 +34681,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3988",
+      "id": "re-in-3992",
       "name": "Harshit Tie Up Private Limited (Sales)",
       "lat": 22.462222,
       "lng": 88.307222,
@@ -34618,7 +34693,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3989",
+      "id": "re-in-3993",
       "name": "Aditya Motors (Sales)",
       "lat": 22.500844111,
       "lng": 88.399985811,
@@ -34630,7 +34705,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3990",
+      "id": "re-in-3994",
       "name": "Alam Automobile Gallery (Sales)",
       "lat": 22.500027811,
       "lng": 88.606446511,
@@ -34642,7 +34717,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3991",
+      "id": "re-in-3995",
       "name": "Joy Shankar Logistics (Sales)",
       "lat": 22.60411,
       "lng": 88.373352,
@@ -34654,7 +34729,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3992",
+      "id": "re-in-3996",
       "name": "Sanei Bikes (Sales)",
       "lat": 22.58091493,
       "lng": 88.43640892,
@@ -34666,7 +34741,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3993",
+      "id": "re-in-3997",
       "name": "Brg Motors (Sales)",
       "lat": 22.5019268,
       "lng": 88.3535909,
@@ -34678,7 +34753,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3994",
+      "id": "re-in-3998",
       "name": "Joy Shankar Logistics (Sales)",
       "lat": 22.6085311,
       "lng": 88.3959321,
@@ -34686,10 +34761,11 @@
       "address": "265 Jessore Road, (opposite Patipukur Bus Stand). Ps- Lake Town, Po- Sreebhumi, Patipukur.",
       "city": "Kolkata",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:00",
       "source": "re-official"
     },
     {
-      "id": "re-in-3995",
+      "id": "re-in-3999",
       "name": "Aditya Motors (Sales)",
       "lat": 22.4464219,
       "lng": 88.3978064,
@@ -34701,7 +34777,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3996",
+      "id": "re-in-4000",
       "name": "Royal Enfield Showroom - Shah Distributors (Sales)",
       "lat": 22.53167,
       "lng": 88.2705,
@@ -34713,7 +34789,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3997",
+      "id": "re-in-4001",
       "name": "Austin Distributors Pvt Ltd (Service)",
       "lat": 22.55162111,
       "lng": 88.36211111,
@@ -34725,7 +34801,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3998",
+      "id": "re-in-4002",
       "name": "East India Agro Indus. Pvt Ltd (Service)",
       "lat": 22.54732111,
       "lng": 88.389309999,
@@ -34737,7 +34813,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-3999",
+      "id": "re-in-4003",
       "name": "Kolkata Bike Zone (Service)",
       "lat": 22.62453111,
       "lng": 88.43977111,
@@ -34749,7 +34825,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4000",
+      "id": "re-in-4004",
       "name": "Royal Enfield Service Center - Shah Distributors (Service)",
       "lat": 22.53929111,
       "lng": 88.35969111,
@@ -34761,7 +34837,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4002",
+      "id": "re-in-4006",
       "name": "Bishnu Oil Company (Service)",
       "lat": 22.67763111,
       "lng": 88.38039,
@@ -34773,7 +34849,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4003",
+      "id": "re-in-4007",
       "name": "Harshit Tieup Pvt. Ltd (Service)",
       "lat": 22.499434,
       "lng": 88.248129,
@@ -34785,7 +34861,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4004",
+      "id": "re-in-4008",
       "name": "Aditya Motors (Service)",
       "lat": 22.510537411,
       "lng": 88.415012511,
@@ -34797,7 +34873,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4006",
+      "id": "re-in-4010",
       "name": "Joy Shankar Logistics (Service)",
       "lat": 22.614081,
       "lng": 88.372981,
@@ -34809,7 +34885,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4007",
+      "id": "re-in-4011",
       "name": "Sanei Bikes Pvt Ltd (Service)",
       "lat": 22.57055,
       "lng": 88.446082,
@@ -34821,7 +34897,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4008",
+      "id": "re-in-4012",
       "name": "The Country Motors (Service)",
       "lat": 22.69943,
       "lng": 88.4694,
@@ -34832,7 +34908,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4009",
+      "id": "re-in-4013",
       "name": "Brg Motors (Service)",
       "lat": 22.5110925,
       "lng": 88.3372242,
@@ -34843,7 +34919,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4013",
+      "id": "re-in-4017",
       "name": "Auto Marketing Agencies (Spares)",
       "lat": 22.5622964,
       "lng": 88.3611505,
@@ -34855,7 +34931,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4014",
+      "id": "re-in-4018",
       "name": "G Nex Spares (Spares)",
       "lat": 22.63667,
       "lng": 88.455575,
@@ -34867,7 +34943,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4015",
+      "id": "re-in-4019",
       "name": "Royal Automobile (Sales)",
       "lat": 23.40993111,
       "lng": 88.50172,
@@ -34879,7 +34955,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4016",
+      "id": "re-in-4020",
       "name": "Royal Automobile (Sales)",
       "lat": 23.3752288,
       "lng": 88.4850506,
@@ -34891,7 +34967,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4017",
+      "id": "re-in-4021",
       "name": "Royal Automobile (Service)",
       "lat": 23.39606111,
       "lng": 88.49106111,
@@ -34903,7 +34979,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4019",
+      "id": "re-in-4023",
       "name": "Riders Hub (Sales)",
       "lat": 23.3866964,
       "lng": 88.136349,
@@ -34915,7 +34991,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4023",
+      "id": "re-in-4027",
       "name": "Royal Enfield Showroom - Speed Wheels (Sales)",
       "lat": 25.00838111,
       "lng": 88.13316111,
@@ -34927,7 +35003,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4024",
+      "id": "re-in-4028",
       "name": "Malda Wheelers Point (Sales)",
       "lat": 24.9740703,
       "lng": 88.1303475,
@@ -34939,7 +35015,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4025",
+      "id": "re-in-4029",
       "name": "Sd Auto Ventures Llp (Sales)",
       "lat": 25.38061373,
       "lng": 88.01102764,
@@ -34947,10 +35023,11 @@
       "address": "Royal Enfield Showroom, Plot No. 211, Khatian No. 3406, Vill. Paharpur,P.o. & P.s. Chanchal, Chanchal, Dist: Malda, West Bengal - 732123",
       "city": "Malda",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:30-18:30",
       "source": "re-official"
     },
     {
-      "id": "re-in-4026",
+      "id": "re-in-4030",
       "name": "Speed Wheels (Sales)",
       "lat": 25.195433111,
       "lng": 87.928519911,
@@ -34962,7 +35039,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4031",
+      "id": "re-in-4035",
       "name": "Suchitro Auto Wheels (Sales)",
       "lat": 24.3740744,
       "lng": 87.8511378,
@@ -34974,7 +35051,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4033",
+      "id": "re-in-4037",
       "name": "Sri Sai Automart (Sales)",
       "lat": 22.44804111,
       "lng": 87.31849111,
@@ -34986,7 +35063,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4035",
+      "id": "re-in-4039",
       "name": "Ashok Motors (Sales)",
       "lat": 24.438138,
       "lng": 87.880691,
@@ -34998,7 +35075,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4037",
+      "id": "re-in-4041",
       "name": "Ad Bengal Enterprize (Sales)",
       "lat": 23.966143311,
       "lng": 88.039574641,
@@ -35010,7 +35087,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4038",
+      "id": "re-in-4042",
       "name": "Shree Naurang Motors (Sales)",
       "lat": 24.7672816,
       "lng": 87.9126759,
@@ -35022,7 +35099,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4039",
+      "id": "re-in-4043",
       "name": "Mundra Motors (Sales)",
       "lat": 24.325958111,
       "lng": 88.302644111,
@@ -35030,10 +35107,11 @@
       "address": "Murshidabad, Rambagh",
       "city": "Murshidabad",
       "country": "IN",
+      "openingHours": "Mo-Sa 10:00-19:00",
       "source": "re-official"
     },
     {
-      "id": "re-in-4040",
+      "id": "re-in-4044",
       "name": "Maxwheel Motors (Sales)",
       "lat": 23.932214811,
       "lng": 88.238706611,
@@ -35045,7 +35123,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4041",
+      "id": "re-in-4045",
       "name": "Maxwheel Motors (Sales)",
       "lat": 24.101565811,
       "lng": 88.280248599,
@@ -35057,7 +35135,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4042",
+      "id": "re-in-4046",
       "name": "Mundra Motors (Sales)",
       "lat": 24.622389,
       "lng": 88.0077,
@@ -35069,7 +35147,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4043",
+      "id": "re-in-4047",
       "name": "Royal Enfield Showroom - Ad Bengal Enterprize (Sales)",
       "lat": 23.80112111,
       "lng": 86.92765111,
@@ -35081,7 +35159,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4044",
+      "id": "re-in-4048",
       "name": "Ad Bengal Enterprize (Sales)",
       "lat": 23.913613,
       "lng": 87.952759,
@@ -35093,7 +35171,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4045",
+      "id": "re-in-4049",
       "name": "Dip Motors (Sales)",
       "lat": 23.931194,
       "lng": 88.456537,
@@ -35104,7 +35182,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4046",
+      "id": "re-in-4050",
       "name": "Mundra Motors (Service)",
       "lat": 24.444629,
       "lng": 88.036241,
@@ -35116,7 +35194,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4054",
+      "id": "re-in-4058",
       "name": "Vm Automobile (Sales)",
       "lat": 23.079192,
       "lng": 88.543859,
@@ -35128,7 +35206,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4055",
+      "id": "re-in-4059",
       "name": "Alo Automobile (Sales)",
       "lat": 23.727583311,
       "lng": 88.533613211,
@@ -35140,7 +35218,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4056",
+      "id": "re-in-4060",
       "name": "Royal Automobiles (Sales)",
       "lat": 23.692869711,
       "lng": 88.297595311,
@@ -35152,7 +35230,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4057",
+      "id": "re-in-4061",
       "name": "Vm Automobile (Sales)",
       "lat": 23.230951,
       "lng": 88.489028,
@@ -35164,7 +35242,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4058",
+      "id": "re-in-4062",
       "name": "Royal Automobile (Sales)",
       "lat": 23.970733111,
       "lng": 88.621292111,
@@ -35176,7 +35254,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4059",
+      "id": "re-in-4063",
       "name": "V.m Automobile (Sales)",
       "lat": 22.9471719,
       "lng": 88.5471781,
@@ -35188,7 +35266,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4060",
+      "id": "re-in-4064",
       "name": "Vm Automobile (Service)",
       "lat": 23.089326,
       "lng": 88.545501,
@@ -35200,7 +35278,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4063",
+      "id": "re-in-4067",
       "name": "V.m Automobile (Service)",
       "lat": 22.981467111,
       "lng": 88.517703999,
@@ -35212,7 +35290,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4064",
+      "id": "re-in-4068",
       "name": "Riders Corner (Sales)",
       "lat": 26.68637,
       "lng": 88.22464,
@@ -35224,7 +35302,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4066",
+      "id": "re-in-4070",
       "name": "The Country Motors (Sales)",
       "lat": 22.604387711,
       "lng": 88.678580111,
@@ -35236,7 +35314,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4067",
+      "id": "re-in-4071",
       "name": "S B Automobiles (Sales)",
       "lat": 23.031245111,
       "lng": 88.822346999,
@@ -35248,7 +35326,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4068",
+      "id": "re-in-4072",
       "name": "S B Automobiles (Sales)",
       "lat": 23.182242111,
       "lng": 88.852793,
@@ -35260,7 +35338,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4074",
+      "id": "re-in-4078",
       "name": "Kabita Automobiles (Sales)",
       "lat": 22.40949182643968,
       "lng": 87.74687677397087,
@@ -35268,10 +35346,11 @@
       "address": "Royal Enfield Showroom, Plot No  720 & 722, Panskura, Dakshin Mechogram Bus Stand, Dakshin Mechogram, Uttar Medinipur, Dist  Purba Medinipur, West Bengal - 721139",
       "city": "Paanskura",
       "country": "IN",
+      "openingHours": "Mo-Sa 9:00-19:00",
       "source": "re-official"
     },
     {
-      "id": "re-in-4076",
+      "id": "re-in-4080",
       "name": "R.h. Automobiles Pvt. Ltd. (Sales)",
       "lat": 23.460823711,
       "lng": 87.449419,
@@ -35283,7 +35362,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4078",
+      "id": "re-in-4082",
       "name": "Sri Ram Automobiles (Sales)",
       "lat": 23.488159,
       "lng": 87.744346,
@@ -35295,7 +35374,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4080",
+      "id": "re-in-4084",
       "name": "Devi Motors (Sales)",
       "lat": 23.31333111,
       "lng": 86.35642111,
@@ -35307,7 +35386,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4082",
+      "id": "re-in-4086",
       "name": "Devi Motors (Sales)",
       "lat": 23.06047111,
       "lng": 86.646486999,
@@ -35319,7 +35398,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4085",
+      "id": "re-in-4089",
       "name": "Kalyani Solvex Pvt Ltd (Sales)",
       "lat": 25.636288,
       "lng": 88.132808,
@@ -35331,7 +35410,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4086",
+      "id": "re-in-4090",
       "name": "Kalyani Solvex (Service)",
       "lat": 25.628935,
       "lng": 88.137367,
@@ -35343,7 +35422,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4087",
+      "id": "re-in-4091",
       "name": "Shivani Automobiles (Sales)",
       "lat": 21.678355,
       "lng": 87.566819,
@@ -35355,7 +35434,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4089",
+      "id": "re-in-4093",
       "name": "Ashok Motors (Sales)",
       "lat": 24.157958,
       "lng": 87.780306,
@@ -35367,7 +35446,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4091",
+      "id": "re-in-4095",
       "name": "V M Automobile (Sales)",
       "lat": 23.155585,
       "lng": 88.563105,
@@ -35379,7 +35458,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4092",
+      "id": "re-in-4096",
       "name": "V M Automobile (Service)",
       "lat": 23.1747395,
       "lng": 88.5693605,
@@ -35391,7 +35470,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4093",
+      "id": "re-in-4097",
       "name": "Sg Automobile Ranigunj (Sales)",
       "lat": 23.63585111,
       "lng": 87.11811111,
@@ -35403,7 +35482,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4097",
+      "id": "re-in-4101",
       "name": "V M Automobile (Sales)",
       "lat": 23.251885,
       "lng": 88.435723,
@@ -35415,7 +35494,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4099",
+      "id": "re-in-4103",
       "name": "Kgn Automobiles (Sales)",
       "lat": 22.742124,
       "lng": 88.258054,
@@ -35427,7 +35506,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4101",
+      "id": "re-in-4105",
       "name": "Siliguri Distributors (Sales)",
       "lat": 26.72937418,
       "lng": 88.43071257,
@@ -35439,7 +35518,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4102",
+      "id": "re-in-4106",
       "name": "Legendry Motors Pvt Ltd (Sales)",
       "lat": 26.710191111,
       "lng": 88.418537111,
@@ -35451,7 +35530,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4103",
+      "id": "re-in-4107",
       "name": "Siliguri Distributors (Service)",
       "lat": 26.735496,
       "lng": 88.434945,
@@ -35463,7 +35542,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4104",
+      "id": "re-in-4108",
       "name": "Riders Corner (Service)",
       "lat": 26.734039111,
       "lng": 88.42418,
@@ -35475,7 +35554,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4106",
+      "id": "re-in-4110",
       "name": "G-nex Spares - Siliguri (Spares)",
       "lat": 26.7185777,
       "lng": 88.4556073,
@@ -35487,7 +35566,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4107",
+      "id": "re-in-4111",
       "name": "Birbhum Riders (Sales)",
       "lat": 23.89895111,
       "lng": 87.5152802,
@@ -35499,7 +35578,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4109",
+      "id": "re-in-4113",
       "name": "Adhikari Automobiles (Sales)",
       "lat": 22.304698,
       "lng": 87.91115,
@@ -35511,7 +35590,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4112",
+      "id": "re-in-4116",
       "name": "Maharaja Auto Sales Llp (Sales)",
       "lat": 22.742452,
       "lng": 88.372374,
@@ -35523,7 +35602,7 @@
       "source": "re-official"
     },
     {
-      "id": "re-in-4114",
+      "id": "re-in-4118",
       "name": "Suchitro Auto Wheels (Sales)",
       "lat": 26.30929,
       "lng": 89.668782,
