@@ -1,46 +1,44 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import type { ServiceDue } from '@/lib/types'
+import type { BucketDue } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { ServiceCard } from './ServiceCard'
 
 interface ServiceListProps {
-  services: ServiceDue[]
-  focusedIndex?: number    // from gauge tap — open this card and scroll to it
+  buckets: BucketDue[]
+  /** From gauge tap — open this card and scroll to it. */
+  focusedIndex?: number
   meta?: { lastVerified?: string }
+  odometerKm: number
+  onMarkBucketDone: (taskIds: string[], atKm: number) => void
+  onMarkTaskDone: (taskId: string, atKm: number) => void
 }
 
-// ─── ServiceList ──────────────────────────────────────────────────────────────
-
-export function ServiceList({ services, focusedIndex, meta }: ServiceListProps) {
+export function ServiceList({
+  buckets,
+  focusedIndex,
+  meta,
+  odometerKm,
+  onMarkBucketDone,
+  onMarkTaskDone,
+}: ServiceListProps) {
   const cardRefs = useRef<(HTMLLIElement | null)[]>([])
 
-  // When the gauge fires a tap, scroll the target card into view.
   useEffect(() => {
     if (focusedIndex == null) return
     const el = cardRefs.current[focusedIndex]
     if (!el) return
-
-    // Small delay so the card has time to open before we scroll
     const timer = setTimeout(() => {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, 80)
-
     return () => clearTimeout(timer)
   }, [focusedIndex])
 
-  if (services.length === 0) {
+  if (buckets.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-12 gap-3 text-center">
-        {/* Checkmark circle */}
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 48 48"
-          fill="none"
-          aria-hidden="true"
-        >
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
           <circle cx="24" cy="24" r="23" stroke="var(--urgency-good)" strokeWidth="2" />
           <polyline
             points="14 24 21 31 34 17"
@@ -50,7 +48,6 @@ export function ServiceList({ services, focusedIndex, meta }: ServiceListProps) 
             strokeLinejoin="round"
           />
         </svg>
-
         <p
           className="text-[16px] font-bold text-[var(--text-primary)]"
           style={{ fontFamily: 'var(--font-display), Georgia, serif' }}
@@ -61,7 +58,7 @@ export function ServiceList({ services, focusedIndex, meta }: ServiceListProps) 
           className="text-[14px] text-[var(--text-secondary)]"
           style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
         >
-          No services due at this odometer reading.
+          Nothing due at this odometer reading.
         </p>
       </div>
     )
@@ -69,7 +66,6 @@ export function ServiceList({ services, focusedIndex, meta }: ServiceListProps) 
 
   return (
     <section aria-labelledby="service-schedule-heading">
-      {/* Section label */}
       <p
         id="service-schedule-heading"
         className={cn(
@@ -83,34 +79,33 @@ export function ServiceList({ services, focusedIndex, meta }: ServiceListProps) 
         Service Schedule
       </p>
 
-      {/* Card list */}
       <ul role="list" className="flex flex-col gap-2 list-none">
-        {services.map((service, idx) => {
-          const isOverdue = service.urgency === 'overdue'
+        {buckets.map((bucket, idx) => {
+          const isOverdue = bucket.urgency === 'overdue'
           const isOpen    = focusedIndex === idx
+          const key       = `${bucket.label}-${bucket.intervalKm}`
 
           return (
             <li
-              key={`${service.label}-${service.intervalKm}`}
+              key={key}
               ref={(el) => { cardRefs.current[idx] = el }}
               className={cn(
-                // Overdue items get a subtle red left-bar accent on the li wrapper
-                isOverdue
-                  ? 'rounded-[8px] shadow-[inset_3px_0_0_var(--re-red)]'
-                  : '',
+                isOverdue ? 'rounded-[8px] shadow-[inset_3px_0_0_var(--re-red)]' : '',
               )}
             >
               <ServiceCard
-                service={service}
+                bucket={bucket}
                 defaultOpen={isOpen}
                 id={`service-card-${idx}`}
+                odometerKm={odometerKm}
+                onMarkBucketDone={onMarkBucketDone}
+                onMarkTaskDone={onMarkTaskDone}
               />
             </li>
           )
         })}
       </ul>
 
-      {/* Data provenance footer */}
       {meta?.lastVerified && (
         <p
           className="mt-6 text-[11px] text-[var(--text-muted)] text-right"

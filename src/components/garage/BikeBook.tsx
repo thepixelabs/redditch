@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import type { BikeSpec, ServiceInterval, TorqueSpec } from '@/lib/types'
 import { ExternalLink } from '@/components/ui/ExternalLink'
+import { getServiceBuckets } from '@/lib/service-buckets'
 
 // ─── Props ────────────────────────────────────────────────────────────────────
 
@@ -551,7 +552,7 @@ function buildSpreads(bike: BikeSpec): Spread[] {
   pg += 2
 
   // Service schedule spreads (pair intervals 2 per spread)
-  const sched = bike.service_schedule
+  const sched = getServiceBuckets(bike.tasks)
   for (let i = 0; i < sched.length; i += 2) {
     result.push({
       left: (

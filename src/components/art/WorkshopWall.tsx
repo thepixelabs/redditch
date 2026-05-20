@@ -131,27 +131,49 @@ export function WorkshopWall() {
           <path d="M  20 80 Q  30 140 15 200 Q 0 240 20 290" stroke="#000" strokeWidth="2.5" opacity="0.35" fill="none" />
         </g>
 
-        {/* Hung spanner — silhouette + cast shadow */}
-        <g transform="translate(420 260) rotate(-72)" opacity="0.5">
-          {/* Cast shadow — softer, slightly offset */}
+        {/* Hung open-end spanner — silhouette + cast shadow */}
+        {/* Rotated so the jaw end reads clearly at the top */}
+        <g transform="translate(420 260) rotate(-72)" opacity="0.52">
+          {/* Cast shadow — slightly offset, softer */}
           <g transform="translate(8 8)" opacity="0.6">
             <rect x="0" y="-3" width="220" height="6" fill="#000" />
             <circle cx="220" cy="0" r="14" fill="#000" />
-            <path
-              d="M -16 -6 L 0 -6 L 0 6 L -16 6 L -16 4 L -6 4 L -6 -4 L -16 -4 Z"
-              fill="#000"
-            />
+            {/* Open-end jaw shadow */}
+            <path d="M -18 -8 L 0 -8 L 0 8 L -18 8 L -18 4 L -6 4 L -6 -4 L -18 -4 Z" fill="#000" />
           </g>
-          {/* The wrench itself — also dark, just barely visible */}
-          <rect x="0" y="-3" width="220" height="6" fill="#0a0604" stroke="#3a2514" strokeWidth="0.5" />
-          <circle cx="220" cy="0" r="14" fill="#0a0604" stroke="#3a2514" strokeWidth="0.5" />
-          <circle cx="220" cy="0" r="7" fill="#1a1510" />
+          {/* Spanner shaft */}
+          <rect x="0" y="-3" width="220" height="6" fill="#1a1510" stroke="#3a2514" strokeWidth="0.8" />
+          {/* Ring end (closed) */}
+          <circle cx="220" cy="0" r="14" fill="#1a1510" stroke="#3a2514" strokeWidth="0.8" />
+          <circle cx="220" cy="0" r="9"  fill="#0a0806" />
+          {/* Ring hex impression */}
+          <polygon
+            points="220,-7 226,-3.5 226,3.5 220,7 214,3.5 214,-3.5"
+            fill="none" stroke="#2a2018" strokeWidth="0.7"
+          />
+          {/* Open-end jaw */}
+          <path
+            d="M -18 -8 L 0 -8 L 0 -3 L -6 -3 L -6 3 L 0 3 L 0 8 L -18 8 L -18 4 L -6 4 L -6 -4 L -18 -4 Z"
+            fill="#1a1510" stroke="#3a2514" strokeWidth="0.8"
+          />
+          {/* Subtle highlight on shaft */}
+          <rect x="20" y="-3" width="180" height="1.5" fill="#3a2e24" opacity="0.5" />
         </g>
 
-        {/* Hook above the wrench */}
+        {/* Hook above the spanner */}
         <g transform="translate(420 240)">
           <circle cx="0" cy="0" r="3" fill="#5a4430" />
-          <line x1="0" y1="0" x2="0" y2="-12" stroke="#5a4430" strokeWidth="1.2" />
+          <line x1="0" y1="0" x2="0" y2="-14" stroke="#5a4430" strokeWidth="1.4" />
+        </g>
+
+        {/* Second tool — Allen key set hanging on right wall, adds depth */}
+        <g transform="translate(1380 380) rotate(-20)" opacity="0.38">
+          {/* L-bar handle */}
+          <rect x="-8" y="-3" width="70" height="6" rx="2" fill="#1a1510" stroke="#3a2514" strokeWidth="0.6" />
+          <rect x="-8" y="-3" width="6" height="36" rx="2" fill="#1a1510" stroke="#3a2514" strokeWidth="0.6" />
+        </g>
+        <g transform="translate(1380 360)">
+          <circle cx="0" cy="0" r="2.5" fill="#4a3828" />
         </g>
 
         {/* Plaster grain overlay */}

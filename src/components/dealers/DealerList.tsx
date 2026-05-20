@@ -7,6 +7,7 @@ interface DealerListProps {
   dealers: Dealer[]
   onDealerClick: (dealer: Dealer) => void
   isLoading: boolean
+  distanceMap?: Map<string, number> | null
 }
 
 // ─── Skeleton card ────────────────────────────────────────────────────────────
@@ -115,7 +116,7 @@ function EmptyState() {
 
 // ─── DealerList ───────────────────────────────────────────────────────────────
 
-export function DealerList({ dealers, onDealerClick, isLoading }: DealerListProps) {
+export function DealerList({ dealers, onDealerClick, isLoading, distanceMap }: DealerListProps) {
   const count = dealers.length
 
   return (
@@ -216,7 +217,11 @@ export function DealerList({ dealers, onDealerClick, isLoading }: DealerListProp
         ) : (
           dealers.map((dealer) => (
             <div key={dealer.id} role="listitem">
-              <DealerCard dealer={dealer} onClick={() => onDealerClick(dealer)} />
+              <DealerCard
+                  dealer={dealer}
+                  onClick={() => onDealerClick(dealer)}
+                  distanceKm={distanceMap?.get(dealer.id) ?? null}
+                />
             </div>
           ))
         )}

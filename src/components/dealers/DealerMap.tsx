@@ -8,17 +8,12 @@ import type { Dealer } from '@/lib/types'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-interface BoundsRect {
-  south: number
-  north: number
-  west: number
-  east: number
-}
-
 interface DealerMapProps {
   dealers: Dealer[]
-  onBoundsChange: (bounds: BoundsRect) => void
-  isLoading: boolean
+  selectedDealer?: Dealer | null
+  userLocation: [number, number] | null
+  locateState: 'idle' | 'loading' | 'denied' | 'unavailable'
+  onLocateMe: () => void
 }
 
 // [west, south, east, north] — supercluster format
@@ -32,9 +27,8 @@ interface DealerPoint {
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
-const MIN_OVERPASS_ZOOM = 6    // only call Overpass when zoomed in enough
-const SC_MAX_ZOOM       = 16   // supercluster stops clustering above this
-const SC_RADIUS         = 55   // clustering radius in pixels
+const SC_MAX_ZOOM = 16   // supercluster stops clustering above this
+const SC_RADIUS   = 55   // clustering radius in pixels
 
 // ─── Map-ref capture (gives non-hook code access to the Leaflet map) ──────────
 
@@ -48,10 +42,8 @@ function MapRefCapture({ mapRef }: { mapRef: React.MutableRefObject<ReturnType<t
 
 function ViewportWatcher({
   onViewport,
-  onOverpassBounds,
 }: {
   onViewport: (bounds: SCBounds, zoom: number) => void
-  onOverpassBounds: (bounds: BoundsRect) => void
 }) {
   const map = useMapEvents({
     moveend: emit,
@@ -65,12 +57,6 @@ function ViewportWatcher({
       [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()],
       zoom,
     )
-    if (zoom >= MIN_OVERPASS_ZOOM) {
-      onOverpassBounds({
-        south: b.getSouth(), north: b.getNorth(),
-        west:  b.getWest(),  east:  b.getEast(),
-      })
-    }
   }
 
   useEffect(() => {
@@ -155,39 +141,39 @@ function DealerPopup({ dealer }: { dealer: Dealer }) {
         fontFamily:   'var(--font-body, system-ui, sans-serif)',
         minWidth:     '160px',
         maxWidth:     '260px',
-        background:   '#1F1F1F',
+        background:   'var(--bg-popup)',
         border:       '1px solid rgba(200,150,44,0.22)',
-        borderTop:    '3px solid #B5121B',
+        borderTop:    '3px solid var(--re-red)',
         borderRadius: '4px',
         padding:      '10px 12px',
-        color:        '#F0E6D0',
-        boxShadow:    '0 4px 16px rgba(0,0,0,0.55)',
+        color:        'var(--text-popup)',
+        boxShadow:    '0 4px 16px rgba(0,0,0,0.35)',
       }}
     >
-      <p style={{ fontSize:'13px', fontWeight:700, marginBottom:'4px', lineHeight:1.3, color:'#F0E6D0', fontFamily:'var(--font-display,Georgia,serif)' }}>
+      <p style={{ fontSize:'13px', fontWeight:700, marginBottom:'4px', lineHeight:1.3, color:'var(--text-popup)', fontFamily:'var(--font-display,Georgia,serif)' }}>
         {dealer.name}
       </p>
       {(dealer.address ?? dealer.city) && (
-        <p style={{ fontSize:'11px', color:'#9A8F80', marginBottom:'6px', lineHeight:1.4 }}>
+        <p style={{ fontSize:'11px', color:'var(--text-popup-muted)', marginBottom:'6px', lineHeight:1.4 }}>
           {[dealer.address, dealer.city, dealer.country].filter(Boolean).join(', ')}
         </p>
       )}
       {dealer.phone && (
         <p style={{ fontSize:'11px', marginBottom:'4px' }}>
-          <a href={`tel:${dealer.phone}`} style={{ color:'#C8962C', textDecoration:'none', fontFamily:'var(--font-mono,monospace)', letterSpacing:'0.06em' }}>
+          <a href={`tel:${dealer.phone}`} style={{ color:'var(--re-gold)', textDecoration:'none', fontFamily:'var(--font-mono,monospace)', letterSpacing:'0.06em' }}>
             {dealer.phone}
           </a>
         </p>
       )}
       {dealer.website && (
         <p style={{ fontSize:'11px', marginBottom:'6px' }}>
-          <a href={dealer.website} target="_blank" rel="noopener noreferrer" style={{ color:'#C8962C', textDecoration:'underline', textUnderlineOffset:'2px' }}>
+          <a href={dealer.website} target="_blank" rel="noopener noreferrer" style={{ color:'var(--re-gold)', textDecoration:'underline', textUnderlineOffset:'2px' }}>
             Visit website
           </a>
         </p>
       )}
       {dealer.openingHours && (
-        <p style={{ fontSize:'10px', color:'#5A5248', marginBottom:'6px', fontFamily:'var(--font-mono,monospace)' }}>
+        <p style={{ fontSize:'10px', color:'var(--text-muted)', marginBottom:'6px', fontFamily:'var(--font-mono,monospace)' }}>
           {dealer.openingHours}
         </p>
       )}
@@ -200,11 +186,7 @@ function DealerPopup({ dealer }: { dealer: Dealer }) {
 
 // ─── DealerMap ────────────────────────────────────────────────────────────────
 
-export default function DealerMap({ dealers, onBoundsChange, isLoading }: DealerMapProps) {
-  const [userLocation, setUserLocation] = useState<[number, number] | null>(null)
-  const [locateState, setLocateState]   = useState<'idle' | 'loading' | 'denied' | 'unavailable'>('idle')
-  const [located, setLocated]           = useState(false)
-
+export default function DealerMap({ dealers, selectedDealer, userLocation, locateState, onLocateMe }: DealerMapProps) {
   // Viewport state — drives clustering
   const [viewportBounds, setViewportBounds] = useState<SCBounds | null>(null)
   const [mapZoom, setMapZoom]               = useState(3)
@@ -262,44 +244,55 @@ export default function DealerMap({ dealers, onBoundsChange, isLoading }: Dealer
     setMapZoom(zoom)
   }, [])
 
-  // ── Locate me ────────────────────────────────────────────────────────────
+  const locError = locateState === 'denied' || locateState === 'unavailable'
 
-  const handleLocateMe = useCallback(() => {
-    if (!navigator.geolocation) { setLocateState('unavailable'); return }
-    setLocateState('loading')
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setUserLocation([pos.coords.latitude, pos.coords.longitude])
-        setLocateState('idle')
-        setLocated(true)
-      },
-      (err) => {
-        setLocateState(err.code === err.PERMISSION_DENIED ? 'denied' : 'unavailable')
-        setTimeout(() => setLocateState('idle'), 4000)
-      },
-      { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
-    )
+  // Derive the fly-to target for a selected dealer (changes when selectedDealer changes)
+  const selectedCenter = useMemo<[number, number] | null>(
+    () => (selectedDealer ? [selectedDealer.lat, selectedDealer.lng] : null),
+    [selectedDealer]
+  )
+
+  // Swap CARTO basemap by theme. Read the DOM class synchronously on mount so
+  // the correct tile URL is used on the very first render (the useTheme hook
+  // initialises as 'dark', so relying on it causes a flash of dark tiles in
+  // light mode). A MutationObserver keeps isLight in sync when the user
+  // toggles the theme at runtime; the `key` on TileLayer forces a full
+  // remount when the value changes so Leaflet actually fetches the new tiles.
+  const [isLight, setIsLight] = useState(() =>
+    typeof document !== 'undefined' && !document.documentElement.classList.contains('dark')
+  )
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsLight(!document.documentElement.classList.contains('dark'))
+    })
+    observer.observe(document.documentElement, { attributeFilter: ['class'] })
+    return () => observer.disconnect()
   }, [])
 
-  const locError = locateState === 'denied' || locateState === 'unavailable'
+  const tileUrl = isLight
+    ? 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+    : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
       <MapContainer center={[20, 0]} zoom={3} style={{ width: '100%', height: '100%' }} attributionControl>
         <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+          key={isLight ? 'light' : 'dark'}
+          url={tileUrl}
+          className="map-tiles"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OSM</a> &copy; <a href="https://carto.com/" target="_blank" rel="noopener noreferrer">CARTO</a>'
         />
 
         <MapRefCapture mapRef={mapRef} />
         <FlyTo center={userLocation} zoom={12} />
-        <ViewportWatcher onViewport={handleViewport} onOverpassBounds={onBoundsChange} />
+        <FlyTo center={selectedCenter} zoom={14} />
+        <ViewportWatcher onViewport={handleViewport} />
 
         {/* User location pin */}
         {userLocation && (
           <Marker position={userLocation} icon={userIcon}>
             <Popup className="re-dealer-popup">
-              <div style={{ fontFamily:'var(--font-mono,monospace)', fontSize:'11px', letterSpacing:'0.1em', textTransform:'uppercase', color:'#F0E6D0', background:'#1F1F1F', border:'1px solid rgba(200,150,44,0.22)', borderRadius:'4px', padding:'8px 12px', boxShadow:'0 4px 16px rgba(0,0,0,0.55)' }}>
+              <div style={{ fontFamily:'var(--font-mono,monospace)', fontSize:'11px', letterSpacing:'0.1em', textTransform:'uppercase', color:'var(--text-popup)', background:'var(--bg-popup)', border:'1px solid rgba(200,150,44,0.22)', borderRadius:'4px', padding:'8px 12px', boxShadow:'0 4px 16px rgba(0,0,0,0.35)' }}>
                 Your location
               </div>
             </Popup>
@@ -346,7 +339,7 @@ export default function DealerMap({ dealers, onBoundsChange, isLoading }: Dealer
 
       {/* ── Locate Me button ─────────────────────────────────────────────── */}
       <button
-        onClick={handleLocateMe}
+        onClick={onLocateMe}
         disabled={locateState === 'loading'}
         aria-label="Find dealers near my location"
         className="re-locate-btn"
@@ -355,30 +348,28 @@ export default function DealerMap({ dealers, onBoundsChange, isLoading }: Dealer
           transform: 'translateX(-50%)', zIndex: 1000,
           minHeight: '48px', display: 'flex', alignItems: 'center', gap: '10px',
           padding: '0 20px',
-          background:    locError ? 'rgba(181,18,27,0.12)' : '#1F1F1F',
+          background:    locError ? 'rgba(181,18,27,0.12)' : 'var(--bg-popup)',
           border:        locError ? '1px solid rgba(181,18,27,0.45)' : '1px solid rgba(200,150,44,0.35)',
           borderRadius:  '8px',
           cursor:        locateState === 'loading' ? 'wait' : 'pointer',
           boxShadow:     locError
-                           ? '0 4px 20px rgba(181,18,27,0.25),0 2px 8px rgba(0,0,0,0.4)'
-                           : '0 4px 20px rgba(0,0,0,0.5),0 0 15px rgba(200,150,44,0.08)',
+                           ? '0 4px 20px rgba(181,18,27,0.25),0 2px 8px rgba(0,0,0,0.3)'
+                           : '0 4px 20px rgba(0,0,0,0.3),0 0 15px rgba(200,150,44,0.08)',
           backdropFilter: 'blur(6px)',
-          transition:    'all 0.4s ease, opacity 0.6s ease',
-          opacity:       located ? 0.45 : 1,
-          pointerEvents: located ? 'none' : 'auto',
+          transition:    'all 0.2s ease',
         }}
       >
         <span aria-hidden="true" style={{ display:'flex', alignItems:'center', flexShrink:0, width:'24px', height:'24px' }}>
           {locateState === 'loading' ? (
             <span style={{ display:'inline-block', width:'20px', height:'20px', border:'2px solid rgba(200,150,44,0.2)', borderTop:'2px solid #C8962C', borderRadius:'50%', animation:'spin 0.8s linear infinite' }} />
           ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={locateState === 'idle' && !located ? 'neon-logo-gold' : undefined} style={{ filter: locError ? 'drop-shadow(0 0 4px rgba(181,18,27,0.5))' : undefined }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={locateState === 'idle' ? 'neon-logo-gold' : undefined} style={{ filter: locError ? 'drop-shadow(0 0 4px rgba(181,18,27,0.5))' : undefined }}>
               <circle cx="12" cy="12" r="10.5" stroke={locError ? '#B5121B' : '#C8962C'} strokeWidth="1.5" fill="none" />
               <text x="12" y="16" textAnchor="middle" fill={locError ? '#B5121B' : '#C8962C'} fontSize="10" fontWeight="700" fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.5">RE</text>
             </svg>
           )}
         </span>
-        <span style={{ fontFamily:'var(--font-mono,monospace)', fontSize:'12px', fontWeight:600, letterSpacing:'0.16em', textTransform:'uppercase', color: locError ? '#B5121B' : '#F0E6D0', whiteSpace:'nowrap', lineHeight:1 }}>
+        <span style={{ fontFamily:'var(--font-mono,monospace)', fontSize:'12px', fontWeight:600, letterSpacing:'0.16em', textTransform:'uppercase', color: locError ? 'var(--re-red)' : 'var(--text-popup)', whiteSpace:'nowrap', lineHeight:1 }}>
           {locateState === 'loading' ? 'Locating\u2026' : locateState === 'denied' ? 'Location denied' : locateState === 'unavailable' ? 'Unavailable' : 'Locate me'}
         </span>
       </button>
@@ -387,16 +378,6 @@ export default function DealerMap({ dealers, onBoundsChange, isLoading }: Dealer
       {locateState === 'denied'      && <div className="re-map-toast">Location permission denied — pan the map manually</div>}
       {locateState === 'unavailable' && <div className="re-map-toast">Location unavailable — pan the map manually</div>}
 
-      {/* ── Loading overlay ───────────────────────────────────────────────── */}
-      {isLoading && (
-        <div aria-label="Loading dealers" aria-live="polite" style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', background:'rgba(17,17,17,0.55)', backdropFilter:'blur(2px)', zIndex:1000, pointerEvents:'none' }}>
-          <div style={{ display:'flex', alignItems:'center', gap:'10px', background:'#1F1F1F', border:'1px solid rgba(200,150,44,0.22)', borderRadius:'6px', padding:'10px 16px', boxShadow:'0 4px 20px rgba(0,0,0,0.5)' }}>
-            <span aria-hidden="true" style={{ display:'inline-block', width:'16px', height:'16px', border:'2px solid rgba(200,150,44,0.2)', borderTop:'2px solid #C8962C', borderRadius:'50%', animation:'spin 0.8s linear infinite' }} />
-            <span style={{ fontSize:'11px', fontFamily:'var(--font-mono,monospace)', letterSpacing:'0.14em', textTransform:'uppercase', color:'#9A8F80' }}>Loading dealers</span>
-          </div>
-        </div>
-      )}
-
       <style>{`
         .dealer-cluster-icon { background: transparent !important; border: none !important; }
         .dealer-marker       { background: transparent !important; border: none !important; }
@@ -404,15 +385,15 @@ export default function DealerMap({ dealers, onBoundsChange, isLoading }: Dealer
         .re-dealer-popup .leaflet-popup-content { margin:0; }
         .re-dealer-popup .leaflet-popup-tip-container { display:none; }
         .leaflet-attribution-flag { display:none !important; }
-        .leaflet-control-zoom a { background:#1F1F1F !important; color:#C8962C !important; border-color:rgba(200,150,44,0.18) !important; }
-        .leaflet-control-zoom a:hover { background:#2A2A2A !important; }
-        .leaflet-control-attribution { background:rgba(17,17,17,0.85) !important; color:#5A5248 !important; font-size:9px !important; backdrop-filter:blur(4px); }
-        .leaflet-control-attribution a { color:#9A8F80 !important; }
+        .leaflet-control-zoom a { background:var(--bg-popup) !important; color:var(--re-gold) !important; border-color:var(--border) !important; }
+        .leaflet-control-zoom a:hover { background:var(--bg-popup-hover) !important; }
+        .leaflet-control-attribution { background:var(--bg-header) !important; color:var(--text-muted) !important; font-size:9px !important; backdrop-filter:blur(4px); }
+        .leaflet-control-attribution a { color:var(--text-secondary) !important; }
         @media (max-width:480px) { .leaflet-control-attribution { max-width:200px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } }
-        .re-locate-btn:hover:not(:disabled) { background:#2A2A2A !important; border-color:rgba(200,150,44,0.55) !important; box-shadow:0 4px 24px rgba(0,0,0,0.55),0 0 20px rgba(200,150,44,0.15) !important; }
+        .re-locate-btn:hover:not(:disabled) { background:var(--bg-popup-hover) !important; border-color:rgba(200,150,44,0.55) !important; box-shadow:0 4px 24px rgba(0,0,0,0.35),0 0 20px rgba(200,150,44,0.15) !important; }
         .re-locate-btn:active:not(:disabled) { transform:translateX(-50%) scale(0.97) !important; }
-        .re-locate-btn:focus-visible { outline:2px solid #C8962C; outline-offset:3px; }
-        .re-map-toast { position:absolute; top:10px; left:50%; transform:translateX(-50%); z-index:1000; background:rgba(31,31,31,0.92); border:1px solid rgba(181,18,27,0.35); border-radius:6px; padding:8px 16px; box-shadow:0 4px 16px rgba(0,0,0,0.5); backdrop-filter:blur(4px); font-family:var(--font-mono,monospace); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#9A8F80; pointer-events:none; animation:toastFade 4s ease-in-out forwards; }
+        .re-locate-btn:focus-visible { outline:2px solid var(--re-gold); outline-offset:3px; }
+        .re-map-toast { position:absolute; top:10px; left:50%; transform:translateX(-50%); z-index:1000; background:var(--bg-popup); border:1px solid rgba(181,18,27,0.35); border-radius:6px; padding:8px 16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); backdrop-filter:blur(4px); font-family:var(--font-mono,monospace); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-secondary); pointer-events:none; animation:toastFade 4s ease-in-out forwards; }
         @keyframes toastFade { 0%,70% { opacity:1; } 100% { opacity:0; } }
         @keyframes spin { to { transform:rotate(360deg); } }
       `}</style>

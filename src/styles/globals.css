@@ -62,6 +62,7 @@
   --bg-footer:      var(--re-concrete);    /* darker than body — floor level */
 
   --text-primary:   #1A1410;
+  --text-heading:   #1A1410;   /* large display headings — full dark in light mode */
   --text-secondary: #4A4238;
   --text-muted:     #7A7060;
   --border:         rgba(100, 80, 40, 0.28);
@@ -74,6 +75,18 @@
   --urgency-good:   #166534;
   --urgency-soon:   #92400e;
   --urgency-over:   var(--re-red);
+
+  /* ── Component surface tokens (light) ───────────────────────────────── */
+  --bg-header:          rgba(232, 220, 196, 0.94);   /* warm cream glass header */
+  --bg-header-stripe:   rgba(0, 0, 0, 0.04);          /* subtle panel lines */
+  --bg-popup:           #F2EAD4;                       /* map popup, toasts */
+  --bg-popup-hover:     #E8DEC4;
+  --bg-bulletin-board:  #C4B896;                       /* aged cork surface */
+  --bg-section-label:   rgba(100, 80, 40, 0.08);      /* section-label-rule badge */
+  --bg-book-table:      #5C3A18;                       /* walnut reading table (warm mid-brown) */
+  --text-popup:         var(--text-primary);
+  --text-popup-muted:   var(--text-muted);
+  --border-header:      rgba(200, 150, 44, 0.22);
 }
 
 .dark {
@@ -86,6 +99,7 @@
 
   /* Text — warm, never stark white. */
   --text-primary:   #F0E6D0;
+  --text-heading:   #F0E6D0;   /* large display headings — cream on dark */
   --text-secondary: #9A8F80;
   --text-muted:     #5A5248;
 
@@ -101,6 +115,18 @@
   --urgency-good:   #22c55e;
   --urgency-soon:   #E6A817;
   --urgency-over:   #FF4D4D;
+
+  /* ── Component surface tokens (dark) ────────────────────────────────── */
+  --bg-header:          rgba(15, 15, 15, 0.94);
+  --bg-header-stripe:   rgba(255, 255, 255, 0.015);
+  --bg-popup:           #1F1F1F;
+  --bg-popup-hover:     #2A2A2A;
+  --bg-bulletin-board:  #1a1511;
+  --bg-section-label:   rgba(26, 21, 17, 0.6);
+  --bg-book-table:      #0E0600;
+  --text-popup:         #F0E6D0;
+  --text-popup-muted:   #9A8F80;
+  --border-header:      rgba(200, 150, 44, 0.18);
 }
 
 /* ─── Base ────────────────────────────────────────────────────────────────── */
@@ -140,6 +166,7 @@ h1, h2, h3, h4 {
   line-height: 1.15;
   letter-spacing: var(--ls-heading);
   font-weight: 700;
+  color: var(--text-heading);
 }
 
 code, .spec-value {
@@ -182,20 +209,9 @@ code, .spec-value {
   animation: splashFade 2.2s ease-in-out forwards;
 }
 
-.splash-ring {
-  stroke-dasharray: 502;
-  stroke-dashoffset: 502;
-  animation: ringExpand 1.4s ease-out 0.2s forwards;
-}
-
 @keyframes splashFade {
   0%, 65%  { opacity: 1; pointer-events: all; }
   100%     { opacity: 0; pointer-events: none; }
-}
-
-@keyframes ringExpand {
-  0%   { stroke-dashoffset: 502; }
-  100% { stroke-dashoffset: 0; }
 }
 
 /* ─── Gauge ───────────────────────────────────────────────────────────────── */
@@ -234,7 +250,7 @@ code, .spec-value {
 
 /* ─── Garage wall texture ─────────────────────────────────────────────────── */
 .garage-wall {
-  background-color: var(--re-black);
+  background-color: var(--bg);
   background-image:
     /* Subtle vertical panel lines — 40px pitch */
     repeating-linear-gradient(
@@ -398,9 +414,9 @@ code, .spec-value {
 }
 
 .header-nav-btn:hover {
-  color: var(--re-cream) !important;
+  color: var(--text-primary) !important;
   border-color: var(--border) !important;
-  background: rgba(255, 255, 255, 0.04) !important;
+  background: var(--bg-surface) !important;
 }
 
 .header-nav-ghost:hover {
@@ -460,7 +476,6 @@ code, .spec-value {
 /* ─── Reduced Motion ──────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .splash-container { animation: none; }
-  .splash-ring      { animation: none; stroke-dashoffset: 0; }
   .gauge-fill       { transition: none; }
   .gauge-needle     { transition: none; }
   .neon-logo        { animation: none; }
@@ -589,7 +604,7 @@ code, .spec-value {
 
 .torque-table td {
   padding: 5px 8px 5px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid var(--border-subtle);
   vertical-align: top;
   font-family: var(--font-body), system-ui, sans-serif;
   color: var(--text-secondary);
@@ -761,7 +776,7 @@ code, .spec-value {
  */
 .bulletin-board {
   position: relative;
-  background-color: #1a1511;
+  background-color: var(--bg-bulletin-board);
   background-image:
     /* Fine cork grain — two layers of radial dots */
     radial-gradient(circle at 20% 30%, rgba(196, 151, 90, 0.04) 0.5px, transparent 1px),
@@ -784,6 +799,88 @@ code, .spec-value {
   background-size: 8px 8px, 6px 6px, 10px 10px, 100% 100%, 100% 100%;
   border-top: 1px solid rgba(196, 151, 90, 0.25);
   border-bottom: 1px solid rgba(196, 151, 90, 0.15);
+}
+
+/*
+ * Bulletin hero image — real <img> element, full natural width.
+ *
+ * The source PNG is dark-field (cream linework on black, amber accent).
+ * In light mode we invert + hue-rotate + sepia the image to recover warm
+ * parchment tones. In dark mode it renders as generated.
+ *
+ * .bulletin-hero-wrap  — relative container that anchors the gradient scrim
+ *                        and the absolutely-positioned text overlay.
+ * .bulletin-hero-img   — the <img> itself; block/100% width, auto height.
+ * ::after on wrap      — gradient scrim: transparent → cork colour at bottom,
+ *                        so the image dissolves into the board with no hard edge.
+ */
+
+/* ── Image container ──────────────────────────────────────────────────────── */
+.bulletin-hero-wrap {
+  position: relative;
+  width: 100%;
+  /* No max-height on desktop — show the full image */
+  overflow: hidden;
+}
+
+/* ── The image itself ─────────────────────────────────────────────────────── */
+.bulletin-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Light mode: invert dark field, recover warm amber/gold tones */
+  filter: invert(1) hue-rotate(180deg) sepia(35%) saturate(1.5);
+}
+.dark .bulletin-hero-img {
+  filter: none;
+}
+
+/* ── Dissolve gradient — sits above the image, below the text overlay ─────── */
+.bulletin-hero-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 30%,
+    rgba(196, 151, 90, 0.25) 55%,
+    var(--bg-bulletin-board) 80%,
+    var(--bg-bulletin-board) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Text overlay — sits on top of both image and gradient ───────────────── */
+.bulletin-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(20px, 3vw, 44px) clamp(20px, 3vw, 40px);
+  /* Left-side scrim so text is readable against any image content */
+  background: linear-gradient(
+    to right,
+    rgba(10, 8, 4, 0.72) 0%,
+    rgba(10, 8, 4, 0.45) 50%,
+    transparent 100%
+  );
+}
+
+/* ── Mobile: cap the image height so it doesn't dominate before the cards ── */
+@media (max-width: 639px) {
+  .bulletin-hero-wrap {
+    max-height: 320px;
+  }
+  .bulletin-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 /* Individual pinned notice — paper on cork */
@@ -1200,7 +1297,7 @@ code, .spec-value {
   padding: 2px 10px;
   border: 1px solid rgba(200, 150, 44, 0.28);
   border-radius: 2px;
-  background: rgba(26, 21, 17, 0.6);
+  background: var(--bg-section-label);
   white-space: nowrap;
 }
 
@@ -1220,7 +1317,7 @@ code, .spec-value {
   align-items: center;
   justify-content: center;
   padding: clamp(20px, 6vw, 64px) clamp(40px, 5vw, 72px);
-  background-color: #0E0600;
+  background-color: var(--bg-book-table);
   background-image:
     /* Fine wood grain — diagonal lines at two pitches */
     repeating-linear-gradient(
@@ -1859,4 +1956,163 @@ code, .spec-value {
   .book-open--backward {
     animation: none;
   }
+}
+
+/* ─── Light mode overrides ──────────────────────────────────────────────────
+ * These rules run when the .dark class is NOT on <html>. They patch
+ * components whose base styles hard-wire dark surfaces or textures that
+ * look wrong in light mode.
+ *
+ * Convention: keep each override scoped to html:not(.dark) so it has no
+ * effect in dark mode, and so it wins the same specificity fight as the
+ * component class it overrides.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+/* Garage wall — swap the dark panel-line stripes to subtle ink lines */
+html:not(.dark) .garage-wall {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 38px,
+      rgba(0, 0, 0, 0.04) 38px,
+      rgba(0, 0, 0, 0.04) 40px
+    ),
+    repeating-linear-gradient(
+      160deg,
+      transparent 0px,
+      transparent 6px,
+      rgba(0, 0, 0, 0.018) 6px,
+      rgba(0, 0, 0, 0.018) 7px
+    ),
+    radial-gradient(
+      ellipse 120% 80% at 50% 0%,
+      rgba(200, 150, 44, 0.08) 0%,
+      transparent 60%
+    );
+}
+
+/* Hero image — light mode: invert the dark-workshop photo to feel light.
+ * invert(1) flips darks to lights; hue-rotate(180deg) corrects the amber
+ * rim-lighting back toward warm so we keep a golden, not blue, tone. */
+html:not(.dark) .hero-bg-img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Hero gradient overlays — show only the correct layer per mode */
+/* Dark mode: show the dark gradient, hide the cream one */
+.hero-gradient-light { display: none; }
+html:not(.dark) .hero-gradient-dark { display: none; }
+html:not(.dark) .hero-gradient-light { display: block; }
+
+/* Gauge panel — swap the dark scan-lines and side gradient to light-ink */
+html:not(.dark) .gauge-panel {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(0, 0, 0, 0.025) 3px,
+      rgba(0, 0, 0, 0.025) 4px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.06) 100%
+    );
+}
+
+/* Bulletin board cork — light mode swaps the dark corkboard to a warm
+ * aged-cork tan. The grain dots are darkened for contrast on the warm bg. */
+html:not(.dark) .bulletin-board {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(100, 70, 20, 0.06) 0.5px, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(100, 70, 20, 0.04) 0.5px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(100, 70, 20, 0.03) 0.5px, transparent 1px),
+    radial-gradient(
+      ellipse 120% 80% at 50% 0%,
+      rgba(139, 69, 19, 0.08) 0%,
+      transparent 60%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(100, 70, 20, 0.04) 3px,
+      rgba(100, 70, 20, 0.04) 4px
+    );
+  border-top-color: rgba(100, 70, 20, 0.22);
+  border-bottom-color: rgba(100, 70, 20, 0.12);
+}
+
+/* Book table — light mode shows a mid-warm walnut (token defined in :root) */
+html:not(.dark) .book-table {
+  background-image:
+    repeating-linear-gradient(
+      83deg,
+      transparent 0px, transparent 12px,
+      rgba(20, 10, 0, 0.12) 12px, rgba(20, 10, 0, 0.12) 13px,
+      transparent 13px, transparent 21px,
+      rgba(10, 5, 0, 0.06) 21px, rgba(10, 5, 0, 0.06) 22px
+    ),
+    radial-gradient(
+      ellipse 130% 90% at 50% 40%,
+      #8B5A2B 0%, #6B3A12 45%, #4A2200 100%
+    );
+}
+
+/* Workshop floor (footer) — light mode uses a warm concrete instead of dark */
+html:not(.dark) .workshop-floor {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 158px,
+      rgba(0, 0, 0, 0.025) 158px,
+      rgba(0, 0, 0, 0.025) 160px
+    ),
+    repeating-linear-gradient(
+      155deg,
+      transparent 0px,
+      transparent 5px,
+      rgba(0, 0, 0, 0.012) 5px,
+      rgba(0, 0, 0, 0.012) 6px
+    ),
+    radial-gradient(
+      ellipse 110% 40% at 50% 0%,
+      rgba(200, 150, 44, 0.06) 0%,
+      transparent 60%
+    );
+}
+
+/* Header nav button hover — light mode uses ink-dark text instead of cream */
+html:not(.dark) .header-nav-btn:hover {
+  color: var(--text-primary) !important;
+  background: var(--bg-surface) !important;
+}
+
+/* Tagline — hard-wired to --re-cream in base rule; swap to readable warm-brown in light */
+html:not(.dark) .tagline {
+  color: var(--text-secondary);
+  opacity: 1;
+}
+
+/* Section label badge — gold text on near-transparent cream is too low contrast.
+ * Darken the badge background and border slightly so the gold label reads at AA. */
+html:not(.dark) .section-label-rule span {
+  background: rgba(100, 80, 40, 0.14);
+  border-color: rgba(100, 80, 40, 0.32);
+}
+
+/* Neon logo — suppress the heavy red glow in light mode; keep a subtle tint */
+html:not(.dark) .neon-logo {
+  filter:
+    drop-shadow(0 0 2px rgba(181, 18, 27, 0.3))
+    drop-shadow(0 0 6px rgba(181, 18, 27, 0.15));
+  animation: none;
+}
+html:not(.dark) .neon-logo-gold {
+  animation: none;
 }

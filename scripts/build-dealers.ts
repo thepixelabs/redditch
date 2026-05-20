@@ -34,7 +34,7 @@ interface Dealer {
   phone?: string
   website?: string
   openingHours?: string
-  source: 'osm' | 'curated' | 're-official'
+  source: 'osm' | 'curated' | 're-official' | 'google-places'
 }
 
 interface OverpassElement {
@@ -100,6 +100,16 @@ function loadScrapedDealers(): Dealer[] {
   } catch (err) {
     console.warn('  Failed to read scraped.json:', (err as Error).message)
     return []
+  }
+}
+
+function readScrapedAt(): string | null {
+  try {
+    const raw = readFileSync(scrapedPath, 'utf-8')
+    const data = JSON.parse(raw) as ScrapedJson
+    return data.scraped_at ?? null
+  } catch {
+    return null
   }
 }
 
@@ -202,10 +212,12 @@ function haversineM(lat1: number, lng1: number, lat2: number, lng2: number): num
 // ─── Deduplicate by proximity ────────────────────────────────────────────────
 
 function dedup(dealers: Dealer[]): Dealer[] {
+  // Priority: google-places > re-official > curated > osm
   const sourcePriority: Record<string, number> = {
-    're-official': 0,
-    curated: 1,
-    osm: 2,
+    'google-places': 0,
+    're-official': 1,
+    curated: 2,
+    osm: 3,
   }
 
   // Sort by source priority so higher-priority sources come first
@@ -226,7 +238,7 @@ function dedup(dealers: Dealer[]): Dealer[] {
     for (let j = i + 1; j < sorted.length; j++) {
       if (used.has(j)) continue
       const dist = haversineM(d.lat, d.lng, sorted[j].lat, sorted[j].lng)
-      if (dist < 500) {
+      if (dist < 50) {
         used.add(j)
       }
     }
@@ -256,7 +268,7 @@ async function main() {
   console.log(`OSM: ${osm.length} dealer(s)`)
 
   // 4. Merge all sources and deduplicate
-  // Priority: re-official > curated > osm
+  // Priority: google-places > re-official > curated > osm
   const merged = dedup([...scraped, ...curated, ...osm])
   console.log(`After dedup: ${merged.length} dealer(s)`)
 
@@ -276,6 +288,15 @@ async function main() {
   writeFileSync(join(outDir, 'countries.json'), JSON.stringify(stats, null, 2))
   console.log(`Countries: ${Object.keys(stats).length}`)
   console.log(Object.entries(stats).slice(0, 15).map(([k, v]) => `  ${k}: ${v}`).join('\n'))
+
+  // 7. Freshness meta — read at runtime by DealersClient to gate the map.
+  const meta = {
+    scraped_at: readScrapedAt(),
+    built_at: new Date().toISOString(),
+    total: merged.length,
+  }
+  writeFileSync(join(outDir, 'meta.json'), JSON.stringify(meta, null, 2))
+  console.log(`Meta: ${JSON.stringify(meta)}`)
 }
 
 main().catch((err) => {

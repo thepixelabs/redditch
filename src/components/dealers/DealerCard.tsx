@@ -6,6 +6,7 @@ import { ExternalLink } from '@/components/ui/ExternalLink'
 interface DealerCardProps {
   dealer: Dealer
   onClick?: () => void
+  distanceKm?: number | null
 }
 
 // ─── Source badge ─────────────────────────────────────────────────────────────
@@ -36,7 +37,7 @@ function SourceBadge({ source }: { source: Dealer['source'] }) {
 
 // ─── DealerCard ───────────────────────────────────────────────────────────────
 
-export function DealerCard({ dealer, onClick }: DealerCardProps) {
+export function DealerCard({ dealer, onClick, distanceKm }: DealerCardProps) {
   const locationLine = [dealer.city, dealer.country].filter(Boolean).join(', ')
 
   return (
@@ -113,6 +114,30 @@ export function DealerCard({ dealer, onClick }: DealerCardProps) {
         >
           {locationLine}
         </p>
+      )}
+
+      {/* ── Distance chip ────────────────────────────────────────────────── */}
+      {distanceKm != null && (
+        <span
+          style={{
+            display:       'inline-block',
+            fontSize:      '10px',
+            fontFamily:    'var(--font-mono, monospace)',
+            letterSpacing: '0.08em',
+            padding:       '1px 6px',
+            borderRadius:  '3px',
+            background:    'rgba(200,150,44,0.10)',
+            color:         'var(--re-gold)',
+            border:        '1px solid rgba(200,150,44,0.25)',
+            alignSelf:     'flex-start',
+          }}
+        >
+          {distanceKm < 1
+            ? `${Math.round(distanceKm * 1000)} m`
+            : distanceKm < 10
+              ? `${distanceKm.toFixed(1)} km`
+              : `${Math.round(distanceKm)} km`}
+        </span>
       )}
 
       {/* ── Address ──────────────────────────────────────────────────────── */}

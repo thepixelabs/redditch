@@ -1,10 +1,13 @@
 export const STORAGE_KEYS = {
-  BIKE:    'redditch:bike',
-  ODOMETER:'redditch:odometer',
-  UNIT:    'redditch:unit',
-  THEME:   'redditch:theme',
-  SPLASH:  'redditch:splash-seen',  // sessionStorage
-  PERSONALIZATION: 'redditch:personalization',
+  // v2 multi-bike storage
+  GARAGE:    'redditch:garage',     // GarageEntry[]
+  ACTIVE_ID: 'redditch:active-id', // string — active GarageEntry.id
+  THEME:     'redditch:theme',
+  SERVICE_LOG: 'redditch:log',
+  // v1 legacy (kept for one-time migration read; never written after migration)
+  BIKE:      'redditch:bike',
+  ODOMETER:  'redditch:odometer',
+  UNIT:      'redditch:unit',
 } as const
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://redditch.pixelabs.net'

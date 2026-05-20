@@ -3,17 +3,12 @@
 import { useEffect, useState } from 'react'
 import type { Dealer } from '@/lib/types'
 
-interface BoundsRect {
-  south: number
-  north: number
-  west: number
-  east: number
-}
-
 interface Props {
   dealers: Dealer[]
-  onBoundsChange: (bounds: BoundsRect) => void
-  isLoading: boolean
+  selectedDealer?: Dealer | null
+  userLocation: [number, number] | null
+  locateState: 'idle' | 'loading' | 'denied' | 'unavailable'
+  onLocateMe: () => void
 }
 
 /**

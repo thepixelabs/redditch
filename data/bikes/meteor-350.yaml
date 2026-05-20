@@ -12,6 +12,9 @@ engine:
   spark_plug: NGK DCPR8E
   valve_clearance_intake_mm: "0.10-0.15"
   valve_clearance_exhaust_mm: "0.15-0.20"
+  power_bhp: 20.2
+  torque_nm_peak: 27
+  compression_ratio: 9.5
 
 brakes:
   front_type: 300mm disc, twin-piston caliper
@@ -30,107 +33,169 @@ chain:
   slack_mm: "25-35"
   lubricant: SAE 80/90 gear oil
 
-service_schedule:
-  - interval_km: 500
-    label: Break-in Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        torque_nm: 22
-        tools:
-          - 17mm socket
-          - Oil filter wrench
-          - Drain pan
-        notes: >-
-          Critical first service. Drain warm. 1.8L capacity (1.9L with filter).
-          Torque value is for drain bolt.
-      - name: Chain slack
-        action: adjust
-        notes: "Adjust to 25–35mm free play at mid-point of lower chain run."
-      - name: Nuts and bolts
-        action: inspect
-        notes: "Check all accessible fasteners for loosening after initial heat cycles."
+fuel:
+  capacity_liters: 15
+  reserve_capacity_liters: 2.5
+  consumption_kmpl_range: [35, 42]
 
-  - interval_km: 5000
-    label: Minor Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        torque_nm: 22
-        tools:
-          - 17mm socket
-          - Oil filter wrench
-          - Drain pan
-        notes: "Use SAE 10W-40 API SL / JASO MA2. Drain bolt torque 22 Nm."
-      - name: Air filter
-        action: inspect
-        notes: "Clean with low-pressure air. Replace if fouled or oily."
-      - name: Chain slack
-        action: adjust
-        notes: "Adjust to 25–35mm. Lubricate with SAE 80/90 gear oil after adjustment."
-      - name: Brake pads
-        action: inspect
-        notes: "Check wear indicator. Replace if at or below groove."
-      - name: Throttle cable
-        action: inspect
-        notes: "Free play 2–3mm at grip. Check for smooth operation lock-to-lock."
-      - name: Clutch cable
-        action: adjust
-        notes: "Free play 10–12mm at lever. Adjust at lever-end first."
-      - name: Tires
-        action: inspect
-        notes: "Check tread and sidewalls. Pressures: 28 psi front, 32 psi rear (solo)."
+dimensions:
+  seat_height_mm: 765
+  kerb_weight_kg: 191
+  wheelbase_mm: 1390
+  ground_clearance_mm: 170
 
-  - interval_km: 10000
-    label: Major Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        torque_nm: 22
-        tools:
-          - 17mm socket
-          - Oil filter wrench
-          - Drain pan
-        notes: "Use SAE 10W-40 API SL / JASO MA2."
-      - name: Air filter
-        action: replace
-        notes: "Replace regardless of condition."
-      - name: Spark plug
-        action: replace
-        part_name: NGK DCPR8E
-        torque_nm: 18
-        tools:
-          - 18mm spark plug socket
-          - Torque wrench
-          - Feeler gauge
-        notes: "Gap: 0.7–0.8mm. Torque to 18 Nm. Aluminium head — do not over-torque."
-      - name: Valve clearance
-        action: inspect
-        tools:
-          - Feeler gauge
-          - Torque wrench
-        notes: >-
-          Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm. Check cold.
-          DOHC — cam removal required for shim access.
-      - name: Brake fluid
-        action: replace
-        notes: "DOT 4. Replace every 2 years or 10,000 km. Full system flush."
-      - name: Chain & sprockets
-        action: inspect
-        notes: "Check stretch over 20 links. Replace chain and sprockets together."
+electrical:
+  battery_voltage_v: 12
+  battery_capacity_ah: 9
+  fuse_layout:
+    - label: Main fuse
+      amps: 30
+      location: Fuse box under seat, left side panel
+    - label: Head lamp
+      amps: 10
+    - label: Tail / brake lamp
+      amps: 10
+    - label: Horn / turn signals
+      amps: 10
+    - label: ECU / fuel injection
+      amps: 15
+    - label: Instrument cluster
+      amps: 10
 
-  - interval_km: 20000
-    label: Extended Service
-    tasks:
-      - name: Fork oil
-        action: replace
-        notes: "10W fork oil. Inspect seals and dust wipers while disassembled."
-      - name: Steering head bearing
-        action: inspect
-        notes: "Check for play and notchiness. Re-grease or replace as required."
-      - name: Brake hoses
-        action: inspect
-        notes: "Inspect for cracking or swelling. Replace every 4 years."
+wear_limits:
+  chain_wear_limit_20links_mm: 319
+  brake_pad_thickness_min_mm: 2
+  tire_tread_depth_min_mm: 1.6
+
+tasks:
+  # ── 500 km break-in (one-shot) ─────────────────────────────────────────
+  - id: engine-oil-breakin
+    name: Break-in oil & filter
+    action: replace
+    one_shot_at_km: 500
+    torque_nm: 22
+    tools:
+      - 17mm socket
+      - Oil filter wrench
+      - Drain pan
+    notes: "Critical first service. Drain warm. 1.8L capacity (1.9L with filter). Drain bolt torque 22 Nm."
+
+  - id: chain-slack-breakin
+    name: Break-in chain slack adjustment
+    action: adjust
+    one_shot_at_km: 500
+    notes: "Adjust to 25–35mm free play at mid-point of lower chain run."
+
+  - id: nut-bolt-check-breakin
+    name: Nuts and bolts post-break-in
+    action: inspect
+    one_shot_at_km: 500
+    notes: "Check all accessible fasteners for loosening after initial heat cycles."
+
+  # ── Every 5,000 km ─────────────────────────────────────────────────────
+  - id: engine-oil
+    name: Engine oil & filter
+    action: replace
+    every_km: 5000
+    torque_nm: 22
+    tools:
+      - 17mm socket
+      - Oil filter wrench
+      - Drain pan
+    notes: "Use SAE 10W-40 API SL / JASO MA2. Drain bolt torque 22 Nm."
+
+  - id: chain-slack
+    name: Chain slack
+    action: adjust
+    every_km: 5000
+    notes: "Adjust to 25–35mm. Lubricate with SAE 80/90 gear oil after adjustment."
+
+  - id: brake-pads-check
+    name: Brake pads
+    action: inspect
+    every_km: 5000
+    notes: "Check wear indicator. Replace if at or below groove."
+
+  - id: throttle-cable
+    name: Throttle cable
+    action: inspect
+    every_km: 5000
+    notes: "Free play 2–3mm at grip. Check full sweep for binding."
+
+  - id: clutch-cable
+    name: Clutch cable
+    action: adjust
+    every_km: 5000
+    notes: "Free play 10–12mm at lever. Adjust lever-end first."
+
+  - id: tires-check
+    name: Tires
+    action: inspect
+    every_km: 5000
+    notes: "Check tread and sidewalls. Pressures: 28 psi front, 32 psi rear (solo)."
+
+  # ── Every 10,000 km ────────────────────────────────────────────────────
+  - id: air-filter
+    name: Air filter
+    action: replace
+    every_km: 10000
+    notes: "Replace regardless of condition. Inspect/clean at 5,000 km midpoint."
+
+  - id: spark-plug
+    name: Spark plug
+    action: replace
+    every_km: 10000
+    part_name: NGK DCPR8E
+    torque_nm: 18
+    tools:
+      - 18mm spark plug socket
+      - Torque wrench
+      - Feeler gauge
+    notes: "Gap: 0.7–0.8mm. Torque to 18 Nm. Aluminium head — do not over-torque."
+
+  - id: valve-clearance
+    name: Valve clearance
+    action: inspect
+    every_km: 10000
+    tools:
+      - Feeler gauge
+      - Torque wrench
+    notes: >-
+      Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm. Check cold.
+      DOHC — cam removal required for shim access.
+
+  - id: brake-fluid
+    name: Brake fluid
+    action: replace
+    every_km: 10000
+    every_months: 24
+    notes: "DOT 4. Replace every 2 years or 10,000 km. Full system flush."
+
+  - id: chain-sprockets
+    name: Chain & sprockets
+    action: inspect
+    every_km: 10000
+    notes: "Check stretch over 20 links. Replace chain and sprockets together."
+
+  # ── Every 20,000 km ────────────────────────────────────────────────────
+  - id: fork-oil
+    name: Fork oil
+    action: replace
+    every_km: 20000
+    notes: "10W fork oil. Inspect seals and dust wipers while disassembled."
+
+  - id: steering-head-bearing
+    name: Steering head bearing
+    action: inspect
+    every_km: 20000
+    notes: "Check for play and notchiness. Re-grease or replace as required."
+
+  - id: brake-hoses
+    name: Brake hoses
+    action: inspect
+    every_km: 20000
+    every_months: 48
+    notes: "Inspect for cracking or swelling. Replace every 4 years."
 
 torque_specs:
   - component: Engine oil drain bolt
@@ -152,6 +217,10 @@ torque_specs:
   - component: Handlebar clamp bolts
     torque_nm: 20
 
+manuals:
+  - title: Owner's Manual
+    url: https://www.royalenfield.com/content/dam/royal-enfield/owners-manual/meteor-350.pdf
+
 colors:
   - Fireball Yellow
   - Fireball Red
@@ -167,5 +236,5 @@ accessories:
   - Bar-End Mirrors
 
 meta:
-  last_verified: "2026-04-09"
+  last_verified: "2026-05-15"
   source: "Royal Enfield Meteor 350 Owner's Manual 2021, J-platform service documentation"

@@ -3,7 +3,6 @@ import { Zilla_Slab, Inter, JetBrains_Mono, Caveat } from 'next/font/google'
 import '@/styles/globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { SplashScreen } from '@/components/splash/SplashScreen'
 import { SITE_URL } from '@/lib/constants'
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
@@ -130,7 +129,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to service schedule
         </a>
 
-        <SplashScreen />
         <Header />
 
         <main id="main-content" role="main">

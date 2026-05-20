@@ -88,7 +88,7 @@ export function Footer() {
                 padding: '10px 12px',
                 border: '1px solid var(--border-subtle)',
                 borderRadius: '3px',
-                background: 'rgba(0, 0, 0, 0.35)',
+                background: 'var(--bg-card)',
                 maxWidth: '32ch',
               }}
             >
@@ -98,7 +98,7 @@ export function Footer() {
                   fontSize: '10px',
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  color: 'var(--text-muted)',
+                  color: 'var(--text-secondary)',
                   lineHeight: 1.6,
                   margin: 0,
                 }}
@@ -140,6 +140,11 @@ export function Footer() {
               <li>
                 <Link href="/" className="enamel-link">
                   Garage
+                </Link>
+              </li>
+              <li>
+                <Link href="/dealers" className="enamel-link">
+                  Dealers
                 </Link>
               </li>
               <li>

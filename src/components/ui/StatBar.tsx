@@ -3,7 +3,8 @@
 import { cn } from '@/lib/utils'
 
 interface StatBarProps {
-  bikeName: string
+  bikeName: string     // model name (e.g. "Interceptor 650")
+  nickname?: string    // user's custom name (e.g. "Cool Breeze")
   odometerKm: number
   unit: 'km' | 'mi'
   onChangeBike: () => void
@@ -57,6 +58,7 @@ function EditIcon() {
  */
 export function StatBar({
   bikeName,
+  nickname,
   odometerKm,
   unit,
   onChangeBike,
@@ -67,11 +69,14 @@ export function StatBar({
       ? Math.round(odometerKm / 1.60934).toLocaleString()
       : Math.round(odometerKm).toLocaleString()
 
+  const primaryLabel = nickname || bikeName
+  const subtitleLabel = nickname ? bikeName : null
+
   return (
     <button
       type="button"
       onClick={onChangeBike}
-      aria-label={`Change bike or odometer: currently ${bikeName}, ${displayOdo} ${unit}`}
+      aria-label={`Edit bike or odometer: ${primaryLabel}, ${displayOdo} ${unit}`}
       className={cn(
         // Layout
         'group w-full flex items-center justify-between gap-3 px-4 md:px-6 lg:px-8',
@@ -100,12 +105,22 @@ export function StatBar({
 
       {/* Center — identity */}
       <span className="flex-1 flex items-center justify-center gap-2 md:gap-3 min-w-0">
-        {/* Bike name */}
-        <span
-          className="font-display text-[13px] md:text-[16px] lg:text-[18px] font-semibold text-[var(--text-primary)] truncate"
-          style={{ fontFamily: 'var(--font-display), Georgia, serif' }}
-        >
-          {bikeName}
+        {/* Primary label (nickname if set, else model name) */}
+        <span className="flex flex-col items-center min-w-0">
+          <span
+            className="font-display text-[13px] md:text-[16px] lg:text-[18px] font-semibold text-[var(--text-primary)] truncate"
+            style={{ fontFamily: 'var(--font-display), Georgia, serif' }}
+          >
+            {primaryLabel}
+          </span>
+          {subtitleLabel && (
+            <span
+              className="hidden md:block text-[10px] text-[var(--text-muted)] tracking-wide truncate"
+              style={{ fontFamily: 'var(--font-mono), monospace', letterSpacing: '0.1em' }}
+            >
+              {subtitleLabel}
+            </span>
+          )}
         </span>
 
         {/* Vertical rule separator */}
@@ -119,7 +134,7 @@ export function StatBar({
           {displayOdo}&nbsp;{unit}
         </span>
 
-        {/* "Not your bike?" — appears on hover only, never reads to screen readers */}
+        {/* Hover hint */}
         <span
           className={cn(
             'hidden md:inline-block',
@@ -129,7 +144,7 @@ export function StatBar({
           )}
           aria-hidden="true"
         >
-          Not your bike?
+          Edit
         </span>
       </span>
 

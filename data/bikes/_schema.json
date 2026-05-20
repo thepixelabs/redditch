@@ -4,7 +4,7 @@
   "title": "BikeSpec",
   "description": "Schema for a Royal Enfield motorcycle service specification file",
   "type": "object",
-  "required": ["slug", "name", "manufacturer", "engine", "service_schedule"],
+  "required": ["slug", "name", "manufacturer", "engine", "tasks"],
   "additionalProperties": false,
   "properties": {
     "slug": {
@@ -73,6 +73,176 @@
         "valve_clearance_exhaust_mm": {
           "type": "string",
           "description": "Exhaust valve clearance range in mm, e.g. '0.15-0.20'"
+        },
+        "power_bhp": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Maximum power output in brake horsepower"
+        },
+        "torque_nm_peak": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Peak engine torque in Nm (not per-fastener — use torque_specs for those)"
+        },
+        "compression_ratio": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Engine compression ratio, e.g. 9.5"
+        }
+      }
+    },
+    "fuel": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Fuel system specification",
+      "properties": {
+        "capacity_liters": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Total fuel tank capacity in litres"
+        },
+        "reserve_capacity_liters": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Usable fuel remaining when reserve is activated, in litres"
+        },
+        "consumption_kmpl_range": {
+          "type": "array",
+          "items": { "type": "number", "exclusiveMinimum": 0 },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Real-world fuel economy range [conservative, optimistic] in km/L"
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Key physical dimensions",
+      "properties": {
+        "seat_height_mm": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "description": "Seat height in mm (low position for adjustable seats)"
+        },
+        "seat_height_high_mm": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "description": "Upper seat height in mm for bikes with adjustable seats"
+        },
+        "kerb_weight_kg": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "description": "Kerb weight in kg (with all fluids, ready to ride)"
+        },
+        "wheelbase_mm": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "description": "Wheelbase in mm"
+        },
+        "ground_clearance_mm": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "description": "Minimum ground clearance in mm"
+        }
+      }
+    },
+    "electrical": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Electrical system specification for roadside reference",
+      "properties": {
+        "battery_voltage_v": {
+          "type": "integer",
+          "description": "Battery voltage (12V for all modern RE)"
+        },
+        "battery_capacity_ah": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Battery capacity in amp-hours"
+        },
+        "fuse_layout": {
+          "type": "array",
+          "description": "Key fuse circuits for roadside diagnosis",
+          "items": {
+            "type": "object",
+            "required": ["label", "amps"],
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": "string",
+                "description": "Circuit name"
+              },
+              "amps": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "description": "Fuse rating in amps"
+              },
+              "location": {
+                "type": "string",
+                "description": "Physical location of fuse box or this fuse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "wear_limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Replacement thresholds for wear items",
+      "properties": {
+        "chain_wear_limit_20links_mm": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "description": "Replace chain when 20-link measurement exceeds this value (mm)"
+        },
+        "brake_pad_thickness_min_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Minimum brake pad friction material thickness before replacement (mm)"
+        },
+        "tire_tread_depth_min_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Minimum tire tread depth before replacement (mm)"
+        }
+      }
+    },
+    "known_issues": {
+      "type": "array",
+      "description": "Documented issues, TSBs, and known failure modes for this model",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Stable kebab-case identifier"
+          },
+          "title": {
+            "type": "string",
+            "description": "Short title for the issue"
+          },
+          "affects": {
+            "type": "string",
+            "description": "Which year range or variant is affected"
+          },
+          "description": {
+            "type": "string",
+            "description": "Plain-language description of the issue and what to do"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Link to authoritative source or forum thread"
+          },
+          "date": {
+            "type": "string",
+            "description": "When the issue was documented or reported (ISO date or approximate)"
+          }
         }
       }
     },
@@ -141,66 +311,69 @@
         }
       }
     },
-    "service_schedule": {
+    "tasks": {
       "type": "array",
       "minItems": 1,
-      "description": "Ordered list of service intervals",
+      "description": "Maintenance tasks with per-task cadence (recurring km/months OR one-shot km).",
       "items": {
         "type": "object",
-        "required": ["interval_km", "label", "tasks"],
+        "required": ["id", "name"],
         "additionalProperties": false,
+        "oneOf": [
+          { "required": ["every_km"] },
+          { "required": ["one_shot_at_km"] }
+        ],
         "properties": {
-          "interval_km": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Stable kebab-case identifier. Used as the service-log key — never rename without a migration."
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable task name"
+          },
+          "action": {
+            "type": "string",
+            "enum": ["replace", "inspect", "adjust", "clean", "lubricate", "top_up"],
+            "description": "Type of action to perform"
+          },
+          "every_km": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "description": "Recurring distance interval in km. First occurrence is first_at_km if set, otherwise every_km."
+          },
+          "every_months": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "description": "Optional time interval in months. Currently advisory — surface in notes."
+          },
+          "one_shot_at_km": {
             "type": "integer",
             "minimum": 0,
-            "description": "Odometer interval at which this service is due"
+            "description": "Fires exactly once at this odometer mark. Mutually exclusive with every_km."
           },
-          "label": {
+          "torque_nm": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Torque value in Newton-metres for the relevant fastener"
+          },
+          "part_number": {
             "type": "string",
-            "description": "Human-readable name for this service interval"
+            "description": "OEM or aftermarket part number"
           },
-          "tasks": {
+          "part_name": {
+            "type": "string",
+            "description": "Human-readable part name"
+          },
+          "tools": {
             "type": "array",
-            "minItems": 1,
-            "description": "List of tasks to perform at this service interval",
-            "items": {
-              "type": "object",
-              "required": ["name"],
-              "additionalProperties": false,
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "description": "Name of the service task"
-                },
-                "action": {
-                  "type": "string",
-                  "enum": ["replace", "inspect", "adjust", "clean", "lubricate", "top_up"],
-                  "description": "Type of action to perform"
-                },
-                "torque_nm": {
-                  "type": "number",
-                  "exclusiveMinimum": 0,
-                  "description": "Torque value in Newton-metres for relevant fastener"
-                },
-                "part_number": {
-                  "type": "string",
-                  "description": "OEM or aftermarket part number"
-                },
-                "part_name": {
-                  "type": "string",
-                  "description": "Human-readable part name"
-                },
-                "tools": {
-                  "type": "array",
-                  "items": { "type": "string" },
-                  "description": "List of tools required for this task"
-                },
-                "notes": {
-                  "type": "string",
-                  "description": "Additional guidance or warnings for this task"
-                }
-              }
-            }
+            "items": { "type": "string" },
+            "description": "List of tools required"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional guidance or warnings"
           }
         }
       }

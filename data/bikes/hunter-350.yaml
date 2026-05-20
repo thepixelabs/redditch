@@ -12,6 +12,9 @@ engine:
   spark_plug: NGK DCPR8E
   valve_clearance_intake_mm: "0.10-0.15"
   valve_clearance_exhaust_mm: "0.15-0.20"
+  power_bhp: 20.2
+  torque_nm_peak: 27
+  compression_ratio: 9.5
 
 brakes:
   front_type: 300mm disc, twin-piston caliper
@@ -30,53 +33,92 @@ chain:
   slack_mm: "25-35"
   lubricant: SAE 80/90 gear oil
 
-service_schedule:
-  - interval_km: 500
-    label: Break-in Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        torque_nm: 22
-        notes: "Break-in oil change. Drain warm. 1.8L capacity (1.9L with filter)."
-      - name: Chain slack
-        action: adjust
-        notes: "Adjust to 25–35mm free play."
+fuel:
+  capacity_liters: 13
+  reserve_capacity_liters: 2.5
+  consumption_kmpl_range: [38, 45]
 
-  - interval_km: 5000
-    label: Minor Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        torque_nm: 22
-        notes: "SAE 10W-40 API SL / JASO MA2."
-      - name: Air filter
-        action: inspect
-        notes: "Clean or replace if fouled."
-      - name: Chain slack
-        action: adjust
-        notes: "Adjust to 25–35mm. Lubricate after adjustment."
-      - name: Tires
-        action: inspect
-        notes: "Pressures: 28 psi front, 32 psi rear (solo)."
+dimensions:
+  seat_height_mm: 790
+  kerb_weight_kg: 181
+  wheelbase_mm: 1370
+  ground_clearance_mm: 150
 
-  - interval_km: 10000
-    label: Major Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        torque_nm: 22
-        notes: "SAE 10W-40 API SL / JASO MA2."
-      - name: Air filter
-        action: replace
-        notes: "Replace at this interval."
-      - name: Spark plug
-        action: replace
-        part_name: NGK DCPR8E
-        torque_nm: 18
-        notes: "Gap: 0.7–0.8mm."
-      - name: Valve clearance
-        action: inspect
-        notes: "Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm. Check cold."
+electrical:
+  battery_voltage_v: 12
+  battery_capacity_ah: 9
+  fuse_layout:
+    - label: Main fuse
+      amps: 30
+      location: Fuse box under seat, left side panel
+    - label: Head lamp
+      amps: 10
+    - label: Tail / brake lamp
+      amps: 10
+    - label: Horn / turn signals
+      amps: 10
+    - label: ECU / fuel injection
+      amps: 15
+    - label: Instrument cluster
+      amps: 10
+
+wear_limits:
+  chain_wear_limit_20links_mm: 319
+  brake_pad_thickness_min_mm: 2
+  tire_tread_depth_min_mm: 1.6
+
+tasks:
+  - id: engine-oil-breakin
+    name: Break-in oil & filter
+    action: replace
+    one_shot_at_km: 500
+    torque_nm: 22
+    notes: "Break-in oil change. Drain warm. 1.8L capacity (1.9L with filter)."
+
+  - id: chain-slack-breakin
+    name: Break-in chain slack adjustment
+    action: adjust
+    one_shot_at_km: 500
+    notes: "Adjust to 25–35mm free play."
+
+  - id: engine-oil
+    name: Engine oil & filter
+    action: replace
+    every_km: 5000
+    torque_nm: 22
+    notes: "SAE 10W-40 API SL / JASO MA2."
+
+  - id: chain-slack
+    name: Chain slack
+    action: adjust
+    every_km: 5000
+    notes: "Adjust to 25–35mm. Lubricate after adjustment."
+
+  - id: tires-check
+    name: Tires
+    action: inspect
+    every_km: 5000
+    notes: "Pressures: 28 psi front, 32 psi rear (solo)."
+
+  - id: air-filter
+    name: Air filter
+    action: replace
+    every_km: 10000
+    notes: "Replace at this interval. Inspect/clean at 5,000 km midpoint if needed."
+
+  - id: spark-plug
+    name: Spark plug
+    action: replace
+    every_km: 10000
+    part_name: NGK DCPR8E
+    torque_nm: 18
+    notes: "Gap: 0.7–0.8mm."
+
+  - id: valve-clearance
+    name: Valve clearance
+    action: inspect
+    every_km: 10000
+    notes: "Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm. Check cold."
 
 torque_specs:
   - component: Engine oil drain bolt
@@ -86,6 +128,10 @@ torque_specs:
     notes: "NGK DCPR8E — gap 0.7–0.8mm."
   - component: Rear axle nut
     torque_nm: 85
+
+manuals:
+  - title: Owner's Manual
+    url: https://www.royalenfield.com/content/dam/royal-enfield/owners-manual/hunter-350.pdf
 
 colors:
   - Rebel Red
@@ -101,5 +147,5 @@ accessories:
   - Sump Guard
 
 meta:
-  last_verified: "2026-04-09"
+  last_verified: "2026-05-15"
   source: "Royal Enfield Hunter 350 Owner's Manual 2022, J-platform service documentation"

@@ -193,7 +193,7 @@ function FeaturedBlock({
           position: 'absolute',
           top: '-10px',
           left: '20px',
-          background: '#0D0D0D',
+          background: 'var(--bg)',
         }}
       >
         {featured.tag ?? 'Featured'}
@@ -302,15 +302,20 @@ interface BulletinBoardProps {
   data: BulletinData
   /** "preview" compresses to 4 cards + skips featured; "full" renders everything */
   mode?: 'preview' | 'full'
-  /** Inline heading text */
+  /** Inline heading text — used by the section-label-rule in preview mode */
   heading?: string
 }
 
 /**
  * Workshop corkboard — featured article + pinned notices grid.
  *
- * Applied as a section inside the homepage and garage sidebar (preview mode),
- * or as the sole content of /bulletin (full mode).
+ * In full mode (/bulletin page): renders a full-width hero image with the
+ * page heading overlaid in the bottom-left corner, then the featured block
+ * and the cards grid. The section-label-rule is suppressed — the h1 in the
+ * image overlay serves as the landmark heading.
+ *
+ * In preview mode (homepage widget): renders the section-label-rule heading
+ * and the first four cards only.
  */
 export function BulletinBoard({
   data,
@@ -324,23 +329,81 @@ export function BulletinBoard({
     <section
       aria-labelledby="bulletin-heading"
       className="bulletin-board"
+      data-board-mode={mode}
       style={{
         position: 'relative',
-        padding: 'clamp(28px, 4vw, 56px) clamp(16px, 3vw, 40px)',
+        padding: isPreview ? 'clamp(28px, 4vw, 56px) clamp(16px, 3vw, 40px)' : '0',
         borderRadius: isPreview ? '4px' : 0,
       }}
     >
+      {/* ── Full mode: hero image with heading overlay ── */}
+      {!isPreview && (
+        <div className="bulletin-hero-wrap">
+          <img
+            src="/images/bulletin/hero.png"
+            alt=""
+            aria-hidden="true"
+            className="bulletin-hero-img"
+          />
+          {/* Text overlay — stamp + h1 + lede pinned to the bottom-left */}
+          <div className="bulletin-hero-overlay">
+            <p
+              className="stamp"
+              style={{ display: 'inline-block', marginBottom: '12px', alignSelf: 'flex-start' }}
+            >
+              Community Notice Board
+            </p>
+            <h1
+              id="bulletin-heading"
+              style={{
+                fontFamily: 'var(--font-display), Georgia, serif',
+                fontSize: 'clamp(2rem, 5vw, 3.4rem)',
+                fontWeight: 800,
+                letterSpacing: '0.01em',
+                lineHeight: 1.1,
+                color: 'var(--re-cream)',
+                margin: '0 0 14px',
+                textShadow: '0 2px 12px rgba(0,0,0,0.6)',
+              }}
+            >
+              Bulletin Board
+            </h1>
+            <p
+              style={{
+                fontFamily: 'var(--font-display), Georgia, serif',
+                fontStyle: 'italic',
+                fontSize: 'clamp(0.95rem, 1.5vw, 1.15rem)',
+                color: 'var(--re-cream)',
+                opacity: 0.82,
+                lineHeight: 1.55,
+                maxWidth: '52ch',
+                margin: 0,
+                textShadow: '0 1px 8px rgba(0,0,0,0.55)',
+              }}
+            >
+              Upcoming rides, technical service bulletins, community events, and
+              updates to the dataset. Pinned by date — most recent on top. Every
+              entry is sourced.
+            </p>
+          </div>
+        </div>
+      )}
+
       <div
         style={{
           position: 'relative',
           zIndex: 1,
           maxWidth: '1280px',
           margin: '0 auto',
+          padding: isPreview ? '0' : 'clamp(28px, 4vw, 56px) clamp(16px, 3vw, 40px)',
         }}
       >
-        <div className="section-label-rule" style={{ marginBottom: 'clamp(20px, 2.5vw, 36px)' }}>
-          <span id="bulletin-heading">{heading}</span>
-        </div>
+        {/* Section-label-rule only in preview mode — full mode uses the h1 overlay */}
+        {isPreview && (
+          <div className="section-label-rule" style={{ marginBottom: 'clamp(20px, 2.5vw, 36px)' }}>
+            <span id="bulletin-heading">{heading}</span>
+          </div>
+        )}
 
         {/* Featured — only in full mode */}
         {!isPreview && data.featured && <FeaturedBlock featured={data.featured} />}

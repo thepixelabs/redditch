@@ -7,23 +7,28 @@ import type { BikeSpec } from './types'
 
 // ─── Zod Schemas ──────────────────────────────────────────────────────────────
 
-const ServiceTaskSchema = z.object({
-  name: z.string(),
-  action: z
-    .enum(['replace', 'inspect', 'adjust', 'clean', 'lubricate', 'top_up'])
-    .optional(),
-  torque_nm: z.number().optional(),
-  part_number: z.string().optional(),
-  part_name: z.string().optional(),
-  tools: z.array(z.string()).optional(),
-  notes: z.string().optional(),
-})
-
-const ServiceIntervalSchema = z.object({
-  interval_km: z.number().int().positive(),
-  label: z.string(),
-  tasks: z.array(ServiceTaskSchema),
-})
+const BikeTaskSchema = z
+  .object({
+    id: z.string().regex(/^[a-z0-9-]+$/, 'id must be kebab-case'),
+    name: z.string(),
+    action: z
+      .enum(['replace', 'inspect', 'adjust', 'clean', 'lubricate', 'top_up'])
+      .optional(),
+    every_km: z.number().int().positive().optional(),
+    every_months: z.number().int().positive().optional(),
+    one_shot_at_km: z.number().int().nonnegative().optional(),
+    torque_nm: z.number().optional(),
+    part_number: z.string().optional(),
+    part_name: z.string().optional(),
+    tools: z.array(z.string()).optional(),
+    notes: z.string().optional(),
+  })
+  .refine(
+    (t) =>
+      (t.every_km != null && t.one_shot_at_km == null) ||
+      (t.every_km == null && t.one_shot_at_km != null),
+    { message: 'task must have exactly one of every_km or one_shot_at_km' },
+  )
 
 const TorqueSpecSchema = z.object({
   component: z.string(),
@@ -84,7 +89,7 @@ const BikeSpecSchema = z.object({
   brakes: BrakesSchema.optional(),
   tires: TiresSchema.optional(),
   chain: ChainSchema.optional(),
-  service_schedule: z.array(ServiceIntervalSchema),
+  tasks: z.array(BikeTaskSchema).min(1),
   torque_specs: z.array(TorqueSpecSchema).optional(),
   manuals: z.array(ManualLinkSchema).optional(),
   meta: BikeMetaSchema.optional(),
@@ -122,13 +127,9 @@ export function getAllBikes(): BikeSpec[] {
 /**
  * Returns a single bike by slug, or throws if not found
  */
-export function getBikeBySlug(slug: string): BikeSpec {
+export function getBikeBySlug(slug: string): BikeSpec | null {
   const bikes = getAllBikes()
-  const bike = bikes.find(b => b.slug === slug)
-  if (!bike) {
-    throw new Error(`Bike not found: ${slug}`)
-  }
-  return bike
+  return bikes.find(b => b.slug === slug) ?? null
 }
 
 /**

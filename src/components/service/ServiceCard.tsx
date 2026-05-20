@@ -2,18 +2,23 @@
 
 import { useState, useCallback } from 'react'
 import * as Collapsible from '@radix-ui/react-collapsible'
-import type { ServiceDue, ServiceTask, UrgencyLevel } from '@/lib/types'
+import type { BucketDue, ServiceDue, UrgencyLevel } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { SpecHighlight } from './SpecHighlight'
 
 interface ServiceCardProps {
-  service: ServiceDue
+  bucket: BucketDue
   defaultOpen?: boolean
   id?: string
+  /** Current odometer reading in km — used when logging completion. */
+  odometerKm: number
+  /** Called when the owner taps "Mark service done" — logs ALL tasks in the bucket. */
+  onMarkBucketDone: (taskIds: string[], atKm: number) => void
+  /** Called for the per-task "Mark this task done" button inside the expanded view. */
+  onMarkTaskDone: (taskId: string, atKm: number) => void
 }
 
 // ─── Action icons ─────────────────────────────────────────────────────────────
-// Inline SVGs — no import overhead, inherits currentColor from wrapper.
 
 function ActionIcon({ action }: { action?: string }) {
   const cls = 'flex-shrink-0 text-[var(--re-gold)]'
@@ -111,8 +116,6 @@ function UrgencyBadge({
   )
 }
 
-// ─── Chevron icon ─────────────────────────────────────────────────────────────
-
 function ChevronIcon({ open }: { open: boolean }) {
   return (
     <svg
@@ -137,7 +140,7 @@ function ChevronIcon({ open }: { open: boolean }) {
   )
 }
 
-// ─── Copy-to-clipboard button ─────────────────────────────────────────────────
+// ─── Copy button (part numbers) ──────────────────────────────────────────────
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false)
@@ -148,7 +151,7 @@ function CopyButton({ text }: { text: string }) {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {
-      // Clipboard API not available — silently ignore
+      /* clipboard unavailable */
     }
   }, [text])
 
@@ -172,14 +175,12 @@ function CopyButton({ text }: { text: string }) {
       style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
     >
       {copied ? (
-        // Checkmark
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" strokeWidth="3" strokeLinecap="round"
           strokeLinejoin="round" aria-hidden="true">
           <polyline points="20 6 9 17 4 12" />
         </svg>
       ) : (
-        // Clipboard
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" strokeWidth="2" strokeLinecap="round"
           strokeLinejoin="round" aria-hidden="true">
@@ -191,10 +192,32 @@ function CopyButton({ text }: { text: string }) {
   )
 }
 
-// ─── Task detail renderer ─────────────────────────────────────────────────────
+// ─── Memory line ─────────────────────────────────────────────────────────────
 
-function TaskDetail({ task, isLast }: { task: ServiceTask; isLast: boolean }) {
-  const torqueLabel = `${task.name.toUpperCase()} TORQUE`
+function relativeDays(iso: string): string {
+  const ms = Date.now() - new Date(iso).getTime()
+  const days = Math.floor(ms / 86_400_000)
+  if (days <= 0) return 'today'
+  if (days === 1) return 'yesterday'
+  if (days < 30) return `${days} days ago`
+  if (days < 365) return `${Math.floor(days / 30)} months ago`
+  return `${Math.floor(days / 365)} years ago`
+}
+
+// ─── Per-task row (inside the expanded bucket) ───────────────────────────────
+
+function TaskRow({
+  taskDue,
+  isLast,
+  odometerKm,
+  onMarkDone,
+}: {
+  taskDue: ServiceDue
+  isLast: boolean
+  odometerKm: number
+  onMarkDone: (taskId: string, atKm: number) => void
+}) {
+  const { task, lastDone } = taskDue
 
   return (
     <div
@@ -203,25 +226,52 @@ function TaskDetail({ task, isLast }: { task: ServiceTask; isLast: boolean }) {
         !isLast && 'border-b border-[var(--border)]',
       )}
     >
-      {/* Task name */}
-      <p
-        className="mb-3 text-[12px] font-bold uppercase tracking-widest text-[var(--text-secondary)]"
-        style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
-      >
-        {task.name}
-      </p>
+      {/* Task name + per-task done button */}
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <p
+          className="text-[12px] font-bold uppercase tracking-widest text-[var(--text-secondary)]"
+          style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+        >
+          {task.name}
+        </p>
+        <button
+          type="button"
+          onClick={(e) => { e.stopPropagation(); onMarkDone(task.id, odometerKm) }}
+          disabled={odometerKm <= 0}
+          className={cn(
+            'flex-shrink-0 px-2.5 py-1 rounded-[3px] min-h-[28px]',
+            'text-[10px] font-bold uppercase tracking-[0.12em]',
+            'border transition-colors duration-150',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--re-gold)]',
+            'disabled:opacity-40 disabled:cursor-not-allowed',
+            'bg-transparent text-[var(--text-secondary)] border-[var(--border-subtle)]',
+            'hover:text-[var(--re-gold)] hover:border-[var(--re-gold-muted)]',
+          )}
+          style={{ fontFamily: 'var(--font-mono), monospace' }}
+          aria-label={`Mark only ${task.name} done`}
+        >
+          Done
+        </button>
+      </div>
 
-      {/* Torque spec — most prominent element */}
+      {lastDone && (
+        <p
+          className="-mt-2 mb-2 text-[11px] text-[var(--text-muted)]"
+          style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+        >
+          Last done: {lastDone.doneAtKm.toLocaleString()} km · {relativeDays(lastDone.doneAt)}
+        </p>
+      )}
+
       {task.torque_nm != null && (
         <div className="mb-3">
           <SpecHighlight
-            label={torqueLabel}
+            label={`${task.name.toUpperCase()} TORQUE`}
             value={`${task.torque_nm} Nm`}
           />
         </div>
       )}
 
-      {/* Part name + number */}
       {(task.part_name ?? task.part_number) && (
         <div className="mb-2 flex flex-wrap items-center gap-x-2 gap-y-1">
           {task.part_name && (
@@ -252,7 +302,6 @@ function TaskDetail({ task, isLast }: { task: ServiceTask; isLast: boolean }) {
         </div>
       )}
 
-      {/* Tools list */}
       {task.tools && task.tools.length > 0 && (
         <div className="mb-2 flex flex-wrap gap-1.5" aria-label="Tools required">
           {task.tools.map((tool) => (
@@ -271,7 +320,6 @@ function TaskDetail({ task, isLast }: { task: ServiceTask; isLast: boolean }) {
         </div>
       )}
 
-      {/* Note block — amber left accent */}
       {task.notes && (
         <div
           className="mt-2 px-3 py-2.5 rounded-r-[4px]"
@@ -293,18 +341,34 @@ function TaskDetail({ task, isLast }: { task: ServiceTask; isLast: boolean }) {
   )
 }
 
-// ─── ServiceCard ──────────────────────────────────────────────────────────────
+// ─── ServiceCard — one card per Minor/Major/Extended bucket ─────────────────
 
-export function ServiceCard({ service, defaultOpen = false, id }: ServiceCardProps) {
+export function ServiceCard({
+  bucket,
+  defaultOpen = false,
+  id,
+  odometerKm,
+  onMarkBucketDone,
+  onMarkTaskDone,
+}: ServiceCardProps) {
   const [open, setOpen] = useState(defaultOpen)
 
+  const recurrenceLine = bucket.one_shot
+    ? `One-time at ${bucket.intervalKm.toLocaleString()} km · ${bucket.tasks.length} ${bucket.tasks.length === 1 ? 'task' : 'tasks'}`
+    : `Every ${bucket.intervalKm.toLocaleString()} km · ${bucket.tasks.length} ${bucket.tasks.length === 1 ? 'task' : 'tasks'}`
+
+  const headerAction = bucket.tasks[0]?.task.action
+
+  const handleBulkDone = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation()
+      onMarkBucketDone(bucket.tasks.map((t) => t.task.id), odometerKm)
+    },
+    [bucket.tasks, odometerKm, onMarkBucketDone],
+  )
+
   return (
-    <Collapsible.Root
-      open={open}
-      onOpenChange={setOpen}
-      id={id}
-    >
-      {/* ── Card shell ───────────────────────────────────────────────────── */}
+    <Collapsible.Root open={open} onOpenChange={setOpen} id={id}>
       <div
         className={cn(
           'rounded-[6px] overflow-hidden',
@@ -312,87 +376,80 @@ export function ServiceCard({ service, defaultOpen = false, id }: ServiceCardPro
           'border border-l-[4px]',
           'shadow-[0_1px_2px_rgba(0,0,0,0.35),0_0_0_1px_rgba(200,150,44,0.04)]',
           'transition-colors duration-150',
-          // Left border urgency coding — visible whether open or closed
-          service.urgency === 'overdue' && 'border-l-[var(--re-red)]',
-          service.urgency === 'soon'    && 'border-l-[var(--re-gold)]',
-          service.urgency === 'good'    && 'border-l-[var(--urgency-good)]',
-          // Full border color when open
-          open
-            ? 'border-[var(--border)]'
-            : 'border-[var(--border-subtle)]',
+          bucket.urgency === 'overdue' && 'border-l-[var(--re-red)]',
+          bucket.urgency === 'soon'    && 'border-l-[var(--re-gold)]',
+          bucket.urgency === 'good'    && 'border-l-[var(--urgency-good)]',
+          open ? 'border-[var(--border)]' : 'border-[var(--border-subtle)]',
         )}
       >
-        {/* ── Trigger / header ─────────────────────────────────────────── */}
         <Collapsible.Trigger asChild>
           <button
             type="button"
             className={cn(
-              // Layout
               'w-full flex flex-col gap-1 px-4 md:px-5 py-3 md:py-4',
               'min-h-[60px] md:min-h-[72px] text-left',
-              // Interaction
               'cursor-pointer select-none',
               'transition-colors duration-150',
               'hover:bg-[var(--bg)] active:brightness-95',
-              // Focus ring — inset so it doesn't overflow the card
               'focus-visible:outline-none focus-visible:ring-2',
               'focus-visible:ring-[var(--re-gold)] focus-visible:ring-inset',
             )}
             aria-expanded={open}
           >
-            {/* Top row: icon + label + badge + chevron */}
             <div className="flex items-center gap-3">
-              <ActionIcon action={service.tasks[0]?.action} />
-
+              <ActionIcon action={headerAction} />
               <span
                 className="flex-1 text-[17px] md:text-[19px] font-bold text-[var(--text-primary)] leading-snug"
                 style={{ fontFamily: 'var(--font-display), Georgia, serif' }}
               >
-                {service.label}
+                {bucket.label}
               </span>
-
-              <UrgencyBadge
-                urgency={service.urgency}
-                kmRemaining={service.kmRemaining}
-              />
-
+              <UrgencyBadge urgency={bucket.urgency} kmRemaining={bucket.kmRemaining} />
               <ChevronIcon open={open} />
             </div>
-
-            {/* Second row: repeat interval */}
             <p
               className="pl-[32px] text-[12px] md:text-[13px] text-[var(--text-secondary)] leading-none"
               style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
             >
-              Every {service.intervalKm.toLocaleString()} km
+              {recurrenceLine}
             </p>
           </button>
         </Collapsible.Trigger>
 
-        {/* ── Expanded content ──────────────────────────────────────────── */}
         <Collapsible.Content
-          // Radix sets data-state="open|closed" and exposes the content height
-          // as --radix-collapsible-content-height for CSS animations.
-          // overflow-hidden clips the content during the height animation.
           className="overflow-hidden data-[state=open]:[animation:collapsibleDown_250ms_ease] data-[state=closed]:[animation:collapsibleUp_250ms_ease]"
         >
-          <div className="px-4 border-t border-[var(--border)]">
-            {service.tasks.length === 0 ? (
-              <p
-                className="py-4 text-[14px] italic text-[var(--text-muted)]"
-                style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+          <div className="px-4 md:px-5 border-t border-[var(--border)]">
+            {bucket.tasks.map((taskDue, idx) => (
+              <TaskRow
+                key={taskDue.task.id}
+                taskDue={taskDue}
+                isLast={idx === bucket.tasks.length - 1}
+                odometerKm={odometerKm}
+                onMarkDone={onMarkTaskDone}
+              />
+            ))}
+
+            {/* Bulk Mark Done — bottom action for the whole service */}
+            <div className="py-4 border-t border-[var(--border)]">
+              <button
+                type="button"
+                onClick={handleBulkDone}
+                disabled={odometerKm <= 0}
+                className={cn(
+                  'w-full min-h-[44px] px-4 rounded-[4px]',
+                  'text-[13px] font-bold uppercase tracking-[0.14em]',
+                  'transition-colors duration-150',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--re-gold)]',
+                  'disabled:opacity-50 disabled:cursor-not-allowed',
+                  'bg-[var(--re-gold)] text-[var(--re-black)] hover:brightness-110 active:brightness-95',
+                )}
+                style={{ fontFamily: 'var(--font-mono), monospace' }}
+                aria-label={`Mark all ${bucket.tasks.length} tasks in ${bucket.label} done at ${odometerKm.toLocaleString()} km`}
               >
-                No additional tasks for this interval.
-              </p>
-            ) : (
-              service.tasks.map((task, idx) => (
-                <TaskDetail
-                  key={`${task.name}-${idx}`}
-                  task={task}
-                  isLast={idx === service.tasks.length - 1}
-                />
-              ))
-            )}
+                Mark whole service done at {odometerKm.toLocaleString()} km
+              </button>
+            </div>
           </div>
         </Collapsible.Content>
       </div>

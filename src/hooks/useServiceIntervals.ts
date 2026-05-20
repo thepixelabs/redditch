@@ -1,14 +1,19 @@
 'use client'
 import { useMemo } from 'react'
-import { calculateServiceDue } from '@/lib/service-calculator'
-import type { ServiceInterval, ServiceDue } from '@/lib/types'
+import { calculateBucketDue } from '@/lib/service-calculator'
+import type { BikeTask, BucketDue, ServiceLogEntry } from '@/lib/types'
 
+/**
+ * Returns one BucketDue per Minor/Major/Extended/Break-in service group,
+ * sorted by urgency (overdue first) then by smallest kmRemaining.
+ */
 export function useServiceIntervals(
-  schedule: ServiceInterval[],
-  odometerKm: number
-): ServiceDue[] {
+  tasks: BikeTask[],
+  odometerKm: number,
+  bikeLog: Record<string, ServiceLogEntry[]> = {},
+): BucketDue[] {
   return useMemo(
-    () => calculateServiceDue(schedule, odometerKm),
-    [schedule, odometerKm]
+    () => calculateBucketDue(tasks, odometerKm, bikeLog),
+    [tasks, odometerKm, bikeLog],
   )
 }

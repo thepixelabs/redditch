@@ -12,6 +12,9 @@ engine:
   spark_plug: NGK MR8BI-8
   valve_clearance_intake_mm: "0.10-0.15"
   valve_clearance_exhaust_mm: "0.15-0.20"
+  power_bhp: 47.0
+  torque_nm_peak: 52
+  compression_ratio: 9.5
 
 brakes:
   front_type: 320mm disc, twin-piston caliper
@@ -30,122 +33,174 @@ chain:
   slack_mm: "15-25"
   lubricant: SAE 80/90 gear oil
 
-service_schedule:
-  - interval_km: 500
-    label: Break-in Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        part_number: "888464"
-        torque_nm: 25
-        tools:
-          - 17mm socket
-          - Oil filter wrench
-          - Drain pan
-        notes: >-
-          Break-in oil collects metal shavings — do not skip. Drain while engine
-          is warm for best results. Torque value is for drain bolt.
-      - name: Chain slack
-        action: adjust
-        notes: "Adjust to 15–25mm free play measured at the tightest point of chain travel."
+fuel:
+  capacity_liters: 13.7
+  reserve_capacity_liters: 2.0
+  consumption_kmpl_range: [22, 28]
 
-  - interval_km: 5000
-    label: Minor Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        part_number: "888464"
-        torque_nm: 25
-        tools:
-          - 17mm socket
-          - Oil filter wrench
-          - Drain pan
-        notes: "Torque value is for drain bolt. Use SAE 15W-50 API SL / JASO MA2."
-      - name: Air filter
-        action: inspect
-        part_number: "576591"
-        notes: "Clean with low-pressure air if lightly soiled. Replace if heavily fouled or damaged."
-      - name: Chain slack
-        action: adjust
-        notes: "Adjust to 15–25mm free play. Lubricate with SAE 80/90 gear oil after adjustment."
-      - name: Brake pads
-        action: inspect
-        notes: "Check pad thickness via inspection port. Replace if friction material is at or below wear indicator."
-      - name: Throttle cables
-        action: inspect
-        notes: "Free play 2–3mm at grip. Check for fraying, kinking, or binding through full handlebar lock-to-lock sweep."
-      - name: Clutch cable
-        action: adjust
-        notes: "Free play 10–12mm at lever. Adjust at lever-end adjuster first, then at engine-end adjuster if required."
-      - name: Tires
-        action: inspect
-        notes: "Check for cuts, cracks, embedded objects, and tread depth. Verify pressures: 29 psi front, 33 psi rear (solo)."
+dimensions:
+  seat_height_mm: 804
+  kerb_weight_kg: 202
+  wheelbase_mm: 1400
+  ground_clearance_mm: 174
 
-  - interval_km: 10000
-    label: Major Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        part_number: "888464"
-        torque_nm: 25
-        tools:
-          - 17mm socket
-          - Oil filter wrench
-          - Drain pan
-        notes: "Torque value is for drain bolt. Use SAE 15W-50 API SL / JASO MA2."
-      - name: Air filter
-        action: replace
-        part_number: "576591"
-        notes: "Replace regardless of condition at this interval."
-      - name: Spark plugs
-        action: replace
-        part_name: NGK MR8BI-8 (iridium)
-        torque_nm: 12
-        tools:
-          - 16mm spark plug socket
-          - Torque wrench
-        notes: "Anti-seize not required on iridium plugs. Do not over-torque — aluminium head."
-      - name: Valve clearance
-        action: inspect
-        tools:
-          - Feeler gauge
-          - 10mm socket
-          - Torque wrench
-        notes: >-
-          Shim-under-bucket design. Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm.
-          Top-end disassembly required to access shims. Dealer-level work
-          recommended for first-time inspectors. Check cold (engine at room temperature).
-      - name: Brake fluid
-        action: replace
-        notes: "Use DOT 4 fluid. Replace every 2 years or 10,000 km, whichever comes first. Flush entire system."
-      - name: Chain & sprockets
-        action: inspect
-        notes: >-
-          Measure chain stretch using ruler over 20 links. Check sprocket teeth
-          for hooking or asymmetric wear. Replace chain and both sprockets
-          together — never fit a new chain to worn sprockets.
+electrical:
+  battery_voltage_v: 12
+  battery_capacity_ah: 9
+  fuse_layout:
+    - label: Main fuse
+      amps: 30
+      location: Fuse box under seat, right side
+    - label: Head lamp
+      amps: 15
+    - label: Tail / brake lamp
+      amps: 10
+    - label: Turn signals
+      amps: 10
+    - label: ECU / fuel injection
+      amps: 15
+    - label: Instrument cluster
+      amps: 10
 
-  - interval_km: 20000
-    label: Extended Service
-    tasks:
-      - name: Fork oil
-        action: replace
-        notes: >-
-          Use 10W fork oil. Oil level 130mm from top of inner tube with spring
-          removed and fork fully compressed. Inspect fork seals and dust wipers
-          for leaks while disassembled.
-      - name: Steering head bearing
-        action: inspect
-        notes: >-
-          Check for play by gripping front forks at axle and pushing side to
-          side with wheel off ground. Also check for notchiness through full
-          steering sweep. Re-grease or replace bearings as required.
-      - name: Coolant
-        action: inspect
-        notes: >-
-          Check level in reservoir. Although air/oil-cooled, the oil cooler
-          circuit uses coolant. Top up with distilled water and 50/50
-          pre-mixed coolant if low. Full flush at 40,000 km or 4 years.
+wear_limits:
+  chain_wear_limit_20links_mm: 319
+  brake_pad_thickness_min_mm: 2
+  tire_tread_depth_min_mm: 1.6
+
+tasks:
+  # ── 500 km break-in (one-shot) ─────────────────────────────────────────
+  - id: engine-oil-breakin
+    name: Break-in oil & filter
+    action: replace
+    one_shot_at_km: 500
+    part_number: "888464"
+    torque_nm: 25
+    tools:
+      - 17mm socket
+      - Oil filter wrench
+      - Drain pan
+    notes: "Break-in oil collects metal shavings — do not skip. Drain warm. 2.7L capacity (3.0L with filter). Drain bolt torque 25 Nm."
+
+  - id: chain-slack-breakin
+    name: Break-in chain slack adjustment
+    action: adjust
+    one_shot_at_km: 500
+    notes: "Adjust to 15–25mm free play measured at the tightest point of chain travel."
+
+  # ── Every 5,000 km ─────────────────────────────────────────────────────
+  - id: engine-oil
+    name: Engine oil & filter
+    action: replace
+    every_km: 5000
+    part_number: "888464"
+    torque_nm: 25
+    tools:
+      - 17mm socket
+      - Oil filter wrench
+      - Drain pan
+    notes: "Drain bolt torque 25 Nm. Use SAE 15W-50 API SL / JASO MA2."
+
+  - id: chain-slack
+    name: Chain slack
+    action: adjust
+    every_km: 5000
+    notes: "Adjust to 15–25mm free play. Lubricate with SAE 80/90 gear oil after adjustment."
+
+  - id: brake-pads-check
+    name: Brake pads
+    action: inspect
+    every_km: 5000
+    notes: "Check pad thickness via inspection port. Replace if friction material is at or below wear indicator."
+
+  - id: throttle-cables
+    name: Throttle cables
+    action: inspect
+    every_km: 5000
+    notes: "Free play 2–3mm at grip. Check for fraying, kinking, or binding through full handlebar lock-to-lock sweep."
+
+  - id: clutch-cable
+    name: Clutch cable
+    action: adjust
+    every_km: 5000
+    notes: "Free play 10–12mm at lever. Adjust at lever-end adjuster first, then engine-end adjuster if required."
+
+  - id: tires-check
+    name: Tires
+    action: inspect
+    every_km: 5000
+    notes: "Check for cuts, cracks, embedded objects, and tread depth. Verify pressures: 29 psi front, 33 psi rear (solo)."
+
+  # ── Every 10,000 km ────────────────────────────────────────────────────
+  - id: air-filter
+    name: Air filter
+    action: replace
+    every_km: 10000
+    part_number: "576591"
+    notes: "Replace regardless of condition. Inspect/clean at 5,000 km midpoint if heavily fouled."
+
+  - id: spark-plug
+    name: Spark plugs
+    action: replace
+    every_km: 10000
+    part_name: NGK MR8BI-8 (iridium)
+    torque_nm: 12
+    tools:
+      - 16mm spark plug socket
+      - Torque wrench
+    notes: "Two plugs — one per cylinder. Anti-seize not required on iridium. Do not over-torque — aluminium head."
+
+  - id: valve-clearance
+    name: Valve clearance
+    action: inspect
+    every_km: 10000
+    tools:
+      - Feeler gauge
+      - 10mm socket
+      - Torque wrench
+    notes: >-
+      Shim-under-bucket design. Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm.
+      Top-end disassembly required to access shims. Dealer-level work
+      recommended for first-time inspectors. Check cold.
+
+  - id: brake-fluid
+    name: Brake fluid
+    action: replace
+    every_km: 10000
+    every_months: 24
+    notes: "DOT 4. Replace every 2 years or 10,000 km. Flush entire system."
+
+  - id: chain-sprockets
+    name: Chain & sprockets
+    action: inspect
+    every_km: 10000
+    notes: >-
+      Measure chain stretch using ruler over 20 links. Check sprocket teeth
+      for hooking or asymmetric wear. Replace chain and both sprockets
+      together — never fit a new chain to worn sprockets.
+
+  # ── Every 20,000 km ────────────────────────────────────────────────────
+  - id: fork-oil
+    name: Fork oil
+    action: replace
+    every_km: 20000
+    notes: >-
+      Use 10W fork oil. Oil level 130mm from top of inner tube with spring
+      removed and fork fully compressed. Inspect fork seals and dust wipers
+      for leaks while disassembled.
+
+  - id: steering-head-bearing
+    name: Steering head bearing
+    action: inspect
+    every_km: 20000
+    notes: "Check for play and notchiness through full steering sweep. Re-grease or replace bearings as required."
+
+  - id: coolant-check
+    name: Coolant
+    action: inspect
+    every_km: 20000
+    notes: >-
+      Check level in reservoir. The oil cooler circuit uses coolant — top
+      up with 50/50 pre-mix if low. Full flush at 40,000 km or 4 years.
 
 torque_specs:
   - component: Engine oil drain bolt
@@ -170,6 +225,30 @@ torque_specs:
   - component: Engine mounting bolts
     torque_nm: 45
 
+known_issues:
+  - id: clutch-judder-hot
+    title: Clutch judder / shudder at low speed
+    affects: All years, more pronounced in hot climates and traffic
+    description: >-
+      Wet clutch shudder on engagement at low speed is a documented
+      characteristic of the 650 twin in slow traffic at operating
+      temperature. Severity is worsened by non-JASO MA2-rated oils.
+      Ensure the engine oil carries the JASO MA2 certification (not just
+      MA or MA1) — SAE 15W-50 JASO MA2 as specified. If judder is severe,
+      a dealer can check clutch spring preload and plate condition.
+    source_url: https://www.royalenfieldowners.com
+    date: "2019"
+  - id: engine-heat-traffic
+    title: Engine heat radiation at low speed
+    affects: All years (design characteristic)
+    description: >-
+      The air/oil-cooled 650 twin radiates significant heat to the rider's
+      lower legs in slow traffic, particularly in ambient temperatures above
+      30°C. This is a design characteristic of air-cooled parallel twins,
+      not a defect. Mesh trousers, frequent lane filtering to maintain
+      airflow, and avoiding sustained traffic idling minimise discomfort.
+    date: "2019"
+
 manuals:
   - title: Owner's Manual
     url: https://www.royalenfield.com/content/dam/royal-enfield/owners-manual/interceptor-650.pdf
@@ -193,5 +272,5 @@ accessories:
   - Touring Handlebar
 
 meta:
-  last_verified: "2025-12-01"
+  last_verified: "2026-05-15"
   source: "Royal Enfield Owner's Manual 2023, dealer service sheets"

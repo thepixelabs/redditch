@@ -100,7 +100,7 @@ export function EmptyRoadBackground() {
           opacity="0.4"
         />
 
-        {/* Telegraph poles — receding into distance on the right side */}
+        {/* Telegraph poles — right side, receding to horizon */}
         {[
           { x: 950, y: 280, h: 80, scale: 1.0 },
           { x: 880, y: 295, h: 60, scale: 0.78 },
@@ -108,51 +108,69 @@ export function EmptyRoadBackground() {
           { x: 815, y: 312, h: 32, scale: 0.45 },
           { x: 800, y: 316, h: 22, scale: 0.32 },
         ].map((pole, i) => (
-          <g key={i} opacity={0.55 - i * 0.06}>
-            {/* Vertical post */}
+          <g key={`rp-${i}`} opacity={0.55 - i * 0.06}>
             <line
-              x1={pole.x}
-              y1={pole.y}
-              x2={pole.x}
-              y2={pole.y + pole.h}
-              stroke="#1a1410"
-              strokeWidth={2 * pole.scale}
+              x1={pole.x} y1={pole.y}
+              x2={pole.x} y2={pole.y + pole.h}
+              stroke="#1a1410" strokeWidth={2 * pole.scale}
             />
-            {/* Crossbar */}
             <line
-              x1={pole.x - 12 * pole.scale}
-              y1={pole.y + 10}
-              x2={pole.x + 12 * pole.scale}
-              y2={pole.y + 10}
-              stroke="#1a1410"
-              strokeWidth={1.5 * pole.scale}
+              x1={pole.x - 12 * pole.scale} y1={pole.y + 10}
+              x2={pole.x + 12 * pole.scale} y2={pole.y + 10}
+              stroke="#1a1410" strokeWidth={1.5 * pole.scale}
             />
-            {/* Lower crossbar */}
             <line
-              x1={pole.x - 8 * pole.scale}
-              y1={pole.y + 18}
-              x2={pole.x + 8 * pole.scale}
-              y2={pole.y + 18}
-              stroke="#1a1410"
-              strokeWidth={1.2 * pole.scale}
+              x1={pole.x - 8 * pole.scale} y1={pole.y + 18}
+              x2={pole.x + 8 * pole.scale} y2={pole.y + 18}
+              stroke="#1a1410" strokeWidth={1.2 * pole.scale}
             />
           </g>
         ))}
 
-        {/* Wires sweeping out from the front pole */}
+        {/* Telegraph poles — left side mirror, gives road spatial framing */}
+        {[
+          { x: 250, y: 280, h: 80, scale: 1.0 },
+          { x: 320, y: 295, h: 60, scale: 0.78 },
+          { x: 360, y: 305, h: 45, scale: 0.6 },
+          { x: 385, y: 312, h: 32, scale: 0.45 },
+          { x: 400, y: 316, h: 22, scale: 0.32 },
+        ].map((pole, i) => (
+          <g key={`lp-${i}`} opacity={0.5 - i * 0.06}>
+            <line
+              x1={pole.x} y1={pole.y}
+              x2={pole.x} y2={pole.y + pole.h}
+              stroke="#1a1410" strokeWidth={2 * pole.scale}
+            />
+            <line
+              x1={pole.x - 12 * pole.scale} y1={pole.y + 10}
+              x2={pole.x + 12 * pole.scale} y2={pole.y + 10}
+              stroke="#1a1410" strokeWidth={1.5 * pole.scale}
+            />
+            <line
+              x1={pole.x - 8 * pole.scale} y1={pole.y + 18}
+              x2={pole.x + 8 * pole.scale} y2={pole.y + 18}
+              stroke="#1a1410" strokeWidth={1.2 * pole.scale}
+            />
+          </g>
+        ))}
+
+        {/* Wires — right side sweeping to horizon */}
         <path
           d="M 938 290 Q 700 305 0 380"
-          stroke="#1a1410"
-          strokeWidth="0.8"
-          fill="none"
-          opacity="0.4"
+          stroke="#1a1410" strokeWidth="0.8" fill="none" opacity="0.4"
         />
         <path
           d="M 962 290 Q 700 308 0 400"
-          stroke="#1a1410"
-          strokeWidth="0.8"
-          fill="none"
-          opacity="0.4"
+          stroke="#1a1410" strokeWidth="0.8" fill="none" opacity="0.4"
+        />
+        {/* Wires — left side */}
+        <path
+          d="M 262 290 Q 500 305 1200 380"
+          stroke="#1a1410" strokeWidth="0.8" fill="none" opacity="0.35"
+        />
+        <path
+          d="M 238 290 Q 500 308 1200 400"
+          stroke="#1a1410" strokeWidth="0.8" fill="none" opacity="0.35"
         />
 
         {/* Heat-shimmer band just above the horizon */}

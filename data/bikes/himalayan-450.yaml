@@ -14,6 +14,9 @@ engine:
   spark_plug: NGK CPR9EA-9
   valve_clearance_intake_mm: "0.10-0.15"
   valve_clearance_exhaust_mm: "0.15-0.20"
+  power_bhp: 40.0
+  torque_nm_peak: 40
+  compression_ratio: 11.5
 
 brakes:
   front_type: 320mm disc, twin-piston caliper
@@ -32,65 +35,122 @@ chain:
   slack_mm: "25-35"
   lubricant: Chain wax spray (wet lube for off-road use)
 
-service_schedule:
-  - interval_km: 500
-    label: Break-in Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        torque_nm: 20
-        notes: "Break-in oil change. Drain warm. 2.4L capacity (2.5L with filter)."
-      - name: Chain slack
-        action: adjust
-        notes: "Adjust to 25–35mm. Liquid-cooled engine runs hotter — check more frequently off-road."
-      - name: Coolant level
-        action: inspect
-        notes: "Check coolant reservoir level. Do not open radiator cap cold."
+fuel:
+  capacity_liters: 17
+  reserve_capacity_liters: 3.0
+  consumption_kmpl_range: [25, 32]
 
-  - interval_km: 5000
-    label: Minor Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        torque_nm: 20
-        notes: "SAE 10W-40 API SL / JASO MA2 fully synthetic. 2.4L capacity."
-      - name: Air filter
-        action: inspect
-        notes: "Clean or replace. More frequent inspection required for off-road use."
-      - name: Chain slack
-        action: adjust
-        notes: "Adjust to 25–35mm. Lubricate after adjustment."
-      - name: Coolant level
-        action: inspect
-        notes: "Check reservoir. Top up with pre-mixed OAT coolant if low."
-      - name: Tires
-        action: inspect
-        notes: "Pressures: 26 psi front, 30 psi rear (solo). Check for off-road damage."
+dimensions:
+  seat_height_mm: 805
+  seat_height_high_mm: 845
+  kerb_weight_kg: 196
+  wheelbase_mm: 1510
+  ground_clearance_mm: 230
 
-  - interval_km: 10000
-    label: Major Service
-    tasks:
-      - name: Engine oil & filter
-        action: replace
-        torque_nm: 20
-        notes: "SAE 10W-40 API SL / JASO MA2 fully synthetic."
-      - name: Air filter
-        action: replace
-        notes: "Replace at this interval. Earlier if used heavily off-road."
-      - name: Spark plug
-        action: replace
-        part_name: NGK CPR9EA-9
-        torque_nm: 15
-        notes: "Gap: 0.8–0.9mm. Liquid-cooled head — torque carefully."
-      - name: Valve clearance
-        action: inspect
-        notes: "Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm. Check cold."
-      - name: Brake fluid
-        action: replace
-        notes: "DOT 4. Full flush every 2 years or 10,000 km."
-      - name: Coolant
-        action: inspect
-        notes: "Check condition and concentration. Full flush at 40,000 km or 4 years."
+electrical:
+  battery_voltage_v: 12
+  battery_capacity_ah: 9
+  fuse_layout:
+    - label: Main fuse
+      amps: 30
+      location: Behind right side panel
+    - label: Head lamp (LED)
+      amps: 15
+    - label: Tail / brake lamp
+      amps: 10
+    - label: ECU / fuel injection
+      amps: 15
+    - label: TFT instrument cluster
+      amps: 10
+    - label: Accessories / aux
+      amps: 10
+
+wear_limits:
+  chain_wear_limit_20links_mm: 319
+  brake_pad_thickness_min_mm: 2
+  tire_tread_depth_min_mm: 1.6
+
+tasks:
+  # ── 500 km break-in (one-shot) ─────────────────────────────────────────
+  - id: engine-oil-breakin
+    name: Break-in oil & filter
+    action: replace
+    one_shot_at_km: 500
+    torque_nm: 20
+    notes: "Break-in oil change. Drain warm. 2.4L capacity (2.5L with filter). Fully synthetic SAE 10W-40."
+
+  - id: chain-slack-breakin
+    name: Break-in chain slack adjustment
+    action: adjust
+    one_shot_at_km: 500
+    notes: "Adjust to 25–35mm. Liquid-cooled engine runs hotter — check more frequently off-road."
+
+  - id: coolant-level-breakin
+    name: Break-in coolant level check
+    action: inspect
+    one_shot_at_km: 500
+    notes: "Check coolant reservoir level. Do not open radiator cap when engine is hot."
+
+  # ── Every 5,000 km ─────────────────────────────────────────────────────
+  - id: engine-oil
+    name: Engine oil & filter
+    action: replace
+    every_km: 5000
+    torque_nm: 20
+    notes: "SAE 10W-40 API SL / JASO MA2 fully synthetic. 2.4L capacity (2.5L with filter)."
+
+  - id: chain-slack
+    name: Chain slack
+    action: adjust
+    every_km: 5000
+    notes: "Adjust to 25–35mm. Lubricate after adjustment."
+
+  - id: coolant-level
+    name: Coolant level
+    action: inspect
+    every_km: 5000
+    notes: "Check reservoir. Top up with pre-mixed OAT coolant if low. Do not substitute silicate-based coolants."
+
+  - id: tires-check
+    name: Tires
+    action: inspect
+    every_km: 5000
+    notes: "Pressures: 26 psi front, 30 psi rear (solo). Check for off-road damage."
+
+  # ── Every 10,000 km ────────────────────────────────────────────────────
+  - id: air-filter
+    name: Air filter
+    action: replace
+    every_km: 10000
+    notes: "Replace at this interval. Earlier if used heavily off-road."
+
+  - id: spark-plug
+    name: Spark plug
+    action: replace
+    every_km: 10000
+    part_name: NGK CPR9EA-9
+    torque_nm: 15
+    notes: "Gap: 0.8–0.9mm. Liquid-cooled head — torque carefully."
+
+  - id: valve-clearance
+    name: Valve clearance
+    action: inspect
+    every_km: 10000
+    notes: "Intake: 0.10–0.15mm. Exhaust: 0.15–0.20mm. Check cold."
+
+  - id: brake-fluid
+    name: Brake fluid
+    action: replace
+    every_km: 10000
+    every_months: 24
+    notes: "DOT 4. Full flush every 2 years or 10,000 km."
+
+  - id: coolant-flush
+    name: Coolant flush
+    action: replace
+    every_km: 40000
+    every_months: 48
+    notes: "Full coolant flush every 4 years or 40,000 km. Use 50/50 OAT-compatible pre-mix only."
 
 torque_specs:
   - component: Engine oil drain bolt
@@ -102,6 +162,35 @@ torque_specs:
     torque_nm: 90
   - component: Brake caliper mounting bolts (front)
     torque_nm: 35
+
+known_issues:
+  - id: tps-sensor-fault
+    title: Throttle position sensor fault (P0122)
+    affects: Early 2024 production units
+    description: >-
+      Some early Himalayan 450 units triggered fault code P0122 (throttle
+      position sensor — low signal). Presents as rough idle, hesitation, or
+      check engine light. Royal Enfield issued an ECU software update for
+      affected units. If you experience this, request a diagnostic scan and
+      software update from an authorized dealer.
+    source_url: https://www.zigwheels.com/news-features/general-news/royal-enfield-himalayan-450-chassis-breaking-heres-what-went-wrong/53366/
+    date: "2024"
+  - id: crash-guard-chassis-stress
+    title: Crash guard chassis stress at mount points
+    affects: 2024+ units with aftermarket crash guards
+    description: >-
+      Royal Enfield documented cases of frame stress at crash guard mounting
+      points when non-RE-approved crash guards were installed. RE specifies
+      that crash guards must be RE-genuine accessories and dealer-fitted.
+      Aftermarket guards that do not match the OEM mounting geometry can
+      concentrate stress at the frame. If you use a crash guard, use a
+      RE-genuine unit fitted by an authorized dealer.
+    source_url: https://www.zigwheels.com/news-features/general-news/royal-enfield-himalayan-450-chassis-breaking-heres-what-went-wrong/53366/
+    date: "2024"
+
+manuals:
+  - title: Owner's Manual
+    url: https://www.royalenfield.com/content/dam/royal-enfield/owners-manual/himalayan-450.pdf
 
 colors:
   - Kaza Brown
@@ -120,5 +209,5 @@ accessories:
   - Radiator Guard
 
 meta:
-  last_verified: "2026-04-09"
+  last_verified: "2026-05-15"
   source: "Royal Enfield Himalayan 450 Owner's Manual 2024"

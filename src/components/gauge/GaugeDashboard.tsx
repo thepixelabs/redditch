@@ -3,13 +3,19 @@
 import { useRef } from 'react'
 import { GaugeSVG } from './GaugeSVG'
 import { cn } from '@/lib/utils'
-import type { ServiceDue } from '@/lib/types'
+import type { BucketDue } from '@/lib/types'
+
+/** Gauge sweep window. Recurring buckets use their intervalKm; one-shots get
+ *  a short "soon" window so the gauge still looks meaningful. */
+function gaugeWindowKm(bucket: BucketDue): number {
+  return bucket.one_shot ? 1000 : bucket.intervalKm
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface GaugeDashboardProps {
-  /** Sorted array from calculateServiceDue() — most urgent first */
-  services: ServiceDue[]
+  /** Sorted array of bucket projections — most urgent first */
+  services: BucketDue[]
   /** Called when a gauge is tapped — consumer scrolls to the matching task card */
   onServiceFocus?: (index: number) => void
   /** Optional ISO date string; rendered as a "last verified" notice */
@@ -151,7 +157,7 @@ export function GaugeDashboard({
             >
               <GaugeSVG
                 kmRemaining={primary.kmRemaining}
-                intervalKm={primary.intervalKm}
+                intervalKm={gaugeWindowKm(primary)}
                 label={primary.label}
                 urgency={primary.urgency}
                 size="primary"
@@ -181,25 +187,23 @@ export function GaugeDashboard({
                   aria-label="Supporting service gauges"
                 >
                   {satellites.map((svc, i) => {
-                    const globalIndex = i + 1  // offset into the services array
+                    const globalIndex = i + 1
                     return (
                       <div
                         key={`${svc.label}-${svc.intervalKm}`}
                         className={cn(
                           'flex flex-col items-center gap-1',
                           'transition-opacity duration-200',
-                          // Slightly fade secondary gauges to reinforce hierarchy
                           'opacity-90 hover:opacity-100 focus-within:opacity-100',
                         )}
                       >
-                        {/* Satellite gauge itself */}
                         <div
                           className="w-[80px] md:w-[100px] xl:w-[130px]"
                           aria-label={`Satellite gauge: ${svc.label}`}
                         >
                           <GaugeSVG
                             kmRemaining={svc.kmRemaining}
-                            intervalKm={svc.intervalKm}
+                            intervalKm={gaugeWindowKm(svc)}
                             label={svc.label}
                             urgency={svc.urgency}
                             size="satellite"
@@ -211,7 +215,6 @@ export function GaugeDashboard({
                           />
                         </div>
 
-                        {/* Label below satellite */}
                         <span
                           className={cn(
                             'text-center leading-tight',

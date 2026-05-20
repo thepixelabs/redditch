@@ -10,6 +10,11 @@ interface Props {
 
 // ─── Static generation ────────────────────────────────────────────────────────
 
+// Only allow slugs returned by generateStaticParams. Any other path
+// (e.g. /bulletin, /dealers, /about) falls through to its own static route
+// instead of being caught by this dynamic [bike] route.
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return getAllBikeSlugs().map(slug => ({ bike: slug }))
 }
@@ -44,6 +49,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BikePage({ params }: Props) {
   const { bike: slug } = await params
   const bike = getBikeBySlug(slug)
-  if (!bike) notFound()
+  if (!bike) return notFound()
   return <GarageClient bike={bike} />
 }
