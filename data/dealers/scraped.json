@@ -1,17 +1,17 @@
 {
-  "scraped_at": "2026-06-15T11:48:05.815Z",
-  "fetchedAt": "2026-06-15T11:48:05.815Z",
+  "scraped_at": "2026-06-22T11:36:47.945Z",
+  "fetchedAt": "2026-06-22T11:36:47.945Z",
   "source": "google-places",
-  "total": 28,
+  "total": 25,
   "sources": {
-    "google_places": 28
+    "google_places": 25
   },
   "perCountry": {
-    "US": 27,
+    "US": 24,
     "CA": 1
   },
   "countries": {
-    "US": 27,
+    "US": 24,
     "CA": 1
   },
   "regions": [
@@ -41,32 +41,6 @@
       "phone": "(817) 834-1392",
       "website": "http://royalenfieldfortworth.com/",
       "openingHours": "Monday: 10:00 AM – 6:00 PM; Tuesday: Closed; Wednesday: 10:00 AM – 6:00 PM; Thursday: 10:00 AM – 6:00 PM; Friday: 10:00 AM – 6:00 PM; Saturday: 10:00 AM – 3:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJh6AQWAZ_wokR6j3SKBKZLIA",
-      "name": "Royal Enfield Nassau County",
-      "lat": 40.6662156,
-      "lng": -73.5365444,
-      "address": "853 Sunrise Hwy, Bellmore, NY 11710, USA",
-      "city": "Bellmore",
-      "country": "US",
-      "phone": "(516) 409-1010",
-      "website": "https://triumphnassaucounty.com/",
-      "openingHours": "Monday: 8:30 AM – 6:00 PM; Tuesday: 8:30 AM – 6:00 PM; Wednesday: 8:30 AM – 6:00 PM; Thursday: 8:30 AM – 6:00 PM; Friday: 8:30 AM – 6:00 PM; Saturday: 8:30 AM – 5:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJJ3Ol7WrV3IARwloN042OlnA",
-      "name": "Southern California Royal Enfield",
-      "lat": 33.9252797,
-      "lng": -117.9033139,
-      "address": "535 W Lambert Rd Unit a, Brea, CA 92821, USA",
-      "city": "Brea",
-      "country": "US",
-      "phone": "(714) 256-6700",
-      "website": "http://www.socalmotorcycles.com/",
-      "openingHours": "Monday: Closed; Tuesday: 9:30 AM – 6:00 PM; Wednesday: 9:30 AM – 6:00 PM; Thursday: 9:30 AM – 6:00 PM; Friday: 9:30 AM – 6:00 PM; Saturday: 9:30 AM – 6:00 PM; Sunday: Closed",
       "source": "google-places"
     },
     {
@@ -109,6 +83,19 @@
       "source": "google-places"
     },
     {
+      "id": "google-ChIJT2975CCJNIgRZAC3OxiswqI",
+      "name": "Pittsburgh Triumph, Royal Enfield of Pittsburgh",
+      "lat": 40.6550636,
+      "lng": -80.0836791,
+      "address": "65 Warrendale Bayne Rd, Warrendale, PA 15086, USA",
+      "city": "Warrendale",
+      "country": "US",
+      "phone": "(724) 779-1901",
+      "website": "https://www.indianmotorcycleofpittsburgh.com/",
+      "openingHours": "Monday: Closed; Tuesday: 10:00 AM – 6:00 PM; Wednesday: 10:00 AM – 6:00 PM; Thursday: 10:00 AM – 6:00 PM; Friday: 10:00 AM – 5:00 PM; Saturday: 10:00 AM – 3:00 PM; Sunday: Closed",
+      "source": "google-places"
+    },
+    {
       "id": "google-ChIJfX8PWKhXa4gRU4CiAj9aaac",
       "name": "Speed City Cycle",
       "lat": 39.7879917,
@@ -118,7 +105,7 @@
       "country": "US",
       "phone": "(317) 917-3211",
       "website": "https://speedcitycycle.com/",
-      "openingHours": "Monday: Closed; Tuesday: 10:00 AM – 5:00 PM; Wednesday: 10:00 AM – 5:00 PM; Thursday: 10:00 AM – 5:00 PM; Friday: 10:00 AM – 5:00 PM; Saturday: Closed; Sunday: Closed",
+      "openingHours": "Monday: Closed; Tuesday: 10:00 AM – 5:00 PM; Wednesday: 10:00 AM – 5:00 PM; Thursday: 10:00 AM – 5:00 PM; Friday: 10:00 AM – 5:00 PM; Saturday: 10:00 AM – 2:00 PM; Sunday: Closed",
       "source": "google-places"
     },
     {
@@ -132,97 +119,6 @@
       "phone": "(612) 588-6686",
       "website": "http://www.gomotomn.com/",
       "openingHours": "Monday: Closed; Tuesday: 10:00 AM – 6:00 PM; Wednesday: 10:00 AM – 6:00 PM; Thursday: 10:00 AM – 6:00 PM; Friday: 10:00 AM – 6:00 PM; Saturday: 10:00 AM – 3:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJWcG4fookVIgRTO1Ju4-dPrw",
-      "name": "Motorcycles of Charlotte",
-      "lat": 35.114619499999996,
-      "lng": -80.9256295,
-      "address": "731 Westinghouse Blvd, Charlotte, NC 28273, USA",
-      "city": "Charlotte",
-      "country": "US",
-      "phone": "(704) 520-5233",
-      "website": "http://www.bmw-ducati.com/",
-      "openingHours": "Monday: Closed; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM; Thursday: 9:00 AM – 6:00 PM; Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 4:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJwbQlrf0T9YgRZYr2G8XQFFE",
-      "name": "Vespa Marietta",
-      "lat": 33.951021100000006,
-      "lng": -84.528956,
-      "address": "793 Roswell St NE, Marietta, GA 30060, USA",
-      "city": "Marietta",
-      "country": "US",
-      "phone": "(770) 420-8787",
-      "website": "https://www.vespamarietta.com/",
-      "openingHours": "Monday: Closed; Tuesday: 9:00 AM – 5:00 PM; Wednesday: 9:00 AM – 5:00 PM; Thursday: 9:00 AM – 5:00 PM; Friday: 9:00 AM – 5:00 PM; Saturday: 9:00 AM – 5:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJjVSs4tiGa4cRvPL5hoGImE4",
-      "name": "Foothills Motorcycles",
-      "lat": 39.738729299999996,
-      "lng": -105.0818395,
-      "address": "1435 Wadsworth Blvd, Lakewood, CO 80214, USA",
-      "city": "Lakewood",
-      "country": "US",
-      "phone": "(303) 625-6632",
-      "website": "http://www.foothillsmotorcycles.com/",
-      "openingHours": "Monday: Closed; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM; Thursday: 9:00 AM – 6:00 PM; Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 5:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJ-dnDWyB-j4ARjDdZu1J74J0",
-      "name": "Scuderia West Motorcycle Dealer",
-      "lat": 37.7584243,
-      "lng": -122.38391219999998,
-      "address": "1070 Maryland St, Suite 112, at Pier 70, Bldg 12, San Francisco, CA 94107, USA",
-      "city": "San Francisco",
-      "country": "US",
-      "phone": "(415) 621-7223",
-      "website": "http://scuderiawest.com/",
-      "openingHours": "Monday: Closed; Tuesday: 10:00 AM – 6:00 PM; Wednesday: 10:00 AM – 6:00 PM; Thursday: 10:00 AM – 6:00 PM; Friday: 10:00 AM – 6:00 PM; Saturday: 10:00 AM – 6:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJDSZzIU7Lj4ARj8Tb_R7G4BM",
-      "name": "Spirit Motorcycles / Triumph San Jose",
-      "lat": 37.3191237,
-      "lng": -121.91336199999999,
-      "address": "460 Meridian Ave, San Jose, CA 95126, USA",
-      "city": "San Jose",
-      "country": "US",
-      "phone": "(408) 571-6000",
-      "website": "http://www.spiritmotorcycles.com/?utm_source=google&utm_medium=organic&utm_campaign=GMB-service",
-      "openingHours": "Monday: Closed; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM; Thursday: 9:00 AM – 6:00 PM; Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 6:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJNU7OlWrV3IARQsXlAdhscxw",
-      "name": "Southern California Motorcycles",
-      "lat": 33.925089,
-      "lng": -117.9029882,
-      "address": "515 W Lambert Rd, Brea, CA 92821, USA",
-      "city": "Brea",
-      "country": "US",
-      "phone": "(714) 256-6700",
-      "website": "http://www.socalmotorcycles.com/",
-      "openingHours": "Monday: Closed; Tuesday: 9:30 AM – 6:00 PM; Wednesday: 9:30 AM – 6:00 PM; Thursday: 9:30 AM – 6:00 PM; Friday: 9:30 AM – 6:00 PM; Saturday: 9:30 AM – 6:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJP5RSA4MZMYgRsoDP01xaju8",
-      "name": "BMW / Royal Enfield Motorcycles of Cleveland",
-      "lat": 41.3499275,
-      "lng": -81.3811379,
-      "address": "7315 Aurora Rd, Aurora, OH 44202, USA",
-      "city": "Aurora",
-      "country": "US",
-      "phone": "(330) 562-5200",
-      "website": "http://www.bmwmoc.com/",
-      "openingHours": "Monday: Closed; Tuesday: 10:00 AM – 6:00 PM; Wednesday: 10:00 AM – 6:00 PM; Thursday: 10:00 AM – 6:00 PM; Friday: 10:00 AM – 5:00 PM; Saturday: 10:00 AM – 4:00 PM; Sunday: Closed",
       "source": "google-places"
     },
     {
@@ -251,16 +147,55 @@
       "source": "google-places"
     },
     {
-      "id": "google-ChIJSZRDQHePOIgRL9WtfpzImtU",
-      "name": "Throttle Company Vintage Motorcycles",
-      "lat": 39.9479767,
-      "lng": -83.0288786,
-      "address": "1130 W Mound St, Columbus, OH 43223, USA",
-      "city": "Columbus",
+      "id": "google-ChIJWcG4fookVIgRTO1Ju4-dPrw",
+      "name": "Motorcycles of Charlotte",
+      "lat": 35.114619499999996,
+      "lng": -80.9256295,
+      "address": "731 Westinghouse Blvd, Charlotte, NC 28273, USA",
+      "city": "Charlotte",
       "country": "US",
-      "phone": "(614) 600-2421",
-      "website": "https://throttlecompany.com/",
-      "openingHours": "Monday: Closed; Tuesday: Closed; Wednesday: 1:00 – 7:00 PM; Thursday: 1:00 – 7:00 PM; Friday: 1:00 – 7:00 PM; Saturday: 9:00 AM – 5:00 PM; Sunday: 12:00 – 5:00 PM",
+      "phone": "(704) 520-5233",
+      "website": "http://www.bmw-ducati.com/",
+      "openingHours": "Monday: Closed; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM; Thursday: 9:00 AM – 6:00 PM; Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 4:00 PM; Sunday: Closed",
+      "source": "google-places"
+    },
+    {
+      "id": "google-ChIJjVSs4tiGa4cRvPL5hoGImE4",
+      "name": "Foothills Motorcycles",
+      "lat": 39.738729299999996,
+      "lng": -105.0818395,
+      "address": "1435 Wadsworth Blvd, Lakewood, CO 80214, USA",
+      "city": "Lakewood",
+      "country": "US",
+      "phone": "(303) 625-6632",
+      "website": "http://www.foothillsmotorcycles.com/",
+      "openingHours": "Monday: Closed; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM; Thursday: 9:00 AM – 6:00 PM; Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 5:00 PM; Sunday: Closed",
+      "source": "google-places"
+    },
+    {
+      "id": "google-ChIJzWe6DJ0tDogR6rtFbBEfzbo",
+      "name": "Motoworks Chicago",
+      "lat": 41.8554512,
+      "lng": -87.685383,
+      "address": "1901 S Western Ave, Chicago, IL 60608, USA",
+      "city": "Chicago",
+      "country": "US",
+      "phone": "(312) 738-4269",
+      "website": "http://www.motoworkschicago.com/",
+      "openingHours": "Monday: Closed; Tuesday: 11:00 AM – 6:00 PM; Wednesday: 11:00 AM – 6:00 PM; Thursday: 11:00 AM – 6:00 PM; Friday: 11:00 AM – 6:00 PM; Saturday: 10:00 AM – 6:00 PM; Sunday: Closed",
+      "source": "google-places"
+    },
+    {
+      "id": "google-ChIJz_MsCi8ZU4gR4Eq4xRhHGus",
+      "name": "Select Cycle",
+      "lat": 36.0776361,
+      "lng": -79.7935661,
+      "address": "430 N Eugene St, Greensboro, NC 27401, USA",
+      "city": "Greensboro",
+      "country": "US",
+      "phone": "(336) 271-4774",
+      "website": "https://selectcycle.com/",
+      "openingHours": "Monday: Closed; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM; Thursday: 9:00 AM – 6:00 PM; Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 4:00 PM; Sunday: Closed",
       "source": "google-places"
     },
     {
@@ -290,6 +225,30 @@
       "source": "google-places"
     },
     {
+      "id": "google-ChIJe1AY70bKRIYRD6S-y7BMiSg",
+      "name": "TJ's Cycle Sales & Service",
+      "lat": 30.3676948,
+      "lng": -97.6833877,
+      "address": "10214 N Interstate Hwy 35, Austin, TX 78753, USA",
+      "city": "Austin",
+      "country": "US",
+      "phone": "(512) 453-6255",
+      "website": "http://www.tjs-cycle.com/",
+      "openingHours": "Monday: Closed; Tuesday: 10:00 AM – 6:00 PM; Wednesday: 10:00 AM – 6:00 PM; Thursday: 10:00 AM – 6:00 PM; Friday: 10:00 AM – 6:00 PM; Saturday: 9:00 AM – 5:00 PM; Sunday: Closed",
+      "source": "google-places"
+    },
+    {
+      "id": "google-ChIJ7cYQD6eStocRDgGfuCgeabQ",
+      "name": "ROYAL ENFIELD",
+      "lat": 36.1040415,
+      "lng": -95.90060369999999,
+      "address": "6818 E 41st St, Tulsa, OK 74145, USA",
+      "city": "Tulsa",
+      "country": "US",
+      "website": "https://www.royalenfield.com/us/en/home/",
+      "source": "google-places"
+    },
+    {
       "id": "google-ChIJ-01UdRT7wIcRNP2FXPFp1cA",
       "name": "Engle Motors",
       "lat": 39.093441,
@@ -316,30 +275,6 @@
       "source": "google-places"
     },
     {
-      "id": "google-ChIJ7cYQD6eStocRDgGfuCgeabQ",
-      "name": "ROYAL ENFIELD",
-      "lat": 36.1040415,
-      "lng": -95.90060369999999,
-      "address": "6818 E 41st St, Tulsa, OK 74145, USA",
-      "city": "Tulsa",
-      "country": "US",
-      "website": "https://www.royalenfield.com/us/en/home/",
-      "source": "google-places"
-    },
-    {
-      "id": "google-ChIJzWe6DJ0tDogR6rtFbBEfzbo",
-      "name": "Motoworks Chicago",
-      "lat": 41.8554512,
-      "lng": -87.685383,
-      "address": "1901 S Western Ave, Chicago, IL 60608, USA",
-      "city": "Chicago",
-      "country": "US",
-      "phone": "(312) 738-4269",
-      "website": "http://www.motoworkschicago.com/",
-      "openingHours": "Monday: Closed; Tuesday: 11:00 AM – 6:00 PM; Wednesday: 11:00 AM – 6:00 PM; Thursday: 11:00 AM – 6:00 PM; Friday: 11:00 AM – 6:00 PM; Saturday: 10:00 AM – 6:00 PM; Sunday: Closed",
-      "source": "google-places"
-    },
-    {
       "id": "google-ChIJ9Xq-fiIZTIYRfdTD9sUs--k",
       "name": "European Cycle Sports",
       "lat": 33.0116667,
@@ -363,6 +298,32 @@
       "phone": "(314) 645-7425",
       "website": "http://www.flyingtigermotorcycles.com/",
       "openingHours": "Monday: Closed; Tuesday: 10:00 AM – 5:00 PM; Wednesday: 10:00 AM – 5:00 PM; Thursday: 10:00 AM – 5:00 PM; Friday: 10:00 AM – 5:00 PM; Saturday: 10:00 AM – 2:00 PM; Sunday: Closed",
+      "source": "google-places"
+    },
+    {
+      "id": "google-ChIJ_yxulrr0XIYRJgF-qYP4QF0",
+      "name": "The Motorcycle Shop",
+      "lat": 29.5099569,
+      "lng": -98.4088171,
+      "address": "2423 Austin Hwy, San Antonio, TX 78218, USA",
+      "city": "San Antonio",
+      "country": "US",
+      "phone": "(210) 654-0211",
+      "website": "https://themotorcycleshopsa.com/",
+      "openingHours": "Monday: Closed; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM; Thursday: 9:00 AM – 6:00 PM; Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 3:00 PM; Sunday: Closed",
+      "source": "google-places"
+    },
+    {
+      "id": "google-ChIJgeKyDhw3R4YRh_R7t2YUwME",
+      "name": "Woodlands Premium Motorcycles",
+      "lat": 30.1895917,
+      "lng": -95.45084690000002,
+      "address": "198 Ed English Dr, Shenandoah, TX 77385, USA",
+      "city": "Shenandoah",
+      "country": "US",
+      "phone": "(936) 271-7600",
+      "website": "https://www.woodlandspremiummotorcycles.com/",
+      "openingHours": "Monday: Closed; Tuesday: 9:00 AM – 6:00 PM; Wednesday: 9:00 AM – 6:00 PM; Thursday: 9:00 AM – 6:00 PM; Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 5:00 PM; Sunday: Closed",
       "source": "google-places"
     },
     {
